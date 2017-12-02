@@ -1,0 +1,30 @@
+[2017-12-02 09:19:36] local.ERROR: Command "view" is not defined.
+
+Did you mean this?
+    view:clear {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"view\" is not defined.
+
+Did you mean this?
+    view:clear at /Users/apramodya/GitHub/Dimento/vendor/symfony/console/Application.php:591)
+[stacktrace]
+#0 /Users/apramodya/GitHub/Dimento/vendor/symfony/console/Application.php(203): Symfony\\Component\\Console\\Application->find('view')
+#1 /Users/apramodya/GitHub/Dimento/vendor/symfony/console/Application.php(129): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /Users/apramodya/GitHub/Dimento/vendor/laravel/framework/src/Illuminate/Console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /Users/apramodya/GitHub/Dimento/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /Users/apramodya/GitHub/Dimento/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
+[2017-12-02 09:19:45] local.ERROR: Command "view-clear" is not defined.
+
+Did you mean this?
+    view:clear {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"view-clear\" is not defined.
+
+Did you mean this?
+    view:clear at /Users/apramodya/GitHub/Dimento/vendor/symfony/console/Application.php:591)
+[stacktrace]
+#0 /Users/apramodya/GitHub/Dimento/vendor/symfony/console/Application.php(203): Symfony\\Component\\Console\\Application->find('view-clear')
+#1 /Users/apramodya/GitHub/Dimento/vendor/symfony/console/Application.php(129): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /Users/apramodya/GitHub/Dimento/vendor/laravel/framework/src/Illuminate/Console/Application.php(88): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /Users/apramodya/GitHub/Dimento/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(121): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /Users/apramodya/GitHub/Dimento/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
