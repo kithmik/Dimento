@@ -22,14 +22,22 @@ class CreateAdvertisementsTable extends Migration
             $table->string('object')->nullable();
             $table->string('texture')->nullable();
             $table->dateTime('deadline');
-            $table->unsignedInteger('total_impressions')->default(0);
-            $table->unsignedInteger('impressions')->default(0);
-            $table->unsignedInteger('views')->default(0);
-            $table->unsignedInteger('invoice_id')->nullable();
+            $table->unsignedBigInteger('total_impressions')->default(0);
+            $table->unsignedBigInteger('impressions')->default(0);
+            $table->unsignedBigInteger('views')->default(0);
+            $table->unsignedBigInteger('invoice_id')->nullable();
             $table->boolean('accepted')->default(0);
             $table->dateTime('published_at');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('invoice_id')
+                ->references('id')->on('invoices')
+                ->onDelete('cascade');
         });
     }
 

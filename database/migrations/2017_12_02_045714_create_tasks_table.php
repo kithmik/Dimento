@@ -27,6 +27,18 @@ class CreateTasksTable extends Migration
             $table->dateTime('published_at');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('freelancer_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('invoice_id')
+                ->references('id')->on('invoice')
+                ->onDelete('cascade');
         });
     }
 
