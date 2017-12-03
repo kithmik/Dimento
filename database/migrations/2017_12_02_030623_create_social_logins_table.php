@@ -14,7 +14,11 @@ class CreateSocialLoginsTable extends Migration
     public function up()
     {
         Schema::create('social_logins', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('provider');
+            $table->string('token')->nullable();
+            $table->text('data')->nullable();
             $table->timestamps();
         });
     }
