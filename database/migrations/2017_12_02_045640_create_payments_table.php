@@ -21,6 +21,14 @@ class CreatePaymentsTable extends Migration
             $table->boolean('received')->default(0);
             $table->string('token')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('invoice_id')
+                ->references('id')->on('invoices')
+                ->onDelete('cascade');
         });
     }
 
