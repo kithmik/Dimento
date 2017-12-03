@@ -22,6 +22,14 @@ class CreateBidsTable extends Migration
             $table->decimal('amount', 10, 2);
             $table->boolean('accepted')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade');
+
+            $table->foreign('task_id')
+                ->references('id')->on('tasks')
+                ->onDelete('cascade');
         });
     }
 
