@@ -14,7 +14,13 @@ class CreateBidsTable extends Migration
     public function up()
     {
         Schema::create('bids', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('task_id');
+            $table->unsignedBigInteger('user_id');
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->decimal('amount', 10, 2);
+            $table->boolean('accepted')->default(0);
             $table->timestamps();
         });
     }
