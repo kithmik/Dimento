@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Models\Task;
+namespace App\Models\Advertisement;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Advertisement extends Model
 {
     protected $guarded = ['id'];
 
-    protected $table = 'tasks';
+    protected $table = 'advertisements';
 
     public function user(){
         return $this->belongsTo('App\Models\User\User');
-    }
-
-    public function bids(){
-        return $this->hasMany('App\Models\Task\Task');
     }
 
 }
