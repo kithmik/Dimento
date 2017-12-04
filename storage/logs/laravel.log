@@ -191,3 +191,7 @@ Did you mean this?
 #33 D:\\project\\dimento\\server.php(21): require_once('D:\\\\project\\\\dime...')
 #34 {main}
 "} 
+[2017-12-04 06:00:08] local.ERROR: Maximum execution time of 60 seconds exceeded {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalErrorException(code: 1): Maximum execution time of 60 seconds exceeded at D:\\project\\dimento\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Providers\\FoundationServiceProvider.php:8)
+[stacktrace]
+#0 {main}
+"} 
