@@ -5,66 +5,6 @@
 @include('includes.navbar')
 <body>
 
-{{--<script src="/libs/scenejs/core/map.js"></script>
-
-<script src="/libs/scenejs/core/scenejs.js"></script>
-
-<script src="/libs/scenejs/core/config.js"></script>
-<script src="/libs/scenejs/core/engine.js"></script>
-<script src="/libs/scenejs/core/canvas.js"></script>
-<script src="/libs/scenejs/core/eventManager.js"></script>
-<script src="/libs/scenejs/core/events.js"></script>
-
-<script src="/libs/scenejs/core/errors.js"></script>
-<script src="/libs/scenejs/core/log.js"></script>
-<script src="/libs/scenejs/core/math.js"></script>
-<script src="/libs/scenejs/core/nodeTypes.js"></script>
-<script src="/libs/scenejs/core/plugins.js"></script>
-
-<script src="/libs/scenejs/core/status.js"></script>
-
-<script src="/libs/scenejs/core/display/objectFactory.js"></script>--}}
-
-{{--<script src="/libs/scenejs/lib/require.js"></script>--}}
-
-
-{{--<script src="/libs/scenejs/core/map.js"></script>
-
-
-
-<script src="/libs/scenejs/core/scenejs.js"></script>
-
-<script src="/libs/scenejs/core/config.js"></script>
-<script src="/libs/scenejs/core/engine.js"></script>
-<script src="/libs/scenejs/core/canvas.js"></script>
-<script src="/libs/scenejs/core/eventManager.js"></script>
-<script src="/libs/scenejs/core/events.js"></script>
-
-<script src="/libs/scenejs/core/errors.js"></script>
-<script src="/libs/scenejs/core/log.js"></script>
-<script src="/libs/scenejs/core/math.js"></script>
-<script src="/libs/scenejs/core/nodeTypes.js"></script>
-<script src="/libs/scenejs/core/plugins.js"></script>
-
-<script src="/libs/scenejs/core/status.js"></script>
-
-
-<script src="/libs/scenejs/core/scene/coreFactory.js"></script>
-<script src="/libs/scenejs/core/scene/nodeFactory.js"></script>
-
-<script src="/libs/scenejs/core/display/display.js"></script>
-<script src="/libs/scenejs/core/display/objectFactory.js"></script>
-<script src="/libs/scenejs/core/display/renderContext.js"></script>
-
-<script src="/libs/scenejs/core/display/programFactory.js"></script>
-<script src="/libs/scenejs/core/display/chunks/chunkFactory.js"></script>
-
-<script src="/libs/scenejs/core/display/cores/core.js"></script>--}}
-
-
-{{--<script src="/libs/scenejs/lib/require.js"></script>
-<script src="/libs/scenejs/lib/requireConfig.js"></script>--}}
-
 <script src="/libs/scenejs/api/latest/scenejs.js"></script>
 
 
@@ -350,29 +290,35 @@
 
     // Define scene
     var scene = SceneJS.createScene({
-// Link to our canvas element
+        // Link to our canvas element
         canvasId:"intro-3d",
         nodes:[
             {
-//                type: "translate", y:-30, z:-200,
-
                 type: "cameras/orbit",
                 yaw: -40,
                 pitch: -20,
                 zoom: 200,
                 zoomSensitivity: 20.0,
-                nodes:[
+
+
+                nodes: [
+
+                    // Move the raptor a bit to centre it
                     {
-                        id: "",
-                        type: "texture",
-                        src: "/libs/scenejs/models/obj/raptor.jpg",
-
-                        nodes:[
-
-                            // Import Wavefront .OBJ mesh
+                        type: "translate", y: -30, z: -20,
+                        nodes: [
                             {
-                                type: "import/obj",
-                                src: "/libs/scenejs/models/obj/raptor.obj"
+                                type: "texture",
+                                src: "/libs/scenejs/models/obj/raptor.jpg",
+
+                                nodes: [
+
+                                    // Import Wavefront .OBJ mesh
+                                    {
+                                        type: "import/obj",
+                                        src: "/libs/scenejs/models/obj/raptor.obj"
+                                    }
+                                ]
                             }
                         ]
                     }
