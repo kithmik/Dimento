@@ -38,3 +38,10 @@ Route::resource('/post', 'Forum\PostController');
 
 Route::resource('/reply', 'Forum\ReplyController');
 
+/*Task*/
+
+Route::resource('/task', 'Task\TaskController');
+
+Route::resource('/bid', 'Task\BidsController');
+
+
