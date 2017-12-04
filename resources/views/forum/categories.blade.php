@@ -3,11 +3,10 @@
 <html>
 <head>
 
-	<title>Welcome to Our Forum</title>
-
+	<title>Dimento Forum</title>
 </head>
-
 <body>
+
 
 </body>
 </html>
