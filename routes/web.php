@@ -24,14 +24,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/profile', 'User/ProfileController');
 
 /*3D Model Object*/
-Route::resource('/object', 'Object/ObjectController');
+Route::resource('/object', 'Object\ObjectController');
 
-Route::resource('/comment', 'Object/CommentController');
+Route::resource('/comment', 'Object\CommentController');
 
-Route::resource('/rating', 'Object/RatingController');
+Route::resource('/rating', 'Object\RatingController');
 
 /*Forum*/
-Route::resource('/post', 'Forum/PostController');
 
-Route::resource('/reply', 'Forum/ReplyController');
+Route::get('/forum', 'Forum\PostController@getCategories');
+
+Route::resource('/post', 'Forum\PostController');
+
+Route::resource('/reply', 'Forum\ReplyController');
+
+/*Task*/
+
+Route::resource('/task', 'Task\TaskController');
+
+Route::resource('/bid', 'Task\BidsController');
+
 
