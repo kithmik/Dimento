@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
+
+    public function getCategories(){
+        return view('forum.categories');
+    }
+
     /**
      * Display a listing of the resource.
      *
