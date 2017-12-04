@@ -6,7 +6,7 @@
         <div class="col-6">
             <!--Panel-->
             <div class="card  text-center" >
-                <div class="card-header black lighten-1 white-text">
+                <div class="card-header black white-text">
                     Login
                 </div>
                 <div class="card-body">

@@ -38,51 +38,52 @@
 </head>
 <body>
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark black">
+<nav class="navbar navbar-expand-lg navbar-dark black ">
+    <div class="container">
+        <!-- Navbar brand -->
+        <a class="navbar-brand white-text" href="{{ url('/') }}">
+            {{ config('app.name', 'Dimento') }}
+        </a>
 
-    <!-- Navbar brand -->
-    <a class="navbar-brand white-text" href="{{ url('/') }}">
-        {{ config('app.name', 'Dimento') }}
-    </a>
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-    <!-- Collapse button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto"></ul>
+            <!-- Links -->
 
-        <!-- Links -->
-        <ul class="navbar-nav mr-auto"></ul>
-        <!-- Links -->
-
-        <!-- Login -->
-        <ul class="navbar-nav mr-sm-2">
-            <!-- Authentication Links -->
-            @guest
-            <li><a href="{{ route('login') }}" class="btn btn-default black white-text">Login</a></li>
-            <li><a href="{{ route('register') }}" class="btn btn-default black white-text">Register</a></li>
-            @else
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            Logout
+            <!-- Login -->
+            <ul class="navbar-nav mr-sm-2">
+                <!-- Authentication Links -->
+                @guest
+                <li><a href="{{ route('login') }}" class="btn btn-default black white-text btn-sm">Login</a></li>
+                <li><a href="{{ route('register') }}" class="btn btn-default black white-text btn-sm">Register</a></li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                              style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </div>
-                </li>
-            @endguest
-        </ul>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
+                    </li>
+                    @endguest
+            </ul>
+        </div>
+        <!-- Collapsible content -->
     </div>
-    <!-- Collapsible content -->
 
 </nav>
 <!--/.Navbar-->

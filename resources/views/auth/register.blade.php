@@ -6,7 +6,7 @@
         <div class="col-6">
             <!--Panel-->
             <div class="card  text-center" >
-                <div class="card-header black lighten-1 white-text">
+                <div class="card-header black white-text">
                     Register
                 </div>
                 <div class="card-body">
@@ -22,7 +22,7 @@
                         {{--first name--}}
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="first_name" class="control-label">First Name</label>
                                 </div>
                                 <div class="col-md-8">
@@ -40,7 +40,7 @@
                         {{--last name--}}
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="last_name" class="control-label">Last Name</label>
                                 </div>
                                 <div class="col-md-8">
@@ -58,7 +58,7 @@
                         {{--profile pic--}}
                         {{--<div class="form-group">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="phone" class="control-label">Profile Picture</label>
                                 </div>
                                 <div class="col-md-8">
@@ -74,7 +74,7 @@
                         {{--phone--}}
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="phone" class="control-label">Telephone</label>
                                 </div>
                                 <div class="col-md-8">
@@ -92,11 +92,11 @@
                         {{--dob--}}
                         <div class="form-group{{ $errors->has('dob') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="dob" class="control-label">Date of Birth</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input placeholder="Selected date" type="text" class="form-control datepicker" id="dob" name="dob" value="{{ old('dob') }}">
+                                    <input type="text" class="form-control datepicker" id="dob" name="dob" value="{{ old('dob') }}">
 
                                     @if ($errors->has('dob'))
                                         <span class="help-block">
@@ -110,7 +110,7 @@
                         {{--type--}}
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="type" class="control-label">Type</label>
                                 </div>
                                 <div class="col-md-8">
@@ -127,7 +127,7 @@
                         {{--email--}}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="email" class="control-label">Email</label>
                                 </div>
                                 <div class="col-md-8">
@@ -145,7 +145,7 @@
                         {{--password--}}
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="password" class=" control-label">Password</label>
                                 </div>
                                 <div class="col-md-8">
@@ -163,7 +163,7 @@
                         {{--confirm password--}}
                         <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 text-right">
                                     <label for="password2" class=" control-label">Confirm Password</label>
                                 </div>
                                 <div class="col-md-8">
@@ -180,33 +180,15 @@
 
                         <br>
                         <div class="row">
-                            {{--<div class="col-md-4">
-                                <div class="form-group">
-                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label for="checkbox" class="grey-text">Remember Me</label>
-                                </div>
-                            </div>--}}
-                            <div class="col-md-1"></div>
-                            <div class="col-md-5">
+                            <div class="col-sm-3 col-xs-1"></div>
+                            <div class="col-sm-6 col-xs-1">
                                 <div class="form-group">
                                     <button type="submit" class="login btn btn-default black">
-                                        Login
+                                        Register
                                     </button>
                                 </div>
                             </div>
                         </div>
-
-                        {{--<div class="row">
-                            <div class="col-md-3"></div>
-                            <div class="col-md-5 right">
-                                <div class="form-group">
-                                    <a class=" " href="{{ route('password.request') }}">
-                                        Forgot Your Password?
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>--}}
                     </form>
                 </div>
             </div>
