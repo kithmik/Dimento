@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class MobileAPIController extends Controller
 {
     public function getCSRF(){
-        return csrf_token();    
+        return csrf_token();
     }
 }

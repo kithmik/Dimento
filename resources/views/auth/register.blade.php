@@ -10,7 +10,13 @@
                     Register
                 </div>
                 <div class="card-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+
+                    @foreach($errors->all() as $error)
+                        {{ $error }}
+
+                    @endforeach
+
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}"  enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         {{--first name--}}
@@ -50,7 +56,7 @@
                         </div>
 
                         {{--profile pic--}}
-                        <div class="form-group">
+                        {{--<div class="form-group">
                             <div class="row">
                                 <div class="col-md-4">
                                     <label for="phone" class="control-label">Profile Picture</label>
@@ -58,12 +64,12 @@
                                 <div class="col-md-8">
                                     <div class="btn black btn-sm">
                                         <span>Choose file</span>
-                                        <input type="file">
+                                        <input name="profile_pic" type="file">
                                     </div>
                                 </div>
 
                             </div>
-                        </div>
+                        </div>--}}
 
                         {{--phone--}}
                         <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
@@ -108,7 +114,7 @@
                                     <label for="type" class="control-label">Type</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <select class="mdb-select" required>
+                                    <select name="type" id="type" class="mdb-select" required>
                                         <option value="" disabled selected>Choose your type </option>
                                         <option value="1">3D Model Designer</option>
                                         <option value="2">Customer</option>
@@ -155,17 +161,17 @@
                         </div>
 
                         {{--confirm password--}}
-                        <div class="form-group{{ $errors->has('password2') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <label for="password2" class=" control-label">Confirm Password</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input id="password2" type="password" name="password2" required>
+                                    <input id="password_confirmation" type="password" name="password_confirmation" required>
 
-                                    @if ($errors->has('password2'))
+                                    @if ($errors->has('password_confirmation'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('password2') }}</strong>
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -174,12 +180,12 @@
 
                         <br>
                         <div class="row">
-                            <div class="col-md-4">
+                            {{--<div class="col-md-4">
                                 <div class="form-group">
                                     <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label for="checkbox" class="grey-text">Remember Me</label>
                                 </div>
-                            </div>
+                            </div>--}}
                             <div class="col-md-1"></div>
                             <div class="col-md-5">
                                 <div class="form-group">
@@ -190,7 +196,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        {{--<div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-5 right">
                                 <div class="form-group">
@@ -200,7 +206,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>--}}
                     </form>
                 </div>
             </div>
