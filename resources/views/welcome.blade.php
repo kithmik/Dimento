@@ -5,6 +5,71 @@
 @include('includes.navbar')
 <body>
 
+{{--<script src="/libs/scenejs/core/map.js"></script>
+
+<script src="/libs/scenejs/core/scenejs.js"></script>
+
+<script src="/libs/scenejs/core/config.js"></script>
+<script src="/libs/scenejs/core/engine.js"></script>
+<script src="/libs/scenejs/core/canvas.js"></script>
+<script src="/libs/scenejs/core/eventManager.js"></script>
+<script src="/libs/scenejs/core/events.js"></script>
+
+<script src="/libs/scenejs/core/errors.js"></script>
+<script src="/libs/scenejs/core/log.js"></script>
+<script src="/libs/scenejs/core/math.js"></script>
+<script src="/libs/scenejs/core/nodeTypes.js"></script>
+<script src="/libs/scenejs/core/plugins.js"></script>
+
+<script src="/libs/scenejs/core/status.js"></script>
+
+<script src="/libs/scenejs/core/display/objectFactory.js"></script>--}}
+
+{{--<script src="/libs/scenejs/lib/require.js"></script>--}}
+
+
+{{--<script src="/libs/scenejs/core/map.js"></script>
+
+
+
+<script src="/libs/scenejs/core/scenejs.js"></script>
+
+<script src="/libs/scenejs/core/config.js"></script>
+<script src="/libs/scenejs/core/engine.js"></script>
+<script src="/libs/scenejs/core/canvas.js"></script>
+<script src="/libs/scenejs/core/eventManager.js"></script>
+<script src="/libs/scenejs/core/events.js"></script>
+
+<script src="/libs/scenejs/core/errors.js"></script>
+<script src="/libs/scenejs/core/log.js"></script>
+<script src="/libs/scenejs/core/math.js"></script>
+<script src="/libs/scenejs/core/nodeTypes.js"></script>
+<script src="/libs/scenejs/core/plugins.js"></script>
+
+<script src="/libs/scenejs/core/status.js"></script>
+
+
+<script src="/libs/scenejs/core/scene/coreFactory.js"></script>
+<script src="/libs/scenejs/core/scene/nodeFactory.js"></script>
+
+<script src="/libs/scenejs/core/display/display.js"></script>
+<script src="/libs/scenejs/core/display/objectFactory.js"></script>
+<script src="/libs/scenejs/core/display/renderContext.js"></script>
+
+<script src="/libs/scenejs/core/display/programFactory.js"></script>
+<script src="/libs/scenejs/core/display/chunks/chunkFactory.js"></script>
+
+<script src="/libs/scenejs/core/display/cores/core.js"></script>--}}
+
+
+{{--<script src="/libs/scenejs/lib/require.js"></script>
+<script src="/libs/scenejs/lib/requireConfig.js"></script>--}}
+
+<script src="/libs/scenejs/api/latest/scenejs.js"></script>
+
+
+
+
 <br><br>
 <!--Carousel Wrapper-->
 <div id="carousel" class="carousel slide carousel-fade white-text" data-ride="carousel" data-interval="5000">
@@ -19,11 +84,15 @@
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
 
+        {{--Object--}}
+
         <!-- First slide -->
         <div class="carousel-item active view hm-black-light"
              style="background-image: url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(11).jpg'); background-repeat: no-repeat; background-size: cover;">
             <!-- Caption -->
             <div class="full-bg-img flex-center white-text">
+
+
                 <ul class="animated fadeIn col-md-12">
                     <li>
                         <h1 class="h1-responsive">20 Photos to inspire you to visit Tatra Mountains</h1>
@@ -106,6 +175,12 @@
 <!--/.Carousel Wrapper-->
 
 <br>
+
+<div class="col-xs-12">
+
+    <canvas id="intro-3d"></canvas>
+
+</div>
 
 <!--Content-->
 <div class="container" id="features">
@@ -249,6 +324,76 @@
     </div>
 </div>
 <!--/.Content-->
+
+
+
+<script>
+
+    //------------------------------------------------------------------------------------------------------------------
+    // A SceneJS minimal boilerplate to get you started
+    //
+    // Some resources you might need:
+    //
+    // Getting started: http://xeolabs.com/articles/scenejs-quick-start/
+    // Examples:        http://scenejs.org/examples/index.html
+    // Tutorials:       http://xeolabs.com
+    //
+    // Right, off you go - make something wicked!
+    //------------------------------------------------------------------------------------------------------------------
+
+
+    // Point SceneJS to the bundled plugins
+    SceneJS.setConfigs({
+        pluginPath:"/libs/scenejs/api/latest/plugins"
+    });
+
+
+    // Define scene
+    var scene = SceneJS.createScene({
+// Link to our canvas element
+        canvasId:"intro-3d",
+        nodes:[
+            {
+//                type: "translate", y:-30, z:-200,
+
+                type: "cameras/orbit",
+                yaw: -40,
+                pitch: -20,
+                zoom: 200,
+                zoomSensitivity: 20.0,
+                nodes:[
+                    {
+                        type: "texture",
+                        src: "/libs/scenejs/models/obj/raptor.jpg",
+
+                        nodes:[
+
+                            // Import Wavefront .OBJ mesh
+                            {
+                                type: "import/obj",
+                                src: "/libs/scenejs/models/obj/raptor.obj"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    });
+
+
+    // On each frame, spin the teapot a little bit
+    scene.getNode("myRotate",
+        function (myRotate) {
+
+            var angle = 0;
+
+            scene.on("tick",
+                function () {
+                    myRotate.setAngle(angle += 0.5);
+                });
+        });
+
+</script>
 
 
 @include('includes.footer')
