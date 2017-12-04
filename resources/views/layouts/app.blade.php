@@ -106,7 +106,15 @@
         $('.mdb-select').material_select();
     });
     // Data Picker Initialization
-    $('.datepicker').pickadate();
+    var d = new Date();
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 120,
+        max: new Date(d.getFullYear() - 12, d.getMonth() - 12, d.getDay() + 14),
+        format: 'yyyy-mm-dd'
+    });
+
 </script>
 </body>
 </html>

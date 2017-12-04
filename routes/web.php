@@ -22,6 +22,8 @@ Route::get('/get_csrf', 'MobileAPIController@getCSRF');
 
 Auth::routes();
 
+Route::get('/confirm/{code}', 'HomeController@confirm');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/profile', 'User/ProfileController');

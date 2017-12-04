@@ -37,7 +37,7 @@ class CreateTasksTable extends Migration
                 ->onDelete('cascade');
 
             $table->foreign('invoice_id')
-                ->references('id')->on('invoice')
+                ->references('id')->on('invoices')
                 ->onDelete('cascade');
         });
     }
