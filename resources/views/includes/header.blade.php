@@ -55,7 +55,18 @@
         /* Carousel*/
 
         .carousel {
-            height: 50%;
+            height: 70%;
+        }
+        .carousel-caption{
+            position: absolute;
+            right: 15%;
+            bottom: 20px;
+            left: 15%;
+            z-index: 10;
+            padding-top: 1px;
+            padding-bottom: 20px;
+            color: #fff;
+            text-align: center;
         }
 
         @media (max-width: 776px) {
@@ -93,6 +104,12 @@
         }
         #features{
             padding-top: 25px;
+        }
+        .fa-5x {
+            font-size: 10em;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 30%;
         }
     </style>
 
