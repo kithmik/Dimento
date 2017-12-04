@@ -22,6 +22,13 @@
     <!-- Your custom styles (optional) -->
     <link href="/libs/mdb4/css/style.css" rel="stylesheet">
     <style>
+        .card{
+            border-radius: 15px;
+        }
+        .login{
+            width: 300px;
+            border-radius: 15px;
+        }
         .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
             background-color: white !important;
             color: black !important;
@@ -30,69 +37,57 @@
     </style>
 </head>
 <body>
-<div id="app">
-    <nav class="navbar black navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark black">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+    <!-- Navbar brand -->
+    <a class="navbar-brand white-text" href="{{ url('/') }}">
+        {{ config('app.name', 'Dimento') }}
+    </a>
 
-                <!-- Branding Image -->
-                <a class="navbar-brand white-text" href="{{ url('/') }}">
-                    {{ config('app.name', 'Dimento') }}
-                </a>
-            </div>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @guest
-                    <li><a href="{{ route('login') }}" class="btn-default black white-text">Login</a></li>
-                    <li><a href="{{ route('register') }}" class="btn-default black white-text">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false" aria-haspopup="true">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto"></ul>
+        <!-- Links -->
 
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+        <!-- Login -->
+        <ul class="navbar-nav mr-sm-2">
+            <!-- Authentication Links -->
+            @guest
+            <li><a href="{{ route('login') }}" class="btn btn-default black white-text">Login</a></li>
+            <li><a href="{{ route('register') }}" class="btn btn-default black white-text">Register</a></li>
+            @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </div>
+                </li>
+            @endguest
+        </ul>
+    </div>
+    <!-- Collapsible content -->
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                          style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                        @endguest
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    @yield('content')
-</div>
-
+</nav>
+<!--/.Navbar-->
+<br>
+@yield('content')
 <!-- SCRIPTS -->
 <!-- JQuery -->
 <script type="text/javascript" src="libs/mdb4/js/jquery-3.1.1.js"></script>
@@ -101,7 +96,25 @@
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="libs/mdb4/js/bootstrap.js"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="libs/mdb4/js/mdb.js"></script></body>
+<script type="text/javascript" src="libs/mdb4/js/mdb.js"></script>
+</body>
 <!-- compiled core JavaScript -->
-<script type="text/javascript" src="libs/mdb4/js/compiled.min.js"></script></body>
+<script type="text/javascript" src="libs/mdb4/js/compiled.min.js"></script>
+<script>
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.mdb-select').material_select();
+    });
+    // Data Picker Initialization
+    var d = new Date();
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 120,
+        max: new Date(d.getFullYear() - 12, d.getMonth() - 12, d.getDay() + 14),
+        format: 'yyyy-mm-dd'
+    });
+
+</script>
+</body>
 </html>
