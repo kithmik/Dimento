@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*API calls for Mobile App*/
+Route::get('/get_csrf', 'MobileAPIController@getCSRF');
+
 /*User Profile*/
 
 Auth::routes();
@@ -43,5 +46,10 @@ Route::resource('/reply', 'Forum\ReplyController');
 Route::resource('/task', 'Task\TaskController');
 
 Route::resource('/bid', 'Task\BidsController');
+
+
+/*Messages*/
+
+Route::resource('/message', 'Message\MessageController');
 
 
