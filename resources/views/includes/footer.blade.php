@@ -46,9 +46,6 @@
 
 <!-- SCRIPTS -->
 
-<!-- JQuery -->
-<script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.min.js"></script>
-
 <!-- Bootstrap dropdown -->
 <script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
 

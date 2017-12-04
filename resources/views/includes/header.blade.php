@@ -96,4 +96,7 @@
         }
     </style>
 
+    <!-- JQuery -->
+    <script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.min.js"></script>
+
 </head>
