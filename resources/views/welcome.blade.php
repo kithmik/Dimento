@@ -363,6 +363,7 @@
                 zoomSensitivity: 20.0,
                 nodes:[
                     {
+                        id: "",
                         type: "texture",
                         src: "/libs/scenejs/models/obj/raptor.jpg",
 

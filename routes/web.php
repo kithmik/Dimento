@@ -31,6 +31,9 @@ Route::resource('/comment', 'Object/CommentController');
 Route::resource('/rating', 'Object/RatingController');
 
 /*Forum*/
+
+Route::get('/forum', 'Forum/PostController@getCategories');
+
 Route::resource('/post', 'Forum/PostController');
 
 Route::resource('/reply', 'Forum/ReplyController');
