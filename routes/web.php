@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*API calls for Mobile App*/
+Route::get('/get_csrf', 'MobileAPIController@getCSRF');
+
 /*User Profile*/
 
 Auth::routes();
+
+Route::get('/confirm/{code}', 'HomeController@confirm');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -37,4 +42,16 @@ Route::get('/forum', 'Forum\PostController@getCategories');
 Route::resource('/post', 'Forum\PostController');
 
 Route::resource('/reply', 'Forum\ReplyController');
+
+/*Task*/
+
+Route::resource('/task', 'Task\TaskController');
+
+Route::resource('/bid', 'Task\BidsController');
+
+
+/*Messages*/
+
+Route::resource('/message', 'Message\MessageController');
+
 
