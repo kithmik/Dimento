@@ -251,6 +251,7 @@
     var scene = SceneJS.createScene({
         // Link to our canvas element
         canvasId:"intro-3d",
+        transparent: true,
         nodes:[
             {
                 type: "cameras/orbit",
