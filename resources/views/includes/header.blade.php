@@ -52,37 +52,7 @@
             -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
             transition: background .5s ease-in-out, padding .5s ease-in-out;
         }
-        /* Carousel*/
 
-        .carousel {
-            height: 50%;
-        }
-        .carousel-caption{
-            position: absolute;
-            right: 15%;
-            bottom: 20px;
-            left: 15%;
-            z-index: 10;
-            padding-top: 1px;
-            padding-bottom: 20px;
-            color: #fff;
-            text-align: center;
-        }
-
-        @media (max-width: 776px) {
-            .carousel {
-                height: 100%;
-            }
-        }
-
-        .carousel-item,
-        .active {
-            height: 100%;
-        }
-
-        .carousel-inner {
-            height: 100%;
-        }
         /*Caption*/
 
         .flex-center {
@@ -97,8 +67,10 @@
         .card-title{
             text-align: center;
         }
-        .card{
 
+        /*image for welcome view*/
+        .bg{
+            background-image: url("/img/bg.png");
         }
         footer.page-footer{
             background-color: #1b1e21;

@@ -7,73 +7,44 @@
 
 <script src="/libs/scenejs/api/latest/scenejs.js"></script>
 
-<div class="container">
-    <div class="row">
-        {{--<div class="col-xs-6"></div>--}}
-        <div class="col-xs-6" style="padding-top: 100px; padding-left: 35%">
-            <canvas id="intro-3d"></canvas>
-        </div>
-    </div>
-</div>
-<br><br><br>
+<div id="home" class="jumbotron bg" style="margin-top:100px; height: 600px; ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <!--Card-->
+                <div class="card" style="margin-top:100px; height: 300px;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="/img/logo.png" class="d-inline-block align-top" style="height: 150px; margin-top: 75px; margin-left: 20px">
+                        </div>
+                        <div class="col-md-9">
+                            <!--Card content-->
+                            <div class="card-body" style="padding-top: 95px; padding-left: 100px">
+                                <!--Text-->
+                                <p class="card-text">Completing the bridge among 3D modelers and customers</p>
+                                <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm">Register Today</a>
+                            </div>
+                        </div>
+                    </div>
 
-
-<!--Carousel Wrapper-->
-<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-        {{--still content--}}
-        <div class="carousel-caption">
-            <!--Card-->
-            <div class="card">
-                <!--Card content-->
-                <div class="card-body">
-                    <!--Title-->
-                    <h4 class="card-title black-text">DIMENTO</h4>
-                    <!--Text-->
-                    <p class="card-text">Create, Upload, Sell your 3D Model </p>
-                    <p class="card-text">or</p>
-                    <p class="card-text">Request your customized 3D model</p>
                 </div>
-
+                <!--/.Card-->
             </div>
-            <!--/.Card-->
-
-        </div>
-        {{--items--}}
-        <div class="carousel-item active">
-            <div class="view hm-black-light">
-                <img class="d-block w-100" src="/img/carousel/1.jpg"  alt="First slide">
-            </div>
-        </div>
-        <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view hm-black-strong">
-                <img class="d-block w-100" src="/img/carousel/2.jpg" alt="Second slide">
-            </div>
-        </div>
-        <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view hm-black-slight">
-                <img class="d-block w-100" src="/img/carousel/3.jpg" alt="Third slide">
+            <div class="col-md-5">
+                <!--Card-->
+                <div class="card" style="margin-top: 50px; height: 400px;">
+                    <!--Card content-->
+                    <div class="card-body" style="margin-top: 100px; padding-left: 50px">
+                        <div class="container">
+                            <canvas id="intro-3d"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Card-->
             </div>
         </div>
     </div>
-    <!--/.Slides-->
-    <!--Controls-->
-    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
 </div>
-<!--/.Carousel Wrapper-->
-
-<br>
 
 <!--Content-->
 <div class="container" id="features">
