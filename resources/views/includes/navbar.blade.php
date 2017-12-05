@@ -89,4 +89,23 @@
         </div>
     </nav>
     <!--/.Navbar-->
+
+    <script>
+        $(function(){
+            //SMOOTH SCROLL
+            $(".smooth-scroll").on('click', 'a', function(event) {
+                event.preventDefault();
+                var elAttr		= $(this).attr('href');
+                var offset		= ($(this).attr('data-offset') ? $(this).attr('data-offset') : 0);
+                var fixedTop	= $('.navbar.fixed-top');
+                if (fixedTop && fixedTop.length){
+                    offset = fixedTop.outerHeight();
+                }
+                $('body,html').animate({
+                    scrollTop: $(elAttr).offset().top - offset
+                }, 700);
+            });
+
+        });
+    </script>
 </div>
