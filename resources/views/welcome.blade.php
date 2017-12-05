@@ -7,10 +7,17 @@
 
 <script src="/libs/scenejs/api/latest/scenejs.js"></script>
 
+<div class="container">
+    <div class="row">
+        {{--<div class="col-xs-6"></div>--}}
+        <div class="col-xs-6" style="padding-top: 100px; padding-left: 35%">
+            <canvas id="intro-3d"></canvas>
+        </div>
+    </div>
+</div>
+<br><br><br>
 
 
-
-<br><br>
 <!--Carousel Wrapper-->
 <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
     <!--Slides-->
@@ -67,12 +74,6 @@
 <!--/.Carousel Wrapper-->
 
 <br>
-
-<div class="col-xs-12">
-
-    <canvas id="intro-3d"></canvas>
-
-</div>
 
 <!--Content-->
 <div class="container" id="features">
