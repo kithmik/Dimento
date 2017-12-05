@@ -69,7 +69,7 @@
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-5 right">
                                     <div class="form-group">
-                                        <a class=" " href="{{ route('password.request') }}">
+                                        <a class="" href="{{ route('password.request') }}">
                                             Forgot Your Password?
                                         </a>
                                     </div>
