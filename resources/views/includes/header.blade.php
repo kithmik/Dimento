@@ -55,7 +55,7 @@
         /* Carousel*/
 
         .carousel {
-            height: 70%;
+            height: 50%;
         }
         .carousel-caption{
             position: absolute;
@@ -96,6 +96,9 @@
         }
         .card-title{
             text-align: center;
+        }
+        .card{
+
         }
         footer.page-footer{
             background-color: #1b1e21;
