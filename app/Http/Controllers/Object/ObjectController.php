@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Object;
 
+use App\Models\Object\Object;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,7 @@ class ObjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('objects.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class ObjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('objects.create');
     }
 
     /**
@@ -46,7 +47,8 @@ class ObjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $object = Object::findOrFail($id);
+        return view('objects.view', ['object' => $object]);
     }
 
     /**
@@ -57,7 +59,7 @@ class ObjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('objects.edit');
     }
 
     /**
