@@ -20,9 +20,34 @@
                         <div class="row">
 
                         </div>
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        {{--<a class="dropdown-item" href="#">Action</a>--}}
+                        {{--<a class="dropdown-item" href="#">Another action</a>--}}
+                        {{--<a class="dropdown-item" href="#">Something else here</a>--}}
+                        <table class="table table-bordered table-lg">
+                            <tbody>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            <tr>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                            </tr>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </li>
                 <li class="nav-item btn-group">
