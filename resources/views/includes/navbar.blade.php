@@ -43,25 +43,24 @@
                             <table class="table table-bordered table-lg">
                                 <tbody>
                                 <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/dog/dotty/35/000000"> Animals</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/museum/ios7/35/000000"> Architecture</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/theatre-mask/ios7/35/000000"> Art</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/minecraft-main-character-filled/ios7/35/000000"> Characters</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/vegetarian-food/dotty/35/000000"> Food</td>
                                 </tr>
                                 <tr>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/sofa/ios7/35/000000"> Furniture</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/dice/win10/35/000000"> Gaming</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/musical-notes/win10/35/000000"> Music</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/forest/ios7/35/000000"> Nature</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/people/dotty/35/000000"> People</td>
                                 </tr>
                                 <tr>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/suitcase/ios7/35/000000"> Travel</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/qr-code/android/35/000000"> Technology</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/sport/ios7/35/000000"> Sports</td>
+                                    <td class="text-center"><img src="https://png.icons8.com/truck/ios7/35/000000"> Vehicles</td>
                                 </tr>
                                 </tbody>
                             </table>
