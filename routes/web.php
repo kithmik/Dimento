@@ -27,6 +27,9 @@ Auth::routes();
 
 Route::get('/confirm/{code}', 'HomeController@confirm');
 
+Route::get('/social/handle/{provider}', 'SocialController@handle');
+Route::get('/social/callback/{provider}', 'SocialController@callback');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('/profile', 'User/ProfileController');
