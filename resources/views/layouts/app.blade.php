@@ -92,8 +92,7 @@
 <!-- SCRIPTS -->
 <!-- JQuery -->
 <script type="text/javascript" src="libs/mdb4/js/jquery-3.1.1.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="libs/mdb4/js/popper.min.js"></script>
+
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="libs/mdb4/js/bootstrap.js"></script>
 <!-- MDB core JavaScript -->
@@ -101,6 +100,9 @@
 </body>
 <!-- compiled core JavaScript -->
 <script type="text/javascript" src="libs/mdb4/js/compiled.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="libs/mdb4/js/popper.min.js"></script>
 <script>
     // Material Select Initialization
     $(document).ready(function() {

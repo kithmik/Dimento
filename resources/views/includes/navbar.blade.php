@@ -2,6 +2,9 @@
     .search:focus {
         width: 75% !important;
     }
+    body{
+        padding-top: 65px;
+    }
 </style>
 
 
@@ -29,7 +32,7 @@
                         </a>
                     </li>
                     <li class="nav-item btn-group">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-animation="false">
                             <i class="fa fa-wpexplorer" aria-hidden="true"></i>
                             Explore
                         </a>
@@ -88,6 +91,7 @@
         </div>
     </nav>
     <!--/.Navbar-->
+    <br>
 
     <script>
         $(function(){
