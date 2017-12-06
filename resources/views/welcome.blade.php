@@ -15,7 +15,7 @@
 <script src="/libs/threejs/js/controls/TrackballControls.js"></script>
 <script src="/libs/threejs/js/loaders/TDSLoader.js"></script>
 
-<div id="home" class="jumbotron bg" style="margin-top:100px; height: 600px; ">
+<div id="home" class="jumbotron bg" style="margin-top:-15px; height: 600px; ">
     <div class="container">
         <div class="row">
             <div class="col-md-7">
@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-5">
                 <!--Card-->
-                <div class="card" style="margin-top: 50px; height: 400px; background: transparent;">
+                <div class="" style="margin-top: 30px; height: 500px; ">
                     <!--Card content-->
                     <div class="card-body" style="margin-top: 100px; padding-left: 50px; background: transparent;">
                         <div class="container">
@@ -220,7 +220,7 @@
 //        document.body.appendChild( container );
 
         camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 10 );
-        camera.position.z = 2;
+        camera.position.z = 3;
 
         controls = new THREE.TrackballControls(  camera , container );
 
@@ -258,7 +258,8 @@
         renderer = new THREE.WebGLRenderer();
 
         renderer.setPixelRatio( window.devicePixelRatio );
-        renderer.setSize( window.innerWidth, window.innerHeight );
+        // renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
+        renderer.setSize( 400,250 );
         container.appendChild( renderer.domElement );
 
         window.addEventListener( 'resize', resize, false );
@@ -267,11 +268,12 @@
 
     function resize() {
 
-        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.aspect = 100;
+        //camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
-//        renderer.setSize( window.innerWidth, window.innerHeight );
-        renderer.setSize( window.innerWidth/25, window.innerHeight/25 );
+       renderer.setSize( window.innerWidth, window.innerHeight );
+        // renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
 
     }
 
