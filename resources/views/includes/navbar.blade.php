@@ -2,6 +2,9 @@
     .search:focus {
         width: 75% !important;
     }
+    body{
+        padding-top: 65px;
+    }
 </style>
 
 
@@ -88,6 +91,7 @@
         </div>
     </nav>
     <!--/.Navbar-->
+    <br>
 
     <script>
         $(function(){
