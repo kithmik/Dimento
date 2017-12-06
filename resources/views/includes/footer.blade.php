@@ -43,7 +43,6 @@
 </footer>
 <!--/.Footer-->
 
-view-source:
 <!-- SCRIPTS -->
 
 <!-- Bootstrap core JavaScript -->
