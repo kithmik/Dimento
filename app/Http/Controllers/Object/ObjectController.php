@@ -47,7 +47,8 @@ class ObjectController extends Controller
      */
     public function show($id)
     {
-        $object = Object::findOrFail($id);
+//        $object = Object::findOrFail($id);
+        $object = Object::where('id', $id)->get();
         return view('objects.view', ['object' => $object]);
     }
 

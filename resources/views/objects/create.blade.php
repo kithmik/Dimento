@@ -60,19 +60,21 @@
                         <div class="face back">
 
                             <!--Content-->
-                            <h4>About me</h4>
+                            {{--<h4>About me</h4>--}}
                             <hr>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime quae, dolores dicta. Blanditiis rem amet repellat, dolores nihil quae in mollitia asperiores ut rerum repellendus, voluptatum eum, officia laudantium quaerat?</p>
+                            <p>
+
+                            </p>
                             <hr>
-                            <!--Social Icons-->
+                          {{--  <!--Social Icons-->
                             <ul class="inline-ul">
                                 <li><a class="icons-sm fb-ic"><i class="fa fa-facebook"></i></a></li>
                                 <li><a class="icons-sm tw-ic"><i class="fa fa-twitter"></i></a></li>
                                 <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
                                 <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
+                            </ul>--}}
                             <!--Triggering button-->
-                            <a class="rotate-btn" data-card="card-1"><i class="fa fa-undo"></i> Click here to rotate back</a>
+                            <a class="rotate-btn" data-card="card-1"><i class="fa fa-arrow-circle-left"></i>Back</a>
 
                         </div>
                         <!--/.Back Side-->
@@ -92,7 +94,7 @@
         var post_id = -1;
         var i = 0;
         var isImage = false;*/
-        var my_dropzone = new Dropzone("div#drop-obj" /*, { url: "/file/post"});*/);
+        var my_dropzone = new Dropzone("div#drop-obj" , { url: "/file/post"});
 //        myDropzone.opetio
         Dropzone.options.dropImage = { // The camelized version of the ID of the form element
 
