@@ -37,6 +37,11 @@ Route::get('/social/callback/{provider}', 'SocialController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+/*Admin Routes*/
+Route::resource('/admin', 'AdminController');
+
+
 //Route::resource('/profile', 'User/ProfileController');
 
 /*3D Model Object*/
