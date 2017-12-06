@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->date('dob')->nullable();
             $table->unsignedInteger('type');
             $table->boolean('mobile')->default(0);
+            $table->boolean('admin')->default(0);
             $table->string('confirmation_code')->nullable();
             $table->string('email')->unique();
             $table->string('password');

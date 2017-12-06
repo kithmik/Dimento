@@ -18,7 +18,7 @@ class User extends Authenticatable
     /*protected $fillable = [
         'name', 'email', 'password',
     ];*/
-    protected $guarded = ['id'];
+    protected $guarded = ['id', 'admin'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,8 +26,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'admin',
     ];
+
+    public function isAdmin(){
+        return $this->admin == 1;
+    }
 
     public function objects(){
         return $this->hasMany('App\Models\Object\Object');
