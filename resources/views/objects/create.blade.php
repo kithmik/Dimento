@@ -37,11 +37,11 @@
                                     <div class="file-field dropzone" id="drop-image">
                                         <div class="fallback">
                                             <div class="btn">
-                                                <span>Image</span>
-                                                <input type="file" id="postImage" name="postImage" accept="image/*">
+                                                <span>Objects</span>
+                                                <input type="file" id="object" name="object" {{--accept="image/*"--}}>
                                             </div>
                                             <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text" placeholder="This will be the main image that appears on the wall">
+                                                <input class="file-path validate" type="text" placeholder="This will be the main object that appears on the wall">
                                             </div>
                                         </div>
                                         <div class="input-field"></div>
@@ -92,8 +92,9 @@
         var post_id = -1;
         var i = 0;
         var isImage = false;*/
-        var my_dropzone = new Dropzone("div#drop-obj", { url: "/file/post"});
-        Dropzone.options.dropImage = { // The camelized version of the ID of the form element
+        var my_dropzone = new Dropzone("div#drop-obj" /*, { url: "/file/post"});*/);
+        myDropzone.opetio
+        /*Dropzone.options.dropImage = {*/ // The camelized version of the ID of the form element
 
             // The configuration we've talked about above
             dictDefaultMessage: "Drag and drop or click to upload your object files",
@@ -103,12 +104,12 @@
             maxFiles: 100,
             url: $('#obj-create-form').attr('action'),
             method: 'post' ,
-            paramName: "postImage", // The name that will be used to transfer the file
+            paramName: "obj-files", // The name that will be used to transfer the file
             maxFilesize: 25, // MB,
             filesizeBase: 1024,
             addRemoveLinks: true,
             clickable: true,
-            acceptedFiles: 'image/*, .gif',
+//            acceptedFiles: 'image/*, .gif',
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
             },
