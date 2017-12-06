@@ -43,11 +43,8 @@
 </footer>
 <!--/.Footer-->
 
-
+view-source:
 <!-- SCRIPTS -->
-
-<!-- Bootstrap dropdown -->
-<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
 
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="/libs/mdb4/js/bootstrap.min.js"></script>
@@ -56,6 +53,9 @@
 <script type="text/javascript" src="/libs/mdb4/js/mdb.js"></script>
 
 <script type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>
+
+<!-- Bootstrap dropdown -->
+<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
 
 <script>
     new WOW().init();

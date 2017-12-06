@@ -93,8 +93,8 @@
         var i = 0;
         var isImage = false;*/
         var my_dropzone = new Dropzone("div#drop-obj" /*, { url: "/file/post"});*/);
-        myDropzone.opetio
-        /*Dropzone.options.dropImage = {*/ // The camelized version of the ID of the form element
+//        myDropzone.opetio
+        Dropzone.options.dropImage = { // The camelized version of the ID of the form element
 
             // The configuration we've talked about above
             dictDefaultMessage: "Drag and drop or click to upload your object files",
