@@ -18,7 +18,7 @@ class CreateObjectsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('texture_location')->nullabel();
-            $table->string('object_location');
+            $table->string('object_location')->nullable();
             $table->string('category')->defult('other');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('view_count')->default(0);
