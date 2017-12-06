@@ -32,11 +32,11 @@
             </div>
             <div class="col-md-5">
                 <!--Card-->
-                <div class="card" style="margin-top: 50px; height: 400px;">
+                <div class="card" style="margin-top: 50px; height: 400px; background: transparent;">
                     <!--Card content-->
-                    <div class="card-body" style="margin-top: 100px; padding-left: 50px">
+                    <div class="card-body" style="margin-top: 100px; padding-left: 50px; background: transparent;">
                         <div class="container">
-                            <canvas id="intro-3d"></canvas>
+                            <canvas style="width: 100%; height: 100%; margin: 0; padding: 0;" id="intro-3d"></canvas>
                         </div>
                     </div>
                 </div>
