@@ -2,45 +2,109 @@
 
 namespace App\Http\Controllers;
 
+use App\Forum\Post;
+use App\Forum\Reply;
 use App\Mail\ConfirmRegistration;
+use App\Models\Object\Object;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class MobileAPIController extends Controller
 {
+    
     public function getCSRF(){
         return csrf_token();
     }
 
     public function register(Request $request){
-        $confirmation_code = str_random(20);
+
+
+        $validator = Validator::make($request->all(), [
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'phone' => 'string|max:15',
+            'dob' => 'date|before: 13 years ago',
+            'type' => 'required|in: 1,2,3',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return json_encode(['status' => 0, 'data'=>"Error While Signing up."/*, 'errors'=>$validator->errors()*/]);
+        }
 
         $data = $request->all();
 
         $user = User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-//            'profile_pic' => $data['profile_pic'],
-            'phone' => $data['phone'],
-            'dob' => $data['dob'],
-            'type' => $data['type'],
-            'confirmation_code' => $confirmation_code,
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone' => $request->phone,
+            'dob' => $request->dob,
+            'type' => $request->type,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
         ]);
 
-        Mail::to($data['email'])->send(new ConfirmRegistration($confirmation_code));
-
-        /*if ($request->hasFile('profile_pic')){
-            $file_name = $user->id.".".$request->file('profile_pic')->getClientOriginalExtension();
-            $file = $request->file('profile_pic')->storeAs(storage_path('app/public/images/profile_pics/'), $file_name);
-            User::where('id', $user->id)
-                ->update(['profile_pic' => storage_path('app/public/images/profile_pics/').$file_name]);
-        }*/
-
-        return $user;
+        auth()->login($user, true);
+        return json_encode(['status'=>1, 'data'=>['user'=>$user]]);
     }
+    
+    public function login(Request $request){
+        
+        $email = $request->email;
+        $password = bcrypt($request->password);
+        
+        $user = User::where('email', $email)
+            ->where('password', $password)
+            ->get();
+        
+        if (count($user) == 1){
+            auth()->login($user, true);
+
+            return json_encode(['status'=>1, 'data'=>['user'=>$user]]);
+        }
+        
+        else{
+            return json_encode(['status' => 0, 'data'=>"Error! These credentials do not match our records."]);
+        }
+        
+    }
+    
+    public function getObjects(){
+        if (auth()->check()){
+            $objects = Object::all();
+            
+            return json_encode(['status'=>1, 'data'=>['objects'=>$objects]]);
+        }
+        else{
+            return json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]);
+        }
+    }
+    
+    public function getForumPosts(){
+        if (auth()->check()){
+            $posts = Post::all();
+
+            return json_encode(['status'=>1, 'data'=>['posts'=>$posts]]);
+        }
+        else{
+            return json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]);
+        }
+    }
+    
+    public function showForumPost($id){
+        if (auth()->check()){
+            $post = Post::findOrFail($id);
+            $replies = Reply::where('post_id', $id)->get();
+            return json_encode(['status'=>1, 'data'=>['post'=>$post, 'replies'=>$replies]]);
+        }
+        else{
+            return json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]);
+        }
+    }
+    
 
 
 }

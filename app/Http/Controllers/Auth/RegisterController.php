@@ -55,7 +55,6 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-//            'profile_pic' => 'image',
             'phone' => 'string|max:15',
             'dob' => 'date|before: 13 years ago',
             'type' => 'required|in: 1,2,3',
