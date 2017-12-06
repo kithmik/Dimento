@@ -399,7 +399,7 @@ class Request
                 if (!isset($server['CONTENT_TYPE'])) {
                     $server['CONTENT_TYPE'] = 'application/x-www-form-urlencoded';
                 }
-                // no break
+            // no break
             case 'PATCH':
                 $request = $parameters;
                 $query = array();
@@ -948,7 +948,7 @@ class Request
     /**
      * Returns the root path from which this request is executed.
      *
-     * Suppose that an index.blade.php file instantiates this request object:
+     * Suppose that an index.php file instantiates this request object:
      *
      *  * http://localhost/index.php         returns an empty string
      *  * http://localhost/index.php/page    returns an empty string
@@ -972,7 +972,7 @@ class Request
      * The base URL never ends with a /.
      *
      * This is similar to getBasePath(), except that it also includes the
-     * script filename (e.g. index.blade.php) if one exists.
+     * script filename (e.g. index.php) if one exists.
      *
      * @return string The raw URL (i.e. not urldecoded)
      */
@@ -1194,7 +1194,7 @@ class Request
         // as the first segment of a relative-path reference, as it would be mistaken for a scheme name
         // (see http://tools.ietf.org/html/rfc3986#section-4.2).
         return !isset($path[0]) || '/' === $path[0]
-            || false !== ($colonPos = strpos($path, ':')) && ($colonPos < ($slashPos = strpos($path, '/')) || false === $slashPos)
+        || false !== ($colonPos = strpos($path, ':')) && ($colonPos < ($slashPos = strpos($path, '/')) || false === $slashPos)
             ? "./$path" : $path;
     }
 

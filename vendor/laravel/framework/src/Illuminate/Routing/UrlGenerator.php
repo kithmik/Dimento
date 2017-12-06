@@ -177,7 +177,7 @@ class UrlGenerator implements UrlGeneratorContract
         }
 
         $tail = implode('/', array_map(
-            'rawurlencode', (array) $this->formatParameters($extra))
+                'rawurlencode', (array) $this->formatParameters($extra))
         );
 
         // Once we have the scheme we will compile the "tail" by collapsing the values
@@ -188,8 +188,8 @@ class UrlGenerator implements UrlGeneratorContract
         list($path, $query) = $this->extractQueryString($path);
 
         return $this->format(
-            $root, '/'.trim($path.'/'.$tail, '/')
-        ).$query;
+                $root, '/'.trim($path.'/'.$tail, '/')
+            ).$query;
     }
 
     /**
@@ -217,7 +217,7 @@ class UrlGenerator implements UrlGeneratorContract
             return $path;
         }
 
-        // Once we get the root URL, we will check to see if it contains an index.blade.php
+        // Once we get the root URL, we will check to see if it contains an index.php
         // file in the paths. If it does, we will remove it since it is not needed
         // for asset paths, but only for routes to endpoints in the application.
         $root = $this->formatRoot($this->formatScheme($secure));
@@ -246,7 +246,7 @@ class UrlGenerator implements UrlGeneratorContract
      */
     public function assetFrom($root, $path, $secure = null)
     {
-        // Once we get the root URL, we will check to see if it contains an index.blade.php
+        // Once we get the root URL, we will check to see if it contains an index.php
         // file in the paths. If it does, we will remove it since it is not needed
         // for asset paths, but only for routes to endpoints in the application.
         $root = $this->formatRoot($this->formatScheme($secure), $root);
@@ -255,14 +255,14 @@ class UrlGenerator implements UrlGeneratorContract
     }
 
     /**
-     * Remove the index.blade.php file from a path.
+     * Remove the index.php file from a path.
      *
      * @param  string  $root
      * @return string
      */
     protected function removeIndex($root)
     {
-        $i = 'index.blade.php';
+        $i = 'index.php';
 
         return Str::contains($root, $i) ? str_replace('/'.$i, '', $root) : $root;
     }

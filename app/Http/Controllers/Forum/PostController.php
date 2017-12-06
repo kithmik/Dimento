@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Forum;
 
+use App\Forum\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,7 +14,8 @@ class PostController extends Controller
     }
 
     public function getPosts($category){
-        return view('forum.categories');
+        $posts = Post::where('category', $category)->get();
+        return view('forum.index', ['posts' => $posts]);
     }    
 
     /**
@@ -23,7 +25,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('forum.index', ['posts' => $posts]);
     }
 
     /**
