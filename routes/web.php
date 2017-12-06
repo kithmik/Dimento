@@ -63,6 +63,7 @@ Route::resource('/bid', 'Task\BidsController');
 
 /*Messages*/
 
+
 Route::resource('/message', 'Message\MessageController');
 
 
