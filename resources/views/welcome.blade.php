@@ -233,11 +233,11 @@
 
         //3ds files dont store normal maps
         var loader = new THREE.TextureLoader();
-        var normal = loader.load( '/libs/threejs/models/3ds/portalgun/textures/normal.jpg' );
+        var normal = loader.load( '/models/3ds/portalgun/textures/normal.jpg' );
 
         var loader = new THREE.TDSLoader( );
-        loader.setPath( '/libs/threejs/models/3ds/portalgun/textures/' );
-        loader.load( '/libs/threejs/models/3ds/portalgun/portalgun.3ds', function ( object ) {
+        loader.setPath( '/models/3ds/portalgun/textures/' );
+        loader.load( '/models/3ds/portalgun/portalgun.3ds', function ( object ) {
 
             object.traverse( function ( child ) {
 
@@ -256,7 +256,7 @@
 //        renderer.setClearColor( 0x000000, 0 ); // the default
 
         renderer = new THREE.WebGLRenderer();
-        
+
         renderer.setPixelRatio( window.devicePixelRatio );
         renderer.setSize( window.innerWidth, window.innerHeight );
         container.appendChild( renderer.domElement );
