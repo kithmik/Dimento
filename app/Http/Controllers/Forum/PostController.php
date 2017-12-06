@@ -12,6 +12,10 @@ class PostController extends Controller
         return view('forum.categories');
     }
 
+    public function getPosts($category){
+        return view('forum.categories');
+    }    
+
     /**
      * Display a listing of the resource.
      *
