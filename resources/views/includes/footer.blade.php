@@ -53,7 +53,9 @@
 <script type="text/javascript" src="/libs/mdb4/js/bootstrap.min.js"></script>
 
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="/libs/mdb4/js/mdb.min.js"></script>
+<script type="text/javascript" src="/libs/mdb4/js/mdb.js"></script>
+
+{{--<script type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>--}}
 
 <script>
     new WOW().init();

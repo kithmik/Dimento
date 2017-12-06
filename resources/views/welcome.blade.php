@@ -5,6 +5,10 @@
 @include('includes.navbar')
 <body>
 
+{{--<script src="/libs/scenejs/lib/require.js"></script>
+
+
+<script src="/libs/scenejs/core/scenejs.js"></script>--}}
 <script src="/libs/scenejs/api/latest/scenejs.js"></script>
 
 <div id="home" class="jumbotron bg" style="margin-top:100px; height: 600px; ">
