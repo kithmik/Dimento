@@ -9,7 +9,11 @@
 
 
 <script src="/libs/scenejs/core/scenejs.js"></script>--}}
-<script src="/libs/scenejs/api/latest/scenejs.js"></script>
+{{--<script src="/libs/scenejs/api/latest/scenejs.js"></script>--}}
+
+<script src="/libs/threejs/js/three.js"></script>
+<script src="/libs/threejs/js/controls/TrackballControls.js"></script>
+<script src="/libs/threejs/js/loaders/TDSLoader.js"></script>
 
 <div id="home" class="jumbotron bg" style="margin-top:100px; height: 600px; ">
     <div class="container">
@@ -40,7 +44,8 @@
                     <!--Card content-->
                     <div class="card-body" style="margin-top: 100px; padding-left: 50px; background: transparent;">
                         <div class="container">
-                            <canvas style="width: 100%; height: 100%; margin: 0; padding: 0;" id="intro-3d"></canvas>
+                            <div id="intro-3d"></div>
+                            {{--<canvas style="width: 100%; height: 100%; margin: 0; padding: 0;" id="intro-3d"></canvas>--}}
                         </div>
                     </div>
                 </div>
@@ -200,8 +205,88 @@
 <!--/.Content-->
 
 
-
 <script>
+
+    var container, controls;
+    var camera, scene, renderer;
+
+    init();
+    animate();
+
+    function init() {
+
+//        container = document.createElement( 'div' );
+        container = document.getElementById('intro-3d');
+//        document.body.appendChild( container );
+
+        camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 10 );
+        camera.position.z = 2;
+
+        controls = new THREE.TrackballControls(  camera , container );
+
+        scene = new THREE.Scene();
+        scene.add( new THREE.HemisphereLight() );
+
+        var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+        directionalLight.position.set( 0, 0, 2 );
+        scene.add( directionalLight );
+
+        //3ds files dont store normal maps
+        var loader = new THREE.TextureLoader();
+        var normal = loader.load( '/libs/threejs/models/3ds/portalgun/textures/normal.jpg' );
+
+        var loader = new THREE.TDSLoader( );
+        loader.setPath( '/libs/threejs/models/3ds/portalgun/textures/' );
+        loader.load( '/libs/threejs/models/3ds/portalgun/portalgun.3ds', function ( object ) {
+
+            object.traverse( function ( child ) {
+
+                if ( child instanceof THREE.Mesh ) {
+
+                    child.material.normalMap = normal;
+                }
+
+            } );
+
+            scene.add( object );
+
+        });
+
+//        renderer = new THREE.WebGLRenderer({ alpha: true });
+//        renderer.setClearColor( 0x000000, 0 ); // the default
+
+        renderer = new THREE.WebGLRenderer();
+        
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        container.appendChild( renderer.domElement );
+
+        window.addEventListener( 'resize', resize, false );
+
+    }
+
+    function resize() {
+
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+//        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setSize( window.innerWidth/25, window.innerHeight/25 );
+
+    }
+
+    function animate() {
+
+        controls.update();
+        renderer.render( scene, camera );
+
+        requestAnimationFrame( animate );
+
+    }
+</script>
+
+
+{{--<script>
 
     //------------------------------------------------------------------------------------------------------------------
     // A SceneJS minimal boilerplate to get you started
@@ -275,7 +360,7 @@
                 });
         });
 
-</script>
+</script>--}}
 
 
 @include('includes.footer')
