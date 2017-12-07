@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+/*API calls for Mobile App*/
+Route::get('/get_csrf', 'MobileAPIController@getCSRF');
+
+Route::post('/MobileAPI/register', 'RegisterController@register');
+Route::post('/MobileAPI/login', 'LoginController@login');
+
+Route::get('/MobileAPI/get_models', 'MobileAPIController@getObjects');
+
+Route::get('/MobileAPI/get_forum_posts', 'MobileAPIController@getForumPosts');
+Route::get('/MobileAPI/show_forum_post/{id}', 'MobileAPIController@showForumPost');

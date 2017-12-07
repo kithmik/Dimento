@@ -30,7 +30,7 @@
                             <div class="card-body" style="padding-top: 95px; padding-left: 100px">
                                 <!--Text-->
                                 <p class="card-text">Completing the bridge among 3D modelers and customers</p>
-                                <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm">Register Today</a>
+                                <a href="{{ route('object.index') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm">Explore Models</a>
                             </div>
                         </div>
                     </div>
