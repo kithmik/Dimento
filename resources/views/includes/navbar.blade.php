@@ -89,10 +89,25 @@
                 <a href="{{ route('object.create') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix" aria-hidden="true"></i> Upload</a>
 
                 @auth
-                <a href="/login" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a>
-                <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-user-plus prefix" aria-hidden="true"></i> Register</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->first_name." ".auth()->user()->last_name}} <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
+                    </li>
                 @else
-
+                    <a href="/login" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a>
+                    <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-user-plus prefix" aria-hidden="true"></i> Register</a>
                 @endauth
             </div>
         </div>
