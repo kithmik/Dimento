@@ -32,7 +32,7 @@ class MobileAPIController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return json_encode(['status' => 0, 'data'=>"Error While Signing up."/*, 'errors'=>$validator->errors()*/]);
+            return response(json_encode(['status' => 0, 'data'=>"Error While Signing up."/*, 'errors'=>$validator->errors()*/]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
 
         $data = $request->all();
@@ -48,7 +48,7 @@ class MobileAPIController extends Controller
         ]);
 
         auth()->login($user, true);
-        return json_encode(['status'=>1, 'data'=>['user'=>$user]]);
+        return response(json_encode(['status'=>1, 'data'=>['user'=>$user]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
     }
     
     public function login(Request $request){
@@ -63,11 +63,11 @@ class MobileAPIController extends Controller
         if (count($user) == 1){
             auth()->login($user, true);
 
-            return json_encode(['status'=>1, 'data'=>['user'=>$user]]);
+            return response(json_encode(['status'=>1, 'data'=>['user'=>$user]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
         
         else{
-            return json_encode(['status' => 0, 'data'=>"Error! These credentials do not match our records."]);
+            return response(json_encode(['status' => 0, 'data'=>"Error! These credentials do not match our records."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
         
     }
@@ -76,10 +76,10 @@ class MobileAPIController extends Controller
         if (auth()->check()){
             $objects = Object::all();
             
-            return json_encode(['status'=>1, 'data'=>['objects'=>$objects]]);
+            return response(json_encode(['status'=>1, 'data'=>['objects'=>$objects]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
         else{
-            return json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]);
+            return response(json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
     }
     
@@ -87,10 +87,10 @@ class MobileAPIController extends Controller
         if (auth()->check()){
             $posts = Post::all();
 
-            return json_encode(['status'=>1, 'data'=>['posts'=>$posts]]);
+            return response(json_encode(['status'=>1, 'data'=>['posts'=>$posts]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
         else{
-            return json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]);
+            return response(json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
     }
     
@@ -98,10 +98,10 @@ class MobileAPIController extends Controller
         if (auth()->check()){
             $post = Post::findOrFail($id);
             $replies = Reply::where('post_id', $id)->get();
-            return json_encode(['status'=>1, 'data'=>['post'=>$post, 'replies'=>$replies]]);
+            return response(json_encode(['status'=>1, 'data'=>['post'=>$post, 'replies'=>$replies]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
         else{
-            return json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]);
+            return response(json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
     }
     
