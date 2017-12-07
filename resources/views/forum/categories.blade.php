@@ -36,19 +36,6 @@
 <br />
 <br />
 
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="ca">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <div class="container">
     <div class="row">
@@ -125,10 +112,10 @@
                 <div class="col-md-4">
                      <div class="card hoverable" style="width:300px">
                         <div class="text-center">
-                            <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+                            <i class="fa fa-birthday-cake fa-5x" aria-hidden="true"></i>
 
-                               <h4 class="card-title">Characters</h4>
-                               <p class="card-text">Find 3D models of Characters</p>
+                               <h4 class="card-title">Food</h4>
+                               <p class="card-text">Find 3D models of Food</p>
                                <div class="card-footer">
                                <a href="#" class="btn btn-primary">Dive in</a>
                            </div>
@@ -144,10 +131,9 @@
                     <div class="col-md-4">
                     <div class="card hoverable" style="width:300px">
                             <div class="text-center">
-                                        <i class="fa fa-music fa-5x" aria-hidden="true"></i>
-
-                                            <h4 class="card-title">Music</h4>
-                                            <p class="card-text">Find 3D models of Music </p>
+                                        <i class="fa fa-futbol-o fa-5x" aria-hidden="true"></i>
+                                            <h4 class="card-title">Sports</h4>
+                                            <p class="card-text">Find 3D models of Sports </p>
                                             <div class="card-footer">
                                             <a href="#" class="btn btn-primary">Dive in</a>
                                        </div>
@@ -159,10 +145,11 @@
                 <div class="col-md-4">
                             <div class="card hoverable" style="width:300px">
                             <div class="text-center">
-                                <i class="fa fa-tree fa-5x" aria-hidden="true"></i>
+                                <i class="fa fa-bed fa-5x" aria-hidden="true"></i>
 
-                                <h4 class="card-title">Tree</h4>
-                                <p class="card-text">Find 3D models of Tree </p>
+
+                                <h4 class="card-title">Furniture</h4>
+                                <p class="card-text">Find 3D models of Furniture </p>
                                 <div class="card-footer">
                                 <a href="#" class="btn btn-primary">Dive in</a>
                                 </div>
@@ -189,44 +176,21 @@
 
             <br>
             <div>
-                <div class="row">
-                    <div class="col-md-4">
-                    <div class="card hoverable" style="width:300px">
-                            <div class="text-center">
-                                        <i class="fa fa-rocket fa-5x" aria-hidden="true"></i>
-
-
-                                        <h4 class="card-title">Travel</h4>
-                                        <p class="card-text">Find 3D models of Travel </p>
-                                        <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Dive in</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                    <div>
-                        <div class="col-md-4">
-                    <div class="card hoverable" style="width:300px">
-                            <div class="text-center">
-                                        <i class="fa fa-futbol-o fa-5x" aria-hidden="true"></i>
-
-
-
-                                        <h4 class="card-title">Travel</h4>
-                                        <p class="card-text">Find 3D models of Travel </p>
-                                        <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Dive in</a>
-                                       </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-            </div>
+                    <div>                                  
+                        </div>
+        </div>
     </div>
 </div>
 
-                
-
+<footer class="page-factor center-on-small-only">
+<div class="container-fluid">
+ <div class="footer-copyright">
+    <div class="container-fluid">
+         © 2017 Copyright: <a href=""> Dimento by DbTraps </a>
+        
+    </div>
+</div>
+</div>
 <!-- SCRIPTS -->
 
 <!-- Bootstrap dropdown -->
