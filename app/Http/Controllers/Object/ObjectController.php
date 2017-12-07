@@ -51,8 +51,19 @@ class ObjectController extends Controller
         $object->save();
 
         if ($request->hasFile('object')){
+
             $object_file = $request->file('object');
-            $file_name = $object->id.".".$object_file;
+            $object_file_name = $object->id.".".$object_file->getClientOriginalExtension();
+            $object_file->storeAs(storage_path('app/public/')."models/main/objects/", $object_file_name);
+
+            $texture_file_name = null;
+            if ($request->hasFile('object')){
+                $texture_file = $request->file('texture');
+                $texture_file_name = $object->id.".".$texture_file->getClientOriginalExtension();
+                $texture_file->storeAs(storage_path('app/public/')."models/main/textures/", $texture_file_name);
+
+            }
+
         }
     }
 
