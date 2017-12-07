@@ -16,11 +16,11 @@
                   name="obj-create-form">
             {{ csrf_field() }}
             <!--Rotating card-->
-                <div class="card-wrapper">
-                    <div id="card-1" class="card-rotating effect__click m-1 p-1 pb-2" style="display: inline-block;">
+                <div class="card-wrapper" style="padding-top: 50px">
+                    <div id="card-1" class="card-rotating effect__click m-1 p-1 pb-2" style="display: inline-block; ">
 
                         <!--Front Side-->
-                        <div class="face front" id="face-front">
+                        <div class="face front" id="face-front" >
 
                             <!-- Image-->
                         {{--<div class="card-up">
@@ -30,7 +30,7 @@
                         <div class="avatar"><img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%289%29.jpg" class="rounded-circle">
                         </div>--}}
                         <!--Content-->
-                            <div class="card-body">
+                            <div class="card-body" >
                                 <h4>Upload a new 3D model</h4>
                                 <hr>
 

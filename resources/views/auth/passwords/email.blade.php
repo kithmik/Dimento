@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" style="padding-top: 100px">
     <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
@@ -36,10 +36,10 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-5 right">
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-6 right">
                                     <div class="form-group">
-                                        <a class="login btn btn-default black" href="/">
+                                        <a class="btn btn-outline-elegant waves-effect btn-md" href="/">
                                             Send Password Reset Link
                                         </a>
                                     </div>
