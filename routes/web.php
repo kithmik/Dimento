@@ -55,7 +55,7 @@ Route::resource('/rating', 'Object\RatingController');
 
 Route::get('/forum', 'Forum\PostController@getCategories');
 
-Route::get('/post/{category}', 'Forum\PostController@getPosts');
+Route::get('forum/post/{category}', 'Forum\PostController@getPosts');
 
 Route::resource('/post', 'Forum\PostController');
 
