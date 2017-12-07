@@ -28,7 +28,7 @@
             url: 'https://dimento.cf/get_csrf',
 //            url: '/get_csrf',
             method: 'GET',
-//            dataType: 'json',
+            dataType: 'json',
             success: function(rdata){
                 token = rdata;
                 console.log('csrf = '+rdata+' from url: ');
