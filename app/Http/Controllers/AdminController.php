@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Object\Object;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class AdminController extends Controller
     {
         //
         $users = User::all();
-        return view('admin.index',['users' => $users]);
+        $objects = Object::all();
+        return view('admin.index',['users' => $users, 'objects' => $objects]);
 //        return view('admin.index');
     }
 
