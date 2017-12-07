@@ -38,11 +38,11 @@
 </head>
 <body>
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark black ">
+<nav class="navbar navbar-expand-lg navbar-light blue-grey lighten-5 fixed-top scrolling-navbar">
     <div class="container">
         <!-- Navbar brand -->
-        <a class="navbar-brand white-text" href="{{ url('/') }}">
-            {{ config('app.name', 'Dimento') }}
+        <a class="navbar-brand " href="{{ url('/') }}">
+            <img src="/img/logo.png" height="30" class="d-inline-block align-top" alt="">
         </a>
 
         <!-- Collapse button -->
@@ -60,12 +60,12 @@
             <ul class="navbar-nav mr-sm-2">
                 <!-- Authentication Links -->
                 @guest
-                <li><a href="{{ route('login') }}" class="btn btn-default black white-text btn-sm">Login</a></li>
-                <li><a href="{{ route('register') }}" class="btn btn-default black white-text btn-sm">Register</a></li>
+                <li><a href="{{ route('login') }}" class="btn btn-outline-elegant waves-effect btn-sm"><i class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a></li>
+                <li><a href="{{ route('register') }}" class="btn btn-outline-elegant waves-effect btn-sm"><i class="fa fa-user-plus prefix" aria-hidden="true"></i> Register</a></li>
                 @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->first_name." ".auth()->user()->last_name}} <span class="caret"></span>
+                            {{ Auth::user()->first_name}} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a href="{{ route('logout') }}"
@@ -119,5 +119,4 @@
     });
 
 </script>
-</body>
 </html>

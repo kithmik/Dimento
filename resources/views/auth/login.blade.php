@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="padding-top: 100px">
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
@@ -56,17 +56,25 @@
                                         <label for="checkbox" class="grey-text">Remember Me</label>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-3">
                                     <div class="form-group">
-                                        <button type="submit" class="login btn btn-default black">
+                                        <button type="submit" class="btn btn-outline-elegant waves-effect btn-md">
                                             Login
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <button type="reset" class="btn btn-outline-elegant waves-effect btn-md">
+                                            Reset
                                         </button>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col-sm-3"></div>
+                                <div class="col-sm-7"></div>
                                 <div class="col-sm-5 right">
                                     <div class="form-group">
                                         <a class="" href="{{ route('password.request') }}">

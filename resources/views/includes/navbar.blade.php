@@ -40,9 +40,7 @@
                             <div class="row">
 
                             </div>
-                            {{--<a class="dropdown-item" href="#">Action</a>--}}
-                            {{--<a class="dropdown-item" href="#">Another action</a>--}}
-                            {{--<a class="dropdown-item" href="#">Something else here</a>--}}
+
                             <table class="table table-bordered table-lg">
                                 <tbody>
                                 <tr>
@@ -75,23 +73,24 @@
                             Connect
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Forum</a>
+                            <a class="dropdown-item" href="/forum">Forum</a>
                             <a class="dropdown-item" href="#">Chatbox</a>
                             <a class="dropdown-item" href="#">Blog</a>
                         </div>
                     </li>
                 </ul>
-                <form class="form-inline">
-                    <i class="fa fa-search prefix"></i>
-                    <input class="form-control mr-sm-2" autocomplete="off" name="search" id="search" type="text" placeholder="Search" aria-label="Search">
-                </form>
 
-                <a href="{{ route('object.create') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix" aria-hidden="true"></i> Upload</a>
 
+                <ul style="list-style: none" class="form-inline">
+                    <form class="form-inline">
+                        <i class="fa fa-search prefix"></i>
+                        <input class="form-control mr-sm-2" autocomplete="off" name="search" id="search" type="text" placeholder="Search" aria-label="Search">
+                    </form>
+                    <a href="{{ route('object.create') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix" aria-hidden="true"></i> Upload</a>
                 @auth
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" style="">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->first_name." ".auth()->user()->last_name}} <span class="caret"></span>
+                            {{ Auth::user()->first_name}} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a href="{{ route('logout') }}"
@@ -106,9 +105,10 @@
                         </div>
                     </li>
                 @else
-                    <a href="/login" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a>
-                    <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-user-plus prefix" aria-hidden="true"></i> Register</a>
+                        <a href="/login" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a>
+                        <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-user-plus prefix" aria-hidden="true"></i> Register</a>
                 @endauth
+                </ul>
             </div>
         </div>
     </nav>
