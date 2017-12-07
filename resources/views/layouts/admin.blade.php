@@ -46,7 +46,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Dimento</b></span>
         </a>
@@ -141,10 +141,10 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class=" treeview">
-                    <a href="#">
+                    <a href="#dashboard">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              {{--<i class="fa fa-angle-left pull-right"></i>--}}
             </span>
                     </a>
                     <ul class="treeview-menu">
@@ -154,40 +154,33 @@
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-pie-chart"></i>
-                        <span>Charts</span>
+                        <span>Table Data</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                        <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-                        <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                        <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+
+                        <li><a href="#users"><i class="fa fa-circle-o"></i>Users</a></li>
+                        <li><a href="#models"><i class="fa fa-circle-o"></i>Models</a></li>
+                        <li><a href="#ads"><i class="fa fa-circle-o"></i>Advertisements</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-laptop"></i>
-                        <span>UI Elements</span>
+                        <i class="fa fa-user"></i>
+                        <span>Users</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                        <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                        <li><a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                        <li><a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                        <li><a href="pages/UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                        <li><a href="pages/UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Add</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Remove</a></li>
                     </ul>
                 </li>
 
-                <li class="header">LABELS</li>
-                <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-                <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -201,10 +194,7 @@
                 Dashboard
 
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
+
         </section>
 
         <!-- Main content -->
@@ -213,7 +203,7 @@
             @yield('content')
 
             <!-- Small boxes (Stat box) -->
-            <div class="row">
+            <div class="row" >
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-aqua">
@@ -225,7 +215,7 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#models" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -240,7 +230,7 @@
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#users" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -264,14 +254,14 @@
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3>{{ count($advertisements) }}</h3>
 
-                            <p>Unique Visitors</p>
+                            <p>Total Advertisements</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#ads" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -281,7 +271,7 @@
         <!-- /.content -->
 
         {{--registered users table--}}
-        <div class="box">
+        <div class="box" id="users">
             <div class="box-header">
                 <h3 class="box-title">Registered Users</h3>
             </div>
@@ -324,7 +314,7 @@
         <!-- /.box -->
         <br>
         {{--objects list table--}}
-        <div class="box">
+        <div class="box" id="models">
             <div class="box-header">
                 <h3 class="box-title">3D Models</h3>
             </div>
@@ -362,12 +352,59 @@
             <!-- /.box-body -->
         </div>
         <!-- /.box -->
+        <br>
+        {{--advertisements table--}}
+        <div class="box" id="ads">
+            <div class="box-header">
+                <h3 class="box-title">Advertisements</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example3" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Deadline</th>
+                        <th>Is accepted?</th>
+                        <th>Published on</th>
+                        <th>Published by</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($advertisements as $ad)
+                        <tr>
+                            <td>{{ $ad->title }}</td>
+                            <td>{{ $ad->description }}</td>
+                            <td>{{ $ad->deadline }}</td>
+                            <td>{{ $ad->accepted == 1?'Accepted': 'Not Accepted' }}</td>
+                            <td>{{ $ad->published_at }}</td>
+                            <td>{{ $ad->user_id }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Deadline</th>
+                        <th>Is accepted?</th>
+                        <th>Published on</th>
+                        <th>Published by</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        <br>
     </div>
 
     <!-- /.content-wrapper -->
     <footer class="main-footer">
 
-        <strong>Copyright &copy; 2017 <a href="/home">DbTraps</a></strong>
+        <strong>Copyright &copy; 2017 <a href="/">DbTraps</a></strong>
     </footer>
 
 
@@ -419,14 +456,29 @@
 <script src="/libs/admin/demo.js"></script>
 <script>
     $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
+        $('#example1').DataTable({
             'paging'      : true,
-            'lengthChange': false,
-            'searching'   : false,
+            'lengthChange': true,
+            'searching'   : true,
             'ordering'    : true,
             'info'        : true,
-            'autoWidth'   : false
+            'autoWidth'   : true
+    })
+        $('#example2').DataTable({
+            'paging'      : true,
+            'lengthChange': true,
+            'searching'   : true,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : true
+        })
+        $('#example3').DataTable({
+            'paging'      : true,
+            'lengthChange': true,
+            'searching'   : true,
+            'ordering'    : true,
+            'info'        : true,
+            'autoWidth'   : true
         })
     })
 </script>
