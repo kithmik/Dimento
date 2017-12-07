@@ -84,11 +84,16 @@
                 <form class="form-inline">
                     <i class="fa fa-search prefix"></i>
                     <input class="form-control mr-sm-2" autocomplete="off" name="search" id="search" type="text" placeholder="Search" aria-label="Search">
-                    <a href="/login" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a>
-                    <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-user-plus prefix" aria-hidden="true"></i> Register</a>
-
-                    <a href="{{ route('object.create') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix" aria-hidden="true"></i> Upload</a>
                 </form>
+
+                <a href="{{ route('object.create') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix" aria-hidden="true"></i> Upload</a>
+
+                @auth
+                <a href="/login" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a>
+                <a href="/register" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-user-plus prefix" aria-hidden="true"></i> Register</a>
+                @else
+
+                @endauth
             </div>
         </div>
     </nav>
