@@ -205,6 +205,9 @@
 <!--/.Content-->
 
 
+
+
+
 <script>
 
     var container, controls;
@@ -252,10 +255,10 @@
 
         });
 
-//        renderer = new THREE.WebGLRenderer({ alpha: true });
-//        renderer.setClearColor( 0x000000, 0 ); // the default
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setClearColor( 0x000000, 0 ); // the default
 
-        renderer = new THREE.WebGLRenderer();
+//        renderer = new THREE.WebGLRenderer();
 
         renderer.setPixelRatio( window.devicePixelRatio );
         // renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
@@ -286,83 +289,5 @@
 
     }
 </script>
-
-
-{{--<script>
-
-    //------------------------------------------------------------------------------------------------------------------
-    // A SceneJS minimal boilerplate to get you started
-    //
-    // Some resources you might need:
-    //
-    // Getting started: http://xeolabs.com/articles/scenejs-quick-start/
-    // Examples:        http://scenejs.org/examples/index.html
-    // Tutorials:       http://xeolabs.com
-    //
-    // Right, off you go - make something wicked!
-    //------------------------------------------------------------------------------------------------------------------
-
-
-    // Point SceneJS to the bundled plugins
-    SceneJS.setConfigs({
-        pluginPath:"/libs/scenejs/api/latest/plugins"
-    });
-
-
-    // Define scene
-    var scene = SceneJS.createScene({
-        // Link to our canvas element
-        canvasId:"intro-3d",
-        transparent: true,
-        nodes:[
-            {
-                type: "cameras/orbit",
-                yaw: -40,
-                pitch: -20,
-                zoom: 200,
-                zoomSensitivity: 20.0,
-
-
-                nodes: [
-
-                    // Move the raptor a bit to centre it
-                    {
-                        type: "translate", y: -30, z: -20,
-                        nodes: [
-                            {
-                                type: "texture",
-                                src: "/libs/scenejs/models/obj/raptor.jpg",
-
-                                nodes: [
-
-                                    // Import Wavefront .OBJ mesh
-                                    {
-                                        type: "import/obj",
-                                        src: "/libs/scenejs/models/obj/raptor.obj"
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    });
-
-
-    // On each frame, spin the teapot a little bit
-    scene.getNode("myRotate",
-        function (myRotate) {
-
-            var angle = 0;
-
-            scene.on("tick",
-                function () {
-                    myRotate.setAngle(angle += 0.5);
-                });
-        });
-
-</script>--}}
-
 
 @include('includes.footer')
