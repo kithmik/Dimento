@@ -15,7 +15,7 @@ class MobileAPIController extends Controller
 {
     
     public function getCSRF(){
-        return  json_encode(csrf_token());
+        return response(json_encode(csrf_token()), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin: *'));
     }
 
     public function register(Request $request){
