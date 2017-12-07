@@ -71,7 +71,7 @@ class MobileAPIController extends Controller
         }
         
     }
-    
+
     public function getObjects(){
         if (auth()->check()){
             $objects = Object::all();
