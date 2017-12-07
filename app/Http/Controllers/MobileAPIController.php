@@ -15,7 +15,7 @@ class MobileAPIController extends Controller
 {
     
     public function getCSRF(){
-        return csrf_token();
+        return  json_encode(csrf_token());
     }
 
     public function register(Request $request){
