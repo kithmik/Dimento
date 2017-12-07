@@ -1,3 +1,4 @@
 /.idea
 /public/libs/threejs/models/*
 storage/logs/laravel.log
+*.log

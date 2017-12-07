@@ -48,7 +48,7 @@
                                <h4 class="card-title">Education</h4>
                                <p class="card-text">Find 3D models of Education </p>
                                <div class="card-footer">
-                               <a href="#" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/Education" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
