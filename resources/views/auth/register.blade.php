@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="padding-top: 100px">
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
@@ -118,8 +118,8 @@
                                         <select name="type" id="type" class="mdb-select" required>
                                             <option value="" disabled selected>Choose your type </option>
                                             <option value="1">3D Model Designer</option>
-                                            <option value="2">Customer</option>
-                                            <option value="3">Business</option>
+                                            <option value="2">Individual Customer</option>
+                                            <option value="3">Business Organization</option>
                                         </select>
                                     </div>
                                 </div>
@@ -181,11 +181,18 @@
 
                             <br>
                             <div class="row">
-                                <div class="col-sm-3 col-xs-1"></div>
-                                <div class="col-sm-6 col-xs-1">
+                                <div class="col-sm-6 col-xs-1"></div>
+                                <div class="col-sm-3 col-xs-1">
                                     <div class="form-group">
-                                        <button type="submit" class="login btn btn-default black">
+                                        <button type="submit" class="btn btn-outline-elegant waves-effect btn-md">
                                             Register
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-1">
+                                    <div class="form-group">
+                                        <button type="reset" class="btn btn-outline-elegant waves-effect btn-md">
+                                            Reset
                                         </button>
                                     </div>
                                 </div>

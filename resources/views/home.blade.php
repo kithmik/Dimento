@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
+                <div class="panel-body" style="padding-top: 50px;">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}

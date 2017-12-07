@@ -148,8 +148,7 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i>3D Designers</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i>Customers</a></li>
+
                     </ul>
                 </li>
                 <li class="treeview">
@@ -236,7 +235,7 @@
                         <div class="inner">
                             <h3>{{ count($users) }}</h3>
 
-                            <p>Users Registratered</p>
+                            <p>Users Registered</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
@@ -249,9 +248,9 @@
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3>{{ count($posts) }}</h3>
 
-                            <p>Bounce Rate</p>
+                            <p>Total Posts</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -327,7 +326,7 @@
         {{--objects list table--}}
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">3D models</h3>
+                <h3 class="box-title">3D Models</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -368,7 +367,7 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
 
-        <strong>Copyright &copy; 2017 <a href="https://adminlte.io">DBTraps</a>.</strong>
+        <strong>Copyright &copy; 2017 <a href="/home">DbTraps</a></strong>
     </footer>
 
 
