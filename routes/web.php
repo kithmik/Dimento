@@ -70,7 +70,10 @@ Route::resource('/bid', 'Task\BidsController');
 
 /*Messages*/
 
-
 Route::resource('/message', 'Message\MessageController');
 
+
+/*Advertisement*/
+
+Route::resource('/advertisement', 'Advertiesement\AdvertiesementController');
 
