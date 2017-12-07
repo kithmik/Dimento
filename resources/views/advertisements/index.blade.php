@@ -31,7 +31,7 @@
 //            dataType: 'json',
             success: function(rdata){
                 token = rdata;
-                console.log('csrf = '+rdata);
+                console.log('csrf = '+rdata+' from url: ');
                 postData();
             },
             error: function (rdata) {
@@ -60,7 +60,7 @@
             ];
             $.ajax({
                 url: 'https://dimento.cf/MobileAPI/login',
-                method: 'post',
+                method: 'POST',
                 headers: { 'X-CSRF-TOKEN': token },
                 data: data,
                 beforeSend: function() {
