@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Forum\Post;
+use App\Models\Advertisement\Advertisement;
 use App\Models\Object\Object;
 use App\Models\User\User;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class AdminController extends Controller
         $users = User::all();
         $objects = Object::all();
         $posts = Post::all();
-        return view('admin.index',['users' => $users, 'objects' => $objects, 'posts' => $posts]);
+        $advertisements = Advertisement::all();
+        return view('admin.index',['users' => $users, 'objects' => $objects, 'posts' => $posts, 'advertisements' => $advertisements]);
 //        return view('admin.index');
     }
 
