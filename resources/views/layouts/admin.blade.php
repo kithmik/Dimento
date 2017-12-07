@@ -381,15 +381,15 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($users as $user)
                     <tr>
-                        @foreach($users as $user)
                             <td>{{ $user->first_name }}</td>
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->type == 1?'Designer':($user->type == 2?'Customer':($user->type == 3?'Business':'')) }}</td>
                             <td>{{ $user->phone }}</td>
-                        @endforeach
                     </tr>
+                    @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
