@@ -25,8 +25,8 @@
         // body...
 
         $.ajax({
-//            url: 'https://dimento.cf/get_csrf',
-            url: '/get_csrf',
+            url: 'https://dimento.cf/get_csrf',
+//            url: '/get_csrf',
             method: 'GET',
 //            dataType: 'json',
             success: function(rdata){
