@@ -53,9 +53,9 @@ class MobileAPIController extends Controller
     
     public function login(Request $request){
 
-        return response($request->all(), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'))
+       /* return response($request->all(), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'))
             ->header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS')
-            ->header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+            ->header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');*/
 
         $email = $request->email;
         $password = bcrypt($request->password);
