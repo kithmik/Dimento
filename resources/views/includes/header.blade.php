@@ -6,17 +6,17 @@
 
     <title>Dimento</title>
 
+    <!-- Styles -->
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="/libs/mdb4/css/bootstrap.css" rel="stylesheet">
-
     <!-- Material Design Bootstrap -->
-    <link href="/libs/mdb4/css/mdb.css" rel="stylesheet">
-
-    <!-- Material Design Bootstrap Extra-->
+    <link href="/libs/mdb4/css/mdb.min.css" rel="stylesheet">
+    <!-- compiled core CSS -->
     <link href="/libs/mdb4/css/compiled.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/libs/mdb4/css/style.css" rel="stylesheet">
 
     <!-- Template styles -->
     <style rel="stylesheet">
