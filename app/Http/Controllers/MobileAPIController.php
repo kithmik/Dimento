@@ -67,11 +67,14 @@ class MobileAPIController extends Controller
         if (count($user) == 1){
             auth()->login($user, true);
 
-            return response(json_encode(['status'=>1, 'data'=>['user'=>$user]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+//            return response(json_encode(['status'=>1, 'data'=>['user'=>$user]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+
+            return json_encode(['status'=>1, 'data'=>['user'=>$user]]);
+
         }
         
         else{
-            return response(json_encode(['status' => 0, 'data'=>"Error! These credentials do not match our records."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+            return json_encode(['status' => 0, 'data'=>"Error! These credentials do not match our records."]);
         }
         
     }
