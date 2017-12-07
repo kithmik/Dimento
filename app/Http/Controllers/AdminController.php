@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Forum\Post;
 use App\Models\Object\Object;
 use App\Models\User\User;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class AdminController extends Controller
         //
         $users = User::all();
         $objects = Object::all();
-        return view('admin.index',['users' => $users, 'objects' => $objects]);
+        $posts = Post::all();
+        return view('admin.index',['users' => $users, 'objects' => $objects, 'posts' => $posts]);
 //        return view('admin.index');
     }
 
