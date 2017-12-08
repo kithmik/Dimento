@@ -28,8 +28,6 @@ Route::get('/MobileAPI/show_forum_post/{id}', 'MobileAPIController@showForumPost
 
 /*User Profile*/
 
-
-
 Auth::routes();
 
 Route::get('/confirm/{code}', 'HomeController@confirm');

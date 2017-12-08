@@ -35,4 +35,22 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id'     => env('FACEBOOK_APP_ID', '117476952069259'),
+        'client_secret' => env('FACEBOOK_APP_SECRET', '5d91aa636b5eb202a7519a7ee8043cc3'),
+        'redirect'      => env('FACEBOOK_REDIRECT'),
+    ],
+
+    'twitter' => [
+        'client_id'     => env('TW_ID'),
+        'client_secret' => env('TW_SECRET'),
+        'redirect'      => env('TW_REDIRECT')
+    ],
+
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
+    ],
+
 ];

@@ -18,13 +18,25 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('profile_pic')->nullable();
+
             $table->string('phone', 15)->nullable();
+            $table->boolean('phone_privacy')->default(0);
+
             $table->date('dob')->nullable();
-            $table->unsignedInteger('type');
-            $table->boolean('mobile')->default(0);
+            $table->unsignedInteger('type')->default(1);
+
+            $table->integer('rating')->nullable();
+            $table->unsignedInteger('level')->default(0);
+
+//            $table->boolean('mobile')->default(0);
+
+
             $table->boolean('admin')->default(0);
             $table->string('confirmation_code')->nullable();
+
             $table->string('email')->unique();
+            $table->boolean('email_privacy')->default(0);
+
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

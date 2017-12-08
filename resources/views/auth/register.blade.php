@@ -183,19 +183,20 @@
                             <div class="row">
                                 <div class="col-sm-6 col-xs-1"></div>
                                 <div class="col-sm-3 col-xs-1">
+                                    <div class="col-sm-3 col-xs-1">
+                                        <div class="form-group">
+                                            <button type="reset" class="btn btn-outline-elegant waves-effect btn-md">
+                                                Reset
+                                            </button>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-outline-elegant waves-effect btn-md">
+                                        <button type="submit" class="btn btn-elegant waves-effect btn-md">
                                             Register
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-sm-3 col-xs-1">
-                                    <div class="form-group">
-                                        <button type="reset" class="btn btn-outline-elegant waves-effect btn-md">
-                                            Reset
-                                        </button>
-                                    </div>
-                                </div>
+
                             </div>
                         </form>
                     </div>
