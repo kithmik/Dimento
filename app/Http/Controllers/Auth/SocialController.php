@@ -78,7 +78,7 @@ class SocialController extends Controller
                 ->with('message', 'Something went wrong. Invalid Social Login Provider.');
         }
 
-//        dd($user);
+        //dd($user);
 
 //        return $user;
         $socialUser = null;
@@ -127,6 +127,7 @@ class SocialController extends Controller
 
                     if(!empty($user->user['birthday'])){
                         $Bdate=date_create_from_format("d/m/Y",$user->user['birthday']);
+                        //dd(date('Y-m-d', $user->user['birthday']));
                         $dob =  date_format($Bdate,"Y-m-d");
                         $newSocialUser->dob = $dob;
                     }
