@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Forum\Post;
 use App\Models\User\User;
+use App\Models\Object\Object;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,7 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $objects = Object::all();
+        $posts = Post::all();
+
+        return view('home',['objects' => $objects, 'posts' => $posts]);
     }
 
     public function confirm($code){
