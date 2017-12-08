@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Object;
 
+use App\Models\Advertisement\Advertisement;
 use App\Models\Object\Object;
 use App\Models\Object\ObjectView;
 use Illuminate\Http\Request;
@@ -23,7 +24,9 @@ class ObjectController extends Controller
      */
     public function index()
     {
-        return view('objects.index');
+        $objects = Object::all();
+
+        return view('objects.index',['objects' => $objects]);
     }
 
     /**
@@ -135,6 +138,8 @@ class ObjectController extends Controller
      */
     public function show($id)
     {
+        $ad = Advertisement::all();
+
         $object = Object::findOrFail($id);
 
         $object->incrementObjectViews(1);
@@ -147,7 +152,7 @@ class ObjectController extends Controller
         }
 
 //        $object = Object::where('id', $id)->get();
-        return view('objects.view', ['object' => $object]);
+        return view('objects.view', ['object' => $object , 'advertisement' => $ad]);
     }
 
     /**

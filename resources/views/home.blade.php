@@ -2,10 +2,64 @@
 @include('includes.header')
 @include('includes.navbar')
 
-<div class="container" style="padding-top: 50px">
-    <div class="row">
+<div class="container" style="padding-top: 30px">
 
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified black">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Objects</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Forum</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Advertisements</a>
+        </li>
+    </ul>
+    <!-- Tab panels -->
+    <div class="tab-content card">
+        <!--Panel 1-->
+        <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+            <br>
+            <div class="row">
+                @foreach($objects as $object)
+                    <div class="col-md-6">
+                        <!--Card-->
+                        <div class="card">
+                            <!--Card image-->
+                            <img class="img-fluid" src="{{$object->texture_location}}" alt="Card image cap">
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <h4 class="card-title">{{ $object->title }}</h4>
+                                <!--Text-->
+                                <p class="card-text" style="text-transform: capitalize">{{ $object->description }}</p>
+                                <a href="{{ route('object.show', $object->id) }}" target="_blank" class="btn btn-outline-elegant waves-effect btn-sm">View</a>
+                            </div>
+                        </div>
+                        <br>
+                        <!--/.Card-->
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+        <!--/.Panel 1-->
+        <!--Panel 2-->
+        <div class="tab-pane fade" id="panel2" role="tabpanel">
+            <br>
+
+        </div>
+        <!--/.Panel 2-->
+        <!--Panel 3-->
+        <div class="tab-pane fade" id="panel3" role="tabpanel">
+            <br>
+
+        </div>
+        <!--/.Panel 3-->
     </div>
+
+
 </div>
 
 
@@ -26,59 +80,3 @@
     new WOW().init();
 </script>
 
-{{--modal--}}
-<!--Modal: Contact form-->
-<div class="modal fade" id="more" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog cascading-modal" role="document">
-        <!--Content-->
-        <div class="modal-content">
-
-            <!--Header-->
-            <div class="modal-header blue-grey lighten-5">
-                <h4 class="title"><i class="fa fa-user"></i>User Info</h4>
-                <button type="button" class="close waves-effect waves-light black-text" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <!--Body-->
-            <div class="modal-body mb-0">
-                <p class="text-lg-left"><b>Name: </b> {{ Auth::user()->first_name.' '.auth()->user()->last_name}}</p>
-                <p class="text-lg-left">
-                    <b>Type: </b> {{ Auth::user()->type == 1?'Designer':(Auth::user()->type == 2?'Individual Customer':(Auth::user()->type == 3?'Business Organization':'')) }}
-                </p>
-                <p class="text-lg-left"><b>Phone Number: </b> {{ Auth::user()->phone}}</p>
-                <p class="text-lg-left"><b>Email: </b> {{ Auth::user()->email}}</p>
-                <p class="text-lg-left"><b>Date of
-                        Birth: </b> {{ \Carbon\Carbon::parse(Auth::user()->dob)->format('Y M d')}}</p>
-                <p class="text-lg-left"><b>Date
-                        Joined: </b>{{ \Carbon\Carbon::parse(Auth::user()->created_at)->format('Y M d')}}</p>
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<!--Modal: Contact form-->
-
-<script>
-    $(function () {
-        $('#data1').DataTable({
-            'paging': true,
-            'lengthChange': true,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': true
-        })
-        $('#data2').DataTable({
-            'paging': true,
-            'lengthChange': true,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': true
-        })
-    })
-
-
-</script>
