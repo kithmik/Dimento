@@ -53,8 +53,8 @@
 
 <script type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>
 
-<!-- Bootstrap dropdown -->
-<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
+{{--<!-- Bootstrap dropdown -->
+<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>--}}
 
 <script>
     new WOW().init();

@@ -18,20 +18,22 @@
 
                 <div class="card-body">
                     <!--Name-->
-                    <h4 class="card-title">{{ Auth::user()->first_name.' '.auth()->user()->last_name}}</h4>
+                    <h4 class="card-title">{{ $user->first_name.' '.$user->last_name}}</h4>
                     <hr>
                     <!--Quotation-->
-                    <p class="text-lg-left"><b>Type: </b> {{ Auth::user()->type == 1?'Designer':(Auth::user()->type == 2?'Individual Customer':(Auth::user()->type == 3?'Business Organization':'')) }}</p>
-                    <p class="text-lg-left"><b>Email: </b> {{ Auth::user()->email}}</p>
-                    <p class="text-lg-left"><b>Date Joined: </b>{{ \Carbon\Carbon::parse(Auth::user()->created_at)->format('Y M d')}}</p>
+                    <p class="text-lg-left"><b>Type: </b> {{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'')) }}</p>
+                    <p class="text-lg-left"><b>Email: </b> {{ $user->email}}</p>
+                    <p class="text-lg-left"><b>Date Joined: </b>{{ \Carbon\Carbon::parse($user->created_at)->format('Y M d')}}</p>
 
-                    {{--@auth--}}
-                        {{--@if(auth()->user()->id == $user->id)--}}
-                    {{--<button type="button" class="btn btn-outline-elegant waves-effect btn-sm" data-toggle="modal" data-target="#more">More</button>--}}
-                    {{--<button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Edit</button>--}}
-                    {{--<button type="button" class="btn btn-outline-elegant waves-effect btn-sm">Delete</button>--}}
-                        {{--@endif--}}
-                        {{--@endauth--}}
+                    @auth
+                        @if(auth()->user()->id == $user->id)
+                            <button type="button" class="btn btn-outline-elegant waves-effect btn-sm" data-toggle="modal" data-target="#more">More</button>
+                            <button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Edit</button>
+                            <button type="button" class="btn btn-outline-elegant waves-effect btn-sm">Delete</button>
+                        @else
+                            <button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Follow</button>
+                        @endif
+                    @endauth
                 </div>
             </div>
             <!--/.Card-->
@@ -96,12 +98,12 @@
                             </thead>
                             <tbody>
                             @foreach($posts as $post)
-                            <tr>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->category }}</td>
-                            <td>{{ $post->description }}</td>
-                            <td>{{ $post->created_at }}</td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $post->title }}</td>
+                                    <td>{{ $post->category }}</td>
+                                    <td>{{ $post->description }}</td>
+                                    <td>{{ $post->created_at }}</td>
+                                </tr>
                             @endforeach
                             </tbody>
                             <tfoot>

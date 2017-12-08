@@ -49,6 +49,7 @@ class ProfileController extends Controller
     {
         $user = User::findOrFail($id);
         return $user;
+        return view('user.view', ['user'=>$user]);
     }
 
     /**
