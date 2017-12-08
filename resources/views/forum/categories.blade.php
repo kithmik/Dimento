@@ -3,7 +3,7 @@
         <title>Dimento Forum</title>
 
         <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Font Awesome -->
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -61,7 +61,7 @@
                                <h4 class="card-title">Vehicles</h4>
                                <p class="card-text">Find 3D models of Vehicles </p>
                                <div class="card-footer">
-                               <a href="#" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/Vehicles" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                                <h4 class="card-title">Health</h4>
                                <p class="card-text">Find 3D models of Health </p>
                                <div class="card-footer">
-                               <a href="#" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/Health" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                             <h4 class="card-title">Art</h4>
                             <p class="card-text">Find 3D models of Art </p>
                             <div class="card-footer">
-                            <a href="#" class="btn btn-primary">Dive in</a>
+                            <a href="/forum/post/Art" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                                <h4 class="card-title">Gaming</h4>
                                <p class="card-text">Find 3D models of Gaming </p>
                                <div class="card-footer">
-                               <a href="#" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/Gaming" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                                <h4 class="card-title">Food</h4>
                                <p class="card-text">Find 3D models of Food</p>
                                <div class="card-footer">
-                               <a href="#" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/Food" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                                             <h4 class="card-title">Sports</h4>
                                             <p class="card-text">Find 3D models of Sports </p>
                                             <div class="card-footer">
-                                            <a href="#" class="btn btn-primary">Dive in</a>
+                                            <a href="/forum/post/Sports" class="btn btn-primary">Dive in</a>
                                        </div>
                                     </div>
                                 </div>
@@ -151,7 +151,7 @@
                                 <h4 class="card-title">Furniture</h4>
                                 <p class="card-text">Find 3D models of Furniture </p>
                                 <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Dive in</a>
+                                <a href="/forum/post/Furniture" class="btn btn-primary">Dive in</a>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                                 <h4 class="card-title">Technology</h4>
                                 <p class="card-text">Find 3D models of Technology </p>
                                 <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Dive in</a>
+                                <a href="/forum/post/Tehnology" class="btn btn-primary">Dive in</a>
                                 </div>
                             </div>
                         </div>
