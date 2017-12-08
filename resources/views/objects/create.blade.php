@@ -79,7 +79,7 @@
                                                             <div class="file-field">
                                                                 <div class="btn btn-elegant btn-sm">
                                                                     <span>Choose A Texture</span>
-                                                                    <input type="file" name="texture" id="texture">
+                                                                    <input type="file" name="texture[]" id="texture" multiple>
                                                                 </div>
                                                             {{--</div>--}}
                                                        {{-- </div>
@@ -260,7 +260,7 @@
                     '<div class="file-field"> ' +
                     '<div class="btn btn-elegant btn-sm"> ' +
                     '<span>Choose A Texture</span> ' +
-                    '<input type="file" name="textures[]" id="texture-' + i + '"> ' +
+                    '<input type="file" name="textures[]" id="texture-' + i + '" multiple> ' +
                     '</div> ' +
                     /*'</div> ' +*/
                     /*'</div> ' +*/

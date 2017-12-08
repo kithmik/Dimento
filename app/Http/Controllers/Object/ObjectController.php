@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Object;
 use App\Models\Object\Object;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ObjectController extends Controller
 {
@@ -57,15 +58,52 @@ class ObjectController extends Controller
 
         if ($request->hasFile('object')){
 
+            $path = "/public/models/main/$object->id";
+            Storage::makeDirectory($path);
+
             $object_file = $request->file('object');
-            $object_file_name = $object->id.".".$object_file->getClientOriginalExtension();
-            $object_file->storeAs("models/main/objects/", $object_file_name,'public');
+            $object_file_name = strtoupper($object_file->getClientOriginalName());
+
+
+            Storage::makeDirectory($path."/objects");
+            $object_file->storeAs("/models/main/$object->id/objects/", $object_file_name,'public');
+
+
+            Object::where('id', $object->id)
+                ->update([
+                    'object_location' => "/storage/models/main/$object->id/objects/".$object_file_name,
+                    //'texture_location' => "/storage/models/main/$object->id/textures/".$texture_file_name,
+                ]);
 
             $texture_file_name = null;
-            if ($request->hasFile('object')){
-                $texture_file = $request->file('texture');
-                $texture_file_name = $object->id.".".$texture_file->getClientOriginalExtension();
-                $texture_file->storeAs("models/main/textures/", $texture_file_name, 'public');
+            if ($request->hasFile('texture')){
+
+
+//                $texture_files = $request->textures;
+
+                $count = count($request->file('texture'));
+
+                Storage::makeDirectory($path."/textures");
+
+                /*for ($i = 0; $i < $count; $i++){
+                    $texture_file = $request->file('texture');
+                }*/
+
+                foreach ($request->file('texture') as $texture_file){
+
+                    $texture_file_name = strtoupper($texture_file->getClientOriginalName());
+
+                    $texture_file->storeAs("/models/main/$object->id/textures/", $texture_file_name, 'public');
+
+                    Object::where('id', $object->id)
+                        ->update([
+                           // 'object_location' => "/storage/models/main/$object->id/objects/".$object_file_name,
+                            'texture_location' => "/storage/models/main/$object->id/textures/".$texture_file_name,
+                        ]);
+
+                }
+
+
 
                 $msg .= "Object and textures were saved successfully";
 
@@ -73,8 +111,8 @@ class ObjectController extends Controller
 
             Object::where('id', $object->id)
                 ->update([
-                    'object_location' => "/models/main/objects/".$object_file_name,
-                    'texture_location' => "models/main/textures/".$texture_file_name,
+                    'object_location' => "/storage/models/main/$object->id/objects/".$object_file_name,
+                    'texture_location' => "/storage/models/main/$object->id/textures/".$texture_file_name,
                 ]);
 
         }
@@ -90,8 +128,8 @@ class ObjectController extends Controller
      */
     public function show($id)
     {
-//        $object = Object::findOrFail($id);
-        $object = Object::where('id', $id)->get();
+        $object = Object::findOrFail($id);
+//        $object = Object::where('id', $id)->get();
         return view('objects.view', ['object' => $object]);
     }
 
