@@ -34,5 +34,38 @@ class Object extends Model
         return Carbon::parse($this->attributes['created_at'])->format('d F Y, g:i:s a');
     }
 
+    public function getUserViewCount(){
+        return $this->view_count;
+    }
+
+    public function getUserReadCount(){
+        return $this->view_count;
+    }
+
+    public function avgRating(){
+        if(auth()->check()){
+            return Rating::where('object_id', $this->id)->avg('rating');
+        }
+    }
+
+    public function userReaction(){
+        if(auth()->check()){
+            return Rating::where(['user_id' => auth()->user()->id, 'object_id' => $this->id])->first();
+        }
+
+    }
+
+    public function getCommentsCount(){
+        return $this->comments()->count();
+    }
+
+    public function getLikesCount(){
+        return Rating::where(['object_id' => $this->id, 'status' => 1])->count();
+    }
+
+    public function getDisLikesCount(){
+        return Rating::where(['object_id' => $this->id, 'status' => 0])->count();
+    }
+
 
 }

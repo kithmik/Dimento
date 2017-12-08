@@ -42,7 +42,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/admin', 'AdminController');
 
 
-//Route::resource('/profile', 'User/ProfileController');
+Route::resource('/user', 'User\ProfileController');
 
 /*3D Model Object*/
 Route::resource('/object', 'Object\ObjectController');
