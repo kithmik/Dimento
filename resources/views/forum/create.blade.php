@@ -1,3 +1,17 @@
+<form action="{{ route('post.store') }}" method="POST">
+	{{ csrf_field() }}
+
+	<input type="text" name="title">
+	<textarea name="description" id="description" cols="30" rows="10"></textarea>
+
+	<select name="category" id="category">
+		<option value="a">a</option>
+		<option value="b">b</option>
+	</select>
+	<input type="submit" name="submit">
+</form>
+{{--
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,3 +145,4 @@
 
 </body>
 </html>
+--}}
