@@ -17,7 +17,8 @@ class CreateSocialLoginsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('provider');
-            $table->string('token')->nullable();
+            $table->string('social_id')->nullable();
+            $table->string('url')->nullable();
             $table->text('data')->nullable();
             $table->timestamps();
         });
