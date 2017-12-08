@@ -65,7 +65,15 @@ class MobileAPIController extends Controller
             ->get();
         
         if (count($user) == 1){
-            auth()->login($user, true);
+
+            try{
+                auth()->login($user, true);
+            }
+            catch (\Exception $exception){
+                return json_encode(['status' => 0, 'data'=>"Error! Something went wrong while the authentications."]);
+            }
+
+
 
 //            return response(json_encode(['status'=>1, 'data'=>['user'=>$user]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
 
