@@ -4,7 +4,7 @@
 
 <div class="container" style="padding-top: 50px">
     <div class="row">
-        
+
         <div class="col-md-8">
             <div class="card" style="height: 500px">
                 {{--objects list table--}}

@@ -27,10 +27,10 @@
 
                     @auth
                         @if(auth()->user()->id == $user->id)
-                            <button type="button" class="btn btn-outline-elegant waves-effect btn-sm" data-toggle="modal" data-target="#more">More</button>
                             <button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Edit</button>
                             <button type="button" class="btn btn-outline-elegant waves-effect btn-sm">Delete</button>
                         @else
+                            <button type="button" class="btn btn-outline-elegant waves-effect btn-sm" data-toggle="modal" data-target="#more">More</button>
                             <button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Follow</button>
                         @endif
                     @endauth
@@ -160,12 +160,12 @@
             </div>
             <!--Body-->
             <div class="modal-body mb-0">
-                <p class="text-lg-left"><b>Name: </b> {{ Auth::user()->first_name.' '.auth()->user()->last_name}}</p>
-                <p class="text-lg-left"><b>Type: </b> {{ Auth::user()->type == 1?'Designer':(Auth::user()->type == 2?'Individual Customer':(Auth::user()->type == 3?'Business Organization':'')) }}</p>
-                <p class="text-lg-left"><b>Phone Number: </b> {{ Auth::user()->phone}}</p>
-                <p class="text-lg-left"><b>Email: </b> {{ Auth::user()->email}}</p>
-                <p class="text-lg-left"><b>Date of Birth: </b> {{ \Carbon\Carbon::parse(Auth::user()->dob)->format('Y M d')}}</p>
-                <p class="text-lg-left"><b>Date Joined: </b>{{ \Carbon\Carbon::parse(Auth::user()->created_at)->format('Y M d')}}</p>
+                <p class="text-lg-left"><b>Name: </b> {{ $user->first_name.' '.$user->last_name}}</p>
+                <p class="text-lg-left"><b>Type: </b> {{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':(Auth::user()->type == 3?'Business Organization':'')) }}</p>
+                <p class="text-lg-left"><b>Phone Number: </b> {{ $user->phone}}</p>
+                <p class="text-lg-left"><b>Email: </b> {{ $user->email}}</p>
+                <p class="text-lg-left"><b>Date of Birth: </b> {{ \Carbon\Carbon::parse($user->dob)->format('Y M d')}}</p>
+                <p class="text-lg-left"><b>Date Joined: </b>{{ \Carbon\Carbon::parse($user->created_at)->format('Y M d')}}</p>
             </div>
         </div>
         <!--/.Content-->
