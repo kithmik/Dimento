@@ -5,93 +5,8 @@
 <div class="container" style="padding-top: 50px">
     <div class="row">
 
-        <div class="col-md-8">
-            <div class="card" style="height: 500px">
-                {{--objects list table--}}
-                <div class="box" id="">
-                    <div class="box-header">
-                        <h3 class="box-title">Objects Uploaded</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="data1" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Desc</th>
-                                <th>Posted On</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($objects as $object)
-                                <tr>
-                                    <td>{{ $object->title }}</td>
-                                    <td>{{ $object->category }}</td>
-                                    <td>{{ $object->description }}</td>
-                                    <td>{{ $object->created_at }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Desc</th>
-                                <th>Posted On</th>
-                            </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-                <hr>
-                {{--objects list table--}}
-                <div class="box" id="">
-                    <div class="box-header">
-                        <h3 class="box-title">Posts Posted</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table id="data2" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Desc</th>
-                                <th>Posted On</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($posts as $post)
-                            <tr>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->category }}</td>
-                            <td>{{ $post->description }}</td>
-                            <td>{{ $post->created_at }}</td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Desc</th>
-                                <th>Posted On</th>
-                            </tr>
-                            </tfoot>
-                        </table>
-                    </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-                <hr>
-            </div>
-        </div>
     </div>
 </div>
-
 
 
 <!-- SCRIPTS -->
@@ -121,18 +36,23 @@
             <!--Header-->
             <div class="modal-header blue-grey lighten-5">
                 <h4 class="title"><i class="fa fa-user"></i>User Info</h4>
-                <button type="button" class="close waves-effect waves-light black-text" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close waves-effect waves-light black-text" data-dismiss="modal"
+                        aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <!--Body-->
             <div class="modal-body mb-0">
                 <p class="text-lg-left"><b>Name: </b> {{ Auth::user()->first_name.' '.auth()->user()->last_name}}</p>
-                <p class="text-lg-left"><b>Type: </b> {{ Auth::user()->type == 1?'Designer':(Auth::user()->type == 2?'Individual Customer':(Auth::user()->type == 3?'Business Organization':'')) }}</p>
+                <p class="text-lg-left">
+                    <b>Type: </b> {{ Auth::user()->type == 1?'Designer':(Auth::user()->type == 2?'Individual Customer':(Auth::user()->type == 3?'Business Organization':'')) }}
+                </p>
                 <p class="text-lg-left"><b>Phone Number: </b> {{ Auth::user()->phone}}</p>
                 <p class="text-lg-left"><b>Email: </b> {{ Auth::user()->email}}</p>
-                <p class="text-lg-left"><b>Date of Birth: </b> {{ \Carbon\Carbon::parse(Auth::user()->dob)->format('Y M d')}}</p>
-                <p class="text-lg-left"><b>Date Joined: </b>{{ \Carbon\Carbon::parse(Auth::user()->created_at)->format('Y M d')}}</p>
+                <p class="text-lg-left"><b>Date of
+                        Birth: </b> {{ \Carbon\Carbon::parse(Auth::user()->dob)->format('Y M d')}}</p>
+                <p class="text-lg-left"><b>Date
+                        Joined: </b>{{ \Carbon\Carbon::parse(Auth::user()->created_at)->format('Y M d')}}</p>
             </div>
         </div>
         <!--/.Content-->
@@ -143,20 +63,20 @@
 <script>
     $(function () {
         $('#data1').DataTable({
-            'paging'      : true,
+            'paging': true,
             'lengthChange': true,
-            'searching'   : false,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : true
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
         })
         $('#data2').DataTable({
-            'paging'      : true,
+            'paging': true,
             'lengthChange': true,
-            'searching'   : false,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : true
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
         })
     })
 

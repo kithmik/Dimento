@@ -39,7 +39,8 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -63,30 +64,7 @@
 
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 10 notifications</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                                            page and may cause design problems
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
+
 
                         <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
@@ -108,9 +86,9 @@
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
+                                {{--<div class="pull-left">--}}
+                                {{--<a href="#" class="btn btn-default btn-flat">Profile</a>--}}
+                                {{--</div>--}}
                                 <div class="pull-right">
                                     <a href="#" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
@@ -200,10 +178,10 @@
         <!-- Main content -->
         <section class="content">
 
-            @yield('content')
+        @yield('content')
 
-            <!-- Small boxes (Stat box) -->
-            <div class="row" >
+        <!-- Small boxes (Stat box) -->
+            <div class="row">
                 <div class="col-lg-3 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-aqua">
@@ -215,7 +193,8 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#models" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#models" class="small-box-footer">More info <i
+                                    class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -280,22 +259,30 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
+                        <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Type</th>
                         <th>Phone</th>
+                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($users as $user)
-                    <tr>
+                        <tr>
+                            <td>{{ $user->id }}</td>
                             <td>{{ $user->first_name }}</td>
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'')) }}</td>
                             <td>{{ $user->phone }}</td>
-                    </tr>
+                            <td class="left">
+                                <a href="/user/{{ $user->id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                <i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br>
+                                <i class="fa fa-pencil" aria-hidden="true"> Edit</i>
+                            </td>
+                        </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
@@ -332,10 +319,10 @@
                     <tbody>
                     @foreach($objects as $object)
                         <tr>
-                            <td>{{ $object->title }}</td>
+                            <td><a href="/object/{{ $object->id}}">{{ $object->title }}</a></td>
                             <td>{{ $object->category }}</td>
                             <td>{{ $object->description }}</td>
-                            <td>{{ $object->user_d }}</td>
+                            <td>{{ $object->user_id }}</td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -374,7 +361,7 @@
                     <tbody>
                     @foreach($advertisements as $ad)
                         <tr>
-                            <td>{{ $ad->title }}</td>
+                            <td><a href="/advertisement/{{ $ad->id}}">{{ $ad->title }}</a></td>
                             <td>{{ $ad->description }}</td>
                             <td>{{ $ad->deadline }}</td>
                             <td>{{ $ad->accepted == 1?'Accepted': 'Not Accepted' }}</td>
@@ -457,28 +444,28 @@
 <script>
     $(function () {
         $('#example1').DataTable({
-            'paging'      : true,
+            'paging': true,
             'lengthChange': true,
-            'searching'   : true,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : true
-    })
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
+        })
         $('#example2').DataTable({
-            'paging'      : true,
+            'paging': true,
             'lengthChange': true,
-            'searching'   : true,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : true
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
         })
         $('#example3').DataTable({
-            'paging'      : true,
+            'paging': true,
             'lengthChange': true,
-            'searching'   : true,
-            'ordering'    : true,
-            'info'        : true,
-            'autoWidth'   : true
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
         })
     })
 </script>
