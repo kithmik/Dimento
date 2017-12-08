@@ -183,13 +183,13 @@
                             <div class="row">
                                 <div class="col-sm-6 col-xs-1"></div>
                                 <div class="col-sm-3 col-xs-1">
-                                    <div class="col-sm-3 col-xs-1">
-                                        <div class="form-group">
-                                            <button type="reset" class="btn btn-outline-elegant waves-effect btn-md">
-                                                Reset
-                                            </button>
-                                        </div>
+                                    <div class="form-group">
+                                        <button type="reset" class="btn btn-outline-elegant waves-effect btn-md">
+                                            Reset
+                                        </button>
                                     </div>
+                                </div>
+                                <div class="col-sm-3 col-xs-1">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-elegant waves-effect btn-md">
                                             Register
@@ -198,6 +198,34 @@
                                 </div>
 
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card-footer">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Connect With
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!--Facebook-->
+                                                <a href="/social/handle/facebook" class="icons-sm fb-ic"><i class="fa fa-facebook"> </i></a>
+                                                <!--Twitter-->
+                                            {{--<a class="icons-sm tw-ic"><i class="fa fa-twitter"> </i></a>--}}
+                                            <!--Google +-->
+                                                <a href="/social/handle/google" class="icons-sm gplus-ic"><i class="fa fa-google-plus"> </i></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </form>
                     </div>
                 </div>
