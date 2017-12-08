@@ -24,7 +24,7 @@ class CreateTasksTable extends Migration
             $table->unsignedBigInteger('freelancer_id')->nullable();
             $table->unsignedBigInteger('invoice_id')->nullable();
             $table->boolean('published')->default(0);
-            $table->dateTime('published_at');
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
