@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto smooth-scroll">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">
+                        <a class="nav-link" href="/home">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             Home
                         </a>

@@ -91,13 +91,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="" class="user-image" alt="User Image">
+                            <img src="/img/avatar.png" class="user-image" alt="User Image">
                             <span class="hidden-xs">Admin</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="" class="img-circle" alt="image">
+                                <img src="/img/avatar.png" class="img-circle" alt="image">
 
                                 <p>
                                     Administrator
@@ -293,7 +293,7 @@
                             <td>{{ $user->first_name }}</td>
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->type == 1?'Designer':($user->type == 2?'Customer':($user->type == 3?'Business':'')) }}</td>
+                            <td>{{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'')) }}</td>
                             <td>{{ $user->phone }}</td>
                     </tr>
                     @endforeach
