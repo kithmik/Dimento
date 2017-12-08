@@ -10,7 +10,7 @@
     </h1>--}}
 
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-8 mx-auto">
 
             <form action="{{ route('object.store') }}" method="post" enctype="multipart/form-data" id="obj-create-form"
                   name="obj-create-form">
@@ -104,7 +104,7 @@
                                 <div class="" id="extra-files-div"></div>
 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6 pull-left">
                                         <div class="md-form">
                                             <button type="button" id="add-more-btn"
                                                     class="btn btn-outline-elegant waves-effect btn-sm">
@@ -112,13 +112,19 @@
                                             </button>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-6 pull-right">
+                                        <a class="rotate-btn btn btn-elegant waves-effect btn-sm" data-card="card-1"><i
+                                                    class="fa fa-arrow-circle-right"></i> Next </a>
+                                    </div>
+
                                 </div>
 
 
                             {{--<p>Web developer</p>--}}
                             <!--Triggering button-->
-                                <a class="rotate-btn btn btn-outline-elegant waves-effect btn-sm" data-card="card-1"><i
-                                            class="fa fa-arrow-circle-right"></i> Next </a>
+
+
                             </div>
                         </div>
                         <!--/.Front Side-->
@@ -180,12 +186,20 @@
 
 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6 pull-right">
+                                        <!--Triggering button-->
+                                        <a class="rotate-btn btn btn-outline-elegant waves-effect btn-sm" data-card="card-1"><i
+                                                    class="fa fa-arrow-circle-left"></i> Back </a>
+                                    </div>
+
+                                    <div class="col-md-6 pull-left">
                                         <div class="md-form">
-                                            <input type="submit" class="btn btn-outline-elegant waves-effect btn-sm"
+                                            <input type="submit" class="btn btn-elegant waves-effect btn-sm"
                                                    name="submit" id="submit">
                                         </div>
                                     </div>
+
+
                                 </div>
 
 
@@ -199,9 +213,6 @@
                               <li><a class="icons-sm gplus-ic"><i class="fa fa-google-plus"></i></a></li>
                               <li><a class="icons-sm li-ic"><i class="fa fa-linkedin"></i></a></li>
                           </ul>--}}
-                        <!--Triggering button-->
-                            <a class="rotate-btn btn btn-outline-elegant waves-effect btn-sm" data-card="card-1"><i
-                                        class="fa fa-arrow-circle-left"></i> Back </a>
 
                         </div>
                         <!--/.Back Side-->
