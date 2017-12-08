@@ -16,11 +16,11 @@
             <div class="col-md-12">
                 <div class="row">
 
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-12" id="viewer-col-parent">
-                                <div class="card">
-                                    <div class="card-avatar">
+                            <div class="col-md-12" id="viewer-col-parent" style="min-height: 60%;">
+                                <div class="card hoverable">
+                                    <div class="card-image">
                                         <div id="object-view-div">
 
                                         </div>
@@ -28,23 +28,33 @@
 
                                     <div class="card-header">
                                         <div class="row">
-                                            <div class="col-md-12 pull-left">
+                                            <div class="col-md-12 pull-left d-inline-block">
                                                 <i class="fa fa-object-group" aria-hidden="true"></i>
-                                                Title
+
+                                                <h3 class="inline">
+                                                    {{ $object->title }}
+                                                </h3>
+
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                User
+                                                {{ $object->user->first_name." ".$object->user->last_name }}
                                             </div>
-                                            <div class="col-md-6 pull-right text-right">
+                                            <div class="col-md-6 pull-right text-right" title="{{ $object->getTimeAttr() }}">
                                                 <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                                Time
+                                                {{ $object->getAgeAttr() }}
                                             </div>
                                         </div>
 
+                                    </div>
+
+                                    <div class="card-body">
+                                        <p>
+                                            {{ $object->description }}
+                                        </p>
                                     </div>
 
                                 </div>
@@ -84,17 +94,22 @@
             scene = new THREE.Scene();
             scene.add( new THREE.HemisphereLight() );
 
+            scene.background = new THREE.Color( 0x778899 );
+
             var directionalLight = new THREE.DirectionalLight( 0xffeedd );
             directionalLight.position.set( 0, 0, 2 );
             scene.add( directionalLight );
 
+            var material = new THREE.MeshLambertMaterial();  // default color is 0xffffff
+
             //3ds files dont store normal maps
             var loader = new THREE.TextureLoader();
-            var normal = loader.load( '/models/3ds/portalgun/textures/normal.jpg' );
+            var normal = loader.load( '{{ $object->texture_location }}' );
 
             var loader = new THREE.TDSLoader( );
-            loader.setPath( '/models/3ds/portalgun/textures/' );
-            loader.load( '/models/3ds/portalgun/portalgun.3ds', function ( object ) {
+//            loader.setPath( '/models/3ds/portalgun/textures/' );
+            loader.setPath( '/storage/models/main/{{ $object->id }}/textures/' );
+            loader.load( '{{ $object->object_location }}', function ( object ) {
 
                 object.traverse( function ( child ) {
 
@@ -118,8 +133,16 @@
             // renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
 //            renderer.setSize( 400,250 );
 //            renderer.setSize(500, 300, true);
-            var div_ele = document.getElementById('viewer-col-parent');
-            renderer.setSize(500, 300);
+            /*var div_ele = document.getElementById('viewer-col-parent');
+            console.log(div_ele.width + " "+div_ele.offsetWidth);*/
+
+            var div_w = $('#object-view-div').innerWidth();
+            var div_h = $('#viewer-col-parent').innerHeight();
+
+            console.log(div_w + " "+div_h);
+
+            renderer.setSize(div_w, div_h);
+//            renderer.setSize(500, 500);
             container.appendChild( renderer.domElement );
 
             window.addEventListener( 'resize', resize, true );
@@ -128,11 +151,27 @@
 
         function resize() {
 
-            camera.aspect = 100;
-            //camera.aspect = window.innerWidth / window.innerHeight;
+//            camera.aspect = 100;
+            camera.aspect = window.innerWidth / window.innerHeight;
+
+//            camera.fov = ( 360 / Math.PI ) * Math.atan( tanFOV * ( window.innerHeight / windowHeight ) );
+
+
             camera.updateProjectionMatrix();
 
-            renderer.setSize( window.innerWidth, window.innerHeight );
+//            camera.lookAt( scene.position );
+//            var div_ele = document.getElementById('viewer-col-parent');
+
+            var div_w = $('#object-view-div').innerWidth();
+            var div_h = $('#viewer-col-parent').innerHeight();
+            renderer.setSize(div_w, div_h);
+
+//            renderer.render( scene, camera );
+//            renderer.setSize(500, 500, false);
+
+            window.addEventListener( 'resize', resize, true );
+
+//            renderer.setSize( window.innerWidth, window.innerHeight );
             // renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
 
         }
