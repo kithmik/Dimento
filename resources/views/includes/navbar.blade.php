@@ -25,12 +25,12 @@
                             Home
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link smooth-scroll-li" href="#features">
-                            <i class="fa fa-magic" aria-hidden="true"></i>
-                            Features
-                        </a>
-                    </li>
+                    {{--<li class="nav-item ">--}}
+                        {{--<a class="nav-link smooth-scroll-li" href="#features">--}}
+                            {{--<i class="fa fa-magic" aria-hidden="true"></i>--}}
+                            {{--Features--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle smooth-scroll-li" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-animation="false">
                             <i class="fa fa-wpexplorer" aria-hidden="true"></i>

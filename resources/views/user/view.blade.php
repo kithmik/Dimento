@@ -57,14 +57,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($objects as $object)
-                                <tr>
-                                    <td>{{ $object->title }}</td>
-                                    <td>{{ $object->category }}</td>
-                                    <td>{{ $object->description }}</td>
-                                    <td>{{ $object->created_at }}</td>
-                                </tr>
-                            @endforeach
+                            {{--@foreach($user->objects as $object)--}}
+                                {{--<tr>--}}
+                                    {{--<td>{{ $object->title }}</td>--}}
+                                    {{--<td>{{ $object->category }}</td>--}}
+                                    {{--<td>{{ $object->description }}</td>--}}
+                                    {{--<td>{{ $object->created_at }}</td>--}}
+                                {{--</tr>--}}
+                            {{--@endforeach--}}
                             </tbody>
                             <tfoot>
                             <tr>
@@ -97,14 +97,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($posts as $post)
-                                <tr>
-                                    <td>{{ $post->title }}</td>
-                                    <td>{{ $post->category }}</td>
-                                    <td>{{ $post->description }}</td>
-                                    <td>{{ $post->created_at }}</td>
-                                </tr>
-                            @endforeach
+                            {{--@foreach($user->posts as $post)--}}
+                                {{--<tr>--}}
+                                    {{--<td>{{ $post->title }}</td>--}}
+                                    {{--<td>{{ $post->category }}</td>--}}
+                                    {{--<td>{{ $post->description }}</td>--}}
+                                    {{--<td>{{ $post->created_at }}</td>--}}
+                                {{--</tr>--}}
+                            {{--@endforeach--}}
                             </tbody>
                             <tfoot>
                             <tr>

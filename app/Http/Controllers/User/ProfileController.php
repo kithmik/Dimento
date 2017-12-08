@@ -16,6 +16,7 @@ class ProfileController extends Controller
     public function index()
     {
         //
+        return "user lisr";
     }
 
     /**
@@ -48,7 +49,7 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return $user;
+//        return $user;
         return view('user.view', ['user'=>$user]);
     }
 

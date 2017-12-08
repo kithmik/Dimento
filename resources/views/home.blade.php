@@ -4,38 +4,7 @@
 
 <div class="container" style="padding-top: 50px">
     <div class="row">
-        <div class="col-md-4">
-            <!--Card-->
-            <div class="card testimonial-card">
-
-                <!--Bacground color-->
-                <div class="card-up grey lighten-3">
-                </div>
-
-                <!--Avatar-->
-                <div class="avatar"><img src="/img/avatar.png" class="rounded-circle">
-                </div>
-
-                <div class="card-body">
-                    <!--Name-->
-                    <h4 class="card-title">{{ Auth::user()->first_name.' '.auth()->user()->last_name}}</h4>
-                    <hr>
-                    <!--Quotation-->
-                    <p class="text-lg-left"><b>Type: </b> {{ Auth::user()->type == 1?'Designer':(Auth::user()->type == 2?'Individual Customer':(Auth::user()->type == 3?'Business Organization':'')) }}</p>
-                    <p class="text-lg-left"><b>Email: </b> {{ Auth::user()->email}}</p>
-                    <p class="text-lg-left"><b>Date Joined: </b>{{ \Carbon\Carbon::parse(Auth::user()->created_at)->format('Y M d')}}</p>
-
-                    {{--@auth--}}
-                        {{--@if(auth()->user()->id == $user->id)--}}
-                    {{--<button type="button" class="btn btn-outline-elegant waves-effect btn-sm" data-toggle="modal" data-target="#more">More</button>--}}
-                    {{--<button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Edit</button>--}}
-                    {{--<button type="button" class="btn btn-outline-elegant waves-effect btn-sm">Delete</button>--}}
-                        {{--@endif--}}
-                        {{--@endauth--}}
-                </div>
-            </div>
-            <!--/.Card-->
-        </div>
+        
         <div class="col-md-8">
             <div class="card" style="height: 500px">
                 {{--objects list table--}}
