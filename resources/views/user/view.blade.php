@@ -70,7 +70,7 @@
                                     <tbody>
                                     @foreach($user->objects as $object)
                                         <tr>
-                                            <td>{{ $object->title }}</td>
+                                            <td><a href="/object/{{ $object->id}}">{{ $object->title }}</a></td>
                                             <td>{{ $object->category }}</td>
                                             <td>{{ $object->description }}</td>
                                             <td>{{ $object->created_at }}</td>
