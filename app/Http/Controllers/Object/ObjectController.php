@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Object;
 
 use App\Models\Object\Object;
+use App\Models\Object\ObjectView;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -44,7 +45,7 @@ class ObjectController extends Controller
     public function store(Request $request)
     {
 
-        $privacy =
+//        $privacy =
 
         $object = new Object;
         $object->title = $request->input('title');
@@ -115,9 +116,15 @@ class ObjectController extends Controller
                     'texture_location' => "/storage/models/main/$object->id/textures/".$texture_file_name,
                 ]);
 
+            return redirect()->to('/object/'.$object->id);
+
         }
 
-        return response($msg, 200);
+        else{
+            $object->forceDelete();
+        }
+
+//        return response($msg, 200);
     }
 
     /**
@@ -129,6 +136,16 @@ class ObjectController extends Controller
     public function show($id)
     {
         $object = Object::findOrFail($id);
+
+        $object->incrementObjectViews(1);
+
+        if(auth()->check()){
+            ObjectView::updateOrCreate(
+                ['object_id' => $object->id, 'user_id'=>auth()->user()->id],
+                ['opened' => 1]
+            );
+        }
+
 //        $object = Object::where('id', $id)->get();
         return view('objects.view', ['object' => $object]);
     }

@@ -112,14 +112,14 @@
                                                     <span class="m-0 d-inline-block blue-grey-text">
                             <a type="button" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Likes: {{ $object->getLikesCount() }}" data-id="{{ $object->id }}" data-status="1" data-current="{{ $object->userReaction()['status'] or '' }}" class="icons-sm like-thumb m-0 like-thumb-up">
                                 <i class="fa {{ $object->userReaction()['status'] === 1?'fa-thumbs-up':'fa-thumbs-o-up' }}"> </i>
-                            </a>.
-                            <span class="like-count" data-id="{{ $object->id }}">
+                            </a>
+                            <span class="like-count badge badge-default" data-id="{{ $object->id }}">
                                 {{ $object->getLikesCount() }}
                             </span>|
                             <a type="button" data-toggle="tooltip" data-placement="bottom" data-animation="false" title="Dislikes: {{ $object->getDisLikesCount() }}" data-id="{{ $object->id }}" data-status="0" data-current="{{ $object->userReaction()['status'] or '' }}" class="icons-sm like-thumb m-0 like-thumb-down">
                                 <i class="fa {{ $object->userReaction()['status'] === 0?'fa-thumbs-down':'fa-thumbs-o-down' }}"> </i>
-                            </a>.
-                            <span class="dislike-count" data-id="{{ $object->id }}">
+                            </a>
+                            <span class="dislike-count badge badge-warning" data-id="{{ $object->id }}">
                                 {{ $object->getDisLikesCount() }}
                             </span>
                         </span>
@@ -197,7 +197,7 @@
             scene = new THREE.Scene();
             scene.add( new THREE.HemisphereLight() );
 
-            scene.background = new THREE.Color( 0x778899 );
+            scene.background = new THREE.Color( 0x607d8b );
 
             var directionalLight = new THREE.DirectionalLight( 0xffeedd );
             directionalLight.position.set( 0, 0, 2 );

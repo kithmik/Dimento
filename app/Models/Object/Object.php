@@ -25,9 +25,7 @@ class Object extends Model
 
     public function getAgeAttr()
     {
-//        return Carbon::createFromTimestamp(strtotime($this->attributes['created_at']))
         return Carbon::parse($this->attributes['created_at'])->diffForHumans();
-//        return Carbon::parse($this->attributes['created_at'])->age;
     }
 
     public function getTimeAttr(){
@@ -39,7 +37,7 @@ class Object extends Model
     }
 
     public function getUserReadCount(){
-        return $this->view_count;
+        return ObjectView::where(['object_id' => $this->id, 'opened' => 1])->count();
     }
 
     public function avgRating(){
@@ -65,6 +63,40 @@ class Object extends Model
 
     public function getDisLikesCount(){
         return Rating::where(['object_id' => $this->id, 'status' => 0])->count();
+    }
+
+
+
+    public function incrementObjectViews($opened = 0)
+    {
+        if (auth()->check()){
+
+            $last_read = ObjectView::where(['object_id' => $this->id, 'user_id' => auth()->user()->id])->orderBy('updated_at', 'desc')->first();
+            if (count($last_read)){
+                $last_read_time = new Carbon($last_read->updated_at);
+                if (Carbon::now()->diffInSeconds($last_read_time) < 10){
+                    return;
+                }
+            }
+
+
+            $userPostView = new ObjectView;
+            $userPostView->object_id = $this->id;
+            $userPostView->user_id = auth()->user()->id;
+
+            if ($opened == 1){
+                $userPostView->opened = 1;
+            }
+            else{
+                $userPostView->opened = 0;
+            }
+            $userPostView->save();
+        }
+        else{ /*Post::where('id', $this->id)->update(['public_views' => $this->public_views], ['timestamps' => false]);*/
+            $this->timestamps = false;
+            $this->increment('view_count');
+        }
+
     }
 
 
