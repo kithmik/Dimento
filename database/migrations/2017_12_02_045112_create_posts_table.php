@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('category')->default('Other');
             $table->string('title');
             $table->text('description')->nullable();
+            $table->unsignedBigInteger('view_count')->default(0);
             $table->timestamps();
             $table->softDeletes();
 

@@ -349,8 +349,6 @@ class ComposerStaticInite0a1b1675a1f3da9280be6c9b13a7864
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\Forum\\Post' => __DIR__ . '/../..' . '/app/Forum/Post.php',
-        'App\\Forum\\Reply' => __DIR__ . '/../..' . '/app/Forum/Reply.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Advertiesement\\AdvertiesementController' => __DIR__ . '/../..' . '/app/Http/Controllers/Advertiesement/AdvertiesementController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -382,6 +380,9 @@ class ComposerStaticInite0a1b1675a1f3da9280be6c9b13a7864
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Mail\\ConfirmRegistration' => __DIR__ . '/../..' . '/app/Mail/ConfirmRegistration.php',
         'App\\Models\\Advertisement\\Advertisement' => __DIR__ . '/../..' . '/app/Models/Advertisement/Advertisement.php',
+        'App\\Models\\Forum\\Post' => __DIR__ . '/../..' . '/app/Models/Forum/Post.php',
+        'App\\Models\\Forum\\Rating' => __DIR__ . '/../..' . '/app/Models/Forum/Rating.php',
+        'App\\Models\\Forum\\Reply' => __DIR__ . '/../..' . '/app/Models/Forum/Reply.php',
         'App\\Models\\Message\\Message' => __DIR__ . '/../..' . '/app/Models/Message/Message.php',
         'App\\Models\\Object\\Comment' => __DIR__ . '/../..' . '/app/Models/Object/Comment.php',
         'App\\Models\\Object\\Object' => __DIR__ . '/../..' . '/app/Models/Object/Object.php',

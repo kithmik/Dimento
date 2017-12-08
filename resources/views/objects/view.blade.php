@@ -22,10 +22,10 @@
                                 <div class="card hoverable">
 
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-9">
 
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-3">
                                             @if(auth()->check())
                                                 <div class="col-md-2 mr-auto right-aligned text-right">
                                                     <div class="dropdown">
