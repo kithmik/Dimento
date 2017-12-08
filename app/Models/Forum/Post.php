@@ -19,9 +19,6 @@ class Post extends Model
         return $this->belongsTo('App\Models\Forum\Reply');
     }
 
-    public function comments(){
-        return $this->hasMany('App\Models\Forum\Reply');
-    }
 
     public function ratings(){
         return $this->hasMany('App\Models\Forum\Rating');

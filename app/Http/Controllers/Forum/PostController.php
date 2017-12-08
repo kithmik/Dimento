@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Forum;
 use App\Models\Forum\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -16,22 +17,6 @@ class PostController extends Controller
     public function getPosts($category){
         $posts = post::where('category', $category)->get();
         return view('forum.index', ['posts' => $posts]);
-
-        $validator = Validator::make($request->all(), [
-            'email' => 'reqired',
-            'description' => 'required',
-            ]);
-        if ($validator->fails()) {
-            return redirect('forum/categories')
-                        ->withErrors($validator)
-                        ->withInput();
-
-        $create = new Inquiry;
-        $create->email = $request->input('email'); 
-        $create->description = $request->input('description'); 
-
-        $create->save();
-        }
     }    
 
     /**
@@ -65,6 +50,25 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+            'category' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect('foInquiryrum/categories')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->description  = $request->input('description');
+        $post->category = $request->input('category');
+        $post->user_id = auth()->user()->id;
+        $post->save();
+
+        return redirect()->to('post/'.$post->id);
     }
 
     /**
@@ -75,7 +79,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('forum.view', ['post' => $post]);
     }
 
     /**
