@@ -58,15 +58,15 @@
                                             <div class="row">
                                                 <div class="col-md-12 ">
                                                     <div class="row">
-                                                        <div class="col-md-5">
+                                                        {{--<div class="col-md-5">--}}
                                                             <div class="file-field">
                                                                 <div class="btn btn-elegant btn-sm">
                                                                     <span>Choose A 3D object file</span>
                                                                     <input type="file" name="object" id="object">
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-7">
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="col-md-7">--}}
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text"
                                                                        placeholder=".3ds, .obj, .md2">
@@ -75,15 +75,15 @@
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-md-5">
+                                                        {{--<div class="col-md-5">--}}
                                                             <div class="file-field">
                                                                 <div class="btn btn-elegant btn-sm">
                                                                     <span>Choose A Texture</span>
                                                                     <input type="file" name="texture" id="texture">
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-7">
+                                                            {{--</div>--}}
+                                                       {{-- </div>
+                                                        <div class="col-md-7">--}}
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text"
                                                                        placeholder=".jpg, .png">
@@ -241,30 +241,30 @@
                     '<div class="row"> ' +
                         '<div class="col-md-10"> ' +
                             '<div class="row"> ' +
-                            '<div class="col-md-5"> ' +
+                            /*'<div class="col-md-5"> ' +*/
                                 '<div class="file-field"> ' +
                                 '<div class="btn btn-elegant btn-sm"> ' +
                                     '<span>Choose A 3D object file</span> ' +
                                     '<input type="file" name="objects[]" id="objects-' + i + '"> ' +
                                 '</div> ' +
-                                '</div> ' +
-                            '</div> ' +
-                            '<div class="col-md-7">' +
+                                /*'</div> ' +*/
+                            /*'</div> ' +*/
+                           /* '<div class="col-md-7">' +*/
                                 '<div class="file-path-wrapper"> ' +
                                 '<input class="file-path validate" type="text" placeholder=".3ds, .obj, .md2"> ' +
                                 '</div> ' +
                             '</div>'+
                             '</div> ' +
                     '<div class="row"> ' +
-                    '<div class="col-md-5"> ' +
+                   /* '<div class="col-md-5"> ' +*/
                     '<div class="file-field"> ' +
                     '<div class="btn btn-elegant btn-sm"> ' +
                     '<span>Choose A Texture</span> ' +
                     '<input type="file" name="textures[]" id="texture-' + i + '"> ' +
                     '</div> ' +
-                    '</div> ' +
-                    '</div> ' +
-                    '<div class="col-md-7">' +
+                    /*'</div> ' +*/
+                    /*'</div> ' +*/
+                    /*'<div class="col-md-7">' +*/
                     '<div class="file-path-wrapper"> ' +
                     '<input class="file-path validate" type="text" placeholder=".jpg, .png"> ' +
                     '</div> ' +
