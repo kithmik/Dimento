@@ -39,7 +39,7 @@
 
     <!-- SCRIPTS -->
 <!-- Bootstrap dropdown -->
-<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
+{{--<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>--}}
 
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="/libs/mdb4/js/bootstrap.min.js"></script>

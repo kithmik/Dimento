@@ -17,7 +17,7 @@ class CreateObjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description')->nullable();
-            $table->string('texture_location')->nullabel();
+            $table->string('texture_location')->nullable();
             $table->string('object_location')->nullable();
             $table->string('category')->defult('other');
             $table->unsignedBigInteger('user_id');
