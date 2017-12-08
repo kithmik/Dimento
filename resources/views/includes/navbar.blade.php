@@ -5,6 +5,7 @@
     body{
         padding-top: 65px;
     }
+
 </style>
 
 
@@ -25,12 +26,6 @@
                             Home
                         </a>
                     </li>
-                    {{--<li class="nav-item ">--}}
-                        {{--<a class="nav-link smooth-scroll-li" href="#features">--}}
-                            {{--<i class="fa fa-magic" aria-hidden="true"></i>--}}
-                            {{--Features--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle smooth-scroll-li" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-animation="false">
                             <i class="fa fa-wpexplorer" aria-hidden="true"></i>
@@ -88,12 +83,13 @@
                     </form>
                     <a href="{{ route('object.create') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix" aria-hidden="true"></i> Upload</a>
                 @auth
-                    <li class="nav-item dropdown" style="">
+                    <li class="nav-item btn-group" style="">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->first_name}} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a href="{{ route('logout') }}"
+                            <a href="/user/{{ Auth::user()->id}}" class="dropdown-item ex-a">Profile</a>
+                            <a href="{{ route('logout') }}"  class="dropdown-item"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 Logout
@@ -102,6 +98,7 @@
                                   style="display: none;">
                                 {{ csrf_field() }}
                             </form>
+
                         </div>
                     </li>
                 @else
