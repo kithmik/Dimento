@@ -20,19 +20,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto smooth-scroll">
                     <li class="nav-item">
-                        <a class="nav-link" href="/home">
+                        <a class="nav-link ex-a" href="/home">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             Home
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">
+                    <li class="nav-item ">
+                        <a class="nav-link smooth-scroll-li" href="#features">
                             <i class="fa fa-magic" aria-hidden="true"></i>
                             Features
                         </a>
                     </li>
                     <li class="nav-item btn-group">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-animation="false">
+                        <a class="nav-link dropdown-toggle smooth-scroll-li" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-animation="false">
                             <i class="fa fa-wpexplorer" aria-hidden="true"></i>
                             Explore
                         </a>
@@ -68,12 +68,12 @@
                         </div>
                     </li>
                     <li class="nav-item btn-group">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle smooth-scroll-li" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-users" aria-hidden="true"></i>
                             Connect
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/forum">Forum</a>
+                            <a class="dropdown-item ex-a" href="/forum">Forum</a>
                             <a class="dropdown-item" href="#">Chatbox</a>
                             <a class="dropdown-item" href="#">Blog</a>
                         </div>
@@ -118,7 +118,7 @@
     <script>
         $(function(){
             //SMOOTH SCROLL
-            $(".smooth-scroll").on('click', 'a', function(event) {
+            $(".smooth-scroll").on('click', 'a.smooth-scroll-li', function(event) {
                 event.preventDefault();
                 var elAttr		= $(this).attr('href');
                 var offset		= ($(this).attr('data-offset') ? $(this).attr('data-offset') : 0);
@@ -129,6 +129,12 @@
                 $('body,html').animate({
                     scrollTop: $(elAttr).offset().top - offset
                 }, 700);
+            });
+
+            $('.ex-a').click(function (e) {
+                e.preventDefault();
+
+                window.location.href = $(this).attr('href');
             });
 
         });

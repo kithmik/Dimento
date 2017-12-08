@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Forum\Post;
+use App\Models\Forum\Post;
 use App\Models\Advertisement\Advertisement;
 use App\Models\Object\Object;
 use App\Models\User\User;
