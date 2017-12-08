@@ -8,8 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
-    'App\\Forum\\Post' => $baseDir . '/app/Forum/Post.php',
-    'App\\Forum\\Reply' => $baseDir . '/app/Forum/Reply.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\Advertiesement\\AdvertiesementController' => $baseDir . '/app/Http/Controllers/Advertiesement/AdvertiesementController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -41,6 +39,9 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Mail\\ConfirmRegistration' => $baseDir . '/app/Mail/ConfirmRegistration.php',
     'App\\Models\\Advertisement\\Advertisement' => $baseDir . '/app/Models/Advertisement/Advertisement.php',
+    'App\\Models\\Forum\\Post' => $baseDir . '/app/Models/Forum/Post.php',
+    'App\\Models\\Forum\\Rating' => $baseDir . '/app/Models/Forum/Rating.php',
+    'App\\Models\\Forum\\Reply' => $baseDir . '/app/Models/Forum/Reply.php',
     'App\\Models\\Message\\Message' => $baseDir . '/app/Models/Message/Message.php',
     'App\\Models\\Object\\Comment' => $baseDir . '/app/Models/Object/Comment.php',
     'App\\Models\\Object\\Object' => $baseDir . '/app/Models/Object/Object.php',
