@@ -29,8 +29,8 @@
                             <!--Card content-->
                             <div class="card-body" style="padding-top: 95px; padding-left: 100px">
                                 <!--Text-->
-                                <p class="card-text">Completing the bridge among 3D modelers and customers</p>
-                                <a href="{{ route('object.index') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm">Explore Models</a>
+                                <p class="card-text">Dimento is a platform to publish, share and discover 3D models.</p>
+                                <a href="{{ route('object.index') }}" type="button" class="btn btn-outline-elegant waves-effect btn-sm">Start Here</a>
                             </div>
                         </div>
                     </div>

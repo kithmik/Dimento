@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Forum;
 
-use App\Forum\Post;
+use App\Models\Forum\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,8 +14,24 @@ class PostController extends Controller
     }
 
     public function getPosts($category){
-        $posts = Post::where('category', $category)->get();
+        $posts = post::where('category', $category)->get();
         return view('forum.index', ['posts' => $posts]);
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'reqired',
+            'description' => 'required',
+            ]);
+        if ($validator->fails()) {
+            return redirect('forum/categories')
+                        ->withErrors($validator)
+                        ->withInput();
+
+        $create = new Inquiry;
+        $create->email = $request->input('email'); 
+        $create->description = $request->input('description'); 
+
+        $create->save();
+        }
     }    
 
     /**

@@ -37,4 +37,6 @@ class Post extends Model
     public function getTimeAttr(){
         return Carbon::parse($this->attributes['created_at'])->format('d F Y, g:i:s a');
     }
+
+  
 }
