@@ -13,7 +13,7 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light blue-grey lighten-5 fixed-top scrolling-navbar">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="/img/logo.png" height="30" class="d-inline-block align-top" alt=""></a>
+            <a class="navbar-brand" href="/"><img src="/img/logo.png" height="50" style="padding-top: 10px" class="d-inline-block align-top" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
