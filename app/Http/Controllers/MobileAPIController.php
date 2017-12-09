@@ -54,7 +54,7 @@ class MobileAPIController extends Controller
     
     public function login(Request $request){
 
-        return json_encode($request->all());
+//        return json_encode($request->all());
 
 //        dd(bcrypt($request->password));
        /* return response($request->all(), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'))
