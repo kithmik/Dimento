@@ -72,7 +72,8 @@
                                     <tbody>
                                     @foreach($user->objects as $object)
                                         <tr>
-                                            <td><a href="{{ route('object.show', $object->id) }}" target="_blank">{{ $object->title }}</a></td>
+                                            <td><a href="{{ route('object.show', $object->id) }}"
+                                                   target="_blank">{{ $object->title }}</a></td>
                                             <td>{{ $object->category }}</td>
                                             <td>{{ $object->description }}</td>
                                             <td>{{ $object->created_at }}</td>
@@ -92,7 +93,7 @@
                             <!-- /.box-body -->
                         </div>
                         <!-- /.box -->
-                    @elseif($user->type == 2)
+                    @elseif($user->type == 2 || $user->type == 3)
                         {{-- check whether customer--}}
 
                         {{--jobs list table--}}
@@ -264,7 +265,8 @@
                     <div class="md-form">
                         <div class="row">
                             <div class="col-sm-12">
-                                <input name="first_name" type="text" id="first-name" class="form-control validate" value="{{ auth()->user()->first_name }}">
+                                <input name="first_name" type="text" id="first-name" class="form-control validate"
+                                       value="{{ auth()->user()->first_name }}">
                                 <label data-error="" data-success="" for="first-name">First name</label>
                             </div>
                         </div>
@@ -272,7 +274,8 @@
                     <div class="md-form">
                         <div class="row">
                             <div class="col-sm-12">
-                                <input name="last_name" type="text" id="last-name" class="form-control validate" value="{{ auth()->user()->last_name }}">
+                                <input name="last_name" type="text" id="last-name" class="form-control validate"
+                                       value="{{ auth()->user()->last_name }}">
                                 <label data-error="" data-success="" for="last-name">Last Name</label>
                             </div>
                         </div>
@@ -290,11 +293,13 @@
                     <div class="md-form">
                         <div class="row">
                             <div class="col-sm-7">
-                                <input name="phone" type="text" id="telephone" class="form-control validate" value="{{ auth()->user()->phone }}">
+                                <input name="phone" type="text" id="telephone" class="form-control validate"
+                                       value="{{ auth()->user()->phone }}">
                                 <label data-error="" data-success="" for="telephone">Telephone</label>
                             </div>
                             <div class="col-sm-5">
-                                <input name="phone_privacy" {{ $user->phone_privacy?'checked':'' }} type="checkbox" id="telephone_privacy">
+                                <input name="phone_privacy" {{ $user->phone_privacy?'checked':'' }} type="checkbox"
+                                       id="telephone_privacy">
                                 <label for="telephone_privacy" class="grey-text">Private</label>
                             </div>
                         </div>
@@ -303,7 +308,8 @@
                     <div class="md-form">
                         <div class="row">
                             <div class="col-sm-12">
-                                <input type="text" id="dob" class="form-control validate" value="{{ auth()->user()->dob }}">
+                                <input type="text" id="dob" class="form-control validate"
+                                       value="{{ auth()->user()->dob }}">
                                 <label class="datepicker" data-error="" data-success="" for="dob">Date of Birth</label>
                             </div>
                         </div>
@@ -312,11 +318,13 @@
                     <div class="md-form">
                         <div class="row">
                             <div class="col-sm-7">
-                                <input name="email" type="text" id="email" class="form-control validate" value="{{ auth()->user()->email }}" disabled="">
+                                <input name="email" type="text" id="email" class="form-control validate"
+                                       value="{{ auth()->user()->email }}" disabled="">
                                 <label data-error="" data-success="" for="email">Email</label>
                             </div>
                             <div class="col-sm-5">
-                                <input name="email_privacy" {{ $user->email_privacy?'checked':'' }} type="checkbox" id="email_privacy">
+                                <input name="email_privacy" {{ $user->email_privacy?'checked':'' }} type="checkbox"
+                                       id="email_privacy">
                                 <label for="email_privacy" class="grey-text">Private</label>
                             </div>
                         </div>
@@ -357,7 +365,7 @@
 </script>
 <script>
     // Material Select Initialization
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.mdb-select').material_select();
     });
     // Data Picker Initialization

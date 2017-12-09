@@ -51,7 +51,7 @@ class TaskController extends Controller
             'time'=>'required'
         ]);
         if ($validator->fails()) {
-            return redirect('advertisement/create')
+            return redirect('/task/create')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -85,7 +85,7 @@ class TaskController extends Controller
     public function show($id)
     {
         $task = Task::findOrFail($id);
-        return view('task.view', ['task' => $task]);
+        return view('tasks.view', ['task' => $task]);
     }
 
     /**
@@ -97,7 +97,7 @@ class TaskController extends Controller
     public function edit($id)
     {
         $task = Task::findOrFail($id);
-        return view('task.edit', ['task' => $task]);
+        return view('tasks.edit', ['task' => $task]);
     }
 
     /**
