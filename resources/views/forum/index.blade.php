@@ -1,12 +1,25 @@
+
 @foreach($posts as $post)
-    {{ $post->id }}
-    {{ $post }}
+{{ $post->title }}
+{{ $post->description}}
 @endforeach
+
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Welcome to Forum</title>
+<!-- 
+
+<script language="JavaScript">
+    function showInput() {
+        document.getElementById('display').innerHTML = 
+                    document.getElementById("user_input").value;
+    }
+</script>
+ -->
+
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,8 +42,10 @@
         body{
             padding-top: 65px;
         }
-    </style>
 
+
+    </style>
+    
     </head>
     <body>
 
@@ -196,105 +211,82 @@
 <body>
 
 
-<div class="container-fluid">
-	<a href="http://localhost:8000/object/create" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Create</a>
-  <div class="row content">
-    <div class="col-sm-3 sidenav">
-      <h4>Trending Questions</h4>
-      <ul class="nav nav-pills nav-stacked">
-      	<ul>
-        <li class="active"><a href="#section1">What is the most used 3D model?</a></li>
-        <li><a href="#section2">Is it worth learning 3D modelling?</a></li>
-        <li><a href="#section3">How about community for 3D modelling in the world?</a></li>
-        <li><a href="#section3">My uploaded 3D model is not rotating. Can anyone help me please?</a></li></ul>
-      </ul><br>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Blog..">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
-      </div>
-    </div>
+			<div class="container-fluid">
+				<a href="http://localhost:8000/object/create" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Create</a>
+			  <div class="row content">
+			    <div class="col-sm-3 sidenav">
+			      <h4>Trending Questions</h4>
+			      <ul class="nav nav-pills nav-stacked">
+			      	<ul>
+			        <li class="active"><a href="#section1">What is the most used 3D model?</a></li>
+			        <li><a href="#section2">Is it worth learning 3D modelling?</a></li>
+			        <li><a href="#section3">How about community for 3D modelling in the world?</a></li>
+			        <li><a href="#section3">My uploaded 3D model is not rotating. Can anyone help me please?</a></li></ul>
+			      </ul><br>
 
-    <div class="col-sm-6">
-      <hr>
-      <h2>Loading interactive 3D module in iOS App [on hold]</h2>
-      <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-      
-      <br>
-      <br><br>
+			      <div class="input-group">
+			        <input type="text" class="form-control" placeholder="Search Blog..">
+			        <a href="#" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-search prefix" aria-hidden="true"></i>Search</a>
+			      </div>
 
-      <div class="panel panel-white post panel-shadow">
-                <div class="post-heading">
-                    <div class="pull-left image">
-                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-                    </div>
-                    <div class="pull-left meta">
-                        <div class="title h5">
-                            <a href="#"><b>Jane Dane</b></a>
-                            
+			    </div>
+                
+			    <div class="col-sm-6">
+                    
+			    	<h2>Sculpting or Polygon Modelling / Box Modelling?</h2>
+			      <hr>
+			      
+			      <br>
+
+			      <div class="panel panel-white post panel-shadow">
+			                <div class="post-heading">	            
+			                        <div class="title h5">
+			                            <a href="#"><b>Jane Dane</b></a>
+			                            <div class="box-body">
+                                <table id="data1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Reply Count</th>
+
+                                        <th>Views</th>
+                                        <th>Category</th>
+                                        
+                                    </tr>
+                                    </thead>
+                                </table>
                         </div>
-                        <h6 class="text-muted time">1 minute ago</h6>
-                    </div>
-                </div> 
-                <div class="post-description"> 
-                    <p>Ok so I have a project for my high school speech class were I have to interview someone who has the same job that I want when I get older so if anyone here does like 3D modeling for games I would like you to please answer these basic questions.
-Don't worry will not mention your name in the speech if you use your name in tom's hardware.<br>
+			                        </div>
+			                    </div>
+			                </div> 
+			                <div class="post-description">
+		                    <p>Ok so I have a project for my high school speech class were I have to interview someone who has the same job that I want when I get older so if anyone here does like 3D modeling for games I would like you to please answer these basic questions.
+		Don't worry will not mention your name in the speech if you use your name in tom's hardware.<br>
 
-1. Is the job fun or does it get boring after while?<br>
-2. Do you usually work on one project by yourself or do you work on one thing with multiple people?<br>
-3. Do you specialize and work on one type of model (characters, basic objects, scenery, etc) or do you work on anything assigned?</p>
-                    <div class="stats">
-                        <a href="#" class="btn btn-default stat-item">
-                            <i class="fa fa-thumbs-up icon"></i>2
-                        </a>
-                        <a href="#" class="btn btn-default stat-item">
-                            <i class="fa fa-thumbs-down icon"></i>12
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-
-
-			<!-------Wrap------------>
-		
-			<br>
-            <h2>Express your Idea</h2>
-			<p>Your email address will not be published. Required fields are marked *</p>
-
-			<!------------Form Start---------->
-
-			<div id='form'>
-			<div class="row">
-			<div class="col-md-12">
-
-			<form action="{{ route('reply.store') }}" method="POST" id="commentform">
-
-				{{ csrf_field() }}
-            <div id="comment-name" class="form-row">
-			<input type = "text" placeholder = "Email (required)" name = "dname"  id = "name" >
-			</div>
-		
-			
-			<div id="comment-message" class="form-row">
-			<textarea name = "comment" placeholder = "Message" id = "comment" ></textarea>
-			</div>
-			<a href="#"><input type="submit" name="dsubmit" id="commentSubmit" value="Submit"></a>
-			<input style="width: 30px" type="checkbox" value="1" name="subscribe" id="subscribe" checked="checked">
-			
-			</form>
-
-			</div>
-			</div>
-			</div>
-			</div>
+		1. Is the job fun or does it get boring after while?<br>
+		2. Do you usually work on one project by yourself or do you work on one thing with multiple people?<br>
+		3. Do you specialize and work on one type of model (characters, basic objects, scenery, etc) or do you work on anything assigned?</p>
+			                   
+			                </div>
+	                         <!--<textarea id="wmd-input" class="wmd-input processed" name="post-text" cols="92" rows="15" tabindex="101" data-min-length="" data-gramm="true" data-txt_gramm_id="d01d20f7-e9e5-ef92-b184-8191e444d488" data-gramm_id="d01d20f7-e9e5-ef92-b184-8191e444d488" spellcheck="false" data-gramm_editor="true" style="background: transparent none repeat scroll 0% 0% !important; z-index: auto; position: relative; line-height: 18.2px; font-size: 14px; transition: none 0s ease 0s; opacity: 1; height: 200px;"></textarea>-->
+                        <label><b><strong>Add new post</strong></b></label>
+                        <form action="{{ route('post.store') }}" methods="post">
+                        	{{ csrf_field() }}
+                        	<div class="form-group">
+                        		<textarea class="form-control" name="body" id="new-post" rows="10" placeholder="Enter your new post"></textarea>
+                        	</div>
+							
+							<input type="submit"><br/>
+							<p><span id='display'></span></p>
 
 
-        
-</div>
-</div>
+						</form>
+
+
+
+			            </div>
+			        
+			        </div>
+
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE <html>
+<!DOCTYPE html>
     <head>
         <title>Dimento Forum</title>
 
@@ -44,11 +44,11 @@
                 <div class="col-md-4">
                     <div class="card hoverable" style="width:300px">
                         <div class="text-center">
-                           <i class="fa fa-graduation-cap fa-5x card-img-top" aria-hidden="true"></i>
-                               <h4 class="card-title">Education</h4>
-                               <p class="card-text">Find 3D models of Education </p>
+                           <i class="fa fa-times-circle-o fa-5x card-img-top" aria-hidden="true"></i>
+                               <h4 class="card-title">NURBS Modelling</h4>
+                               <p class="card-text">Find 3D models of NURBS Modelling </p>
                                <div class="card-footer">
-                               <a href="/forum/post/Education" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/1" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -56,12 +56,12 @@
                 <div class="col-md-4">
                     <div class="card hoverable" style="width:300px">
                         <div class="text-center">
-                           <i class="fa fa-car fa-5x aria-hidden="true"></i>
+                           <i class="fa fa-square-o fa-5x aria-hidden="true"></i>
 
-                               <h4 class="card-title">Vehicles</h4>
-                               <p class="card-text">Find 3D models of Vehicles </p>
+                               <h4 class="card-title">Polygon Modelling</h4>
+                               <p class="card-text">Find 3D models of Polygon Modelling </p>
                                <div class="card-footer">
-                               <a href="/forum/post/Vehicles" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/2" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -69,12 +69,12 @@
                 <div class="col-md-4">
                      <div class="card hoverable" style="width:300px">
                         <div class="text-center">
-                            <i class="fa fa-wheelchair-alt fa-5x" aria-hidden="true"></i>
+                            <i class="fa fa-arrow-right fa-5x" aria-hidden="true"></i>
 
-                               <h4 class="card-title">Health</h4>
-                               <p class="card-text">Find 3D models of Health </p>
+                               <h4 class="card-title">NURMS Modelling</h4>
+                               <p class="card-text">Find 3D models of NURMS Modelling </p>
                                <div class="card-footer">
-                               <a href="/forum/post/Health" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/3" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -86,12 +86,12 @@
                 <div class="col-md-4">
                 <div class="card hoverable" style="width:300px">
                         <div class="text-center">
-                            <i class="fa fa-file-image-o fa-5x" aria-hidden="true"></i>
+                            <i class="fa fa-chevron-down fa-5x" aria-hidden="true"></i>
 
-                            <h4 class="card-title">Art</h4>
-                            <p class="card-text">Find 3D models of Art </p>
+                            <h4 class="card-title">Rendering</h4>
+                            <p class="card-text">Find 3D models of Rendering </p>
                             <div class="card-footer">
-                            <a href="/forum/post/Art" class="btn btn-primary">Dive in</a>
+                            <a href="/forum/post/4" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -99,12 +99,12 @@
                 <div class="col-md-4">
                     <div class="card hoverable" style="width:300px">
                         <div class="text-center">
-                            <i class="fa fa-gamepad fa-5x" aria-hidden="true"></i>
+                            <i class="fa fa-eye fa-5x" aria-hidden="true"></i>
 
-                               <h4 class="card-title">Gaming</h4>
-                               <p class="card-text">Find 3D models of Gaming </p>
+                               <h4 class="card-title">Visualiation</h4>
+                               <p class="card-text">Find 3D models of Visualiation </p>
                                <div class="card-footer">
-                               <a href="/forum/post/Gaming" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/5" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -112,12 +112,12 @@
                 <div class="col-md-4">
                      <div class="card hoverable" style="width:300px">
                         <div class="text-center">
-                            <i class="fa fa-birthday-cake fa-5x" aria-hidden="true"></i>
+                            <i class="fa fa-bars fa-5x" aria-hidden="true"></i>
 
-                               <h4 class="card-title">Food</h4>
-                               <p class="card-text">Find 3D models of Food</p>
+                               <h4 class="card-title">Architectural 3D</h4>
+                               <p class="card-text">Find 3D models of Architectural 3D</p>
                                <div class="card-footer">
-                               <a href="/forum/post/Food" class="btn btn-primary">Dive in</a>
+                               <a href="/forum/post/6" class="btn btn-primary">Dive in</a>
                            </div>
                         </div>
                     </div>
@@ -131,11 +131,11 @@
                     <div class="col-md-4">
                     <div class="card hoverable" style="width:300px">
                             <div class="text-center">
-                                        <i class="fa fa-futbol-o fa-5x" aria-hidden="true"></i>
-                                            <h4 class="card-title">Sports</h4>
-                                            <p class="card-text">Find 3D models of Sports </p>
+                                        <i class="fa fa-superpowers fa-5x" aria-hidden="true"></i>
+                                            <h4 class="card-title">UV Mapping</h4>
+                                            <p class="card-text">Find 3D models of UV Mapping </p>
                                             <div class="card-footer">
-                                            <a href="/forum/post/Sports" class="btn btn-primary">Dive in</a>
+                                            <a href="/forum/post/7" class="btn btn-primary">Dive in</a>
                                        </div>
                                     </div>
                                 </div>
@@ -145,13 +145,13 @@
                 <div class="col-md-4">
                             <div class="card hoverable" style="width:300px">
                             <div class="text-center">
-                                <i class="fa fa-bed fa-5x" aria-hidden="true"></i>
+                                <i class="fa fa-eraser fa-5x" aria-hidden="true"></i>
 
 
-                                <h4 class="card-title">Furniture</h4>
-                                <p class="card-text">Find 3D models of Furniture </p>
+                                <h4 class="card-title">Baking</h4>
+                                <p class="card-text">Find 3D models of Baking </p>
                                 <div class="card-footer">
-                                <a href="/forum/post/Furniture" class="btn btn-primary">Dive in</a>
+                                <a href="/forum/post/8" class="btn btn-primary">Dive in</a>
                                 </div>
                             </div>
                         </div>
@@ -160,13 +160,13 @@
                    <div class="col-md-4">
                             <div class="card hoverable" style="width:300px">
                             <div class="text-center">
-                                <i class="fa fa-wifi fa-5x" aria-hidden="true"></i>
+                                <i class="fa fa-cog fa-5x" aria-hidden="true"></i>
 
 
-                                <h4 class="card-title">Technology</h4>
-                                <p class="card-text">Find 3D models of Technology </p>
+                                <h4 class="card-title">Texture Mapping</h4>
+                                <p class="card-text">Find 3D models of Texture Mapping </p>
                                 <div class="card-footer">
-                                <a href="/forum/post/Tehnology" class="btn btn-primary">Dive in</a>
+                                <a href="/forum/post/9" class="btn btn-primary">Dive in</a>
                                 </div>
                             </div>
                         </div>
