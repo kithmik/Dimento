@@ -82,6 +82,8 @@ class AdvertiesementController extends Controller
             Advertisement::where('id', $advertisement->id)->update(['image'=>'/storage/images/'.$file_name]);
         }
 
+        return redirect()->to('advertisement/'.$advertisement->id);
+
     }
 
     /**
@@ -94,6 +96,7 @@ class AdvertiesementController extends Controller
     {
         $ad = Advertisement::findOrFail($id);
 
+        return view('advertisements.view', ['ad' => $ad]);
     }
 
     /**
