@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertisement\Advertisement;
 use App\Models\Forum\Post;
 use App\Models\User\User;
 use App\Models\Object\Object;
@@ -28,8 +29,9 @@ class HomeController extends Controller
     {
         $objects = Object::all();
         $posts = Post::all();
+        $ad = Advertisement::all();
 
-        return view('home',['objects' => $objects, 'posts' => $posts]);
+        return view('home',['objects' => $objects, 'posts' => $posts, 'advertisement' => $ad]);
     }
 
     public function confirm($code){
