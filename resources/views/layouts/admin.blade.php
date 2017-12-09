@@ -82,10 +82,7 @@
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="{{auth()->user()->profile_pic}}" class="img-circle" alt="image">
-
-                                <p>
-                                    Administrator
-                                </p>
+                                <p>Administrator</p>
                             </li>
                             <!-- Menu Body -->
                             <li class="user-body">
@@ -105,7 +102,6 @@
                                           style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
-                                    {{--<a href="#" class="btn btn-default btn-flat">Sign out</a>--}}
                                 </div>
                             </li>
                         </ul>
@@ -153,26 +149,25 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-
-                        <li><a href="#users"><i class="fa fa-circle-o"></i>Users</a></li>
                         <li><a href="#objects"><i class="fa fa-circle-o"></i>Objects</a></li>
+                        <li><a href="#users"><i class="fa fa-circle-o"></i>Users</a></li>
+                        <li><a href="#users"><i class="fa fa-circle-o"></i>Posts</a></li>
+                        <li><a href="#users"><i class="fa fa-circle-o"></i>Tasks</a></li>
                         <li><a href="#ads"><i class="fa fa-circle-o"></i>Advertisements</a></li>
                     </ul>
                 </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-user"></i>
-                        <span>Users</span>
-                        <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Add</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Remove</a></li>
-                    </ul>
-                </li>
+                {{--<li class="treeview">--}}
+                    {{--<a href="#">--}}
+                        {{--<i class="fa fa-user"></i>--}}
+                        {{--<span>Users</span>--}}
+                        {{--<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>--}}
+                    {{--</a>--}}
+                    {{--<ul class="treeview-menu">--}}
+                        {{--<li><a href="#"><i class="fa fa-circle-o"></i> Add</a></li>--}}
+                        {{--<li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>--}}
+                        {{--<li><a href="#"><i class="fa fa-circle-o"></i> Remove</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
 
             </ul>
         </section>
@@ -183,15 +178,12 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Dashboard
-
-            </h1>
+            <h1>Dashboard</h1>
 
         </section>
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content" id="dashboard">
 
         @yield('content')
 
@@ -202,7 +194,6 @@
                     <div class="small-box bg-aqua">
                         <div class="inner">
                             <h3>{{ count($objects) }}</h3>
-
                             <p>Total Objects</p>
                         </div>
                         <div class="icon">
@@ -217,7 +208,6 @@
                     <div class="small-box bg-yellow">
                         <div class="inner">
                             <h3>{{ count($users) }}</h3>
-
                             <p>Users Registered</p>
                         </div>
                         <div class="icon">
@@ -232,7 +222,6 @@
                     <div class="small-box bg-green">
                         <div class="inner">
                             <h3>{{ count($posts) }}</h3>
-
                             <p>Total Posts</p>
                         </div>
                         <div class="icon">
@@ -248,7 +237,6 @@
                     <div class="small-box bg-orange">
                         <div class="inner">
                             <h3>{{ count($tasks) }}</h3>
-
                             <p>Total Tasks</p>
                         </div>
                         <div class="icon">
@@ -265,7 +253,6 @@
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>{{ count($advertisements) }}</h3>
-
                             <p>Total Ads</p>
                         </div>
                         <div class="icon">
@@ -294,15 +281,20 @@
                         <th>Category</th>
                         <th>Description</th>
                         <th>Posted By</th>
+                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($objects as $object)
                         <tr>
-                            <td><a href="/object/{{ $object->id}}">{{ $object->title }}</a></td>
+                            <td>{{ $object->title }}</td>
                             <td>{{ $object->category }}</td>
                             <td>{{ $object->description }}</td>
                             <td>{{ $object->user->first_name }}</td>
+                            <td class="left">
+                                <a href="{{ route('object.show', $object->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                <a href="{{ route('object.destroy', $object->id) }}" ><i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br></a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -312,6 +304,7 @@
                         <th>Category</th>
                         <th>Description</th>
                         <th>Posted By</th>
+                        <th>Edit</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -345,13 +338,12 @@
                             <td>{{ $user->first_name }}</td>
                             <td>{{ $user->last_name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'')) }}</td>
+                            <td>{{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'Admin')) }}</td>
                             <td>{{ $user->phone }}</td>
                             <td class="left">
-                                <a href="/user/{{ $user->id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
-                                <i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br>
-                                <i class="fa fa-pencil" aria-hidden="true"> Edit</i><br>
-                                <a href="/admin/make_admin" data-id="{{ $user->id }}" class="{{ $user->isAdmin()?'remove-admin':'make-admin' }} user-admin"><i class="fa fa-eye" aria-hidden="true"> {{ $user->isAdmin()?'remove admin':'make admin' }}</i></a><br>
+                                <a href="{{ route('user.show', $user->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                <a href="{{ route('user.destroy', $user->id) }}" ><i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br></a>
+                                <a href="/admin/make_admin" data-id="{{ $user->id }}" class="{{ $user->isAdmin()?'remove-admin':'make-admin' }} user-admin"><i class="fa fa-link" aria-hidden="true"> {{ $user->isAdmin()?'Remove Admin':'Make Admin' }}</i></a><br>
                             </td>
                         </tr>
                     @endforeach
@@ -403,8 +395,8 @@
                             <td>{{$post->created_at}}</td>
                             <td>{{$post->user->first_name.' '.$post->user->last_name}}</td>
                             <td class="left">
-                                <a href="/post/{{ $post->id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
-                                <i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br>
+                                <a href="{{ route('post.show', $post->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                <a href="{{ route('post.destroy', $post->id) }}"><i class="fa fa-trash-o" aria-hidden="true"> Remove</i></a><br>
                             </td>
                         </tr>
                     @endforeach
@@ -443,6 +435,7 @@
                         <th>Is accepted?</th>
                         <th>Published on</th>
                         <th>Published by</th>
+                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -454,6 +447,10 @@
                             <td>{{$task->freelancer_id==null? 'Open':'Allocated'}}</td>
                             <td>{{$task->created_at}}</td>
                             <td>{{$task->user->first_name.' '.$task->user->last_name}}</td>
+                            <td class="left">
+                                <a href="{{ route('task.show', $task->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                <a href="{{ route('task.destroy', $task->id) }}"><i class="fa fa-trash-o" aria-hidden="true"> Remove</i></a><br>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -465,6 +462,7 @@
                         <th>Is accepted?</th>
                         <th>Published on</th>
                         <th>Published by</th>
+                        <th>Edit</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -489,16 +487,21 @@
                         <th>Views</th>
                         <th>Published on</th>
                         <th>Published by</th>
+                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($advertisements as $ad)
                         <tr>
-                            <td><a href="/advertisement/{{ $ad->id}}">{{ $ad->title }}</a></td>
+                            <td>{{ $ad->title }}</td>
                             <td>{{ $ad->description }}</td>
                             <td>{{ $ad->views }}</td>
                             <td>{{ $ad->created_at }}</td>
                             <td>{{ $ad->user->first_name.' '.$ad->user->last_name }}</td>
+                            <td class="left">
+                                <a href="{{ route('advertisement.show', $ad->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                <a href="{{ route('advertisement.destroy', $ad->id) }}"><i class="fa fa-trash-o" aria-hidden="true"> Remove</i></a><br>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -509,6 +512,7 @@
                         <th>Views</th>
                         <th>Published on</th>
                         <th>Published by</th>
+                        <th>Edit</th>
                     </tr>
                     </tfoot>
                 </table>

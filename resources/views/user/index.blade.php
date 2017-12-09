@@ -59,13 +59,11 @@
             <div class="col-md-12">
                 <div class="row">
                     @foreach($users as $user)
-
-                        <div class="col-md-2" >
+                        <div class="col-md-4" >
                             <a class="chip chip-lg"  tabindex="0"  role="button" data-toggle="popover" data-trigger="focus" title="{{ $user->first_name." ".$user->last_name }}"
                                data-html="true"
                                data-content="
                                <a href='{{ route('user.show', $user->id) }}' class='btn btn-sm btn-outline-elegant btn-rounded waves-effect'>View</a>
-
                                <a data-id='{{ $user->id }}'
                                data-name='{{ $user->first_name." ".$user->last_name }}'
                                href='message/to/{{ $user->id }}'
