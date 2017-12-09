@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Forum\Post;
 use App\Models\Advertisement\Advertisement;
 use App\Models\Object\Object;
+use App\Models\Task\Task;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,11 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function makeAdmin(Request $request){
+        return $request->all();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +33,8 @@ class AdminController extends Controller
             $objects = Object::all();
             $posts = Post::all();
             $advertisements = Advertisement::all();
-            return view('admin.index',['users' => $users, 'objects' => $objects, 'posts' => $posts, 'advertisements' => $advertisements]);
+            $tasks = Task::all();
+            return view('admin.index',['users' => $users, 'objects' => $objects, 'posts' => $posts, 'advertisements' => $advertisements, 'tasks' => $tasks]);
 //        return view('admin.index');
         }
         else{
