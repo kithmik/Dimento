@@ -27,13 +27,37 @@ class MessageController extends Controller
      */
     public function index($id = 0)
     {
-        $messages = Message::select('sender_id', 'recipient_id')
+        $messaged_users = Message::select('sender_id', 'recipient_id')
             ->where('sender_id', auth()->user()->id)
             ->orWhere('recipient_id', auth()->user()->id)
+            ->groupBy('sender_id', 'recipient_id')
             ->distinct()
             ->get();
-//        dd($messages);
-        return view('messages.index', ['messages'=>$messages, 'id' => $id]);
+
+        $user_ids = array();
+        foreach ($messaged_users as $messaged_user){
+            if ($messaged_user->sender_id != auth()->user()->id){
+                if (!in_array($messaged_user->sender_id, $user_ids)){
+                    array_push($user_ids, $messaged_user->sender_id);
+                }
+                continue;
+            }
+            elseif ($messaged_user->recipient_id != auth()->user()->id){
+                if (!in_array($messaged_user->recipient_id, $user_ids)){
+                    array_push($user_ids, $messaged_user->recipient_id);
+                }
+                continue;
+            }
+        }
+
+        if ($id != 0 && !in_array($id, $user_ids)){
+            array_push($user_ids, $id);
+        }
+
+        $users = User::whereIn('id', $user_ids)->get();
+
+//        dd($users);
+        return view('messages.index', ['users'=> $users , 'id' => $id]);
     }
 
     /**
