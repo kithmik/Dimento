@@ -21,7 +21,7 @@
         <!--Panel 1-->
         <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
             <div class="row">
-                @if(count($posts)==0)
+                @if(count($objects)==0)
                     <h4>No Objects</h4>
                 @endif
                 @foreach($objects as $object)
@@ -80,7 +80,7 @@
         <!--Panel 3-->
         <div class="tab-pane fade" id="panel3" role="tabpanel">
             <div class="row">
-                @if(count($posts)==0)
+                @if(count($advertisements)==0)
                     <h4>No Advertisements</h4>
                 @endif
                 @foreach($advertisements as $ad)
@@ -88,13 +88,13 @@
                         <!--Card-->
                         <div class="card">
                             <!--Card image-->
-                            <img class="img-fluid" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px">
+                            <img class="img-fluid text-center" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px;">
                             <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
                                 <h4 class="card-title">{{ $ad->title }}</h4>
                                 <!--Text-->
-                                <p class="card-text">{{ $object->description }}</p>
+                                <p class="card-text">{{ $ad->description }}</p>
                                 <a href="{{ route('advertisement.show', $ad->id) }}" target="_blank"
                                    class="btn btn-outline-elegant waves-effect btn-sm">View</a>
                             </div>

@@ -22,7 +22,7 @@
                     <hr>
                     <!--Quotation-->
                     <p class="text-lg-left">
-                        <b>Type: </b> {{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'')) }}
+                        <b>Type: </b> {{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'Admin')) }}
                     </p>
                     <p class="text-lg-left"><b>Email: </b> {{ $user->email}}</p>
                     <p class="text-lg-left"><b>Date
@@ -93,13 +93,13 @@
                             <!-- /.box-body -->
                         </div>
                         <!-- /.box -->
-                    @elseif($user->type == 2 || $user->type == 3)
+                    @elseif($user->type == 2)
                         {{-- check whether customer--}}
 
-                        {{--jobs list table--}}
+                        {{--tasks list table--}}
                         <div class="box" id="">
                             <div class="box-header">
-                                <h3 class="box-title">Jobs Posted</h3>
+                                <h3 class="box-title">Tasks Posted</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -113,14 +113,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {{--@foreach($user->posts as $post)--}}
-                                    {{--<tr>--}}
-                                    {{--<td>{{ $post->title }}</td>--}}
-                                    {{--<td>{{ $post->category }}</td>--}}
-                                    {{--<td>{{ $post->description }}</td>--}}
-                                    {{--<td>{{ $post->created_at }}</td>--}}
-                                    {{--</tr>--}}
-                                    {{--@endforeach--}}
+                                    @foreach($user->tasks as $task)
+                                    <tr>
+                                    <td>{{ $task->title }}</td>
+                                    <td>{{ $task->category }}</td>
+                                    <td>{{ $task->description }}</td>
+                                    <td>{{ $task->created_at }}</td>
+                                    </tr>
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>
@@ -149,20 +149,59 @@
                                     <thead>
                                     <tr>
                                         <th>Title</th>
+                                        <th>Desc</th>
+                                        <th>Posted On</th>
+                                        <th>Views</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($user->advertisements as $ad)
+                                    <tr>
+                                        <td>{{ $ad->title }}</td>
+                                        <td>{{ $ad->description }}</td>
+                                        <td>{{ $ad->created_at }}</td>
+                                        <td>{{ $ad->category }}</td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Desc</th>
+                                        <th>Posted On</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                        {{--tasks list table--}}
+                        <div class="box" id="">
+                            <div class="box-header">
+                                <h3 class="box-title">Tasks Posted</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <table id="data2" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Title</th>
                                         <th>Category</th>
                                         <th>Desc</th>
                                         <th>Posted On</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {{--@foreach($user->posts as $post)--}}
-                                    {{--<tr>--}}
-                                    {{--<td>{{ $post->title }}</td>--}}
-                                    {{--<td>{{ $post->category }}</td>--}}
-                                    {{--<td>{{ $post->description }}</td>--}}
-                                    {{--<td>{{ $post->created_at }}</td>--}}
-                                    {{--</tr>--}}
-                                    {{--@endforeach--}}
+                                    @foreach($user->tasks as $task)
+                                        <tr>
+                                            <td>{{ $task->title }}</td>
+                                            <td>{{ $task->category }}</td>
+                                            <td>{{ $task->description }}</td>
+                                            <td>{{ $task->created_at }}</td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                     <tr>

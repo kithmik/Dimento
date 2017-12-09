@@ -75,13 +75,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/img/avatar.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Admin</span>
+                            <img src="{{auth()->user()->profile_pic}}" class="user-image" alt="User Image">
+                            <span class="hidden-xs">{{auth()->user()->first_name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/img/avatar.png" class="img-circle" alt="image">
+                                <img src="{{auth()->user()->profile_pic}}" class="img-circle" alt="image">
 
                                 <p>
                                     Administrator
@@ -92,11 +92,20 @@
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                {{--<div class="pull-left">--}}
-                                {{--<a href="#" class="btn btn-default btn-flat">Profile</a>--}}
-                                {{--</div>--}}
+                                <div class="pull-left">
+                                <a href="/user/{{ Auth::user()->id}}" class="btn btn-default btn-flat">Profile</a>
+                                </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                    {{--<a href="#" class="btn btn-default btn-flat">Sign out</a>--}}
                                 </div>
                             </li>
                         </ul>
@@ -146,7 +155,7 @@
                     <ul class="treeview-menu">
 
                         <li><a href="#users"><i class="fa fa-circle-o"></i>Users</a></li>
-                        <li><a href="#models"><i class="fa fa-circle-o"></i>Models</a></li>
+                        <li><a href="#objects"><i class="fa fa-circle-o"></i>Objects</a></li>
                         <li><a href="#ads"><i class="fa fa-circle-o"></i>Advertisements</a></li>
                     </ul>
                 </li>
