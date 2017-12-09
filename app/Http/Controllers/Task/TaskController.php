@@ -43,6 +43,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
 
+//        return $request->all();
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
             'description' => 'required',
@@ -64,7 +65,11 @@ class TaskController extends Controller
         $task->description = $request->input('description');
         $task->deadline = $deadline;
 
-        $task->amount = $request->input('amount');
+        if ($request->type == 1){
+            $task->amount = $request->input('amount');
+        }
+        $task->type = $request->type;
+
 
         $task->save();
 
@@ -104,7 +109,17 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'deadline'=>'required',
+            'time'=>'required'
+        ]);
+        if ($validator->fails()) {
+            return redirect('advertisement/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
     }
 
     /**

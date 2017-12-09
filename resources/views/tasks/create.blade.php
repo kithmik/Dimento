@@ -23,83 +23,113 @@
 
 @endforeach -->
 
-<!-- Form advertisement -->
-<form action="{{ route('task.store') }}" method="POST" enctype="multipart/form-data">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Form task post -->
+            <form action="{{ route('task.store') }}" method="POST" enctype="multipart/form-data">
 
 
-    {{ csrf_field() }}
+                {{ csrf_field() }}
 
+                <input type="hidden" id="type" name="type" value="1">
 
-    <p class="h5 text-center mb-4">
-        <i class="fa fa-address-book prefix grey-text" style="font-size:36px"></i>
-        Post Your Job
-    </p>
+                <div class="card">
+                    <div class="card-header">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="nav-item">
+                                <a class="nav-link active price-selection-nav" data-value="1" data-toggle="tab" href="#fixed-price-tab" role="tab">Fixed Price</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link price-selection-nav" id="open-price-nav-link" data-value="0" data-toggle="tab" href="#open-price-tab" role="tab">Open Price</a>
+                            </li>
 
-    <p class="text-center mb-6">
-    <div class="container">
+                        </ul>
+                    </div>
 
-        <div class="col-md-6">
-            <div class="md-form">
-                <i class="fa fa-id-card prefix grey-text" aria-hidden="true"></i>
-                <input type="text" id="job" class="form-control" name="title" placeholder="Job Title">
-
-            </div>
-        </div>
-
-
-        <div class="col-md-6">
-            <div class="md-form">
-                <i class="fa fa-sticky-note-o prefix grey-text" aria-hidden="true"></i>
-
-                <textarea type="text" id="form8" class="md-textarea" style="height: 80px" name="description" placeholder="Description"></textarea>
-
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="file-field">
-                <div class="btn btn-primary btn-sm">
-                    <i class="fa fa-file-image-o prefix grey-text" aria-hidden="true"></i>
-                    Choose image file
-
-                    <input type="file" name="image">
                 </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="This will be displayed as an image">
+
+
+
+                <p class="h5  mb-4">
+                    <i class="fa fa-address-book prefix grey-text" style="font-size:36px"></i>
+                    Post Your Job
+                </p>
+
+                <p class=" mb-6">
+                <div class="container">
+
+                    <div class="col-md-6">
+                        <div class="md-form">
+                            <i class="fa fa-id-card prefix grey-text" aria-hidden="true"></i>
+                            <input type="text" id="job" class="form-control" name="title" placeholder="Job Title">
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <div class="md-form">
+                            <i class="fa fa-sticky-note-o prefix grey-text" aria-hidden="true"></i>
+
+                            <textarea type="text" id="description" class="md-textarea" style="height: 80px" name="description" placeholder="Description"></textarea>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="file-field">
+                            <div class="btn btn-primary btn-sm">
+                                <i class="fa fa-file-image-o prefix grey-text" aria-hidden="true"></i>
+                                Choose image file
+
+                                <input type="file" name="image">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="This will be displayed as an image">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="md-form" id="amount-div">
+                            <i class="fa fa-usd prefix grey-text " aria-hidden="true"></i>
+                            <input type="number" min="5" step="0.01"  id="amount" class="form-control" name="amount" placeholder="Amount paid for job">
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="md-form">
+                            <i class="fa fa-calendar prefix grey-text" ></i>
+                            <input placeholder="Select date" type="text" id="date-picker-example" class="form-control datepicker" name="deadline">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="md-form">
+                            <i class="fa fa-times-circle-o prefix grey-text" aria-hidden="true"></i>
+                            <input placeholder="Select time" type="text" id="input_starttime" class="form-control timepicker" name="time">
+                            <label for="input_starttime"></label>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6" >
+                        <button type="submit" class="btn btn-rounded btn-blue-grey" align="text-center"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>POST</button>
+                    </div>
                 </div>
-            </div>
-
-
-
-            <div class="md-form" >
-                <i class="fa fa-usd prefix grey-text " aria-hidden="true"></i>
-                <input type="text" id="form5" class="form-control" name="amount" placeholder="Amount paid for job">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="md-form">
-                <i class="fa fa-calendar prefix grey-text" ></i>
-                <input placeholder="Select date" type="text" id="date-picker-example" class="form-control datepicker" name="deadline">
-            </div>
-        </div>
-
-        <div class="col-md-6">
-            <div class="md-form">
-                <i class="fa fa-times-circle-o prefix grey-text" aria-hidden="true"></i>
-                <input placeholder="Select time" type="text" id="input_starttime" class="form-control timepicker" name="time">
-                <label for="input_starttime"></label>
-            </div>
-        </div>
-
-
-        <div class="col-md-6" >
-            <button type="submit" class="btn btn-rounded btn-blue-grey" align="text-center"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>POST</button>
+            </form>
+            <!-- Form jobpost -->
         </div>
     </div>
-</form>
-</p>
-<!-- Form jobpost -->
+</div>
+
+
 
 
 <!-- SCRIPTS -->
@@ -118,6 +148,28 @@
     // Material Select Initialization
     $(document).ready(function() {
         $('.mdb-select').material_select();
+
+        $('.price-selection-nav').click(function (e) {
+            e.preventDefault();
+            var value = $(this).attr('data-value');
+
+            $('#amount').val('');
+
+            var amount_div = $('#amount-div');
+            var type_input = $('#type');
+
+            if (value == 0){
+
+                type_input.value(0);
+                amount_div.hide();
+            }
+            else if(value == 1){
+                amount_div.show();
+                type_input.value(1);
+            }
+
+        });
+
 
     });
     // Time Picker Initialization
