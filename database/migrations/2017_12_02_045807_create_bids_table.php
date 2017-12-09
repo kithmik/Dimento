@@ -19,8 +19,9 @@ class CreateBidsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->decimal('amount', 10, 2);
-            $table->boolean('accepted')->default(0);
+            $table->string('proposal')->nullable();
+            $table->decimal('amount', 10, 2)->nullable();
+            $table->boolean('accepted')->default(0)->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')
