@@ -50,21 +50,21 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
-        $validator = Validator::make($request->all(), [
+        /*$validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
-            'category' => 'required',
+
         ]);
         if ($validator->fails()) {
             return redirect('foInquiryrum/categories')
                 ->withErrors($validator)
                 ->withInput();
-        }
+        }*/
 
         $post = new Post;
-        $post->title = $request->input('title');
+        $post->title = $request->input('name');
+        $post->category  = $request->input('category');
         $post->description  = $request->input('description');
-        $post->category = $request->input('category');
         $post->user_id = auth()->user()->id;
         $post->save();
 
