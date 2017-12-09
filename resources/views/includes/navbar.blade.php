@@ -103,7 +103,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item ex-a" href="/forum">Forum</a>
-                            <a class="dropdown-item" href="#">Chatbox</a>
+                            <a class="dropdown-item ex-a" href="/user">Community</a>
                             <a class="dropdown-item" href="#">Blog</a>
                         </div>
                     </li>
