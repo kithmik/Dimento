@@ -123,7 +123,7 @@
                             <a href="{{ route('object.create') }}" type="button"
                                class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix"
                                                                                        aria-hidden="true"></i>
-                                Upload</a>
+                                Upload Object</a>
 
                         @elseif(auth()->user()->type == 2)
                             {{--auth if customer only--}}
@@ -132,11 +132,24 @@
                                                                                        aria-hidden="true"></i> Post a
                                 Job</a>
                         @elseif(auth()->user()->type == 3)
-                        {{--auth if business only--}}
-                        <a href="{{ route('advertisement.create') }}" type="button"
-                           class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix"
-                                                                                   aria-hidden="true"></i> Post an
-                            Advertisement</a>
+                            {{--auth if business only--}}
+                            <li class="nav-item btn-group">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a href="{{ route('advertisement.create') }}" type="button"
+                                       class="dropdown-item ex-a">  An Advertisement</a>
+                                    <a href="{{ route('task.create') }}" type="button"
+                                       class="dropdown-item ex-a">  A Job</a>
+                                </div>
+                            </li>
+                        @elseif(auth()->user()->type == 4)
+                            {{--auth if customer only--}}
+                            <a href="/admin" type="button"
+                               class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-dashboard prefix"
+                                                                                       aria-hidden="true"></i> Dashboard</a>
+
                         @endif
                     @endauth
 
