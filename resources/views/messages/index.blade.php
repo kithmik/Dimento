@@ -61,20 +61,38 @@
             <div class="row px-lg-2 px-2">
 
                 <!-- Grid column -->
-                <div class="col-md-6 col-xl-4 px-0">
+                <div class="col-md-6 col-xl-4 px-0" style="max-height: 100vh; overflow-y: auto;">
 
                     <h6 class="font-bold mb-3 text-center text-lg-left">Messages</h6>
 
                     <div class="white z-depth-1 px-3 pt-3 pb-0">
                         <ul class="list-unstyled friend-list">
 
+                            @foreach($users as $user)
+
+                                @if($id != auth()->user()->id)
+
+                                    <li class="p-2 msg-usr-li {{ ($id != 0 && $user->id == $id)?'active grey lighten-3':'' }} "  data-id="{{ $user->id }}">
+                                        <a href="#" class="d-flex justify-content-between">
+                                            <img src="{{ $user->profile_pic }}" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
+                                            <div class="text-small">
+                                                <strong>
+                                                    {{ $user->first_name." ".$user->last_name }}
+                                                </strong>
+                                                {{--<p class="last-message text-muted">Lorem ipsum dolor sit.</p>--}}
+                                            </div>
+                                            <div class="chat-footer">
+                                                <p class="text-smaller text-muted mb-0">{{  $user->lastMsgWithAuth($user->id) != null ? $user->lastMsgWithAuth($user->id)->getAgeAttr():'' }}</p>
+                                                <span class="text-muted float-right"><i class="fa fa-mail-reply" aria-hidden="true"></i></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endif
+
+                            @endforeach
 
 
-{{--                            @foreach()--}}
-
-                            {{--@foreach($messages as $message)--}}
-
-                            <li class="active grey lighten-3 p-2 msg-usr-li" data-id="1">
+                            {{--<li class="active grey lighten-3 p-2 msg-usr-li" data-id="1">
                                 <a href="#" class="d-flex justify-content-between">
                                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
                                     <div class="text-small">
@@ -87,19 +105,9 @@
                                     </div>
                                 </a>
                             </li>
-                            <li class="p-2 msg-usr-li"  data-id="2">
-                                <a href="#" class="d-flex justify-content-between">
-                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
-                                    <div class="text-small">
-                                        <strong>Danny Smith</strong>
-                                        <p class="last-message text-muted">Lorem ipsum dolor sit.</p>
-                                    </div>
-                                    <div class="chat-footer">
-                                        <p class="text-smaller text-muted mb-0">5 min ago</p>
-                                        <span class="text-muted float-right"><i class="fa fa-mail-reply" aria-hidden="true"></i></span>
-                                    </div>
-                                </a>
-                            </li>
+
+
+
                             <li class="p-2 msg-usr-li" data-id="3">
                                 <a href="#" class="d-flex justify-content-between">
                                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
@@ -164,7 +172,10 @@
                                         <span class="text-muted float-right"><i class="fa fa-check" aria-hidden="true"></i></span>
                                     </div>
                                 </a>
-                            </li>
+                            </li>--}}
+
+
+
                         </ul>
                     </div>
 

@@ -71,6 +71,31 @@ class User extends Authenticatable
         return $messages;
     }
 
+    public function lastMsgWithAuth($id){
+
+//        \Illuminate\Support\Facades\DB::enableQueryLog();
+        $message =  Message::
+//        where(['sender_id' => $id , 'recipient_id' => auth()->user()->id])->
+            where(function($query) use ($id) /*use ($sender, $receiver)*/
+            {
+                $query->where("sender_id",$id)
+                    ->where("recipient_id", auth()->user()->id);
+            })
+            ->orWhere(function($query) use ($id) /*use ($sender, $receiver)*/
+            {
+                $query->Where("sender_id", auth()->user()->id)
+                    ->Where("recipient_id", $id);
+            })
+//            ->orWhere(['sender_id' => auth()->user()->id , 'recipient_id' => $id])
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+//        dd( \Illuminate\Support\Facades\DB::getQueryLog());
+
+        return $message;
+
+    }
+
     public function invoices(){
         return $this->hasMany('App\Models\Payment\Invoice');
     }
