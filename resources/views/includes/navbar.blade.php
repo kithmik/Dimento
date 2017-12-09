@@ -104,7 +104,7 @@
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item ex-a" href="/forum">Forum</a>
                             <a class="dropdown-item ex-a" href="/user">Community</a>
-                            <a class="dropdown-item" href="#">Blog</a>
+                            {{--<a class="dropdown-item" href="#">Blog</a>--}}
                         </div>
                     </li>
                 </ul>
@@ -151,9 +151,17 @@
                                                                                        aria-hidden="true"></i> Dashboard</a>
 
                         @endif
-                    @endauth
 
-                    @auth
+                    {{--@endauth
+
+                    @auth--}}
+
+                    <li class="nav-item">
+                        <a class="nav-link ex-a" href="/message">
+                            <i class="fa fa-comments fa-2x  " aria-hidden="true"></i>
+                        </a>
+                    </li>
+
                         <li class="nav-item btn-group" style="">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
@@ -173,6 +181,10 @@
 
                             </div>
                         </li>
+
+
+
+
                     @else
                         <a href="/login" type="button" class="btn btn-outline-elegant waves-effect btn-sm"> <i
                                     class="fa fa-sign-in prefix" aria-hidden="true"></i> Login</a>
