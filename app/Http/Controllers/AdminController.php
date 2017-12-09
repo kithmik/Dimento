@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,13 +22,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
-        $users = User::all();
-        $objects = Object::all();
-        $posts = Post::all();
-        $advertisements = Advertisement::all();
-        return view('admin.index',['users' => $users, 'objects' => $objects, 'posts' => $posts, 'advertisements' => $advertisements]);
+        if (auth()->user()->isAdmin()){
+            $users = User::all();
+            $objects = Object::all();
+            $posts = Post::all();
+            $advertisements = Advertisement::all();
+            return view('admin.index',['users' => $users, 'objects' => $objects, 'posts' => $posts, 'advertisements' => $advertisements]);
 //        return view('admin.index');
+        }
+        else{
+            return redirect()->to('/home');
+        }
+        //
+
     }
 
     /**

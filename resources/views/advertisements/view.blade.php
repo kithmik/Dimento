@@ -17,15 +17,12 @@
 </head>
 <body>
 
-<!-- @foreach($errors->all() as $error)
+@include('includes.navbar')
+
+@foreach($errors->all() as $error)
     {{ $error }}
+@endforeach
 
-@endforeach -->
-
-<!-- Form advertisement -->
-
-<form class="" action="/show/view" method="post" enctype="multipart/form-data">
-    {{csrf_field()}}
 
 
 
@@ -37,33 +34,29 @@
                     Advertisement View
                 </div>
                 <div class="text-left">
-                    <h1 style="margin: 20px;"><b>Title</b>   {{$ad->title}}</h1>
+                    <h1 style="margin: 20px;">  {{$ad->title}}</h1>
 
                 </div>
                 <center>
-                    <img src="{{$ad->image}}" class="img img-rounded img-responsive" style="width: 75%;height: 50%;">
+                    <img src="{{$ad->image}}" class="img img-rounded img-responsive" style="max-height: 320px;">
                 </center>
                 <br/>
-                <div class="text-left" ">
-                <h2 style="margin-left:20px;"><b>Description</b></h2>
+                <div class="text-left" >
                 <h4 style="margin-left: 200px;">{{$ad->description}}</h4>
 
             </div>
 
-            <div class="text-left" ">
-            <h2 style="margin-left: 20px;"> <b>Object</b></h2>
+            <div class="text-left">
             <h4 style="margin-left: 200px;">{{$ad->object}}</h4>
 
 
         </div>
-        <div class="text-left" ">
-        <h2 style="margin-left: 20px;"> <b>Texture</b></h2>
+        <div class="text-left">
         <h4 style="margin-left: 200px;">{{$ad->texture}}</h4>
 
 
     </div>
-    <div class="text-left" ">
-    <h2 style="margin-left: 20px;"> <b>Upload Date</b></h2>
+    <div class="text-left">
     <h4 style="margin-left: 200px;">{{$ad->deadline}}</h4>
 
     </div>
@@ -71,7 +64,6 @@
     </div>
     </div>
 
-</form>
 
 
 <!-- Form advertisement -->
@@ -81,7 +73,7 @@
 <!-- JQuery -->
 <script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.js"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
+{{--<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>--}}
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="/libs/mdb4/js/bootstrap.js"></script>
 <!-- MDB core JavaScript -->

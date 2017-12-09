@@ -17,6 +17,8 @@
 </head>
 <body>
 
+@include('includes.navbar')
+
 <!-- @foreach($errors->all() as $error)
     {{ $error }}
 
@@ -111,7 +113,7 @@
 <!-- JQuery -->
 <script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.js"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
+{{--<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>--}}
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="/libs/mdb4/js/bootstrap.js"></script>
 <!-- MDB core JavaScript -->

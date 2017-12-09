@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Message;
 
 use App\Models\Message\Message;
+use App\Models\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,14 +15,25 @@ class MessageController extends Controller
         $this->middleware('auth');
     }
 
+    public function to($id){
+        $user = User::findOrFail($id);
+        return view('messages.index', ['user' => $user]);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id = 0)
     {
-        return view('messages.index');
+        $messages = Message::select('sender_id', 'recipient_id')
+            ->where('sender_id', auth()->user()->id)
+            ->orWhere('recipient_id', auth()->user()->id)
+            ->distinct()
+            ->get();
+//        dd($messages);
+        return view('messages.index', ['messages'=>$messages, 'id' => $id]);
     }
 
     /**

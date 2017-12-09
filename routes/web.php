@@ -39,6 +39,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 /*Admin Routes*/
+
+Route::post('/admin/make_admin', '')
+
 Route::resource('/admin', 'AdminController');
 
 
@@ -69,6 +72,8 @@ Route::resource('/bid', 'Task\BidsController');
 
 
 /*Messages*/
+
+Route::get('/message/to/{id}', 'Message\MessageController@index');
 
 Route::resource('/message', 'Message\MessageController');
 

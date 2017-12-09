@@ -50,6 +50,9 @@
 
 @include('includes.navbar')
 
+
+{{ $id }}
+
 <div class="container">
     <div class="card grey lighten-3 chat-room">
         <div class="card-body">
@@ -60,9 +63,17 @@
                 <!-- Grid column -->
                 <div class="col-md-6 col-xl-4 px-0">
 
-                    <h6 class="font-bold mb-3 text-center text-lg-left">Member</h6>
+                    <h6 class="font-bold mb-3 text-center text-lg-left">Messages</h6>
+
                     <div class="white z-depth-1 px-3 pt-3 pb-0">
                         <ul class="list-unstyled friend-list">
+
+
+
+{{--                            @foreach()--}}
+
+                            {{--@foreach($messages as $message)--}}
+
                             <li class="active grey lighten-3 p-2 msg-usr-li" data-id="1">
                                 <a href="#" class="d-flex justify-content-between">
                                     <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
