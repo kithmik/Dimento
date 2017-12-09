@@ -18,8 +18,8 @@ Route::get('/', function () {
 /*API calls for Mobile App*/
 Route::get('/get_csrf', 'MobileAPIController@getCSRF');
 
-Route::post('/MobileAPI/register', 'Auth\RegisterController@register');
-Route::post('/MobileAPI/login', 'Auth\LoginController@login');
+Route::post('/MobileAPI/register', 'MobileAPIController@register');
+Route::post('/MobileAPI/login', 'MobileAPIController@login');
 
 Route::get('/MobileAPI/get_models', 'MobileAPIController@getObjects');
 
