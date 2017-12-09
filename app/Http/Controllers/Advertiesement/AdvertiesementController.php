@@ -92,7 +92,8 @@ class AdvertiesementController extends Controller
      */
     public function show($id)
     {
-        //
+        $ad = Advertisement::findOrFail($id);
+
     }
 
     /**
