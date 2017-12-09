@@ -27,6 +27,7 @@
 <form action="{{ route('task.store') }}" method="POST" enctype="multipart/form-data">
 
 
+    {{ csrf_field() }}
 
 
     <p class="h5 text-center mb-4">
@@ -93,7 +94,7 @@
 
 
         <div class="col-md-6" >
-            <button type="button" class="btn btn-rounded btn-blue-grey" align="text-center"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i>POST</button>
+            <button type="submit" class="btn btn-rounded btn-blue-grey" align="text-center"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>POST</button>
         </div>
     </div>
 </form>
