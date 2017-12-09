@@ -94,15 +94,57 @@
                         <!-- /.box -->
                     @elseif($user->type == 2)
                         {{-- check whether customer--}}
-                        <hr>
-                        {{--objects list table--}}
+
+                        {{--jobs list table--}}
                         <div class="box" id="">
                             <div class="box-header">
-                                <h3 class="box-title">Posts Posted</h3>
+                                <h3 class="box-title">Jobs Posted</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <table id="data2" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Desc</th>
+                                        <th>Posted On</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{--@foreach($user->posts as $post)--}}
+                                    {{--<tr>--}}
+                                    {{--<td>{{ $post->title }}</td>--}}
+                                    {{--<td>{{ $post->category }}</td>--}}
+                                    {{--<td>{{ $post->description }}</td>--}}
+                                    {{--<td>{{ $post->created_at }}</td>--}}
+                                    {{--</tr>--}}
+                                    {{--@endforeach--}}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Desc</th>
+                                        <th>Posted On</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    @elseif($user->type == 3)
+                        {{-- check whether business rep--}}
+
+                        {{--jobs list table--}}
+                        <div class="box" id="">
+                            <div class="box-header">
+                                <h3 class="box-title">Ads Posted</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <table id="data3" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th>Title</th>
