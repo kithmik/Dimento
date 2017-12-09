@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\Message;
 
+use App\Models\Message\Message;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class MessageController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,6 +43,10 @@ class MessageController extends Controller
     public function store(Request $request)
     {
         //
+
+        $messages = new Message;
+//        $messages->;
+
     }
 
     /**

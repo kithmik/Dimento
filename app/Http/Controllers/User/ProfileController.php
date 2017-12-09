@@ -16,7 +16,12 @@ class ProfileController extends Controller
     public function index()
     {
         //
-        return "user lisr";
+//        return "user lisr";
+        $users = User::paginate(20);
+
+//        dd($users);
+        return view('user.index', ['users' => $users]);
+
     }
 
     /**

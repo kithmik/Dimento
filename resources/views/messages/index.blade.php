@@ -48,6 +48,8 @@
 </head>
 <body>
 
+@include('includes.navbar')
+
 <div class="container">
     <div class="card grey lighten-3 chat-room">
         <div class="card-body">
@@ -230,8 +232,8 @@
 
 <!-- SCRIPTS -->
 
-<!-- Bootstrap dropdown -->
-<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
+{{--<!-- Bootstrap dropdown -->
+<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>--}}
 
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="/libs/mdb4/js/bootstrap.min.js"></script>
