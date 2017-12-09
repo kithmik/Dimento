@@ -19,8 +19,9 @@ class CreateTasksTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->dateTime('deadline');
-            $table->decimal('amount', 10, 2);
-            $table->boolean('hourly')->default(0);
+            $table->decimal('amount', 10, 2)->nullable();
+            $table->boolean('hourly')->default(0)->nullable();
+            $table->boolean('fixed_price')->default(1);
             $table->unsignedBigInteger('freelancer_id')->nullable();
             $table->unsignedBigInteger('invoice_id')->nullable();
             $table->boolean('published')->default(0);
