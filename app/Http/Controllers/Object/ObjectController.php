@@ -138,7 +138,7 @@ class ObjectController extends Controller
      */
     public function show($id)
     {
-        $ad = Advertisement::all();
+        $ads = Advertisement::orderby('updated_at', 'desc')->paginate(3);
 
         $object = Object::findOrFail($id);
 
@@ -152,7 +152,7 @@ class ObjectController extends Controller
         }
 
 //        $object = Object::where('id', $id)->get();
-        return view('objects.view', ['object' => $object , 'advertisement' => $ad]);
+        return view('objects.view', ['object' => $object , 'ads' => $ads]);
     }
 
     /**
