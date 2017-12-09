@@ -201,7 +201,7 @@
                 <!--Card-->
                 <div class="card">
                     <!--Card image-->
-                    <img class="img-fluid" src="/" alt="Card image cap">
+                    <img class="img-fluid" src="/" alt="Card image cap" style="max-height: 300px">
                     <!--Card content-->
                     <div class="card-body">
                         <!--Title-->
