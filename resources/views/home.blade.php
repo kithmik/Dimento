@@ -47,13 +47,11 @@
         <!--/.Panel 1-->
         <!--Panel 2-->
         <div class="tab-pane fade" id="panel2" role="tabpanel">
-            <br>
 
         </div>
         <!--/.Panel 2-->
         <!--Panel 3-->
         <div class="tab-pane fade" id="panel3" role="tabpanel">
-            <br>
 
         </div>
         <!--/.Panel 3-->

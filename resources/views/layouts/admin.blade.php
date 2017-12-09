@@ -182,7 +182,7 @@
 
         <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2">
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
@@ -198,7 +198,7 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2  ">
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 ">
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
@@ -229,13 +229,30 @@
                 </div>
 
                 <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2  ">
+                    <!-- small box -->
+                    <div class="small-box bg-orange">
+                        <div class="inner">
+                            <h3>{{ count($tasks) }}</h3>
+
+                            <p>Total Tasks</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-plus-round"></i>
+                        </div>
+                        <a href="#ads" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+
+                <!-- ./col -->
+                <div class="col-lg-2 ">
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
                             <h3>{{ count($advertisements) }}</h3>
 
-                            <p>Total Advertisements</p>
+                            <p>Total Ads</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
@@ -249,6 +266,45 @@
         </section>
         <!-- /.content -->
 
+        {{--objects list table--}}
+        <div class="box" id="objects">
+            <div class="box-header">
+                <h3 class="box-title">Objects</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="objects-table" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Posted By</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($objects as $object)
+                        <tr>
+                            <td><a href="/object/{{ $object->id}}">{{ $object->title }}</a></td>
+                            <td>{{ $object->category }}</td>
+                            <td>{{ $object->description }}</td>
+                            <td>{{ $object->user->first_name }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Posted By</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
         {{--registered users table--}}
         <div class="box" id="users">
             <div class="box-header">
@@ -256,7 +312,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="user-table" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -280,18 +336,21 @@
                             <td class="left">
                                 <a href="/user/{{ $user->id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
                                 <i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br>
-                                <i class="fa fa-pencil" aria-hidden="true"> Edit</i>
+                                <i class="fa fa-pencil" aria-hidden="true"> Edit</i><br>
+                                <a href="/admin/make_admin" data-id="{{ $user->id }}" class="{{ $user->isAdmin()?'remove-admin':'make-admin' }} user-admin"><i class="fa fa-eye" aria-hidden="true"> {{ $user->isAdmin()?'remove admin':'make admin' }}</i></a><br>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
+                        <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Type</th>
                         <th>Phone</th>
+                        <th>Edit</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -300,38 +359,51 @@
         </div>
         <!-- /.box -->
         <br>
-        {{--objects list table--}}
-        <div class="box" id="models">
+
+        {{-- total posts table--}}
+        <div class="box" id="forum-posts">
             <div class="box-header">
-                <h3 class="box-title">3D Models</h3>
+                <h3 class="box-title">Forum Posts</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example2" class="table table-bordered table-striped">
+                <table id="forum-post-table" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th>Title</th>
+                        <th>Description</th>
                         <th>Category</th>
-                        <th>Desc</th>
-                        <th>Posted By</th>
+                        <th>View Count</th>
+                        <th>Published on</th>
+                        <th>Published by</th>
+                        <th>Edit</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($objects as $object)
+                    @foreach($posts as $post)
                         <tr>
-                            <td><a href="/object/{{ $object->id}}">{{ $object->title }}</a></td>
-                            <td>{{ $object->category }}</td>
-                            <td>{{ $object->description }}</td>
-                            <td>{{ $object->user_id }}</td>
+                            <td>{{$post->title}}</td>
+                            <td>{{$post->description}}</td>
+                            <td>{{$post->category}}</td>
+                            <td>{{$post->view_count}}</td>
+                            <td>{{$post->created_at}}</td>
+                            <td>{{$post->user->first_name.' '.$post->user->last_name}}</td>
+                            <td class="left">
+                                <a href="/post/{{ $post->id}}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                <i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
                     <tfoot>
                     <tr>
                         <th>Title</th>
+                        <th>Description</th>
                         <th>Category</th>
-                        <th>Desc</th>
-                        <th>Posted By</th>
+                        <th>View Count</th>
+                        <th>Published on</th>
+                        <th>Published by</th>
+                        <th>Edit</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -340,14 +412,15 @@
         </div>
         <!-- /.box -->
         <br>
-        {{--advertisements table--}}
-        <div class="box" id="ads">
+
+        {{-- total tasks table--}}
+        <div class="box" id="tasks">
             <div class="box-header">
-                <h3 class="box-title">Advertisements</h3>
+                <h3 class="box-title">Posted Tasks</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example3" class="table table-bordered table-striped">
+                <table id="task-table" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th>Title</th>
@@ -359,14 +432,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($advertisements as $ad)
+                    @foreach($tasks as $task)
                         <tr>
-                            <td><a href="/advertisement/{{ $ad->id}}">{{ $ad->title }}</a></td>
-                            <td>{{ $ad->description }}</td>
-                            <td>{{ $ad->deadline }}</td>
-                            <td>{{ $ad->accepted == 1?'Accepted': 'Not Accepted' }}</td>
-                            <td>{{ $ad->published_at }}</td>
-                            <td>{{ $ad->user_id }}</td>
+                            <td>{{$task->title}}</td>
+                            <td>{{$task->description}}</td>
+                            <td>{{$task->deadline}}</td>
+                            <td>{{$task->freelancer_id==null? 'Open':'Allocated'}}</td>
+                            <td>{{$task->created_at}}</td>
+                            <td>{{$task->user->first_name.' '.$task->user->last_name}}</td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -376,6 +449,50 @@
                         <th>Description</th>
                         <th>Deadline</th>
                         <th>Is accepted?</th>
+                        <th>Published on</th>
+                        <th>Published by</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        <br>
+
+        {{--advertisements table--}}
+        <div class="box" id="ads">
+            <div class="box-header">
+                <h3 class="box-title">Advertisements</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="ad-table" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Views</th>
+                        <th>Published on</th>
+                        <th>Published by</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($advertisements as $ad)
+                        <tr>
+                            <td><a href="/advertisement/{{ $ad->id}}">{{ $ad->title }}</a></td>
+                            <td>{{ $ad->description }}</td>
+                            <td>{{ $ad->views }}</td>
+                            <td>{{ $ad->created_at }}</td>
+                            <td>{{ $ad->user->first_name.' '.$ad->user->last_name }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Views</th>
                         <th>Published on</th>
                         <th>Published by</th>
                     </tr>
@@ -443,7 +560,26 @@
 <script src="/libs/admin/demo.js"></script>
 <script>
     $(function () {
-        $('#example1').DataTable({
+
+        $('.user-admin').click(function (e) {
+            e.preventDefault();
+
+            var id = $(this).attr('data-id');
+
+            $.ajax({
+                url: '/admin/make_admin',
+                method: 'POST',
+                data: {'user_id': id},
+                success: function (returnData) {
+                    console.log(returnData);
+                },
+                error: function (returnData) {
+                    console.log(returnData);
+                }
+            });
+        });
+
+        $('#objects-table').DataTable({
             'paging': true,
             'lengthChange': true,
             'searching': true,
@@ -451,7 +587,7 @@
             'info': true,
             'autoWidth': true
         })
-        $('#example2').DataTable({
+        $('#user-table').DataTable({
             'paging': true,
             'lengthChange': true,
             'searching': true,
@@ -459,7 +595,23 @@
             'info': true,
             'autoWidth': true
         })
-        $('#example3').DataTable({
+        $('#forum-post-table').DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
+        })
+        $('#task-table').DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'searching': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': true
+        })
+        $('#ad-table').DataTable({
             'paging': true,
             'lengthChange': true,
             'searching': true,

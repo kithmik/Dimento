@@ -127,7 +127,7 @@
 
                         @elseif(auth()->user()->type == 2)
                             {{--auth if customer only--}}
-                            <a href="{{ route('post.create') }}" type="button"
+                            <a href="{{ route('task.create') }}" type="button"
                                class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix"
                                                                                        aria-hidden="true"></i> Post a
                                 Job</a>
