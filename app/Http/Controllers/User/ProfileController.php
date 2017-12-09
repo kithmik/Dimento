@@ -73,7 +73,17 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        User::where('id', $id)
+            ->update([
+                'first_name'=>$request->first_name,
+                'last_name'=>$request->last_name,
+                'phone'=>$request->phone,
+                'phone_privacy'=>$request->phone_privacy,
+                'dob'=>$request->dob,
+                'email'=>$request->email,
+                'email_privacy'=>$request->email_privacy,
+            ]);
     }
 
     /**
