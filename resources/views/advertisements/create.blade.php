@@ -24,7 +24,7 @@
 
 <!-- Form advertisement -->
 
-<form class="" action="/storedata" method="post" enctype="multipart/form-data">
+<form class="" action="{{ route('advertisement.store') }}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
 
 
