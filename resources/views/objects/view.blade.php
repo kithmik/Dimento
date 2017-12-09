@@ -247,6 +247,9 @@
             directionalLight.position.set(0, 0, 2);
             scene.add(directionalLight);
 
+            var ambientLight = new THREE.AmbientLight(0xffffff, 1, 1000);
+            scene.add(ambientLight);
+
             var material = new THREE.MeshLambertMaterial();  // default color is 0xffffff
 
             //3ds files dont store normal maps

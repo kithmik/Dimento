@@ -8,6 +8,7 @@ use App\Mail\ConfirmRegistration;
 use App\Models\Object\Object;
 use App\Models\User\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,7 +16,7 @@ class MobileAPIController extends Controller
 {
     
     public function getCSRF(){
-        return response(json_encode(csrf_token()), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+        return response(json_encode(['_token'=>csrf_token()]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
     }
 
     public function register(Request $request){
@@ -28,11 +29,11 @@ class MobileAPIController extends Controller
             'dob' => 'date|before: 13 years ago',
             'type' => 'required|in: 1,2,3',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
         ]);
 
         if ($validator->fails()) {
-            return response(json_encode(['status' => 0, 'data'=>"Error While Signing up."/*, 'errors'=>$validator->errors()*/]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+            return response(json_encode(['status' => 0, 'data'=>"Error While Signing up.", 'errors'=>$validator->errors()]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
 
         $data = $request->all();
@@ -53,6 +54,7 @@ class MobileAPIController extends Controller
     
     public function login(Request $request){
 
+//        dd(bcrypt($request->password));
        /* return response($request->all(), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'))
             ->header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS')
             ->header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');*/
@@ -61,10 +63,10 @@ class MobileAPIController extends Controller
         $password = bcrypt($request->password);
         
         $user = User::where('email', $email)
-            ->where('password', $password)
-            ->get();
+//            ->where('password', $password)
+            ->first();
         
-        if (count($user) == 1){
+        if (count($user) == 1 && Hash::check($request->password, $user->password)){
 
             try{
                 auth()->login($user, true);
