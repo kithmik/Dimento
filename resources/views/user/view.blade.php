@@ -30,7 +30,9 @@
 
                     @auth
                         @if(auth()->user()->id == $user->id)
-                            <button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Edit</button>
+                            <button type="button" class="btn btn-outline-elegant waves-effect btn-sm"
+                                    data-toggle="modal" data-target="#edit">Edit
+                            </button>
                             <button type="button" class="btn btn-outline-elegant waves-effect btn-sm">Delete</button>
                             <button type="button" class="btn btn-outline-elegant waves-effect btn-sm"
                                     data-toggle="modal" data-target="#more">More
@@ -90,7 +92,7 @@
                             <!-- /.box-body -->
                         </div>
                         <!-- /.box -->
-                    @else
+                    @elseif($user->type == 2)
                         {{-- check whether customer--}}
                         <hr>
                         {{--objects list table--}}
@@ -159,7 +161,7 @@
 </script>
 
 {{--modal--}}
-<!--Modal: Contact form-->
+<!--Modal: User info-->
 <div class="modal fade" id="more" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog cascading-modal" role="document">
         <!--Content-->
@@ -194,8 +196,101 @@
         <!--/.Content-->
     </div>
 </div>
-<!--Modal: Contact form-->
+<!--Modal: user info-->
 
+
+<!-- Modal -->
+<!--Modal: edit info-->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+            <!--Header-->
+            <div class="modal-header blue-grey lighten-5">
+                <h4 class="title"><i class="fa fa-user"></i>Edit Info</h4>
+                <button type="button" class="close waves-effect waves-light black-text" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <form method="post" action="{{ route('user.update', auth()->user()->id) }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                {{ method_field('PUT') }}
+                <div class="modal-body mx-3">
+                    <div class="md-form">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input name="first_name" type="text" id="first-name" class="form-control validate" value="{{ auth()->user()->first_name }}">
+                                <label data-error="" data-success="" for="first-name">First name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input name="last_name" type="text" id="last-name" class="form-control validate" value="{{ auth()->user()->last_name }}">
+                                <label data-error="" data-success="" for="last-name">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label data-error="" data-success="" for="profile-pic">Profile Picture</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <input name="profile_pic" type="file" id="profile-pic" class="form-control validate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <input name="phone" type="text" id="telephone" class="form-control validate" value="{{ auth()->user()->phone }}">
+                                <label data-error="" data-success="" for="telephone">Telephone</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input name="phone_privacy" type="checkbox" id="telephone_privacy">
+                                <label for="telephone_privacy" class="grey-text">Private</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="md-form">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <input type="text" id="dob" class="form-control validate" value="{{ auth()->user()->dob }}">
+                                <label class="datepicker" data-error="" data-success="" for="dob">Date of Birth</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="md-form">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <input name="email" type="text" id="email" class="form-control validate" value="{{ auth()->user()->email }}" disabled="">
+                                <label data-error="" data-success="" for="email">Email</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input name="email_privacy" type="checkbox" id="email_privacy">
+                                <label for="email_privacy" class="grey-text">Private</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-outline-elegant waves-effect btn-sm">Update</button>
+                </div>
+
+            </form>
+
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+<!--Modal: edit info-->
 <script>
     $(function () {
         $('#data1').DataTable({
@@ -216,5 +311,21 @@
         })
     })
 
+
+</script>
+<script>
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.mdb-select').material_select();
+    });
+    // Data Picker Initialization
+    var d = new Date();
+
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 120,
+        max: new Date(d.getFullYear() - 12, d.getMonth() - 12, d.getDay() + 14),
+        format: 'yyyy-mm-dd'
+    });
 
 </script>
