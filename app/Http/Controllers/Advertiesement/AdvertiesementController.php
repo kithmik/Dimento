@@ -60,7 +60,7 @@ class AdvertiesementController extends Controller
 
         // dd($deadline);
         $advertisement = new Advertisement;
-        // $advertisement->user_id = 1;
+         $advertisement->user_id = auth()->user()->id;
         $advertisement->title = $request->input('title');
         $advertisement->description = $request->input('description');
         // $advertisement->image = $request->input('image');

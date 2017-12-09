@@ -1,5 +1,5 @@
-/public/storage/*
-public/storage/*
+/public/storage
+public/storage
 /.idea
 /public/libs/threejs/models/*
 storage/logs/laravel.log

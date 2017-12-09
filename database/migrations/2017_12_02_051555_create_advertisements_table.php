@@ -27,7 +27,7 @@ class CreateAdvertisementsTable extends Migration
             $table->unsignedBigInteger('views')->default(0);
             $table->unsignedBigInteger('invoice_id')->nullable();
             $table->boolean('accepted')->default(0);
-            $table->dateTime('published_at');
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
