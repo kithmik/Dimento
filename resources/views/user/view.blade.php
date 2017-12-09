@@ -13,7 +13,7 @@
                 </div>
 
                 <!--Avatar-->
-                <div class="avatar"><img src="/img/avatar.png" class="rounded-circle">
+                <div class="avatar"><img src="{{$user->profile_pic}}" class="rounded-circle">
                 </div>
 
                 <div class="card-body">
@@ -294,7 +294,7 @@
                                 <label data-error="" data-success="" for="telephone">Telephone</label>
                             </div>
                             <div class="col-sm-5">
-                                <input name="phone_privacy" type="checkbox" id="telephone_privacy">
+                                <input name="phone_privacy" {{ $user->phone_privacy?'checked':'' }} type="checkbox" id="telephone_privacy">
                                 <label for="telephone_privacy" class="grey-text">Private</label>
                             </div>
                         </div>
@@ -316,7 +316,7 @@
                                 <label data-error="" data-success="" for="email">Email</label>
                             </div>
                             <div class="col-sm-5">
-                                <input name="email_privacy" type="checkbox" id="email_privacy">
+                                <input name="email_privacy" {{ $user->email_privacy?'checked':'' }} type="checkbox" id="email_privacy">
                                 <label for="email_privacy" class="grey-text">Private</label>
                             </div>
                         </div>

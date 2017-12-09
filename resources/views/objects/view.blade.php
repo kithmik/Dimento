@@ -196,24 +196,24 @@
                 </div>
             </div>
 
-            {{--@foreach($ad as $a)--}}
+            @foreach($ads as $ad)
             <div class="col-md-4">
                 <!--Card-->
                 <div class="card">
                     <!--Card image-->
-                    <img class="img-fluid" src="/" alt="Card image cap" style="max-height: 300px">
+                    <img class="img-fluid" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px">
                     <!--Card content-->
                     <div class="card-body">
                         <!--Title-->
-                        <h4 class="card-title"></h4>
+                        <h4 class="card-title">{{$ad->title}}</h4>
                         <!--Text-->
-                        <p class="card-text" style="text-transform: capitalize"></p>
-                        <a href="" class="btn btn-outline-elegant waves-effect btn-sm">View</a>
+                        <p class="card-text" style="text-transform: capitalize">{{$ad->description}}</p>
+                        <a href="{{ route('advertisement.show',$ad->id) }}" class="btn btn-outline-elegant waves-effect btn-sm">View</a>
                     </div>
                 </div>
                 <!--/.Card-->
             </div>
-            {{--@endforeach--}}
+            @endforeach
 
         </div>
     </div>
