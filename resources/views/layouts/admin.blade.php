@@ -42,10 +42,16 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<style>
+    .skin-black{
+        color: black;
+        background-color: black;
+    }
+</style>
+<body class=" skin-black sidebar-mini">
 <div class="wrapper">
 
-    <header class="main-header">
+    <header class="main-header ">
         <!-- Logo -->
         <a href="/" class="logo">
             <!-- logo for regular state and mobile devices -->
@@ -193,8 +199,7 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#models" class="small-box-footer">More info <i
-                                    class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#objects" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -224,7 +229,7 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#forum-posts" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -240,7 +245,7 @@
                         <div class="icon">
                             <i class="ion ion-plus-round"></i>
                         </div>
-                        <a href="#ads" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#tasks" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
