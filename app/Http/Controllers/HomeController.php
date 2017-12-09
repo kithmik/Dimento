@@ -29,9 +29,9 @@ class HomeController extends Controller
     {
         $objects = Object::all();
         $posts = Post::all();
-        $ad = Advertisement::all();
+        $ads = Advertisement::all();
 
-        return view('home',['objects' => $objects, 'posts' => $posts, 'advertisement' => $ad]);
+        return view('home',['objects' => $objects, 'posts' => $posts, 'advertisements' => $ads]);
     }
 
     public function confirm($code){
