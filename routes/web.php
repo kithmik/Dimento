@@ -40,7 +40,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /*Admin Routes*/
 
-Route::post('/admin/make_admin', '')
+Route::post('/admin/make_admin', 'AdminController@makeAdmin');
 
 Route::resource('/admin', 'AdminController');
 
