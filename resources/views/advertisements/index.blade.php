@@ -26,8 +26,7 @@
                     <br/><br/>
                     <div class="col-md-6">
                         <div class="card" style="width: 20rem; height: 22rem; " >
-
-                            <img src="{{$ad->image}}" class="img img-rounded img-responsive">
+                            <img src="{{$ad->image}}" class="img img-rounded img-responsive" style="max-height: 200px;">
                             <div class="card-block">
                                 <h4 class="card-title" style="text-align: center;">
                                     {{ $ad->title }}

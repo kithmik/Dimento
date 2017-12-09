@@ -27,13 +27,10 @@
 <form class="" action="{{ route('advertisement.store') }}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
 
-
-
-
     <div class="container">
 
-        <div class="col-md-6">
-            <div class="card  text-center" >
+        <div class="col-md-8 mx-auto col-md-offset-6">
+            <div class="card  mx-auto p-2 pl-5 pr-5" >
                 <div class="card-header black white-text">
                     Advertisement form
                 </div>
