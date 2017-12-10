@@ -41,7 +41,9 @@
                             <button type="button" class="btn btn-outline-elegant waves-effect btn-sm"
                                     data-toggle="modal" data-target="#more">More
                             </button>
-                            <button data-id="{{ $user->id }}" class="btn btn-outline-elegant waves-effect btn-sm follow_btn">Follow</button>
+                            <button data-id="{{ $user->id }}" id="follow_btn" class="btn btn-outline-elegant waves-effect btn-sm follow_btn">
+                                {{ $user->isFollowing()?'Unfollow':'Follow' }}
+                            </button>
                         @endif
                     @endauth
                 </div>
@@ -413,7 +415,28 @@
         $('.follow_btn').click(function (e) {
             e.preventDefault();
             var user_id = $(this).attr('data-id');
-            $.ajax();
+            $.ajax({
+                url: '/user/follow',
+                method: 'POST',
+                data: {
+                    'id':'{{ $user->id }}',
+                    '_token': '{{ csrf_token() }}'
+                },
+                success: function (returnedData) {
+                    if ( typeof returnedData.status !== undefined && returnedData.status == 1){
+                        $('#follow_btn').html('Unfollow');
+                        toastr["success"]('Success: '+returnedData.msg);
+                    }
+                    else {
+                        $('#follow_btn').html('Follow');
+                        toastr["success"]('Success: '+returnedData.msg);
+                    }
+                    console.log(returnedData);
+                },
+                error: function (returnedData) {
+                    console.log(returnedData);
+                }
+            });
         });
 
     });
