@@ -266,7 +266,7 @@
 //                        console.log(returnedData);
 //                        console.log(returnedData.length);
                         if (returnedData.length){
-                            $('#chat-history-div').html(returnedData);
+                            $('#chat-history-div').append(returnedData);
                         scrollDown();
                         }
 
