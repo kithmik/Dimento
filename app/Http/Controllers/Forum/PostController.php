@@ -15,8 +15,9 @@ class PostController extends Controller
     }
 
     public function getPosts($category){
+        $category = urldecode($category);
         $posts = post::where('category', $category)->get();
-        return view('forum.index', ['posts' => $posts]);
+        return view('forum.index', ['posts' => $posts, 'category' => $category]);
     }    
 
     /**
@@ -62,7 +63,7 @@ class PostController extends Controller
         }*/
 
         $post = new Post;
-        $post->title = $request->input('name');
+        $post->title = $request->input('title');
         $post->category  = $request->input('category');
         $post->description  = $request->input('description');
         $post->user_id = auth()->user()->id;

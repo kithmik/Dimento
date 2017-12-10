@@ -30,7 +30,7 @@
                                 <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Delete</a>
                             @elseif(auth()->user()->type == 1)
                                 @if($task->fixed_price=='1')
-                                    <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Accept</a>
+                                    <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Apply</a>
                                 @else
                                     <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Bid</a>
                                 @endif
