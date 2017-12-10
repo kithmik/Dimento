@@ -77,6 +77,8 @@ Route::get('/message/to/{id}', 'Message\MessageController@index');
 
 Route::get('/messages/request/{id}', 'Message\MessageController@getMessages');
 
+Route::get('/messages/request_updates/{id}', 'Message\MessageController@getUpdates');
+
 Route::resource('/message', 'Message\MessageController');
 
 

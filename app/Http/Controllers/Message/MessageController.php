@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Message;
 
 use App\Models\Message\Message;
 use App\Models\User\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class MessageController extends Controller
 {
@@ -18,6 +20,53 @@ class MessageController extends Controller
     public function to($id){
         $user = User::findOrFail($id);
         return view('messages.index', ['user' => $user]);
+    }
+
+    public function getUpdates($id){
+        $user = User::findOrFail($id);
+
+//        \Illuminate\Support\Facades\DB::enableQueryLog();
+
+        $messages =  Message::where(function($query) use ($id)
+        {
+            $query->where("sender_id",$id)
+                ->where("recipient_id", auth()->user()->id)
+            ->where('read', 0);
+        })
+            ->orWhere(function($query) use ($id) /*use ($sender, $receiver)*/
+            {
+                $query->Where("sender_id", auth()->user()->id)
+                    ->Where("recipient_id", $id)
+                ->where('read', 0);
+            })
+            ->orderBy('created_at')
+            ->get();
+
+//        dd( \Illuminate\Support\Facades\DB::getQueryLog());
+
+        Message::where(function($query) use ($id)
+        {
+            $query->where("sender_id",$id)
+                ->where("recipient_id", auth()->user()->id);
+        })
+            ->orWhere(function($query) use ($id) /*use ($sender, $receiver)*/
+            {
+                $query->Where("sender_id", auth()->user()->id)
+                    ->Where("recipient_id", $id);
+            })
+            ->update(['read' => 1]);
+/*
+//        dd($messages->last()->created_at);
+        if (count($messages)){
+            session(['chat_last_loaded' => [ $user->id => $messages->last()->created_at]]);
+        }*/
+
+//            return $messages;
+
+        if (count($messages)){
+            return view('messages.latest_chat', ['messages' => $messages, 'user' => $user, 'id' => $id]);
+        }
+
     }
 
     public function getMessages($id){
@@ -49,10 +98,10 @@ class MessageController extends Controller
             })
             ->update(['read' => 1]);
 
-//        dd($messages->last()->created_at);
+/*//        dd($messages->last()->created_at);
         if (count($messages)){
             session(['chat_last_loaded' => [ $user->id => $messages->last()->created_at]]);
-        }
+        }*/
 
 
         return view('messages.chat', ['messages' => $messages, 'user' => $user, 'id' => $id]);
@@ -129,17 +178,45 @@ class MessageController extends Controller
         $message = new Message;
         $message->sender_id = auth()->user()->id;
         $message->recipient_id = $user->id;
-        $message->message = $request->message_text;
+        $message->message = empty($request->message_text)?'':$request->message_text;
 
         $message->save();
 
+        if($request->hasFile('attached_file')){
+            $file = $request->file('attached_file');
+            $file_name = $message->id.".".$file->getClientOriginalExtension();
 
-        if (empty(session('chat_last_loaded'))){
-            $last_loaded = date("Y-m-d H:i:s");
+            $file->storeAs('/messages/images/', $file_name, 'public');
+            Message::where('id', $message->id)
+                ->update([
+                   'image' =>  '/storage/messages/images/'.$file_name,
+                ]);
+        }
+
+        if($request->has('sketch_img') && $request->sketch_img != null || $request->sketch_img != ''){
+
+            $file_name = $message->id.".png";
+
+            $image = Image::make($request->sketch_img)
+                ->save(storage_path('app/public/messages/images/sketches/').$file_name);
+
+            /*$file = $request->file('sketch_img');
+
+
+            $file->storeAs('/messages/images/sketches/', $file_name, 'public');*/
+            Message::where('id', $message->id)
+                ->update([
+                    'image' =>  '/storage/messages/images/sketches/'.$file_name,
+                ]);
+        }
+
+
+        /*if (empty(session('chat_last_loaded'))){
+            $last_loaded = Carbon::create($message->created_at)->subSecond();
         }
         else{
             $last_loaded = session('chat_last_loaded')[$user->id];
-        }
+        }*/
 
         $messages = Message::where(function($query) use ($id)
         {
@@ -151,13 +228,13 @@ class MessageController extends Controller
                 $query->Where("sender_id", auth()->user()->id)
                     ->Where("recipient_id", $id);
             })
-            ->where('created_at', '>' , $last_loaded)
+//            ->where('created_at', '>' , $last_loaded)
             ->orderBy('created_at')
             ->get();
 
-        if (count($messages)){
+        /*if (count($messages)){
             session('chat_last_loaded', [ $user->id => $messages->last()->created_at]);
-        }
+        }*/
 
 
 

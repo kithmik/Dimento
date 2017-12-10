@@ -63,15 +63,14 @@ class ObjectController extends Controller
         if ($request->hasFile('object')){
 
             $path = "/public/models/main/$object->id";
+
             Storage::makeDirectory($path);
 
             $object_file = $request->file('object');
             $object_file_name = strtoupper($object_file->getClientOriginalName());
 
-
             Storage::makeDirectory($path."/objects");
             $object_file->storeAs("/models/main/$object->id/objects/", $object_file_name,'public');
-
 
             Object::where('id', $object->id)
                 ->update([
