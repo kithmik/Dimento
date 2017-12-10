@@ -15,7 +15,7 @@ class PostController extends Controller
     }
 
     public function getPosts($category){
-        $posts = post::where('category', $category)->get();
+        $posts = post::where('category', urldecode($category))->get();
         return view('forum.index', ['posts' => $posts]);
     }    
 

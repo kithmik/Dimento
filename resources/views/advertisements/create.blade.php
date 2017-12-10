@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-    <!-- Styles -->
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="/libs/mdb4/css/bootstrap.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="/libs/mdb4/css/mdb.min.css" rel="stylesheet">
-    <!-- compiled core CSS -->
-    <link href="/libs/mdb4/css/compiled.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="/libs/mdb4/css/style.css" rel="stylesheet">
-
-</head>
-<body>
-
+@include('includes.header')
 @include('includes.navbar')
 
 @foreach($errors->all() as $error)
@@ -24,7 +6,6 @@
 @endforeach
 
 <!-- Form advertisement -->
-
 <form class="" action="{{ route('advertisement.store') }}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
 

@@ -88,7 +88,8 @@
                         <!--Card-->
                         <div class="card">
                             <!--Card image-->
-                            <img class="img-fluid text-center" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px;">
+                            <img class="img-fluid text-center" src="{{$ad->image}}" alt="Card image cap"
+                                 style="max-height: 300px;">
                             <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
