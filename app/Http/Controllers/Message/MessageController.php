@@ -50,7 +50,10 @@ class MessageController extends Controller
             ->update(['read' => 1]);
 
 //        dd($messages->last()->created_at);
-        session(['chat_last_loaded' => [ $user->id => $messages->last()->created_at]]);
+        if (count($messages)){
+            session(['chat_last_loaded' => [ $user->id => $messages->last()->created_at]]);
+        }
+
 
         return view('messages.chat', ['messages' => $messages, 'user' => $user, 'id' => $id]);
     }
@@ -93,7 +96,6 @@ class MessageController extends Controller
 
         $users = User::whereIn('id', $user_ids)->get();
 
-//        dd($users);
         return view('messages.index', ['users'=> $users , 'id' => $id]);
     }
 
@@ -132,11 +134,12 @@ class MessageController extends Controller
         $message->save();
 
 
-        $last_loaded = session('chat_last_loaded')[$user->id];
-
-        /*$messages = Message::where('id', $message->id)
-            ->where('created_at', '>' , $last_loaded)
-            ->get();*/
+        if (empty(session('chat_last_loaded'))){
+            $last_loaded = date("Y-m-d H:i:s");
+        }
+        else{
+            $last_loaded = session('chat_last_loaded')[$user->id];
+        }
 
         $messages = Message::where(function($query) use ($id)
         {
@@ -152,7 +155,10 @@ class MessageController extends Controller
             ->orderBy('created_at')
             ->get();
 
-        session('chat_last_loaded', [ $user->id => $messages->last()->created_at]);
+        if (count($messages)){
+            session('chat_last_loaded', [ $user->id => $messages->last()->created_at]);
+        }
+
 
 
         return view('messages.latest_chat', ['messages' => $messages, 'user' => $user, 'id' => $user->id]);

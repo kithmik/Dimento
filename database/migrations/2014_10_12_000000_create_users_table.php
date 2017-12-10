@@ -42,6 +42,15 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        DB::table('users')->insert([
+            'first_name' => 'Admin',
+            'last_name' => 'Dimento',
+            'type' => '4',
+            'admin' => 1,
+            'email' => 'dimentoapp@gmail.com',
+            'password' => bcrypt('dimento@123'),
+        ]);
     }
 
     /**
