@@ -66,12 +66,11 @@ class TaskController extends Controller
         $task->description = $request->input('description');
         $task->deadline = $deadline;
 
-        if ($request->type == 1 || !empty($request->amount)){
+        if ($request->type == 1){
             $task->amount = $request->input('amount');
         }
 
         $task->type = !empty($request->amount)?1:0;
-
 
         $task->save();
 

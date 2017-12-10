@@ -11,11 +11,11 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified black">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Fixed Price</a>
+            <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Post a Task on Dimento</a>
         </li>
-        <li class="nav-item">
+       {{-- <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Open Price</a>
-        </li>
+        </li>--}}
     </ul>
     <!-- Tab panels -->
     <div class="tab-content card">
@@ -24,6 +24,9 @@
             <!-- Form task post -->
             <form action="{{ route('task.store') }}" method="POST" enctype="multipart/form-data" name="fixed_price">
                 {{ csrf_field() }}
+
+                <input type="hidden" name="type" id="type" value="1">
+
                 <div class="container">
                     <input type="hidden" name="type" value="1">
                     <div class="col-md-12">
@@ -50,6 +53,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-12">
+                        <div class="md-form" id="type-div">
+                            <i class="fa fa-imdb prefix grey-text " aria-hidden="true"></i>
+                            <div class="form-group">
+                                <input name="type" value="0" type="radio" id="type-1">
+                                <label for="type">Fixed Price</label>
+                            </div>
+
+                            <div class="form-group">
+                                <input name="type" value="0" type="radio" id="type-2">
+                                <label for="type">Open</label>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-md-12">
                         <div class="md-form" id="amount-div">
                             <i class="fa fa-usd prefix grey-text " aria-hidden="true"></i>
@@ -82,7 +101,7 @@
             <!-- Form jobpost -->
         </div>
         <!--/.Panel 1-->
-        <!--Panel 2-->
+        {{--<!--Panel 2-->
         <div class="tab-pane fade mx-auto" id="panel2" role="tabpanel">
             <!-- Form task post -->
             <form action="{{ route('task.store') }}" method="POST" enctype="multipart/form-data" name="open_price">
@@ -137,7 +156,7 @@
             </form>
             <!-- Form jobpost -->
         </div>
-        <!--/.Panel 2-->
+        <!--/.Panel 2-->--}}
     </div>
 </div>
 
