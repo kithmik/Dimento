@@ -4,6 +4,8 @@
         Dimento @yield('title')
     </title>
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 
@@ -49,12 +51,29 @@
 
 <script type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>
 
+<!-- SCRIPTS -->
+@if(count($errors))
 
+    <script>
+        $(document).ready(function () {
+            var errors = '<ul>';
+            @foreach($errors->all() as $error)
+                errors += '<li>{{ $error }} </li>';
+            @endforeach
+                errors += '</ul>';
+            console.log(errors);
+            toastr["error"](errors);
+        });
+    </script>
+@endif
 
-
-
-
-
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 
 
     <script>

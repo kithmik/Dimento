@@ -52,7 +52,18 @@ Route::resource('/object', 'Object\ObjectController');
 
 Route::resource('/comment', 'Object\CommentController');
 
-Route::resource('/rating', 'Object\RatingController');
+//Route::resource('/rating', 'Object\RatingController');
+
+Route::post('/report/object', 'Object\ObjectController@report');
+
+Route::group(['prefix' => '/reaction/{id}'], function () {
+    Route::get('like/{state?}', 'Object\RatingController@like');
+    Route::get('rate/{rating?}', 'Object\RatingController@rate');
+});
+
+Route::get('/comment/{id}/delete','Object\CommentController@deleteComment');
+Route::post('/comment/{id}','Object\CommentController@setComment');
+
 
 /*Forum*/
 

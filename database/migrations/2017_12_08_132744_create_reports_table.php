@@ -16,6 +16,8 @@ class CreateReportsTable extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('item')->default(0);
+            $table->unsignedBigInteger('object_id');
+            $table->unsignedBigInteger('user_id');
             $table->integer('type');
             $table->string('title');
             $table->string('category');
