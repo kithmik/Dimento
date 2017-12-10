@@ -118,19 +118,40 @@
                     </form>
 
                     @auth
+                        <li class="nav-item">
+                            <a class="nav-link ex-a" href="/message">
+                                <i class="fa fa-comments fa-2x  " aria-hidden="true"></i>
+                            </a>
+                        </li>
                         @if(auth()->user()->type == 1)
                             {{--auth if a designer only--}}
-                            <a href="{{ route('object.create') }}" type="button"
-                               class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix"
-                                                                                       aria-hidden="true"></i>
-                                Upload Object</a>
+                            <li class="nav-item btn-group">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a href="{{ route('object.create') }}" type="button"
+                                       class="dropdown-item ex-a">Upload Object</a>
+                                    <a href="{{ route('post.create') }}" type="button"
+                                       class="dropdown-item ex-a"> Ask a Question</a>
+                                </div>
+                            </li>
+
 
                         @elseif(auth()->user()->type == 2)
                             {{--auth if customer only--}}
-                            <a href="{{ route('task.create') }}" type="button"
-                               class="btn btn-outline-elegant waves-effect btn-sm"> <i class="fa fa-upload prefix"
-                                                                                       aria-hidden="true"></i> Post a
-                                Job</a>
+                            <li class="nav-item btn-group">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a href="{{ route('task.create') }}" type="button"
+                                       class="dropdown-item ex-a">Post a Job</a>
+                                    <a href="{{ route('post.create') }}" type="button"
+                                       class="dropdown-item ex-a">Ask a Question</a>
+                                </div>
+                            </li>
+
                         @elseif(auth()->user()->type == 3)
                             {{--auth if business only--}}
                             <li class="nav-item btn-group">
@@ -139,9 +160,11 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                                     <a href="{{ route('advertisement.create') }}" type="button"
-                                       class="dropdown-item ex-a">  An Advertisement</a>
+                                       class="dropdown-item ex-a"> Post An Advertisement</a>
                                     <a href="{{ route('task.create') }}" type="button"
-                                       class="dropdown-item ex-a">  A Job</a>
+                                       class="dropdown-item ex-a"> Post A Job</a>
+                                    <a href="{{ route('post.create') }}" type="button"
+                                       class="dropdown-item ex-a">Ask a Question</a>
                                 </div>
                             </li>
                         @elseif(auth()->user()->type == 4)
@@ -151,16 +174,6 @@
                                                                                        aria-hidden="true"></i> Dashboard</a>
 
                         @endif
-
-                    {{--@endauth
-
-                    @auth--}}
-
-                    <li class="nav-item">
-                        <a class="nav-link ex-a" href="/message">
-                            <i class="fa fa-comments fa-2x  " aria-hidden="true"></i>
-                        </a>
-                    </li>
 
                         <li class="nav-item btn-group" style="">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
