@@ -73,7 +73,7 @@
 
     {{--View the 3D models--}}
 
-    <div class="container" style="padding-top: 30px">
+    <div class="container" style="padding-top: 30px; ">
         <div class="row">
 
             <div class="col-md-8">
@@ -149,7 +149,7 @@
                                     <div class="col-md-12 pull-left d-inline-block">
 
                                         <h3 class="inline">
-                                            <i class="fa fa-object-group" aria-hidden="true"></i>
+                                            {{--<i class="fa fa-object-group" aria-hidden="true"></i>--}}
 
                                             {{ $object->title }}
                                         </h3>
