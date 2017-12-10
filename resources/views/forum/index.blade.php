@@ -5,8 +5,20 @@
 <div class="container" style="padding-top: 30px; padding-bottom: 50px">
     <div class="row">
         <div class="col-md-8">
-            <div class="card">
-                k
+            <div class="container">
+                <!--Panel-->
+                @foreach($posts as $post)
+                    <div class="card card-body">
+                        <h4 class="card-title">{{ $post->title }}</h4>
+                        <p class="card-text">{{ $post->description }}</p>
+                        <div class="flex-row">
+                            <a class="card-link">Card link</a>
+                            <a class="card-link">Another link</a>
+                        </div>
+                    </div>
+                @endforeach
+                <br>
+                <!--/.Panel-->
             </div>
         </div>
         <div class="col-md-4">
@@ -16,35 +28,35 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">NURBS/NURMS Modelling</a>
+                                <a href="/forum/post/{{ urlencode('NURBS/NURMS Modelling') }}">NURBS/NURMS Modelling</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">Polygon Modelling</a>
+                                <a href="/forum/post/{{ urlencode('Polygon Modelling') }}">Polygon Modelling</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">Rendering</a>
+                                <a href="/forum/post/{{ urlencode('Rendering') }}">Rendering</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">Visualization</a>
+                                <a href="/forum/post/{{ urlencode('Visualization') }}">Visualization</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">Architectural 3D</a>
+                                <a href="/forum/post/{{ urlencode('Architectural 3D') }}">Architectural 3D</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">UV Mapping</a>
+                                <a href="/forum/post/{{ urlencode('UV Mapping') }}">UV Mapping</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">Baking</a>
+                                <a href="/forum/post/{{ urlencode('Baking') }}">Baking</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="">Other</a>
+                                <a href="/forum/post/{{ urlencode('Other') }}">Other</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                         </ul>
