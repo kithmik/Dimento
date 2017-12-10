@@ -2,7 +2,7 @@
 @include('includes.header')
 @include('includes.navbar')
 
-<div class="container" style="padding-top: 30px">
+<div class="container" style="padding-top: 30px; padding-bottom: 30px;">
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified black">
@@ -36,7 +36,8 @@
                                 <!--Title-->
                                 <h4 class="card-title">{{ $object->title }}</h4>
                                 <!--Text-->
-                                <p class="card-text">{{ $object->description }}</p>
+                                <p class="card-text">Description: {{ $object->description }}</p>
+                                <p class="card-text">Posted by: {{ $object->user->first_name }}</p>
                                 <a href="{{ route('object.show', $object->id) }}" target="_blank"
                                    class="btn btn-outline-elegant waves-effect btn-sm">View</a>
                             </div>
@@ -63,9 +64,10 @@
                             <div class="card-body">
                                 <!--Title-->
                                 <h4 class="card-title">{{ $post->title }}</h4><br>
-                                <h2 class="card-text">{{ $post->category }}</h2>
                                 <!--Text-->
-                                <p class="card-text">{{ $post->description }}</p>
+                                <p class="card-text">Category: {{ $post->category }}</p>
+                                <p class="card-text">Description: {{ $post->description }}</p>
+                                <p class="card-text">Asked by: {{ $post->user->first_name }}</p>
                                 <a href="{{ route('post.show', $post->id) }}" target="_blank"
                                    class="btn btn-outline-elegant waves-effect btn-sm">View</a>
                             </div>
