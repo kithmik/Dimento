@@ -75,6 +75,8 @@ Route::resource('/bid', 'Task\BidsController');
 
 Route::get('/message/to/{id}', 'Message\MessageController@index');
 
+Route::get('/messages/request/{id}', 'Message\MessageController@getMessages');
+
 Route::resource('/message', 'Message\MessageController');
 
 
