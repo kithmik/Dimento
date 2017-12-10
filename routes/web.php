@@ -40,6 +40,8 @@ Route::get('/social/callback/{provider}', 'Auth\SocialController@callback');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+
+
 /*Admin Routes*/
 
 Route::post('/admin/make_admin', 'AdminController@makeAdmin');
@@ -48,6 +50,8 @@ Route::resource('/admin', 'AdminController');
 
 
 Route::resource('/user', 'User\ProfileController');
+
+Route::get('/user/follow/{id}', 'User\ProfileController@follow');
 
 /*3D Model Object*/
 Route::resource('/object', 'Object\ObjectController');

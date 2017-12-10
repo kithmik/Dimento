@@ -78,7 +78,7 @@
                                                         {{--<div class="col-md-5">--}}
                                                             <div class="file-field">
                                                                 <div class="btn btn-elegant btn-sm">
-                                                                    <span>Choose A Texture</span>
+                                                                    <span>Choose A Texture &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
                                                                     <input type="file" name="texture[]" id="texture" multiple>
                                                                 </div>
                                                             {{--</div>--}}
@@ -90,6 +90,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                    <br>
+                                                    {{--place for more objects--}}
+                                                    <div class="" id="extra-files-div"></div>
                                                 </div>
 
                                             </div>
@@ -100,8 +104,7 @@
 
                                 <br>
 
-                                {{--place for more objects--}}
-                                <div class="" id="extra-files-div"></div>
+
 
                                 <div class="row">
                                     <div class="col-md-6 pull-left">
@@ -270,7 +273,7 @@
                    /* '<div class="col-md-5"> ' +*/
                     '<div class="file-field"> ' +
                     '<div class="btn btn-elegant btn-sm"> ' +
-                    '<span>Choose A Texture</span> ' +
+                    '<span>Choose A Texture &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span> ' +
                     '<input type="file" name="textures[]" id="texture-' + i + '" multiple> ' +
                     '</div> ' +
                     /*'</div> ' +*/

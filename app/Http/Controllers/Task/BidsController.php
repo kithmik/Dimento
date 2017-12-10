@@ -16,7 +16,7 @@ class BidsController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -55,8 +55,10 @@ class BidsController extends Controller
         $bid = new Bids;
         $bid->title = $request->title;
         $bid->description = $request->description;
+        $bid->task_id = $task_id;
+        $bid->user_id = auth()->user()->id;
 
-        if ($task->type){
+        if ($task->type == 0){
            $bid->amount = $request->amount;
         }
 
@@ -72,6 +74,10 @@ class BidsController extends Controller
                     ->update(['proposal' => '/storage/bids/proposals/'.$file_name]);
             }
         }
+
+
+
+
         return redirect()->to('/task/'.$task_id);
 
     }
