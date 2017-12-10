@@ -214,10 +214,73 @@
 <script type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>
 
 <script>
+
+    var user_id = 0;
+
+    function submitForm() {
+        var form = $('#send-msg-form')[0];
+        var formData = new FormData(form);
+
+        // Display the key/value pairs
+        /*
+         for (var pair of formData.entries()) {
+         console.log(pair[0]+ ', ' + pair[1]);
+         }*/
+
+        $.ajax({
+            url: '{{ route('message.store') }}',
+            method: 'POST',
+            data: formData,
+            contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+            processData: false, // NEEDED, DON'T OMIT THIS
+            success: function (returnedData) {
+                $('#chat-history-div').append(returnedData);
+            },
+            error: function (returnedData) {
+                console.log(returnedData);
+                $('#chat-history-div').append(returnedData);
+            },
+            complete: function (returnedData) {
+                scrollDown();
+            }
+        });
+    }
+
+    function scrollDown() {
+        /*var chat_his_div    = $('#chat-history-div');
+        var height = chat_his_div[0].scrollHeight;
+        chat_his_div.scrollTop(height);*/
+        $('#chat-history-div').scrollTop($('#chat-history-div')[0].scrollHeight);
+    }
+
     $(function() {
+
+
+        setInterval(function(){
+
+            if (user_id != 0){
+                $.ajax({
+                    url: '/messages/request_updates/'+user_id,
+                    method: 'GET',
+                    success: function (returnedData) {
+//                        console.log(returnedData);
+//                        console.log(returnedData.length);
+                        if (returnedData.length){
+                            $('#chat-history').html(returnedData);
+                        scrollDown();
+                        }
+
+                    }
+                });
+            }
+
+            }, 2000);
+
         $(document).on('click', '.msg-usr-li', function(e){
             e.preventDefault();
             var id = $(this).attr('data-id');
+
+            user_id = id;
 //            console.log(id);
 
             $('.msg-usr-li').removeClass('active grey lighten-1');
@@ -228,6 +291,7 @@
                 method: 'GET',
                 success: function (returnedData) {
                     $('#chat-history').html(returnedData);
+                    scrollDown();
                 }
             });
 
@@ -235,29 +299,7 @@
 
         $(document).on('click', '#send-msg', function (e) {
             e.preventDefault();
-
-            var form = $('#send-msg-form')[0];
-            var formData = new FormData(form);
-
-            // Display the key/value pairs
-           /*
-            for (var pair of formData.entries()) {
-                console.log(pair[0]+ ', ' + pair[1]);
-            }*/
-
-            $.ajax({
-                url: '{{ route('message.store') }}',
-                method: 'POST',
-                data: formData,
-                contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-                processData: false, // NEEDED, DON'T OMIT THIS
-                success: function (returnedData) {
-                    $('#chat-history-div').append(returnedData);
-                },
-                error: function (returnedData) {
-                    console.log(returnedData);
-                }
-            });
+            submitForm();
 
         });
 

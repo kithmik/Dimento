@@ -15,8 +15,22 @@
                             <strong class="primary-font">{{ $user->first_name." ".$user->last_name }}</strong>
                             <small class="pull-right text-muted" title="{{ $message->getTimeAttr() }}"><i class="fa fa-clock-o"></i> {{ $message->getAgeAttr() }}</small>
                         </div>
+                        @if($message->image != null )
+                            <hr class="w-100">
+                            <a href="{{ $message->image }}" target="_blank">
+                                @if(in_array(pathinfo($message->image, PATHINFO_EXTENSION), ['jpg', 'png']))
+                                    <img src="{{ $message->image }}" alt="" style="max-width: 200px;">
+                                @else
+                                    {{ pathinfo($message->image, PATHINFO_BASENAME) }}
+                                @endif
+                            </a>
+                        @endif
+
+
                         <hr class="w-100">
+
                         <p class="mb-0">
+
                             {{ $message->message }}
                         </p>
                     </div>
@@ -30,6 +44,18 @@
                             <strong class="primary-font">{{ auth()->user()->first_name." ".auth()->user()->last_name }}</strong>
                             <small class="pull-right text-muted" title="{{ $message->getTimeAttr() }}"><i class="fa fa-clock-o"></i> {{ $message->getAgeAttr() }}</small>
                         </div>
+                        @if($message->image != null )
+                            <hr class="w-100">
+                            <a href="{{ $message->image }}" target="_blank">
+                                @if(in_array(pathinfo($message->image, PATHINFO_EXTENSION), ['jpg', 'png']))
+                                    <img src="{{ $message->image }}" alt="" style="max-width: 200px;">
+                                @else
+                                    {{ pathinfo($message->image, PATHINFO_BASENAME) }}
+                                @endif
+                            </a>
+                        @endif
+
+
                         <hr class="w-100">
                         <p class="mb-0">
                             {{ $message->message }}
@@ -66,10 +92,12 @@
         </li>--}}
 
 
-<form action="{{ route('message.store') }}" method="POST" name="send-msg-form" id="send-msg-form">
+<form action="{{ route('message.store') }}" method="POST" name="send-msg-form" id="send-msg-form" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     <input type="hidden" id="user_id" name="user_id" value="{{ $user->id }}">
+
+    <input type="hidden" value="" id="sketch_img" name="sketch_img" >
 
     <ul class="list-unstyled chat">
         <li class="white">
@@ -78,7 +106,16 @@
             </div>
         </li>
         <li>
-            <button type="button"  id="file-button" class="btn btn-outline-elegant btn-rounded btn-sm waves-effect waves-light float-left">Attach File</button>
+            <div class="file-field" style="display: none;" id="file-field">
+                <div class="btn btn-primary btn-sm">
+                    <span>Choose file</span>
+                    <input type="file" name="attached_file" id="attached_file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload your file">
+                </div>
+            </div>
+            <button type="button"  id="show-file-button" class="btn btn-outline-elegant btn-rounded btn-sm waves-effect waves-light float-left">Attach File</button>
         </li>
         <li>
             <button type="button"  data-toggle="modal" data-target="#sketch-modal" id="sketch-button" class="btn btn-outline-elegant btn-rounded btn-sm waves-effect waves-light float-left">Sketch</button>
@@ -121,15 +158,16 @@
                 <div style="position:relative;top:25%;left:44%;">Eraser</div>
                 <br>
                 <div style="position:relative;top:30%;left:45%;width:20px;height:10px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-                <img id="canvasimg" style="position:relative;top:15%;left:26%;" style="display:none;">
-                <input type="button" value="save" id="btn" size="30" onclick="save()" style="position:relative;top:75%;left:10%;">
+                {{--<img id="canvasimg" style="position:relative;top:15%;left:26%;" style="display:none;">--}}
+                {{--<input type="button" value="save" id="btn" size="30" onclick="save()" style="position:relative;top:75%;left:10%;">
                 <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:relative;top:75%;left:15%;">
-
+--}}
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save And Send</button>
+                <button type="button" class="btn btn-outline-elegant" data-dismiss="modal">Close</button>
+                <button type="button" onclick="erase();" class="btn btn-outline-elegant">Clear</button>
+                <button type="button" onclick="save();" class="btn btn-elegant">Save And Send</button>
             </div>
         </div>
     </div>
@@ -236,10 +274,26 @@
     }
 
     function save() {
-        document.getElementById("canvasimg").style.border = "2px solid";
+//        document.getElementById("canvasimg").style.border = "2px solid";
         var dataURL = canvas.toDataURL();
-        document.getElementById("canvasimg").src = dataURL;
-        document.getElementById("canvasimg").style.display = "inline";
+
+        document.getElementById('sketch_img').value = dataURL;
+
+        submitForm();
+
+        $('#sketch-modal').modal('hide');
+
+//        document.getElementById('send-msg-form').submit();
+//        $('#sketch_img').value(dataURL);
+
+//        $('#send-msg-form').submit();
+
+
+
+//        $.ajax();
+
+        /*document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";*/
     }
 
     function findxy(res, e) {
@@ -254,7 +308,7 @@
             if (dot_flag) {
                 ctx.beginPath();
                 ctx.fillStyle = x;
-                ctx.fillRect(currX, currY, 2, 2);
+                ctx.fillRect(currX, currY, 0, 0);
                 ctx.closePath();
                 dot_flag = false;
             }
@@ -274,4 +328,13 @@
     }
 
     init();
+</script>
+
+<script>
+    $(function () {
+       $(document).on('click', '#show-file-button', function (e) {
+           e.preventDefault();
+           $('#file-field').css('display', 'block');
+       });
+    });
 </script>

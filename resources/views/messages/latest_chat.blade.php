@@ -10,6 +10,16 @@
                     <strong class="primary-font">{{ $user->first_name." ".$user->last_name }}</strong>
                     <small class="pull-right text-muted" title="{{ $message->getTimeAttr() }}"><i class="fa fa-clock-o"></i> {{ $message->getAgeAttr() }}</small>
                 </div>
+                @if($message->image != null )
+                    <hr class="w-100">
+                    <a href="{{ $message->image }}" target="_blank">
+                        @if(in_array(pathinfo($message->image, PATHINFO_EXTENSION), ['jpg', 'png']))
+                            <img src="{{ $message->image }}" alt="" style="max-width: 200px;">
+                        @else
+                            {{ pathinfo($message->image, PATHINFO_BASENAME) }}
+                        @endif
+                    </a>
+                @endif
                 <hr class="w-100">
                 <p class="mb-0">
                     {{ $message->message }}
@@ -25,6 +35,16 @@
                     <strong class="primary-font">{{ auth()->user()->first_name." ".auth()->user()->last_name }}</strong>
                     <small class="pull-right text-muted" title="{{ $message->getTimeAttr() }}"><i class="fa fa-clock-o"></i> {{ $message->getAgeAttr() }}</small>
                 </div>
+                @if($message->image != null )
+                    <hr class="w-100">
+                    <a href="{{ $message->image }}" target="_blank">
+                        @if(in_array(pathinfo($message->image, PATHINFO_EXTENSION), ['jpg', 'png']))
+                            <img src="{{ $message->image }}" alt="" style="max-width: 200px;">
+                        @else
+                            {{ pathinfo($message->image, PATHINFO_BASENAME) }}
+                        @endif
+                    </a>
+                @endif
                 <hr class="w-100">
                 <p class="mb-0">
                     {{ $message->message }}
