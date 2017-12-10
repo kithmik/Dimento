@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Forum;
 
+use App\Models\Advertisement\Advertisement;
 use App\Models\Forum\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -80,8 +81,14 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        $ads = Advertisement::orderby('updated_at', 'desc')->paginate(3);
+
         $post = Post::findOrFail($id);
-        return view('forum.view', ['post' => $post]);
+        if ($post->user_id != auth()->user()->id){
+            $post->increment('view_count');
+        }
+
+        return view('forum.view', ['post' => $post, 'ads' => $ads]);
     }
 
     /**

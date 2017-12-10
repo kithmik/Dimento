@@ -16,7 +16,7 @@ class Post extends Model
     }
 
     public function replies(){
-        return $this->belongsTo('App\Models\Forum\Reply');
+        return $this->hasMany('App\Models\Forum\Reply');
     }
 
 

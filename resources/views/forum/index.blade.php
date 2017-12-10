@@ -15,10 +15,28 @@
                         <p class="card-text"><b>Topic: </b>{{ $post->title }}</p>
                         <p class="card-text"><b>Description: </b>{{ $post->description }}</p>
                         <p class="card-text"><b>Asked by: </b>{{ $post->user->first_name }}</p>
-                        <p class="card-text"><b>Asked at: </b>{{ \Carbon\Carbon::parse($post->created_at)->format('Y M d g:i A')}}</p>
+                        <p class="card-text"><b>Asked
+                                at: </b>{{ \Carbon\Carbon::parse($post->created_at)->format('Y M d g:i A')}}</p>
+                        <div class="row">
+                            <span class="badge badge-pill red"
+                                  style="width: 80px; padding: 5px; margin: 5px;"><b>Views: </b>{{ $post->view_count }}</span>
+                            <span class="badge badge-pill blue" style="width: 80px; padding: 5px; margin: 5px;"><b>Replies: </b>{{ count($post->replies) }}</span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <a href="{{ route('post.show', $post->id) }}" type="button" target="_blank"
+                               class="btn btn-outline-elegant waves-effect btn-sm">View</a>
+                            @auth
+                                @if($post->user->id == auth()->user()->id)
+                                    <a href="{{ route('post.destroy', $post->id) }}" type="button" target="_blank"
+                                       class="btn btn-outline-elegant waves-effect btn-sm">Delete</a>
+
+                                @endif
+                            @endauth
+                        </div>
                     </div>
+                    <br>
                 @endforeach
-                <br>
                 <!--/.Panel-->
             </div>
         </div>
@@ -29,7 +47,8 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="/forum/post/{{ urlencode('NURBS or NURMS Modelling') }}">NURBS or NURMS Modelling</a>
+                                <a href="/forum/post/{{ urlencode('NURBS or NURMS Modelling') }}">NURBS or NURMS
+                                    Modelling</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
