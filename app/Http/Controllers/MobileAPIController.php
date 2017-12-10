@@ -113,6 +113,18 @@ class MobileAPIController extends Controller
         }
     }
 
+    public function storeForumPost(Request $request){
+        $post = new Post;
+
+        $post->title = $request->input('title');
+        $post->category  = $request->input('category');
+        $post->description  = $request->input('description');
+        $post->user_id = auth()->user()->id;
+        $post->save();
+        
+        return $post;
+    }
+
     public function getPosts($category){
         $category = urldecode($category);
         $posts = Post::where('category', $category)->get();
