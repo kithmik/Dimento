@@ -1,94 +1,109 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Submit your questions</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@include('includes.header')
+@include('includes.navbar')
 
-        <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-
-    <!-- Bootstrap core CSS -->
-    <link href="/libs/mdb4/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Material Design Bootstrap -->
-    <link href="/libs/mdb4/css/mdb.css" rel="stylesheet">
-
-    <!-- Material Design Bootstrap Extra-->
-    <link href="/libs/mdb4/css/compiled.min.css" rel="stylesheet">
-
-        <!-- JQuery -->
-    <script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.min.js"></script>
-
-    <style type="text/css">
-        body{
-            padding-top: 65px;
-        }
-    
-    </style>
-    
-
-
-
-</head>
 <body>
-    @include('includes.navbar')
+<div class="container" style="padding-top: 100px">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <!--Panel-->
+            <div class="card  text-center" >
+                <div class="card-header black white-text">
+                    Ask a Question
+                </div>
+                <div class="card-body">
 
+                    @foreach($errors->all() as $error)
+                        {{ $error }}
 
-      <form action="{{ route('post.store') }}" method="POST">
-      	{{ csrf_field() }}
-        <br />
+                    @endforeach
 
-        <center><h1><b>Submit Your Questions Here.</b></h1></center>
-        <div class="container">
-          <H3>Name:</H3>
-      	<input type="text" name="name">
-        <br/>
-        <br/>
-         <H3>Category:</H3>
+                    <form class="form-horizontal" method="POST" action="{{ route('post.store') }}"  enctype="multipart/form-data">
+                        {{ csrf_field() }}
 
-        {{--<div class="btn-group">--}}
-            {{--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select 3D model category</button>--}}
+                        {{-- topic--}}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4 text-right">
+                                    <label for="topic" class="control-label">Topic</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="topic" type="text" name="title" required autofocus>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- desc --}}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4 text-right">
+                                    <label for="topic" class="control-label">Description</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input id="topic" type="text" name="description" required>
+                                </div>
+                            </div>
+                        </div>
+                        {{--type--}}
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-4 text-right">
+                                    <label for="category" class="control-label">Category</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <select name="category" id="category" class="mdb-select" required>
+                                        <option value="" disabled selected>Choose Category</option>
+                                        <option value="NURBS/NURMS Modelling">NURBS/NURMS Modelling</option>
+                                        <option value="Polygon Modelling">Polygon Modelling</option>
+                                        <option value="Rendering">Rendering</option>
+                                        <option value="Visualization">Visualization</option>
+                                        <option value="Architectural 3D">Architectural 3D</option>
+                                        <option value="UV Mapping">UV Mapping</option>
+                                        <option value="Baking">Baking</option>
+                                        <option value="Texture Mapping">Texture Mapping</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
-        {{--</div> --}}
-
-
-
-      	<select class="mdb-select" name="category">
-      		<option value="a">NURBS Modelling</option>
-      		<option value="b">Polygon Modelling</option>
-          <option value="c">NURMS Modelling</option>
-          <option value="c">Rendering</option>
-          <option value="c">Visualiation</option>
-          <option value="c">Architectural 3D</option>
-          <option value="c">UV Mapping</option>
-          <option value="c">Baking</option>
-          <option value="c">Texture Mapping</option>
-      	</select>
-        <h3>Submit your questions here:</h3>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea>
-      	<input type="submit" name="submit">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-9"></div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-elegant waves-effect btn-md" name="submit">
+                                        Ask
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <br><br>
+            <!--/.Panel-->
         </div>
-      </form>
-
-      <script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.js"></script>
-      <!-- Bootstrap tooltips -->
-      <script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>
-      <!-- Bootstrap core JavaScript -->
-      <script type="text/javascript" src="/libs/mdb4/js/bootstrap.js"></script>
-      <!-- MDB core JavaScript -->
-      <script type="text/javascript" src="/libs/mdb4/js/mdb.js"></script>
-      </body>
-      <!-- compiled core JavaScript -->
-      <script
-      type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>
-    
-      <script> 
-
-        $(document).ready(function() {
-              $('.mdb-select').material_select();
-            });
-              
-      </script>
+    </div>
+</div>
 </body>
-</html>
+
+
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.js"></script>
+<!-- Bootstrap tooltips -->
+{{--<script type="text/javascript" src="/libs/mdb4/js/popper.min.js"></script>--}}
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/libs/mdb4/js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/libs/mdb4/js/mdb.js"></script>
+<!-- compiled core JavaScript -->
+<script type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>
+
+<script>
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.mdb-select').material_select();
+    });
+</script>

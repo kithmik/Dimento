@@ -66,7 +66,7 @@
                                 <h2 class="card-text">{{ $post->category }}</h2>
                                 <!--Text-->
                                 <p class="card-text">{{ $post->description }}</p>
-                                <a href="{{ route('posts.show', $post->id) }}" target="_blank"
+                                <a href="{{ route('post.show', $post->id) }}" target="_blank"
                                    class="btn btn-outline-elegant waves-effect btn-sm">View</a>
                             </div>
                         </div>
@@ -88,7 +88,8 @@
                         <!--Card-->
                         <div class="card">
                             <!--Card image-->
-                            <img class="img-fluid text-center" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px;">
+                            <img class="img-fluid text-center" src="{{$ad->image}}" alt="Card image cap"
+                                 style="max-height: 300px;">
                             <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
