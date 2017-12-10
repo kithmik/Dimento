@@ -41,7 +41,7 @@
                             <button type="button" class="btn btn-outline-elegant waves-effect btn-sm"
                                     data-toggle="modal" data-target="#more">More
                             </button>
-                            <button href="#" class="btn btn-outline-elegant waves-effect btn-sm">Follow</button>
+                            <button data-id="{{ $user->id }}" class="btn btn-outline-elegant waves-effect btn-sm follow_btn">Follow</button>
                         @endif
                     @endauth
                 </div>
@@ -409,6 +409,13 @@
     // Material Select Initialization
     $(document).ready(function () {
         $('.mdb-select').material_select();
+
+        $('.follow_btn').click(function (e) {
+            e.preventDefault();
+            var user_id = $(this).attr('data-id');
+            $.ajax();
+        });
+
     });
     // Data Picker Initialization
     var d = new Date();

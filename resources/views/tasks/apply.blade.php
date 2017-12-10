@@ -64,7 +64,7 @@
         <!--Panel 1-->
         <div class="tab-pane fade in show active mx-auto" id="panel1" role="tabpanel">
             <!-- Form task post -->
-            <form action="{{ route('reply.store') }}" method="POST" enctype="multipart/form-data" name="fixed_price">
+            <form action="{{ route('bid.store') }}" method="POST" enctype="multipart/form-data" name="fixed_price">
                 {{ csrf_field() }}
 
                 {{--<input type="hidden" name="type" id="type" value="1">--}}

@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
+
+    public function follow($id){
+        $user = User::findOrFail($id);
+//        $followCheck =
+    }
+
     /**
      * Display a listing of the resource.
      *
