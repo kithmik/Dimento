@@ -123,15 +123,15 @@
                                                                 {{ method_field('DELETE') }}
                                                             </form>
                                                         @else
-                                                        {{--<div class="dropdown-divider"></div>--}}
-                                                        <a type="button" role="button"
-                                                           class="btn btn-flat danger-color object-report-a"
-                                                           data-user="{{ $object->user->first_name }} {{ $object->user->middle_name }} {{ $object->user->last_name }}"
-                                                           data-object="{{ $object->title }}"
-                                                           data-id="{{ $object->id }}" data-animation="false"
-                                                           data-toggle="modal" data-target="#objectReportModal">
-                                                            Report
-                                                        </a>
+                                                            {{--<div class="dropdown-divider"></div>--}}
+                                                            <a type="button" role="button"
+                                                               class="btn btn-flat danger-color object-report-a"
+                                                               data-user="{{ $object->user->first_name }} {{ $object->user->middle_name }} {{ $object->user->last_name }}"
+                                                               data-object="{{ $object->title }}"
+                                                               data-id="{{ $object->id }}" data-animation="false"
+                                                               data-toggle="modal" data-target="#objectReportModal">
+                                                                Report
+                                                            </a>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -275,9 +275,10 @@
                 </div>
             </div>
 
+
+            <div class="col-md-4">
             @foreach($ads as $ad)
-                <div class="col-md-4">
-                    <!--Card-->
+                <!--Card-->
                     <div class="card">
                         <!--Card image-->
                         <img class="img-fluid" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px">
@@ -291,9 +292,11 @@
                                class="btn btn-outline-elegant waves-effect btn-sm">View</a>
                         </div>
                     </div>
+                    <br>
                     <!--/.Card-->
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+
 
         </div>
     </div>

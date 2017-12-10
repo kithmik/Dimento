@@ -28,10 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $objects = Object::all();
-        $posts = Post::all();
-        $ads = Advertisement::all();
-        $tasks = Task::all();
+        $objects = Object::orderBy('updated_at', 'title')->get();
+        $posts = Post::orderBy('updated_at', 'title')->get();
+        $ads = Advertisement::orderBy('updated_at', 'title')->get();
+        $tasks = Task::orderBy('updated_at', 'title')->get();
 
         return view('home',['objects' => $objects, 'posts' => $posts, 'advertisements' => $ads, 'tasks' => $tasks]);
     }

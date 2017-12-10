@@ -207,5 +207,8 @@ class ObjectController extends Controller
     public function destroy($id)
     {
         //
+        $object = Object::findOrFail($id);
+        $object->forceDelete();
+        return redirect()->to('/home');
     }
 }
