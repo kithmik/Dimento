@@ -47,13 +47,12 @@
         <br/>
          <H3>Category:</H3>
 
-        <div class="btn-group">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select 3D model category</button>
+        {{--<div class="btn-group">--}}
+            {{--<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select 3D model category</button>--}}
 
-        </div> 
+        {{--</div> --}}
 
-        <br/>
-        <br/>
+
 
       	<select class="mdb-select" name="category">
       		<option value="a">NURBS Modelling</option>

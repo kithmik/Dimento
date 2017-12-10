@@ -36,33 +36,34 @@
 
             </div>
             <center>
-                <img src="{{$ad->image}}" class="img img-rounded img-responsive" style="max-height: 320px;">
+                <img src="{{$ad->image}}" class="img img-responsive" style="max-height: 320px;">
             </center>
             <br/>
             <div class="text-left">
-                <h4 style="margin-left: 200px;">{{$ad->description}}</h4>
+                <p style="margin-left: 200px;">Description: {{$ad->description}}</p>
 
             </div>
 
-            {{--<div class="text-left">--}}
-                {{--<h4 style="margin-left: 200px;">{{$ad->object}}</h4>--}}
+            <div class="text-left">
+                <p style="margin-left: 200px;">Posted by: {{$ad->user->first_name.' '.$ad->user->first_name}}</p>
 
 
-            {{--</div>--}}
+            </div>
             {{--<div class="text-left">--}}
-                {{--<h4 style="margin-left: 200px;">{{$ad->texture}}</h4>--}}
+            {{--<h4 style="margin-left: 200px;">{{$ad->texture}}</h4>--}}
 
 
             {{--</div>--}}
             <div class="text-left">
-                <h4 style="margin-left: 200px;">{{$ad->created_at}}</h4>
+                <p style="margin-left: 200px;">Posted
+                    at: {{ \Carbon\Carbon::parse($ad->created_at)->format('Y M d g:i A')}}</p>
 
             </div>
         </div>
     </div>
 </div>
 
-
+{{--{{ \Carbon\Carbon::parse($ad->created_at)->format('Y M d g:i A')}}--}}
 <!-- Form advertisement -->
 
 
