@@ -234,11 +234,11 @@
             contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
             processData: false, // NEEDED, DON'T OMIT THIS
             success: function (returnedData) {
-                $('#chat-history-div').append(returnedData);
+                $('#chat-history-div').html(returnedData);
             },
             error: function (returnedData) {
                 console.log(returnedData);
-                $('#chat-history-div').append(returnedData);
+                $('#chat-history-div').html(returnedData);
             },
             complete: function (returnedData) {
                 scrollDown();
@@ -266,7 +266,7 @@
 //                        console.log(returnedData);
 //                        console.log(returnedData.length);
                         if (returnedData.length){
-                            $('#chat-history').html(returnedData);
+                            $('#chat-history-div').html(returnedData);
                         scrollDown();
                         }
 
