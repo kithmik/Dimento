@@ -45,7 +45,8 @@ class ObjectController extends Controller
     {
         $objects = Object::all();
 
-        $objects->incrementObjectViews();
+
+       // $objects->incrementObjectViews(1);
         return view('objects.index',['objects' => $objects]);
     }
 
@@ -206,5 +207,8 @@ class ObjectController extends Controller
     public function destroy($id)
     {
         //
+        $object = Object::findOrFail($id);
+        $object->forceDelete();
+        return redirect()->to('/home');
     }
 }

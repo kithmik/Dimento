@@ -45,7 +45,7 @@
             </div>
 
             <div class="text-left">
-                <p style="margin-left: 200px;">Posted by: {{$ad->user->first_name.' '.$ad->user->first_name}}</p>
+                <p style="margin-left: 200px;">Posted by: {{$ad->user->first_name}}</p>
 
 
             </div>
