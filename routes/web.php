@@ -81,7 +81,7 @@ Route::resource('/reply', 'Forum\ReplyController');
 
 Route::resource('/task', 'Task\TaskController');
 
-Route::get('/bid/{id}', 'Task\BidsController@create');
+Route::get('/bid/create/{id}', 'Task\BidsController@create');
 Route::resource('/bid', 'Task\BidsController');
 
 
