@@ -118,7 +118,7 @@ class TaskController extends Controller
             'time'=>'required'
         ]);
         if ($validator->fails()) {
-            return redirect('advertisement/create')
+            return redirect('task/create')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -133,5 +133,8 @@ class TaskController extends Controller
     public function destroy($id)
     {
         //
+        $task = Task::findOrFail($id);
+        $task->forceDelete();
+        return redirect()->to('/home');
     }
 }

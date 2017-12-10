@@ -123,5 +123,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $post->forceDelete();
+        return redirect()->to('/home');
     }
 }

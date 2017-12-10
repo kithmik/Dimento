@@ -52,7 +52,7 @@
         </div>
         @if($user->type != 4)
         <div class="col-md-8">
-            <div class="card" style="height: 500px">
+            <div class="card" style="min-height: 500px; margin-bottom: 20px">
                 @auth
                     @if($user->type == 1)
                         {{--check whether designer--}}
@@ -182,6 +182,7 @@
                             </div>
                             <!-- /.box-body -->
                         </div>
+                        <br>
                         <!-- /.box -->
                         {{--tasks list table--}}
                         <div class="box" id="">
