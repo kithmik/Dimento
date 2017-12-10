@@ -10,10 +10,13 @@
             <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Objects</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Forum</a>
+            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Questions</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">Advertisements</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel4" role="tab">Tasks</a>
         </li>
     </ul>
     <!-- Tab panels -->
@@ -57,13 +60,14 @@
                     <h4>No Posts</h4>
                 @endif
                 @foreach($posts as $post)
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <!--Card-->
                         <div class="card">
                             <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
-                                <h4 class="card-title">{{ $post->title }}</h4><br>
+                                <p class="card-text">Topic: {{ $post->title }}</p>
+                                <hr>
                                 <!--Text-->
                                 <p class="card-text">Category: {{ $post->category }}</p>
                                 <p class="card-text">Description: {{ $post->description }}</p>
@@ -86,11 +90,11 @@
                     <h4>No Advertisements</h4>
                 @endif
                 @foreach($advertisements as $ad)
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <!--Card-->
                         <div class="card">
                             <!--Card image-->
-                            <img class="img-fluid text-center" src="{{$ad->image}}" alt="Card image cap"
+                            <img class="img-fluid text-center" src="{{$ad->image}}" alt="img"
                                  style="max-height: 300px;">
                             <!--Card content-->
                             <div class="card-body">
@@ -109,6 +113,35 @@
             </div>
         </div>
         <!--/.Panel 3-->
+        <!--Panel 4-->
+        <div class="tab-pane fade" id="panel4" role="tabpanel">
+            <div class="row">
+                @if(count($advertisements)==0)
+                    <h4>No Tasks</h4>
+                @endif
+                @foreach($tasks as $task)
+                    <div class="col-md-4">
+                        <!--Card-->
+                        <div class="card">
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Title-->
+                                <p class="card-text">Topic: {{ $task->title }}</p>
+                                <hr>
+                                <!--Text-->
+                                <p class="card-text">Description: {{ $task->description }}</p>
+                                <p class="card-text">Asked by: {{ $task->user->first_name }}</p>
+                                <a href="{{ route('task.show', $task->id) }}" target="_blank"
+                                   class="btn btn-outline-elegant waves-effect btn-sm">View</a>
+                            </div>
+                        </div>
+                        <br>
+                        <!--/.Card-->
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <!--/.Panel 4-->
     </div>
 
 

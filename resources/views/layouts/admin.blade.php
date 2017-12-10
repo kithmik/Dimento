@@ -43,7 +43,7 @@
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <style>
-    .skin-black{
+    .skin-black {
         color: black;
         background-color: black;
     }
@@ -75,13 +75,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{auth()->user()->profile_pic}}" class="user-image" alt="User Image">
+                            <img src="{{ auth()->user()->profile_pic != null ? auth()->user()->profile_pic: '/img/avatar.png'}}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{auth()->user()->first_name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="{{auth()->user()->profile_pic}}" class="img-circle" alt="image">
+                                <img src="{{ auth()->user()->profile_pic != null ? auth()->user()->profile_pic: '/img/avatar.png'}}" class="img-circle" alt="image">
                                 <p>Administrator</p>
                             </li>
                             <!-- Menu Body -->
@@ -90,7 +90,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                <a href="/user/{{ Auth::user()->id}}" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="/user/{{ Auth::user()->id}}" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
@@ -156,19 +156,6 @@
                         <li><a href="#ads"><i class="fa fa-circle-o"></i>Advertisements</a></li>
                     </ul>
                 </li>
-                {{--<li class="treeview">--}}
-                    {{--<a href="#">--}}
-                        {{--<i class="fa fa-user"></i>--}}
-                        {{--<span>Users</span>--}}
-                        {{--<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>--}}
-                    {{--</a>--}}
-                    {{--<ul class="treeview-menu">--}}
-                        {{--<li><a href="#"><i class="fa fa-circle-o"></i> Add</a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-circle-o"></i> Edit</a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-circle-o"></i> Remove</a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -199,7 +186,8 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#objects" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#objects" class="small-box-footer">More info <i
+                                    class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -227,7 +215,8 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="#forum-posts" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#forum-posts" class="small-box-footer">More info <i
+                                    class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
 
@@ -292,8 +281,12 @@
                             <td>{{ $object->description }}</td>
                             <td>{{ $object->user->first_name }}</td>
                             <td class="left">
-                                <a href="{{ route('object.show', $object->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
-                                <a href="{{ route('object.destroy', $object->id) }}" ><i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br></a>
+                                <a href="{{ route('object.show', $object->id) }}" target="_blank"><i class="fa fa-eye"
+                                                                                                     aria-hidden="true">
+                                        View</i></a><br>
+                                <a href="{{ route('object.destroy', $object->id) }}"><i class="fa fa-trash-o"
+                                                                                        aria-hidden="true">
+                                        Remove</i><br></a>
                             </td>
                         </tr>
                     @endforeach
@@ -341,9 +334,16 @@
                             <td>{{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'Admin')) }}</td>
                             <td>{{ $user->phone }}</td>
                             <td class="left">
-                                <a href="{{ route('user.show', $user->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
-                                <a href="{{ route('user.destroy', $user->id) }}" ><i class="fa fa-trash-o" aria-hidden="true"> Remove</i><br></a>
-                                <a href="/admin/make_admin" data-id="{{ $user->id }}" class="{{ $user->isAdmin()?'remove-admin':'make-admin' }} user-admin"><i class="fa fa-link" aria-hidden="true"> {{ $user->isAdmin()?'Remove Admin':'Make Admin' }}</i></a><br>
+                                <a href="{{ route('user.show', $user->id) }}" target="_blank"><i class="fa fa-eye"
+                                                                                                 aria-hidden="true">
+                                        View</i></a><br>
+                                <a href="{{ route('user.destroy', $user->id) }}"><i class="fa fa-trash-o"
+                                                                                    aria-hidden="true">
+                                        Remove</i><br></a>
+                                {{--<a href="/admin/make_admin" data-id="{{ $user->id }}"--}}
+                                   {{--class="{{ $user->isAdmin()?'remove-admin':'make-admin' }} user-admin"><i--}}
+                                            {{--class="fa fa-link"--}}
+                                            {{--aria-hidden="true"> {{ $user->isAdmin()?'Remove Admin':'Make Admin' }}</i></a>--}}
                             </td>
                         </tr>
                     @endforeach
@@ -392,11 +392,15 @@
                             <td>{{$post->description}}</td>
                             <td>{{$post->category}}</td>
                             <td>{{$post->view_count}}</td>
-                            <td>{{$post->created_at}}</td>
+                            <td>{{ \Carbon\Carbon::parse($post->created_at)->format('Y M d g:i A')}}</td>
                             <td>{{$post->user->first_name.' '.$post->user->last_name}}</td>
                             <td class="left">
-                                <a href="{{ route('post.show', $post->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
-                                <a href="{{ route('post.destroy', $post->id) }}"><i class="fa fa-trash-o" aria-hidden="true"> Remove</i></a><br>
+                                <a href="{{ route('post.show', $post->id) }}" target="_blank"><i class="fa fa-eye"
+                                                                                                 aria-hidden="true">
+                                        View</i></a><br>
+                                <a href="{{ route('post.destroy', $post->id) }}"><i class="fa fa-trash-o"
+                                                                                    aria-hidden="true">
+                                        Remove</i></a><br>
                             </td>
                         </tr>
                     @endforeach
@@ -445,13 +449,18 @@
                             <td>{{$task->description}}</td>
                             <td>{{$task->deadline}}</td>
                             <td>{{$task->freelancer_id==null? 'Open':'Allocated'}}</td>
-                            <td>{{$task->created_at}}</td>
+                            <td>{{ \Carbon\Carbon::parse($task->created_at)->format('Y M d g:i A')}}</td>
                             <td>{{$task->user->first_name.' '.$task->user->last_name}}</td>
                             <td class="left">
-                                <a href="{{ route('task.show', $task->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
-                                <a href="{{ route('task.destroy', $task->id) }}"><i class="fa fa-trash-o" aria-hidden="true"> Remove</i></a><br>
+                                <a href="{{ route('task.show', $task->id) }}" target="_blank"><i class="fa fa-eye"
+                                                                                                 aria-hidden="true">
+                                        View</i></a><br>
+                                <a href="{{ route('task.destroy', $task->id) }}"><i class="fa fa-trash-o"
+                                                                                    aria-hidden="true">
+                                        Remove</i></a><br>
                             </td>
                         </tr>
+
                     @endforeach
                     </tbody>
                     <tfoot>
@@ -496,11 +505,18 @@
                             <td>{{ $ad->title }}</td>
                             <td>{{ $ad->description }}</td>
                             <td>{{ $ad->views }}</td>
-                            <td>{{ $ad->created_at }}</td>
+                            <td>{{ \Carbon\Carbon::parse($ad->created_at)->format('Y M d g:i A')}}</td>
                             <td>{{ $ad->user->first_name.' '.$ad->user->last_name }}</td>
                             <td class="left">
-                                <a href="{{ route('advertisement.show', $ad->id) }}" target="_blank"><i class="fa fa-eye" aria-hidden="true"> View</i></a><br>
-                                <a href="{{ route('advertisement.destroy', $ad->id) }}"><i class="fa fa-trash-o" aria-hidden="true"> Remove</i></a><br>
+                                <a href="{{ route('advertisement.show', $ad->id) }}" target="_blank"><i
+                                            class="fa fa-eye" aria-hidden="true"> View</i></a><br>
+                                @if($ad->accepted == 0)
+                                    <a href="{{ route('advertisement.update', $ad->id) }}" target="_blank"><i
+                                                class="fa fa-check" aria-hidden="true"> Accept</i></a><br>
+                                @endif
+                                <a href="{{ route('advertisement.destroy', $ad->id) }}"><i class="fa fa-trash-o"
+                                                                                           aria-hidden="true">
+                                        Remove</i></a><br>
                             </td>
                         </tr>
                     @endforeach
@@ -601,7 +617,7 @@
             'paging': true,
             'lengthChange': true,
             'searching': true,
-            'ordering': true,
+            'ordering': false,
             'info': true,
             'autoWidth': true
         })
@@ -609,7 +625,7 @@
             'paging': true,
             'lengthChange': true,
             'searching': true,
-            'ordering': true,
+            'ordering': false,
             'info': true,
             'autoWidth': true
         })
@@ -617,7 +633,7 @@
             'paging': true,
             'lengthChange': true,
             'searching': true,
-            'ordering': true,
+            'ordering': false,
             'info': true,
             'autoWidth': true
         })
@@ -625,7 +641,7 @@
             'paging': true,
             'lengthChange': true,
             'searching': true,
-            'ordering': true,
+            'ordering': false,
             'info': true,
             'autoWidth': true
         })
@@ -633,7 +649,7 @@
             'paging': true,
             'lengthChange': true,
             'searching': true,
-            'ordering': true,
+            'ordering': false,
             'info': true,
             'autoWidth': true
         })

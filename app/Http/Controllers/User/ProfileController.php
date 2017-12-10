@@ -128,5 +128,8 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::findOrFail($id);
+        $user->forceDelete();
+        return redirect()->to('/home');
     }
 }

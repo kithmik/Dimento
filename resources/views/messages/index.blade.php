@@ -71,7 +71,7 @@
 
                                     <li class="p-2 msg-usr-li {{ ($id != 0 && $user->id == $id)?'active grey lighten-1':'' }} " data-id="{{ $user->id }}">
                                         <a href="#" class="d-flex justify-content-between msg-user-a" data-id="{{ $user->id }}">
-                                            <img src="{{ $user->profile_pic }}" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
+                                            <img src="{{ $user->profile_pic != null ? $user->profile_pic: '/img/avatar.png' }}" alt="profile_pic" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
                                             <div class="text-small">
                                                 <strong>
                                                     {{ $user->first_name." ".$user->last_name }}

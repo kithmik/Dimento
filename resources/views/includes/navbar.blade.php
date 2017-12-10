@@ -36,63 +36,27 @@
                             Explore
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <div class="row">
-
+                            <div class="list-group">
+                                <a href="#" class="list-group-item ">
+                                    <img src="https://png.icons8.com/dog/dotty/35/000000">Animals
+                                </a>
+                                <a href="#" class="list-group-item ">
+                                    <img src="https://png.icons8.com/museum/ios7/35/000000">Architecture
+                                </a>
+                                <a href="#" class="list-group-item ">
+                                    <img src="https://png.icons8.com/theatre-mask/ios7/35/000000">Art
+                                </a>
+                                <a href="#" class="list-group-item ">
+                                    <img src="https://png.icons8.com/people/dotty/35/000000">Characters
+                                </a>
+                                <a href="#" class="list-group-item ">
+                                    <img src="https://png.icons8.com/vegetarian-food/dotty/35/000000">Food
+                                </a>
+                                <a href="#" class="list-group-item ">
+                                    <img src="https://png.icons8.com/sofa/ios7/35/000000">Furniture
+                                </a>
+                                <a href="#" class="list-group-item ">Other</a>
                             </div>
-
-                            <table class="table table-bordered table-lg">
-                                <tbody>
-                                <tr>
-                                    <td class="text-center"><img src="https://png.icons8.com/dog/dotty/35/000000">
-                                        Animals
-                                    </td>
-                                    <td class="text-center"><img src="https://png.icons8.com/museum/ios7/35/000000">
-                                        Architecture
-                                    </td>
-                                    <td class="text-center"><img
-                                                src="https://png.icons8.com/theatre-mask/ios7/35/000000"> Art
-                                    </td>
-                                    <td class="text-center"><img
-                                                src="https://png.icons8.com/minecraft-main-character-filled/ios7/35/000000">
-                                        Characters
-                                    </td>
-                                    <td class="text-center"><img
-                                                src="https://png.icons8.com/vegetarian-food/dotty/35/000000"> Food
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><img src="https://png.icons8.com/sofa/ios7/35/000000">
-                                        Furniture
-                                    </td>
-                                    <td class="text-center"><img src="https://png.icons8.com/dice/win10/35/000000">
-                                        Gaming
-                                    </td>
-                                    <td class="text-center"><img
-                                                src="https://png.icons8.com/musical-notes/win10/35/000000"> Music
-                                    </td>
-                                    <td class="text-center"><img src="https://png.icons8.com/forest/ios7/35/000000">
-                                        Nature
-                                    </td>
-                                    <td class="text-center"><img src="https://png.icons8.com/people/dotty/35/000000">
-                                        People
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><img src="https://png.icons8.com/suitcase/ios7/35/000000">
-                                        Travel
-                                    </td>
-                                    <td class="text-center"><img src="https://png.icons8.com/qr-code/android/35/000000">
-                                        Technology
-                                    </td>
-                                    <td class="text-center"><img src="https://png.icons8.com/sport/ios7/35/000000">
-                                        Sports
-                                    </td>
-                                    <td class="text-center"><img src="https://png.icons8.com/truck/ios7/35/000000">
-                                        Vehicles
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </li>
                     <li class="nav-item btn-group">
@@ -120,7 +84,7 @@
                     @auth
                         <li class="nav-item">
                             <a class="nav-link ex-a" href="/message">
-                                <i class="fa fa-comments fa-2x  " aria-hidden="true"></i>
+                                <i class="fa fa-comments fa-2x " aria-hidden="true" style="color: black"></i>
                             </a>
                         </li>
                         @if(auth()->user()->type == 1)
