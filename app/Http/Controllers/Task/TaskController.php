@@ -21,7 +21,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::paginate(10);
-        return view('task.index', ['tasks' => $tasks]);
+        return view('tasks.index', ['tasks' => $tasks]);
     }
 
     /**
@@ -65,10 +65,11 @@ class TaskController extends Controller
         $task->description = $request->input('description');
         $task->deadline = $deadline;
 
-        if ($request->type == 1){
+        if ($request->type == 1 || !empty($request->amount)){
             $task->amount = $request->input('amount');
         }
-        $task->type = $request->type;
+
+        $task->type = !empty($request->amount)?1:0;
 
 
         $task->save();
