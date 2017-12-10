@@ -34,7 +34,7 @@ class MessageController extends Controller
                 $query->Where("sender_id", auth()->user()->id)
                     ->Where("recipient_id", $id);
             })
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at')
             ->get();
 
         Message::where(function($query) use ($id)
@@ -48,6 +48,9 @@ class MessageController extends Controller
                     ->Where("recipient_id", $id);
             })
             ->update(['read' => 1]);
+
+//        dd($messages->last()->created_at);
+        session(['chat_last_loaded' => [ $user->id => $messages->last()->created_at]]);
 
         return view('messages.chat', ['messages' => $messages, 'user' => $user, 'id' => $id]);
     }
@@ -86,6 +89,8 @@ class MessageController extends Controller
             array_push($user_ids, $id);
         }
 
+
+
         $users = User::whereIn('id', $user_ids)->get();
 
 //        dd($users);
@@ -112,7 +117,12 @@ class MessageController extends Controller
     {
         // return $request->all();
 
+
         $user = User::findOrFail($request->user_id);
+
+        $id = $user->id;
+        /*$last_loaded = session('chat_last_loaded')[$user->id];
+        return $last_loaded;*/
 
         $message = new Message;
         $message->sender_id = auth()->user()->id;
@@ -121,9 +131,31 @@ class MessageController extends Controller
 
         $message->save();
 
-        $messages = Message::where('id', $message->id)->get();
 
-        return view('messages.chat', ['messages' => $messages, 'user' => $user, 'id' => $user->id]);
+        $last_loaded = session('chat_last_loaded')[$user->id];
+
+        /*$messages = Message::where('id', $message->id)
+            ->where('created_at', '>' , $last_loaded)
+            ->get();*/
+
+        $messages = Message::where(function($query) use ($id)
+        {
+            $query->where("sender_id",$id)
+                ->where("recipient_id", auth()->user()->id);
+        })
+            ->orWhere(function($query) use ($id) /*use ($sender, $receiver)*/
+            {
+                $query->Where("sender_id", auth()->user()->id)
+                    ->Where("recipient_id", $id);
+            })
+            ->where('created_at', '>' , $last_loaded)
+            ->orderBy('created_at')
+            ->get();
+
+        session('chat_last_loaded', [ $user->id => $messages->last()->created_at]);
+
+
+        return view('messages.latest_chat', ['messages' => $messages, 'user' => $user, 'id' => $user->id]);
 //        return $message;
 
 
