@@ -5,6 +5,7 @@ $(document).ready(function () {
         var data = $(this).serializeArray();
         data.push({
             'name':'comment',
+            'value':$('#comment').val(),
             // 'value':$('#comment').summernote('code')
         });
 

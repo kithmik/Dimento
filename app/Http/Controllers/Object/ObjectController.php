@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Object;
 use App\Models\Advertisement\Advertisement;
 use App\Models\Object\Object;
 use App\Models\Object\ObjectView;
+use App\Models\Report;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +18,24 @@ class ObjectController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
+    public function report(Request $request){
+        if (auth()->check()){
+            $report = new Report;
+            $report->object_id = $request->input('reporting_post_id');
+            $report->user_id = auth()->user()->id;
+            $report->category = $request->input('report_category');
+            $report->title = $request->input('report_reason');
+            $report->description = $request->input('report_description');
+            $report->type = 1;
+            $report->save();
+
+            return ['msg' => "Report was submitted successfully", 'status' => 1];
+        }
+        else{
+            return ['msg' => "You must login in order to submit this report", 'status' => 0];
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +45,7 @@ class ObjectController extends Controller
     {
         $objects = Object::all();
 
+        $objects->incrementObjectViews();
         return view('objects.index',['objects' => $objects]);
     }
 
@@ -143,12 +163,12 @@ class ObjectController extends Controller
 
         $object->incrementObjectViews(1);
 
-        if(auth()->check()){
+        /*if(auth()->check()){
             ObjectView::updateOrCreate(
                 ['object_id' => $object->id, 'user_id'=>auth()->user()->id],
                 ['opened' => 1]
             );
-        }
+        }*/
 
 //        $object = Object::where('id', $id)->get();
         return view('objects.view', ['object' => $object , 'ads' => $ads]);

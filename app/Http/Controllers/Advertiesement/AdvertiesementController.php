@@ -129,6 +129,8 @@ class AdvertiesementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ad = Advertisement::findOrFail($id);
+        $ad->forceDelete();
+        return redirect()->to('/home');
     }
 }

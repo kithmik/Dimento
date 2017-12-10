@@ -79,20 +79,19 @@ class Object extends Model
                 }
             }
 
-
-            $userPostView = new ObjectView;
-            $userPostView->object_id = $this->id;
-            $userPostView->user_id = auth()->user()->id;
+            $userObjectView = new ObjectView;
+            $userObjectView->object_id = $this->id;
+            $userObjectView->user_id = auth()->user()->id;
 
             if ($opened == 1){
-                $userPostView->opened = 1;
+                $userObjectView->opened = 1;
             }
             else{
-                $userPostView->opened = 0;
+                $userObjectView->opened = 0;
             }
-            $userPostView->save();
+            $userObjectView->save();
         }
-        else{ /*Post::where('id', $this->id)->update(['public_views' => $this->public_views], ['timestamps' => false]);*/
+        else{ 
             $this->timestamps = false;
             $this->increment('view_count');
         }
