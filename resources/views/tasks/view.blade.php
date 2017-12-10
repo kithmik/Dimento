@@ -4,4 +4,7 @@
 
 @section('content')
 
+
+    {{ $task }}
+
 @endsection
