@@ -33,12 +33,7 @@ class MessageController extends Controller
                 ->where("recipient_id", auth()->user()->id)
             ->where('read', 0);
         })
-            ->orWhere(function($query) use ($id) /*use ($sender, $receiver)*/
-            {
-                $query->Where("sender_id", auth()->user()->id)
-                    ->Where("recipient_id", $id)
-                ->where('read', 0);
-            })
+
             ->orderBy('created_at')
             ->get();
 
