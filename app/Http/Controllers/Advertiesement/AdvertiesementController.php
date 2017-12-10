@@ -42,9 +42,7 @@ class AdvertiesementController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|max:255',
-            'description' => 'required',
-            'deadline'=>'required',
-            'time'=>'required'
+            'description' => 'required'
         ]);
         if ($validator->fails()) {
             return redirect('advertisement/create')
@@ -60,12 +58,12 @@ class AdvertiesementController extends Controller
 
         // dd($deadline);
         $advertisement = new Advertisement;
-         $advertisement->user_id = auth()->user()->id;
+        $advertisement->user_id = auth()->user()->id;
         $advertisement->title = $request->input('title');
         $advertisement->description = $request->input('description');
         // $advertisement->image = $request->input('image');
-        $advertisement->object = $request->input('object');
-        $advertisement->texture = $request->input('texture');
+        //$advertisement->object = $request->input('object');
+        //$advertisement->texture = $request->input('texture');
         $advertisement->deadline = $deadline;
         // $advertisement->time = $request->input('time');
 
