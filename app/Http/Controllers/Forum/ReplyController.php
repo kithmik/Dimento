@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Forum;
 
+use App\Models\Forum\Reply;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ReplyController extends Controller
 {
@@ -15,6 +17,7 @@ class ReplyController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -36,6 +39,14 @@ class ReplyController extends Controller
     public function store(Request $request)
     {
         //
+        $reply = new Reply;
+        $reply->post_id = $request->post_id;
+        $reply->user_id = auth()->user()->id;
+        $reply->reply = $request->reply;
+
+        $reply->save();
+
+        return redirect()->to('/post/'.$request->post_id);
     }
 
     /**
@@ -47,6 +58,7 @@ class ReplyController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
