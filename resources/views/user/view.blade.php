@@ -13,7 +13,7 @@
                 </div>
 
                 <!--Avatar-->
-                <div class="avatar"><img src="{{$user->profile_pic}}" class="rounded-circle">
+                <div class="avatar"><img src="{{ $user->profile_pic != null ? $user->profile_pic: '/img/avatar.png' }}" class="rounded-circle">
                 </div>
 
                 <div class="card-body">
@@ -41,13 +41,16 @@
                             <button type="button" class="btn btn-outline-elegant waves-effect btn-sm"
                                     data-toggle="modal" data-target="#more">More
                             </button>
-                            <button data-id="{{ $user->id }}" class="btn btn-outline-elegant waves-effect btn-sm follow_btn">Follow</button>
+                            <button data-id="{{ $user->id }}"
+                                    class="btn btn-outline-elegant waves-effect btn-sm follow_btn">Follow
+                            </button>
                         @endif
                     @endauth
                 </div>
             </div>
             <!--/.Card-->
         </div>
+        @if($user->type != 4)
         <div class="col-md-8">
             <div class="card" style="height: 500px">
                 @auth
@@ -76,7 +79,7 @@
                                                    target="_blank">{{ $object->title }}</a></td>
                                             <td>{{ $object->category }}</td>
                                             <td>{{ $object->description }}</td>
-                                            <td>{{ $object->created_at }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($object->created_at)->format('Y M d g:i A')}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -114,13 +117,13 @@
                                     </thead>
                                     <tbody>
                                     @foreach($user->tasks as $task)
-                                    <tr>
-                                    <td><a href="{{ route('task.show', $task->id) }}"
-                                           target="_blank">{{ $task->title }}</a></td>
-                                    <td>{{ $task->description }}</td>
-                                    <td>{{ $task->deadline }}</td>
-                                    <td>{{ $task->created_at }}</td>
-                                    </tr>
+                                        <tr>
+                                            <td><a href="{{ route('task.show', $task->id) }}"
+                                                   target="_blank">{{ $task->title }}</a></td>
+                                            <td>{{ $task->description }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($task->deadline)->format('Y M d g:i A')}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($task->created_at)->format('Y M d g:i A')}}</td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                     <tfoot>
@@ -157,13 +160,14 @@
                                     </thead>
                                     <tbody>
                                     @foreach($user->advertisements as $ad)
-                                    <tr>
-                                        <td><a href="{{ route('advertisement.show', $ad->id) }}"
-                                               target="_blank">{{ $ad->title }}</a></td>
-                                        <td>{{ $ad->description }}</td>
-                                        <td>{{ $ad->created_at }}</td>
-                                        <td>{{ $ad->category }}</td>
-                                    </tr>
+                                        <tr>
+                                            <td><a href="{{ route('advertisement.show', $ad->id) }}"
+                                                   target="_blank">{{ $ad->title }}</a></td>
+                                            <td>{{ $ad->description }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($ad->created_at)->format('Y M d g:i A')}}</td>
+                                            <td>{{ $ad->category }}</td>
+                                        </tr>
+
                                     @endforeach
                                     </tbody>
                                     <tfoot>
@@ -201,8 +205,8 @@
                                             <td><a href="{{ route('task.show', $task->id) }}"
                                                    target="_blank">{{ $task->title }}</a></td>
                                             <td>{{ $task->description }}</td>
-                                            <td>{{ $task->deadline }}</td>
-                                            <td>{{ $task->created_at }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($task->deadline)->format('Y M d g:i A')}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($task->created_at)->format('Y M d g:i A')}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -224,6 +228,7 @@
                 <hr>
             </div>
         </div>
+        @endif
     </div>
 </div>
 

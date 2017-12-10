@@ -267,6 +267,8 @@
         </section>
         <!-- /.content -->
 
+        {{--<td>{{ \Carbon\Carbon::parse($task->deadline)->format('Y M d g:i A')}}</td>--}}
+
         {{--objects list table--}}
         <div class="box" id="objects">
             <div class="box-header">
