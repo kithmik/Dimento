@@ -107,17 +107,18 @@
                                     <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Category</th>
                                         <th>Desc</th>
+                                        <th>Deadline</th>
                                         <th>Posted On</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($user->tasks as $task)
                                     <tr>
-                                    <td>{{ $task->title }}</td>
-                                    <td>{{ $task->category }}</td>
+                                    <td><a href="{{ route('task.show', $task->id) }}"
+                                           target="_blank">{{ $task->title }}</a></td>
                                     <td>{{ $task->description }}</td>
+                                    <td>{{ $task->deadline }}</td>
                                     <td>{{ $task->created_at }}</td>
                                     </tr>
                                     @endforeach
@@ -125,8 +126,8 @@
                                     <tfoot>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Category</th>
                                         <th>Desc</th>
+                                        <th>Deadline</th>
                                         <th>Posted On</th>
                                     </tr>
                                     </tfoot>
@@ -157,7 +158,8 @@
                                     <tbody>
                                     @foreach($user->advertisements as $ad)
                                     <tr>
-                                        <td>{{ $ad->title }}</td>
+                                        <td><a href="{{ route('advertisement.show', $ad->id) }}"
+                                               target="_blank">{{ $ad->title }}</a></td>
                                         <td>{{ $ad->description }}</td>
                                         <td>{{ $ad->created_at }}</td>
                                         <td>{{ $ad->category }}</td>
@@ -188,17 +190,18 @@
                                     <thead>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Category</th>
                                         <th>Desc</th>
+                                        <th>Deadline</th>
                                         <th>Posted On</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($user->tasks as $task)
                                         <tr>
-                                            <td>{{ $task->title }}</td>
-                                            <td>{{ $task->category }}</td>
+                                            <td><a href="{{ route('task.show', $task->id) }}"
+                                                   target="_blank">{{ $task->title }}</a></td>
                                             <td>{{ $task->description }}</td>
+                                            <td>{{ $task->deadline }}</td>
                                             <td>{{ $task->created_at }}</td>
                                         </tr>
                                     @endforeach
@@ -206,8 +209,8 @@
                                     <tfoot>
                                     <tr>
                                         <th>Title</th>
-                                        <th>Category</th>
                                         <th>Desc</th>
+                                        <th>Deadline</th>
                                         <th>Posted On</th>
                                     </tr>
                                     </tfoot>

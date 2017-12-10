@@ -19,21 +19,20 @@
 
 @include('includes.navbar')
 
-<!-- @foreach($errors->all() as $error)
+@foreach($errors->all() as $error)
     {{ $error }}
-
-@endforeach -->
+@endforeach
 
 <!-- Form advertisement -->
 
 <form class="" action="{{ route('advertisement.store') }}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
 
-    <div class="container">
+    <div class="container" style="padding-top: 20px">
 
         <div class="col-md-8 mx-auto col-md-offset-6">
-            <div class="card  mx-auto p-2 pl-5 pr-5" >
-                <div class="card-header black white-text">
+            <div class="card  mx-auto p-2 pl-5 pr-5">
+                <div class="card-header black white-text text-center">
                     Advertisement form
                 </div>
 
@@ -41,15 +40,15 @@
                 <br/>
                 <div class="md-form">
                     <i class="fa fa-tag prefix grey-text"></i>
-                    <input type="text" id="form4" class="form-control" name="title">
-                    <label for="form4">Title</label>
+                    <input type="text" id="form4" class="form-control  " name="title" required>
+                    <label for="form4" class="">Title</label>
                 </div>
-
 
 
                 <div class="md-form">
                     <i class="fa fa-pencil prefix grey-text"></i>
-                    <textarea type="text" id="form8" class="md-textarea" style="height: 100px" name="description"></textarea>
+                    <textarea type="text" id="form8" class="md-textarea" style="height: 80px" name="description"
+                              required></textarea>
                     <label for="form8">Description</label>
                 </div>
 
@@ -60,48 +59,17 @@
                         <input type="file" name="image">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="This will be displayed as the advertisement image">
+                        <input class="file-path   " disabled type="text"
+                               placeholder="This will be displayed as the advertisement image">
                     </div>
                 </div>
-                <br\><br\>
-                <div class="md-form">
-                    <i class="fa fa-cog prefix grey-text" ></i>
-                    <input type="text" id="form5" class="form-control" name="object">
-                    <label for="form5">Object</label>
-                </div>
-
-
-                <div class="md-form">
-                    <i class="fa fa-italic prefix grey-text"></i>
-                    <input type="text" id="form5" class="form-control" name="texture">
-                    <label for="form5">Texture</label>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="md-form">
-                            <i class="fa fa-calendar prefix grey-text" ></i>
-                            <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker" name="deadline">
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-
-                        <div class="md-form">
-                            <input placeholder="Selected time" type="text" id="input_starttime" class="form-control timepicker" name="time">
-                            <label for="input_starttime"></label>
-                        </div>
-                    </div>
-                </div>
-
+                <br>
                 <div class="text-right">
-                    <button class="btn btn-outline-elegant waves-effect btn-md">Post </button>
+                    <button class="btn btn-outline-elegant waves-effect btn-md">Post</button>
                 </div>
             </div>
         </div>
     </div>
-
 
 
 </form>
@@ -121,24 +89,5 @@
 </body>
 <!-- compiled core JavaScript -->
 <script type="text/javascript" src="/libs/mdb4/js/compiled.min.js"></script>
-<script>
-    // Material Select Initialization
-    $(document).ready(function() {
-        $('.mdb-select').material_select();
 
-    });
-    // Time Picker Initialization
-    // var t = new time();
-    $('#input_starttime').pickatime({
-        twelvehour: true
-    });
-
-    // Data Picker Initialization
-    var d = new Date();
-    $('.datepicker').pickadate({
-        format: 'yyyy-mm-dd'
-    });
-</script>
-
-</body>
 </html>

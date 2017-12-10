@@ -83,7 +83,7 @@
         </div>
         <!--/.Panel 1-->
         <!--Panel 2-->
-        <div class="tab-pane fade  mx-auto" id="panel2" role="tabpanel">
+        <div class="tab-pane fade mx-auto" id="panel2" role="tabpanel">
             <!-- Form task post -->
             <form action="{{ route('task.store') }}" method="POST" enctype="multipart/form-data" name="open_price">
                 {{ csrf_field() }}
