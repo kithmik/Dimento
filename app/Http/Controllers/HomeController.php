@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Advertisement\Advertisement;
 use App\Models\Forum\Post;
+use App\Models\Task\Task;
 use App\Models\User\User;
 use App\Models\Object\Object;
 use Illuminate\Http\Request;
@@ -30,8 +31,9 @@ class HomeController extends Controller
         $objects = Object::all();
         $posts = Post::all();
         $ads = Advertisement::all();
+        $tasks = Task::all();
 
-        return view('home',['objects' => $objects, 'posts' => $posts, 'advertisements' => $ads]);
+        return view('home',['objects' => $objects, 'posts' => $posts, 'advertisements' => $ads, 'tasks' => $tasks]);
     }
 
     public function confirm($code){
