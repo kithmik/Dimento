@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Task\Task;
+use App\Models\User\Follow;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,9 +11,28 @@ use App\Http\Controllers\Controller;
 class ProfileController extends Controller
 {
 
-    public function follow($id){
-        $user = User::findOrFail($id);
-//        $followCheck =
+    public function follow(Request $request){
+        $user = User::findOrFail($request->id);
+        $followCheck = Follow::where('follower_id', auth()->user()->id)
+            ->where('following_id', $user->id)
+            ->get();
+
+        if (count($followCheck)){
+
+            Follow::where('follower_id', auth()->user()->id)
+                ->where('following_id', $user->id)
+                ->delete();
+            $status = 0;
+        }
+        else{
+            $follow = new Follow;
+            $follow->follower_id = auth()->user()->id;
+            $follow->following_id = $user->id;
+            $follow->save();
+            $status = 1;
+        }
+
+        return ['status' => $status, 'msg' => 'Done!'];
     }
 
     /**

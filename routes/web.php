@@ -51,7 +51,7 @@ Route::resource('/admin', 'AdminController');
 
 Route::resource('/user', 'User\ProfileController');
 
-Route::get('/user/follow/{id}', 'User\ProfileController@follow');
+Route::post('/user/follow', 'User\ProfileController@follow');
 
 /*3D Model Object*/
 Route::resource('/object', 'Object\ObjectController');

@@ -31,6 +31,14 @@ class User extends Authenticatable
         'password', 'remember_token', 'admin',
     ];
 
+    public function isFollowing(){
+        $followCheck = Follow::where('follower_id', auth()->user()->id)
+            ->where('following_id', $this->id)
+            ->count();
+
+        return $followCheck != 0;
+    }
+
     public function isAdmin(){
         return $this->admin == 1;
     }
