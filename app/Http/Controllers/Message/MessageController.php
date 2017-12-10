@@ -20,6 +20,38 @@ class MessageController extends Controller
         return view('messages.index', ['user' => $user]);
     }
 
+    public function getMessages($id){
+
+        $user = User::findOrFail($id);
+
+        $messages =  Message::where(function($query) use ($id)
+            {
+                $query->where("sender_id",$id)
+                    ->where("recipient_id", auth()->user()->id);
+            })
+            ->orWhere(function($query) use ($id) /*use ($sender, $receiver)*/
+            {
+                $query->Where("sender_id", auth()->user()->id)
+                    ->Where("recipient_id", $id);
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        Message::where(function($query) use ($id)
+        {
+            $query->where("sender_id",$id)
+                ->where("recipient_id", auth()->user()->id);
+        })
+            ->orWhere(function($query) use ($id) /*use ($sender, $receiver)*/
+            {
+                $query->Where("sender_id", auth()->user()->id)
+                    ->Where("recipient_id", $id);
+            })
+            ->update(['read' => 1]);
+
+        return view('messages.chat', ['messages' => $messages, 'user' => $user, 'id' => $id]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -78,10 +110,22 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
 
-        $messages = new Message;
-//        $messages->;
+        $user = User::findOrFail($request->user_id);
+
+        $message = new Message;
+        $message->sender_id = auth()->user()->id;
+        $message->recipient_id = $user->id;
+        $message->message = $request->message_text;
+
+        $message->save();
+
+        $messages = Message::where('id', $message->id)->get();
+
+        return view('messages.chat', ['messages' => $messages, 'user' => $user, 'id' => $user->id]);
+//        return $message;
+
 
     }
 

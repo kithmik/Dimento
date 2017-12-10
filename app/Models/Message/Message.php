@@ -13,12 +13,12 @@ class Message extends Model
     protected $table = 'messages';
 
     public function sent_by(){
-        $user = User::where('id', $this->sender_id)->get();
+        $user = User::where('id', $this->sender_id)->first();
         return $user;
     }
 
     public function received_by(){
-        $user = User::where('id', $this->recipient_id)->get();
+        $user = User::where('id', $this->recipient_id)->first();
         return $user;
     }
 

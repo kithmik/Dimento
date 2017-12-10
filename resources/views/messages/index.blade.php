@@ -50,9 +50,6 @@
 
 @include('includes.navbar')
 
-
-{{ $id }}
-
 <div class="container">
     <div class="card grey lighten-3 chat-room">
         <div class="card-body">
@@ -61,25 +58,27 @@
             <div class="row px-lg-2 px-2">
 
                 <!-- Grid column -->
-                <div class="col-md-6 col-xl-4 px-0" style="max-height: 100vh; overflow-y: auto;">
+                <div class="col-md-6 col-xl-4 px-0" style="max-height: 70vh; overflow-y: auto;">
 
                     <h6 class="font-bold mb-3 text-center text-lg-left">Messages</h6>
 
-                    <div class="white z-depth-1 px-3 pt-3 pb-0">
+                    <div class="white z-depth-1 px-3 pt-3 pb-1">
                         <ul class="list-unstyled friend-list">
 
                             @foreach($users as $user)
 
                                 @if($id != auth()->user()->id)
 
-                                    <li class="p-2 msg-usr-li {{ ($id != 0 && $user->id == $id)?'active grey lighten-3':'' }} "  data-id="{{ $user->id }}">
-                                        <a href="#" class="d-flex justify-content-between">
+                                    <li class="p-2 msg-usr-li {{ ($id != 0 && $user->id == $id)?'active grey lighten-1':'' }} " data-id="{{ $user->id }}">
+                                        <a href="#" class="d-flex justify-content-between msg-user-a" data-id="{{ $user->id }}">
                                             <img src="{{ $user->profile_pic }}" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
                                             <div class="text-small">
                                                 <strong>
                                                     {{ $user->first_name." ".$user->last_name }}
                                                 </strong>
-                                                {{--<p class="last-message text-muted">Lorem ipsum dolor sit.</p>--}}
+                                                <p class="last-message text-muted">
+                                                    {{  $user->lastMsgWithAuth($user->id) != null ? $user->lastMsgWithAuth($user->id)->message:'' }}
+                                                </p>
                                             </div>
                                             <div class="chat-footer">
                                                 <p class="text-smaller text-muted mb-0">{{  $user->lastMsgWithAuth($user->id) != null ? $user->lastMsgWithAuth($user->id)->getAgeAttr():'' }}</p>
@@ -185,60 +184,9 @@
                 <!-- Grid column -->
                 <div class="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
 
-                    <div class="chat-message">
-
-                        <ul class="list-unstyled chat">
-
-                            <li class="d-flex justify-content-between mb-4">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
-                                <div class="chat-body white p-3 ml-2 z-depth-1">
-                                    <div class="header">
-                                        <strong class="primary-font">Brad Pitt</strong>
-                                        <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                    </div>
-                                    <hr class="w-100">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
-                                </div>
-                            </li>
+                    <div class="chat-message" id="chat-history">
 
 
-
-                            <li class="d-flex justify-content-between mb-4">
-
-                                <div class="chat-body white p-3 z-depth-1">
-                                    <div class="header">
-                                        <strong class="primary-font">Lara Croft</strong>
-                                        <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
-                                    </div>
-                                    <hr class="w-100">
-                                    <p class="mb-0">
-                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                                    </p>
-                                </div>
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5" alt="avatar" class="avatar rounded-circle mr-0 ml-3 z-depth-1">
-                            </li>
-                            <li class="d-flex justify-content-between mb-4 pb-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
-                                <div class="chat-body white p-3 ml-2 z-depth-1">
-                                    <div class="header">
-                                        <strong class="primary-font">Brad Pitt</strong>
-                                        <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
-                                    </div>
-                                    <hr class="w-100">
-                                    <p class="mb-0">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="white">
-                                <div class="form-group basic-textarea">
-                                    <textarea class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3" placeholder="Type your message here..."></textarea>
-                                </div>
-                            </li>
-                            <button type="button" class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Send</button>
-                        </ul>
 
                     </div>
 
@@ -270,8 +218,59 @@
         $(document).on('click', '.msg-usr-li', function(e){
             e.preventDefault();
             var id = $(this).attr('data-id');
-            console.log(id);
+//            console.log(id);
+
+            $('.msg-usr-li').removeClass('active grey lighten-1');
+            $(this).addClass('active grey lighten-1');
+
+            $.ajax({
+                url: '/messages/request/'+id,
+                method: 'GET',
+                success: function (returnedData) {
+                    $('#chat-history').html(returnedData);
+                }
+            });
+
         });
+
+        $(document).on('click', '#send-msg', function (e) {
+            e.preventDefault();
+
+            var form = $('#send-msg-form')[0];
+            var formData = new FormData(form);
+
+            // Display the key/value pairs
+           /*
+            for (var pair of formData.entries()) {
+                console.log(pair[0]+ ', ' + pair[1]);
+            }*/
+
+            $.ajax({
+                url: '{{ route('message.store') }}',
+                method: 'POST',
+                data: formData,
+                contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+                processData: false, // NEEDED, DON'T OMIT THIS
+                success: function (returnedData) {
+                    $('#chat-history-div').append(returnedData);
+                },
+                error: function (returnedData) {
+                    console.log(returnedData);
+                }
+            });
+
+        });
+
+        @if($id != 0)
+            $.ajax({
+                url: '/messages/request/{{ $id }}',
+                method: 'GET',
+                success: function (returnedData) {
+                    $('#chat-history').html(returnedData);
+                }
+            });
+        @endif
+
     });
 </script>
 
