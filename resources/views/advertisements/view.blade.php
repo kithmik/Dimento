@@ -24,46 +24,43 @@
 @endforeach
 
 
+<div class="container" style="padding-top: 20px">
 
+    <div class="col-md-12">
+        <div class="card  text-center">
+            <div class="card-header black white-text">
+                Advertisement View
+            </div>
+            <div class="text-center">
+                <h1 style="margin: 20px;">  {{$ad->title}}</h1>
 
-    <div class="container">
-
-        <div class="col-md-12">
-            <div class="card  text-center" >
-                <div class="card-header black white-text">
-                    Advertisement View
-                </div>
-                <div class="text-left">
-                    <h1 style="margin: 20px;">  {{$ad->title}}</h1>
-
-                </div>
-                <center>
-                    <img src="{{$ad->image}}" class="img img-rounded img-responsive" style="max-height: 320px;">
-                </center>
-                <br/>
-                <div class="text-left" >
+            </div>
+            <center>
+                <img src="{{$ad->image}}" class="img img-rounded img-responsive" style="max-height: 320px;">
+            </center>
+            <br/>
+            <div class="text-left">
                 <h4 style="margin-left: 200px;">{{$ad->description}}</h4>
 
             </div>
 
+            {{--<div class="text-left">--}}
+                {{--<h4 style="margin-left: 200px;">{{$ad->object}}</h4>--}}
+
+
+            {{--</div>--}}
+            {{--<div class="text-left">--}}
+                {{--<h4 style="margin-left: 200px;">{{$ad->texture}}</h4>--}}
+
+
+            {{--</div>--}}
             <div class="text-left">
-            <h4 style="margin-left: 200px;">{{$ad->object}}</h4>
+                <h4 style="margin-left: 200px;">{{$ad->created_at}}</h4>
 
-
+            </div>
         </div>
-        <div class="text-left">
-        <h4 style="margin-left: 200px;">{{$ad->texture}}</h4>
-
-
     </div>
-    <div class="text-left">
-    <h4 style="margin-left: 200px;">{{$ad->deadline}}</h4>
-
-    </div>
-    </div>
-    </div>
-    </div>
-
+</div>
 
 
 <!-- Form advertisement -->

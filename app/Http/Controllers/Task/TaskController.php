@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Task;
 
 use App\Models\Task\Task;
+use App\Models\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -86,6 +87,7 @@ class TaskController extends Controller
     public function show($id)
     {
         $task = Task::findOrFail($id);
+//        $user = $task->user
         return view('tasks.view', ['task' => $task]);
     }
 
