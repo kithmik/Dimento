@@ -86,7 +86,12 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        Mail::to($data['email'])->send(new ConfirmRegistration($confirmation_code));
+        try{
+            Mail::to($data['email'])->send(new ConfirmRegistration($confirmation_code));
+        }
+        catch (\Exception $exception){
+            session(['error']);
+        }
 
         /*if ($request->hasFile('profile_pic')){
             $file_name = $user->id.".".$request->file('profile_pic')->getClientOriginalExtension();

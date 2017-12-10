@@ -64,11 +64,16 @@
                                data-html="true"
                                data-content="
                                <a href='{{ route('user.show', $user->id) }}' class='btn btn-sm btn-outline-elegant btn-rounded waves-effect'>View</a>
-                               <a data-id='{{ $user->id }}'
-                               data-name='{{ $user->first_name." ".$user->last_name }}'
-                               href='message/to/{{ $user->id }}'
-                               class='btn btn-sm btn-outline-elegant btn-rounded waves-effect msg-btn'>Message</a>
-                               ">
+                               @auth
+                                       @if(auth()->user()->id != $user->id)
+                                           <a data-id='{{ $user->id }}'
+                                           data-name='{{ $user->first_name." ".$user->last_name }}'
+                                           href='message/to/{{ $user->id }}'
+                                           class='btn btn-sm btn-outline-elegant btn-rounded waves-effect msg-btn'>Message</a>
+                                           ">
+                                        @endif
+                                @endauth
+
                                 <img src="{{ $user->profile_pic }}" alt="{{ $user->first_name." ".$user->last_name }}">
                                 {{ $user->first_name." ".$user->last_name }}
                             </a>

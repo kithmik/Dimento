@@ -21,7 +21,7 @@
                         <p class="card-text"><b>Posted by: </b><a href="{{ route('user.show', $task->user->id) }}" >{{ $task->user->first_name.' '.$task->user->last_name }}</a></p>
                         <p class="card-text"><b>Posted on: </b>{{ \Carbon\Carbon::parse($task->created_at)->format('Y M d g:i A')}}</p>
                         <p class="card-text"><b>Deadline: </b>{{ \Carbon\Carbon::parse($task->deadline)->format('Y M d g:i A')}}</p>
-                        @if($task->fixed_price=='1')
+                        @if($task->type==1)
                             <p class="card-text"><b>Price: </b>{{ $task->amount}}</p>
                         @endif
                         @auth
@@ -30,9 +30,9 @@
                                 <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Delete</a>
                             @elseif(auth()->user()->type == 1)
                                 @if($task->type==1)
-                                    <a href="{{ route('bid.create', $task->id) }}" class="btn btn-outline-elegant waves-effect btn-sm">Apply</a>
+                                    <a href="/bid/create/{{ $task->id }}" class="btn btn-outline-elegant waves-effect btn-sm">Apply</a>
                                 @else
-                                    <a href="{{ route('bid.create', $task->id) }}" class="btn btn-outline-elegant waves-effect btn-sm">Bid</a>
+                                    <a href="/bid/create/{{ $task->id }}" class="btn btn-outline-elegant waves-effect btn-sm">Bid</a>
                                 @endif
                             @endif
                         @endauth
