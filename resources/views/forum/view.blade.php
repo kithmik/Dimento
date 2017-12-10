@@ -41,9 +41,11 @@
                                    class="btn btn-outline-elegant waves-effect btn-sm">Delete</a>
 
                             @endif
-                            <a data-toggle="collapse" href="#reply" aria-expanded="false"
-                               aria-controls="collapseExample"
-                               class="btn btn-outline-elegant waves-effect btn-sm">Show Replies</a>
+                            @if(count($post->replies))
+                                    <a data-toggle="collapse" href="#reply" aria-expanded="false"
+                                       aria-controls="collapseExample"
+                                       class="btn btn-outline-elegant waves-effect btn-sm">Show Replies</a>
+                                @endif
                             <div class="container">
                                 <div class="card">
                                     <div class="collapse" id="reply">

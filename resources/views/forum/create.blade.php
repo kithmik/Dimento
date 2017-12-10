@@ -71,7 +71,7 @@
                             <div class="col-sm-9"></div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-elegant waves-effect btn-md" name="submit">
+                                    <button type="submit" class="btn btn-outline-elegant waves-effect btn-sm" name="submit">
                                         Ask
                                     </button>
                                 </div>
