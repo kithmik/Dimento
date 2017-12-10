@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Forum\Post;
-use App\Forum\Reply;
 use App\Mail\ConfirmRegistration;
+use App\Models\Forum\Post;
+use App\Models\Forum\Reply;
 use App\Models\Object\Object;
 use App\Models\User\User;
 use Illuminate\Http\Request;
@@ -112,7 +112,13 @@ class MobileAPIController extends Controller
             return response(json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
         }
     }
-    
+
+    public function getPosts($category){
+        $category = urldecode($category);
+        $posts = Post::where('category', $category)->get();
+        return response(json_encode(['status'=>1, 'data'=>['posts'=>$posts]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+    }
+
     public function showForumPost($id){
         if (auth()->check()){
             $post = Post::findOrFail($id);

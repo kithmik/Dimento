@@ -24,6 +24,7 @@ Route::post('/MobileAPI/login', 'MobileAPIController@login');
 Route::get('/MobileAPI/get_models', 'MobileAPIController@getObjects');
 
 Route::get('/MobileAPI/get_forum_posts', 'MobileAPIController@getForumPosts');
+Route::get('/MobileAPI/get_forum_posts/{category}', 'MobileAPIController@getPosts');
 Route::get('/MobileAPI/show_forum_post/{id}', 'MobileAPIController@showForumPost');
 
 /*User Profile*/
