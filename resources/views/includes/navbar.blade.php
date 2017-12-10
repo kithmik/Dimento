@@ -120,7 +120,7 @@
                     @auth
                         <li class="nav-item">
                             <a class="nav-link ex-a" href="/message">
-                                <i class="fa fa-comments fa-2x  " aria-hidden="true"></i>
+                                <i class="fa fa-comments fa-2x " aria-hidden="true" style="color: black"></i>
                             </a>
                         </li>
                         @if(auth()->user()->type == 1)

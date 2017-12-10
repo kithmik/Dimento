@@ -5,65 +5,70 @@
 @section('content')
 
     @auth
-    <!--Modal: Post Report form-->
-    <div class="modal fade" id="objectReportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog {{--cascading-modal--}} modal-warning" role="document">
-            <!--Content-->
-            <div class="modal-content">
+        <!--Modal: Post Report form-->
+        <div class="modal fade" id="objectReportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog {{--cascading-modal--}} modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
 
-                <!--Header-->
-                <div class="modal-header light-blue darken-3 white-text">
-                    <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="title"><i class="fa fa-pencil"></i> Report Post</h4>
+                    <!--Header-->
+                    <div class="modal-header light-blue darken-3 white-text">
+                        <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="title"><i class="fa fa-pencil"></i> Report Post</h4>
+                    </div>
+                    <!--Body-->
+                    <div class="modal-body mb-0">
+
+                        <h5 id="reporting-post-title"></h5>
+                        <div id="reporting-post-user"></div>
+                        <br>
+
+                        <form method="POST" action="/report/object" id="post-reporting-form">
+                            {{ csrf_field() }}
+
+                            <input type="hidden" name="reporting_post_id" id="reporting_post_id" value="-1">
+                            <div class="md-form form-sm">
+                                <i class="fa fa-building-o prefix"></i>
+                                <select class="mdb-select pl-5" id="report_category" name="report_category" required>
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="Irrelevant">Irrelevant Content</option>
+                                    <option value="Abusive">Abusive Content</option>
+                                    <option value="Hate Speech">Hate Speech</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <label>Reporting Category</label>
+                            </div>
+
+                            <div class="md-form form-sm">
+                                <i class="fa fa-exclamation-triangle prefix"></i>
+                                <input type="text" id="report_reason" name="report_reason" class="md-form" required>
+                                <label for="report_reason">Please specify a brief reason for this report </label>
+                            </div>
+
+                            <div class="md-form form-sm">
+                                <i class="fa fa-list prefix"></i>
+                                <textarea name="report_description" id="report_description" cols="30" rows="10"
+                                          class="md-textarea"></textarea>
+                                <label for="report_description">Please provide us with more details about this
+                                    report</label>
+                            </div>
+
+                            <div class="text-center mt-1-half">
+                                <button type="submit" class="btn btn-danger mb-2">Submit Report <i
+                                            class="fa fa-send ml-1"></i></button>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
-                <!--Body-->
-                <div class="modal-body mb-0">
-
-                    <h5 id="reporting-post-title"></h5>
-                    <div id="reporting-post-user"></div>
-                    <br>
-
-                    <form method="POST" action="/report/object" id="post-reporting-form">
-                        {{ csrf_field() }}
-
-                        <input type="hidden" name="reporting_post_id" id="reporting_post_id" value="-1">
-                        <div class="md-form form-sm">
-                            <i class="fa fa-building-o prefix"></i>
-                            <select class="mdb-select pl-5" id="report_category" name="report_category" required>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="Irrelevant">Irrelevant Content</option>
-                                <option value="Abusive">Abusive Content</option>
-                                <option value="Hate Speech">Hate Speech</option>
-                                <option value="Other">Other</option>
-                            </select>
-                            <label>Reporting Category</label>
-                        </div>
-
-                        <div class="md-form form-sm">
-                            <i class="fa fa-exclamation-triangle prefix"></i>
-                            <input type="text" id="report_reason" name="report_reason" class="md-form" required>
-                            <label for="report_reason">Please specify a brief reason for this report </label>
-                        </div>
-
-                        <div class="md-form form-sm">
-                            <i class="fa fa-list prefix"></i>
-                            <textarea name="report_description" id="report_description" cols="30" rows="10" class="md-textarea"></textarea>
-                            <label for="report_description">Please provide us with more details about this report</label>
-                        </div>
-
-                        <div class="text-center mt-1-half">
-                            <button type="submit" class="btn btn-danger mb-2">Submit Report <i class="fa fa-send ml-1"></i></button>
-                        </div>
-
-                    </form>
-                </div>
+                <!--/.Content-->
             </div>
-            <!--/.Content-->
         </div>
-    </div>
-    <!--Modal: Post Report form-->
+        <!--Modal: Post Report form-->
     @endauth
 
 
@@ -73,7 +78,7 @@
 
     {{--View the 3D models--}}
 
-    <div class="container" style="padding-top: 30px; ">
+    <div class="container" style="padding-top: 30px; padding-bottom: 20px;">
         <div class="row">
 
             <div class="col-md-8">
@@ -85,7 +90,7 @@
                                 <div class="col-md-9">
 
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-1">
                                     @if(auth()->check())
                                         <div class="col-md-2 mr-auto right-aligned text-right">
                                             <div class="dropdown">
@@ -117,9 +122,8 @@
                                                                 {{ csrf_field() }}
                                                                 {{ method_field('DELETE') }}
                                                             </form>
-                                                        @endif
-
-                                                        <div class="dropdown-divider"></div>
+                                                        @else
+                                                        {{--<div class="dropdown-divider"></div>--}}
                                                         <a type="button" role="button"
                                                            class="btn btn-flat danger-color object-report-a"
                                                            data-user="{{ $object->user->first_name }} {{ $object->user->middle_name }} {{ $object->user->last_name }}"
@@ -128,7 +132,7 @@
                                                            data-toggle="modal" data-target="#objectReportModal">
                                                             Report
                                                         </a>
-
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,7 +144,6 @@
 
                             <div class="card-image">
                                 <div id="object-view-div">
-
                                 </div>
                             </div>
 
@@ -150,7 +153,6 @@
 
                                         <h3 class="inline">
                                             {{--<i class="fa fa-object-group" aria-hidden="true"></i>--}}
-
                                             {{ $object->title }}
                                         </h3>
 
@@ -158,16 +160,38 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    <div class="col-md-4">
+                                        {{--<i class="fa fa-user" aria-hidden="true"></i>--}}
                                         <a href="{{ route('user.show', $object->user->id) }}">
                                             {{ $object->user->first_name." ".$object->user->last_name }}
                                         </a>
 
                                     </div>
-                                    <div class="col-md-6 pull-right text-right" title="{{ $object->getTimeAttr() }}">
+                                    <div class="col-md-8 pull-right text-right" title="{{ $object->getTimeAttr() }}">
                                         <i class="fa fa-clock-o" aria-hidden="true"></i>
                                         {{ $object->getAgeAttr() }}
+                                        <span class="m-0 d-inline-block impressions" data-animation="false"
+                                              data-toggle="tooltip" data-placement="bottom" title="All Impressions">
+                           |
+                            <i class="fa fa-binoculars" aria-hidden="true"></i>
+                                            {{ $object->public_views + $object->getUserViewCount() }}
+                                            |
+                        </span>
+                                        <span class="m-0 d-inline-block impressions" data-animation="false"
+                                              data-toggle="tooltip" data-placement="bottom"
+                                              title="Registered User Impressions">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            {{ $object->getUserViewCount() }}
+                                            |
+                        </span>
+                                        <span class="m-0 d-inline-block impressions" data-animation="false"
+                                              data-toggle="tooltip" data-placement="bottom"
+                                              title="Registered Users who viewed this 3D model">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                                            {{ $object->getUserReadCount() }}
+                                            |
+                        </span>
+
                                     </div>
                                 </div>
 
@@ -183,10 +207,6 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <a class="btn btn-md btn-outline-elegant btn-rounded waves-effect" data-toggle="collapse" href="#comments-of-{{ $object->id }}" aria-expanded="false" aria-controls="collapseExample">
-                                            Comments <span class="badge badge-blue-grey">{{ count($object->comments) }}</span>
-                                        </a>
-
                                         @if(auth()->check())
                                             <span class="m-0 d-inline-block blue-grey-text">
                             <a type="button" data-toggle="tooltip" data-placement="bottom" data-animation="false"
@@ -195,25 +215,26 @@
                                class="icons-sm like-thumb m-0 like-thumb-up">
                                 <i class="fa {{ $object->userReaction()['status'] === 1?'fa-thumbs-up':'fa-thumbs-o-up' }}"> </i>
                             </a>
-                            <span class="like-count badge badge-default" data-id="{{ $object->id }}">
+                            <span class="like-count badge badge-black" data-id="{{ $object->id }}">
                                 {{ $object->getLikesCount() }}
-                            </span>|
+                            </span> <span style="color: black">|</span>
                             <a type="button" data-toggle="tooltip" data-placement="bottom" data-animation="false"
                                title="Dislikes: {{ $object->getDisLikesCount() }}" data-id="{{ $object->id }}"
                                data-status="0" data-current="{{ $object->userReaction()['status'] or '' }}"
                                class="icons-sm like-thumb m-0 like-thumb-down">
                                 <i class="fa {{ $object->userReaction()['status'] === 0?'fa-thumbs-down':'fa-thumbs-o-down' }}"> </i>
                             </a>
-                            <span class="dislike-count badge badge-warning" data-id="{{ $object->id }}">
+                            <span class="dislike-count badge badge-black" data-id="{{ $object->id }}">
                                 {{ $object->getDisLikesCount() }}
                             </span>
                         </span>
+                                            <br>
                                             <span class="m-0 d-inline-block gold-text avg_rating"
                                                   data-id="{{ $object->id }}">
-                             | {{ round($object->avgRating(), 2) }}
+                              {{ round($object->avgRating(), 2) }}
                         </span>
                                             <span class="m-0 d-inline-block gold-text" style="color: gold;">
-                                @for($s = 1; $s <= $object->userReaction()['rating']; $s++)
+                                                @for($s = 1; $s <= $object->userReaction()['rating']; $s++)
                                                     @if($s <= 5)
                                                         <a type="button" data-id="{{ $s }}"
                                                            data-object="{{ $object->id }}"
@@ -231,31 +252,15 @@
                                                        class="icons-sm m-0 star-rating"><i
                                                                 class="fa fa-star-o"> </i></a>
                                                 @endfor
-                            </span>
-
-                                            <span class="m-0 d-inline-block impressions" data-animation="false"
-                                                  data-toggle="tooltip" data-placement="bottom" title="All Impressions">
-                           |
-                            <i class="fa fa-binoculars" aria-hidden="true"></i>
-                                                {{ $object->public_views + $object->getUserViewCount() }}
-                                                |
-                        </span>
-                                            <span class="m-0 d-inline-block impressions" data-animation="false"
-                                                  data-toggle="tooltip" data-placement="bottom"
-                                                  title="Registered User Impressions">
-                            <i class="fa fa-eye" aria-hidden="true"></i>
-                                                {{ $object->getUserViewCount() }}
-                                                |
-                        </span>
-                                            <span class="m-0 d-inline-block impressions" data-animation="false"
-                                                  data-toggle="tooltip" data-placement="bottom"
-                                                  title="Registered Users who viewed this 3D model">
-                            <i class="fa fa-book" aria-hidden="true"></i>
-                                                {{ $object->getUserReadCount() }}
-                                                |
-                        </span>
+                                            </span>
+                                            <br>
                                         @endif
                                     </div>
+                                    <a class="btn btn-md btn-outline-elegant waves-effect"
+                                       data-toggle="collapse" href="#comments-of-{{ $object->id }}"
+                                       aria-expanded="false" aria-controls="collapseExample">
+                                        Comments <span class="badge badge-black">{{ count($object->comments) }}</span>
+                                    </a>
                                 </div>
 
                                 <div class="row">
@@ -271,22 +276,23 @@
             </div>
 
             @foreach($ads as $ad)
-            <div class="col-md-4">
-                <!--Card-->
-                <div class="card">
-                    <!--Card image-->
-                    <img class="img-fluid" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px">
-                    <!--Card content-->
-                    <div class="card-body">
-                        <!--Title-->
-                        <h4 class="card-title">{{$ad->title}}</h4>
-                        <!--Text-->
-                        <p class="card-text" style="text-transform: capitalize">{{$ad->description}}</p>
-                        <a href="{{ route('advertisement.show',$ad->id) }}" class="btn btn-outline-elegant waves-effect btn-sm">View</a>
+                <div class="col-md-4">
+                    <!--Card-->
+                    <div class="card">
+                        <!--Card image-->
+                        <img class="img-fluid" src="{{$ad->image}}" alt="Card image cap" style="max-height: 300px">
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title">{{$ad->title}}</h4>
+                            <!--Text-->
+                            <p class="card-text" style="text-transform: capitalize">{{$ad->description}}</p>
+                            <a href="{{ route('advertisement.show',$ad->id) }}"
+                               class="btn btn-outline-elegant waves-effect btn-sm">View</a>
+                        </div>
                     </div>
+                    <!--/.Card-->
                 </div>
-                <!--/.Card-->
-            </div>
             @endforeach
 
         </div>
@@ -434,10 +440,10 @@
                     method: $(this).attr('method'),
                     data: $(this).serializeArray(),
                     success: function (returnedData) {
-                        if(returnedData['status'] == 1){
-                            toastr["success"]('Success: '+returnedData['msg']);
+                        if (returnedData['status'] == 1) {
+                            toastr["success"]('Success: ' + returnedData['msg']);
                         }
-                        else if(returnedData['status'] == 0){
+                        else if (returnedData['status'] == 0) {
                             toastr["info"](returnedData['msg']);
                         }
 
@@ -453,9 +459,9 @@
                 var status = $(this).attr('data-status');
                 var current = $(this).attr('data-current');
                 var post_id = $(this).attr('data-id');
-                url = '/reaction/'+post_id+'/like/';
+                url = '/reaction/' + post_id + '/like/';
 
-                if(status !== current){
+                if (status !== current) {
                     url += status;
                 }
                 console.log(url);
@@ -464,29 +470,29 @@
                     url: url,
                     method: 'get',
                     success: function (returnedData) {
-                        toastr["success"]('Success: '+returnedData.message);
+                        toastr["success"]('Success: ' + returnedData.message);
                         // console.log(status);
-                        $('.like-count[data-id="'+post_id+'"]').html(returnedData.like_count);
-                        $('.dislike-count[data-id="'+post_id+'"]').html(returnedData.dislike_count);
-                        if(status === current){
-                            $('.like-thumb[data-id="'+post_id+'"]').attr('data-current', '');
-                            $('.like-thumb-up[data-id="'+post_id+'"]').html('<i class="fa fa-thumbs-o-up"></i>');
-                            $('.like-thumb-down[data-id="'+post_id+'"]').html('<i class="fa fa-thumbs-o-down"></i>');
+                        $('.like-count[data-id="' + post_id + '"]').html(returnedData.like_count);
+                        $('.dislike-count[data-id="' + post_id + '"]').html(returnedData.dislike_count);
+                        if (status === current) {
+                            $('.like-thumb[data-id="' + post_id + '"]').attr('data-current', '');
+                            $('.like-thumb-up[data-id="' + post_id + '"]').html('<i class="fa fa-thumbs-o-up"></i>');
+                            $('.like-thumb-down[data-id="' + post_id + '"]').html('<i class="fa fa-thumbs-o-down"></i>');
                         }
-                        else{
-                            $('.like-thumb[data-id="'+post_id+'"]').attr('data-current', status);
-                            if (status === '1'){
-                                $('.like-thumb-down[data-id="'+post_id+'"]').html('<i class="fa fa-thumbs-o-down"></i>');
-                                $('.like-thumb-up[data-id="'+post_id+'"]').html('<i class="fa fa-thumbs-up"></i>');
+                        else {
+                            $('.like-thumb[data-id="' + post_id + '"]').attr('data-current', status);
+                            if (status === '1') {
+                                $('.like-thumb-down[data-id="' + post_id + '"]').html('<i class="fa fa-thumbs-o-down"></i>');
+                                $('.like-thumb-up[data-id="' + post_id + '"]').html('<i class="fa fa-thumbs-up"></i>');
                             }
-                            else if(status === '0'){
-                                $('.like-thumb-up[data-id="'+post_id+'"]').html('<i class="fa fa-thumbs-o-up"></i>');
-                                $('.like-thumb-down[data-id="'+post_id+'"]').html('<i class="fa fa-thumbs-down"></i>');
+                            else if (status === '0') {
+                                $('.like-thumb-up[data-id="' + post_id + '"]').html('<i class="fa fa-thumbs-o-up"></i>');
+                                $('.like-thumb-down[data-id="' + post_id + '"]').html('<i class="fa fa-thumbs-down"></i>');
                             }
                         }
                     },
-                    error:function (error) {
-                        toastr["danger"]('Success: '+error);
+                    error: function (error) {
+                        toastr["danger"]('Success: ' + error);
                     }
 
                 });
@@ -497,34 +503,34 @@
                 var post_id = $(this).attr('data-post');
                 var star_ele = $(this);
                 $.ajax({
-                    url:'/reaction/'+post_id+'/rate/'+rating,
+                    url: '/reaction/' + post_id + '/rate/' + rating,
                     method: 'get',
                     success: function (returnedData) {
-                        toastr["success"]('Success: '+returnedData.message);
-                        if(returnedData.avg_rating !== null){
-                            $('.avg_rating[data-id="'+post_id+'"]').html(' | '+returnedData.avg_rating);
+                        toastr["success"]('Success: ' + returnedData.message);
+                        if (returnedData.avg_rating !== null) {
+                            $('.avg_rating[data-id="' + post_id + '"]').html(' | ' + returnedData.avg_rating);
                         }
                         else {
-                            $('.avg_rating[data-id="'+post_id+'"]').html(' | ');
+                            $('.avg_rating[data-id="' + post_id + '"]').html(' | ');
                         }
 
-                        $('.star-rating[data-post="'+post_id+'"][data-post="'+post_id+'"]').html('<i class="fa fa-star-o"> </i>').attr('data-rating', rating);
+                        $('.star-rating[data-post="' + post_id + '"][data-post="' + post_id + '"]').html('<i class="fa fa-star-o"> </i>').attr('data-rating', rating);
 
-                        if (returnedData.status < 0){
+                        if (returnedData.status < 0) {
                             rating = 0;
                         }
 
-                        $('.star-rating[data-post="'+post_id+'"]').attr('data-rating', rating);
+                        $('.star-rating[data-post="' + post_id + '"]').attr('data-rating', rating);
 
-                        for(var i = 1; i <= rating; i++){
-                            if(i > 0){
-                                $('.star-rating[data-id="'+i+'"][data-post="'+post_id+'"]').html('<i class="fa fa-star"> </i>');
+                        for (var i = 1; i <= rating; i++) {
+                            if (i > 0) {
+                                $('.star-rating[data-id="' + i + '"][data-post="' + post_id + '"]').html('<i class="fa fa-star"> </i>');
                             }
 
                         }
                     },
-                    error:function (error) {
-                        toastr["danger"]('Success: '+error);
+                    error: function (error) {
+                        toastr["danger"]('Success: ' + error);
                     }
                 });
             });
