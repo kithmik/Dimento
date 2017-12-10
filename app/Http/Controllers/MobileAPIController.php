@@ -121,7 +121,7 @@ class MobileAPIController extends Controller
         $post->description  = $request->input('description');
         $post->user_id = auth()->user()->id;
         $post->save();
-        
+
         return $post;
     }
 

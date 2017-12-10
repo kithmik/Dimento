@@ -29,10 +29,10 @@
                                 <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Edit</a>
                                 <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Delete</a>
                             @elseif(auth()->user()->type == 1)
-                                @if($task->fixed_price=='1')
-                                    <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Apply</a>
+                                @if($task->type==1)
+                                    <a href="{{ route('bid.create', $task->id) }}" class="btn btn-outline-elegant waves-effect btn-sm">Apply</a>
                                 @else
-                                    <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Bid</a>
+                                    <a href="{{ route('bid.create', $task->id) }}" class="btn btn-outline-elegant waves-effect btn-sm">Bid</a>
                                 @endif
                             @endif
                         @endauth
@@ -44,6 +44,9 @@
             </div>
         </div>
     </div>
+
+
+
 @endsection
 
 {{--{{ \Carbon\Carbon::parse($task->deadline)->format('Y M d g:i A')}}--}}

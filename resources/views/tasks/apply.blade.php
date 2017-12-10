@@ -13,28 +13,31 @@
         <li class="nav-item">
             <a class="nav-link active" data-toggle="tab" href="#panel1" role="tab">Post a Task on Dimento</a>
         </li>
-       {{-- <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Open Price</a>
-        </li>--}}
+        {{-- <li class="nav-item">
+             <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">Open Price</a>
+         </li>--}}
     </ul>
     <!-- Tab panels -->
     <div class="tab-content card">
         <!--Panel 1-->
         <div class="tab-pane fade in show active mx-auto" id="panel1" role="tabpanel">
             <!-- Form task post -->
-            <form action="{{ route('task.store') }}" method="POST" enctype="multipart/form-data" name="fixed_price">
+            <form action="{{ route('reply.store') }}" method="POST" enctype="multipart/form-data" name="fixed_price">
                 {{ csrf_field() }}
 
                 {{--<input type="hidden" name="type" id="type" value="1">--}}
 
                 <div class="container">
-                    {{--<input type="hidden" name="type" value="1">--}}
+
+                    <input type="hidden" name="type" value="1">
+
                     <div class="col-md-12">
                         <div class="md-form">
                             <i class="fa fa-id-card prefix grey-text" aria-hidden="true"></i>
                             <input type="text" id="job" class="form-control" name="title" placeholder="Job Title" required>
                         </div>
                     </div>
+
                     <div class="col-md-12">
                         <div class="md-form">
                             <i class="fa fa-sticky-note-o prefix grey-text" aria-hidden="true"></i>
