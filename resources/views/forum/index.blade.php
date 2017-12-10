@@ -1,20 +1,21 @@
 @include('includes.header')
 @include('includes.navbar')
 
+{{--{{ \Carbon\Carbon::parse($post->created_at)->format('Y M d g:i A')}}--}}
 
 <div class="container" style="padding-top: 30px; padding-bottom: 50px">
     <div class="row">
         <div class="col-md-8">
             <div class="container">
+                <h3 class="card-header font-up font-bold text-center py-2">{{ $category }}</h3>
+                <br>
                 <!--Panel-->
                 @foreach($posts as $post)
                     <div class="card card-body">
-                        <h4 class="card-title">{{ $post->title }}</h4>
-                        <p class="card-text">{{ $post->description }}</p>
-                        <div class="flex-row">
-                            <a class="card-link">Card link</a>
-                            <a class="card-link">Another link</a>
-                        </div>
+                        <p class="card-text"><b>Topic: </b>{{ $post->title }}</p>
+                        <p class="card-text"><b>Description: </b>{{ $post->description }}</p>
+                        <p class="card-text"><b>Asked by: </b>{{ $post->user->first_name }}</p>
+                        <p class="card-text"><b>Asked at: </b>{{ \Carbon\Carbon::parse($post->created_at)->format('Y M d g:i A')}}</p>
                     </div>
                 @endforeach
                 <br>
@@ -28,7 +29,7 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <a href="/forum/post/{{ urlencode('NURBS/NURMS Modelling') }}">NURBS/NURMS Modelling</a>
+                                <a href="/forum/post/{{ urlencode('NURBS or NURMS Modelling') }}">NURBS or NURMS Modelling</a>
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -60,7 +61,6 @@
                                 <span class="badge badge-primary badge-pill"></span>
                             </li>
                         </ul>
-                        <p class="text-small text-muted mb-0 pt-3">*</p>
                     </div>
                 </div>
             </div>

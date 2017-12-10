@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<head>
-    <title>Dimento Forum</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-
-    <!-- Bootstrap core CSS -->
-    <link href="/libs/mdb4/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Material Design Bootstrap -->
-    <link href="/libs/mdb4/css/mdb.css" rel="stylesheet">
-
-    <!-- Material Design Bootstrap Extra-->
-    <link href="/libs/mdb4/css/compiled.min.css" rel="stylesheet">
-
-    <!-- JQuery -->
-    <script type="text/javascript" src="/libs/mdb4/js/jquery-3.1.1.min.js"></script>
-
-    <style type="text/css">
-        body {
-            padding-top: 65px;
-        }
-    </style>
-
-</head>
-<body>
-
+@include('includes.header')
 @include('includes.navbar')
 
 
@@ -69,7 +39,7 @@
                             <h4 class="card-title">NURBS/NURMS Modelling</h4>
                             <p class="card-text">Find 3D models of NURMS Modelling </p>
                             <div class="card-footer">
-                                <a href="/forum/post/{{ urlencode('NURBS/NURMS Modelling') }}" class="btn btn-outline-elegant waves-effect btn-sm">Dive in</a>
+                                <a href="/forum/post/{{ urlencode('NURBS or NURMS Modelling') }}" class="btn btn-outline-elegant waves-effect btn-sm">Dive in</a>
                             </div>
                         </div>
                     </div>
