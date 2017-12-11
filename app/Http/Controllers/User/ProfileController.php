@@ -11,6 +11,12 @@ use App\Http\Controllers\Controller;
 class ProfileController extends Controller
 {
 
+
+    public function getNotifications(){
+        $notifications = auth()->user()->notifications;
+        return view('user.notifications', ['notifications' => $notifications]);
+    }
+
     public function follow(Request $request){
         $user = User::findOrFail($request->id);
         $followCheck = Follow::where('follower_id', auth()->user()->id)

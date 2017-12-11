@@ -39,6 +39,8 @@ Route::get('/social/callback/{provider}', 'Auth\SocialController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
 /*Search*/
 
 Route::get('/search/{keyword}', 'SearchController@find');
@@ -54,6 +56,9 @@ Route::resource('/admin', 'AdminController');
 Route::resource('/user', 'User\ProfileController');
 
 Route::post('/user/follow', 'User\ProfileController@follow');
+
+Route::get('/notifications', 'User\ProfileController@getNotifications');
+
 
 /*3D Model Object*/
 Route::resource('/object', 'Object\ObjectController');

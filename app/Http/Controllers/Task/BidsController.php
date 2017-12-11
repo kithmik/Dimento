@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Task;
 
 use App\Models\Task\Bids;
 use App\Models\Task\Task;
+use App\Models\User\Follow;
+use App\Models\User\Notification;
+use App\Models\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,6 +38,7 @@ class BidsController extends Controller
             if (count($bids)){
                 return view('tasks.bid_history', ['bids' => $bids]);
             }
+
         }
 
         return view('tasks.apply', ['task' => $task]);
@@ -73,6 +77,25 @@ class BidsController extends Controller
                 Bids::where('id', $bid->id)
                     ->update(['proposal' => '/storage/bids/proposals/'.$file_name]);
             }
+        }
+
+        try{
+            $notification = new Notification;
+            $notification->notification = auth()->user()->first_name." ".auth()->user()->last_name." made a new bid.";
+            $notification->link = '/task/'.$task->id;
+            $notification->save();
+
+            $task_posted_user = User::findOrFail($task->user_id);
+            $task_posted_user->notifications()->attach($notification->id);
+
+            $other_bidders = Bids::where('task_id', $task->id)->get();
+            foreach ($other_bidders as $other_bidder){
+                $other_bidder = User::findOrFail($other_bidder->user_id);
+                $other_bidder->notifications()->attach($notification->id);
+            }
+        }
+        catch (\Exception $exception){
+
         }
 
 
