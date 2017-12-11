@@ -21,6 +21,7 @@ class SearchController extends Controller
 
     public function objCategories($category){
 
+        $category = urldecode($category);
         $objects = Object::where('category', $category)->get();
 
         return view('objects.index',['objects' => $objects]);
