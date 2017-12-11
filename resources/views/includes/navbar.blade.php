@@ -37,25 +37,25 @@
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <div class="list-group">
-                                <a href="/explore/object/{{ urlencode('animals') }}" class="list-group-item ex-a">
+                                <a href="/object/explore/{{ urlencode('animals') }}" class="list-group-item ex-a">
                                     <img src="https://png.icons8.com/dog/dotty/35/000000">Animals
                                 </a>
-                                <a href="/explore/object/{{ urlencode('architecture') }}" class="list-group-item ex-a ">
+                                <a href="/object/explore/{{ urlencode('architecture') }}" class="list-group-item ex-a ">
                                     <img src="https://png.icons8.com/museum/ios7/35/000000">Architecture
                                 </a>
-                                <a href="/explore/object/{{ urlencode('art') }}" class="list-group-item  ex-a">
+                                <a href="/object/explore/{{ urlencode('art') }}" class="list-group-item  ex-a">
                                     <img src="https://png.icons8.com/theatre-mask/ios7/35/000000">Art
                                 </a>
-                                <a href="/explore/object/{{ urlencode('characters') }}" class="list-group-item ex-a ">
+                                <a href="/object/explore/{{ urlencode('characters') }}" class="list-group-item ex-a ">
                                     <img src="https://png.icons8.com/people/dotty/35/000000">Characters
                                 </a>
-                                <a href="/explore/object/{{ urlencode('food') }}" class="list-group-item  ex-a">
+                                <a href="/object/explore/{{ urlencode('food') }}" class="list-group-item  ex-a">
                                     <img src="https://png.icons8.com/vegetarian-food/dotty/35/000000">Food
                                 </a>
-                                <a href="/explore/object/{{ urlencode('furniture') }}" class="list-group-item ex-a ">
+                                <a href="/object/explore/{{ urlencode('furniture') }}" class="list-group-item ex-a ">
                                     <img src="https://png.icons8.com/sofa/ios7/35/000000">Furniture
                                 </a>
-                                <a href="/explore/object/{{ urlencode('other') }}" class="list-group-item ">Other</a>
+                                <a href="/object/explore/{{ urlencode('other') }}" class="list-group-item ">Other</a>
                             </div>
                         </div>
                     </li>
