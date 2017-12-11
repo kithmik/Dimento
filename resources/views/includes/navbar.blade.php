@@ -37,25 +37,25 @@
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <div class="list-group">
-                                <a href="#" class="list-group-item ">
+                                <a href="/explore/object/{{ urlencode('animals') }}" class="list-group-item ex-a">
                                     <img src="https://png.icons8.com/dog/dotty/35/000000">Animals
                                 </a>
-                                <a href="#" class="list-group-item ">
+                                <a href="/explore/object/{{ urlencode('architecture') }}" class="list-group-item ex-a ">
                                     <img src="https://png.icons8.com/museum/ios7/35/000000">Architecture
                                 </a>
-                                <a href="#" class="list-group-item ">
+                                <a href="/explore/object/{{ urlencode('art') }}" class="list-group-item  ex-a">
                                     <img src="https://png.icons8.com/theatre-mask/ios7/35/000000">Art
                                 </a>
-                                <a href="#" class="list-group-item ">
+                                <a href="/explore/object/{{ urlencode('characters') }}" class="list-group-item ex-a ">
                                     <img src="https://png.icons8.com/people/dotty/35/000000">Characters
                                 </a>
-                                <a href="#" class="list-group-item ">
+                                <a href="/explore/object/{{ urlencode('food') }}" class="list-group-item  ex-a">
                                     <img src="https://png.icons8.com/vegetarian-food/dotty/35/000000">Food
                                 </a>
-                                <a href="#" class="list-group-item ">
+                                <a href="/explore/object/{{ urlencode('furniture') }}" class="list-group-item ex-a ">
                                     <img src="https://png.icons8.com/sofa/ios7/35/000000">Furniture
                                 </a>
-                                <a href="#" class="list-group-item ">Other</a>
+                                <a href="/explore/object/{{ urlencode('other') }}" class="list-group-item ">Other</a>
                             </div>
                         </div>
                     </li>
@@ -85,6 +85,11 @@
                         <li class="nav-item">
                             <a class="nav-link ex-a" href="/message">
                                 <i class="fa fa-comments fa-2x " aria-hidden="true" style="color: black"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ex-a" href="/notifications">
+                                <i class="fa fa-globe fa-2x " aria-hidden="true" style="color: black"></i>
                             </a>
                         </li>
                         @if(auth()->user()->type == 1)
