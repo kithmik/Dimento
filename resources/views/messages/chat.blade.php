@@ -140,24 +140,79 @@
             </div>
             <div class="modal-body">
 
-                <canvas id="can" width="400" height="400" style="position:relative;top:10%;left:10%;border:2px solid;"></canvas>
-                <div style="position:relative;top:12%;left:44%;">Choose Color</div>
-                <div style="position:relative;top:15%;left:45%;width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-                <div style="position:relative;top:15%;left:46%;width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-                <div style="position:relative;top:15%;left:47%;width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-                <div style="position:relative;top:17%;left:45%;width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-                <div style="position:relative;top:17%;left:46%;width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-                <div style="position:relative;top:17%;left:47%;width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-                <div style="position:relative;top:17%;left:48%;width:10px;height:10px;background:cyan;" id="cyan" onclick="color(this)"></div>
-                <div style="position:relative;top:17%;left:49%;width:10px;height:10px;background:darkblue;" id="darkblue" onclick="color(this)"></div>
-                <div style="position:relative;top:17%;left:50%;width:10px;height:10px;background:lime;" id="lime" onclick="color(this)"></div>
-                <div style="position:relative;top:15%;left:50%;width:10px;height:10px;background:maroon;" id="maroon" onclick="color(this)"></div>
-                <div style="position:relative;top:15%;left:48%;width:10px;height:10px;background:magenta;" id="magenta" onclick="color(this)"></div>
-                <div style="position:relative;top:15%;left:49%;width:10px;height:10px;background:grey" id="grey" onclick="color(this)"></div>
 
-                <div style="position:relative;top:25%;left:44%;">Eraser</div>
-                <br>
-                <div style="position:relative;top:30%;left:45%;width:20px;height:10px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
+
+
+                <div class="container">
+                    <div class="row mx-auto">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <canvas id="can" width="400" height="400" style="border:2px solid;"></canvas>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:green;" id="green" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:blue;" id="blue" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:red;" id="red" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:yellow;" id="yellow" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:orange;" id="orange" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:black;" id="black" onclick="color(this)"></button>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:cyan;" id="cyan" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:darkblue;" id="darkblue" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:lime;" id="lime" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:maroon;" id="maroon" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:magenta;" id="magenta" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button class="btn btn-flat btn-outline-elegant" style="background:grey;" id="grey" onclick="color(this)"></button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div style="">Eraser</div>
+                                                <button class="btn btn-flat btn-outline-elegant" style="position:relative;top:30%;left:45%;width:20px;height:10px;background:white;border:2px solid;" id="white" onclick="color(this)"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                {{--<div style="position:relative;top:15%;left:49%;width:10px;height:10px;background:grey" id="grey" onclick="color(this)"></div>--}}
+
+
+                {{--<br>--}}
+
                 {{--<img id="canvasimg" style="position:relative;top:15%;left:26%;" style="display:none;">--}}
                 {{--<input type="button" value="save" id="btn" size="30" onclick="save()" style="position:relative;top:75%;left:10%;">
                 <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:relative;top:75%;left:15%;">

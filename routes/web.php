@@ -39,8 +39,10 @@ Route::get('/social/callback/{provider}', 'Auth\SocialController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*Search*/
 
-
+Route::get('/search/{keyword}', 'SearchController@find');
+Route::get('/object/explore/{category}', 'SearchController@objCategories');
 
 /*Admin Routes*/
 

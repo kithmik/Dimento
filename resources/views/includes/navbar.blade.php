@@ -75,7 +75,7 @@
 
 
                 <ul style="list-style: none" class="form-inline">
-                    <form class="form-inline">
+                    <form class="form-inline" id="search-form">
                         <i class="fa fa-search prefix"></i>
                         <input class="form-control mr-sm-2" autocomplete="off" name="search" id="search" type="text"
                                placeholder="Search" aria-label="Search">
@@ -177,6 +177,14 @@
 
     <script>
         $(function () {
+
+            $('#search-form').submit(function (e) {
+                e.preventDefault();
+                var keyword = $('#search').val();
+                window.location.href = '/search/'+keyword;
+            });
+
+
             //SMOOTH SCROLL
             $(".smooth-scroll").on('click', 'a.smooth-scroll-li', function (event) {
                 event.preventDefault();
