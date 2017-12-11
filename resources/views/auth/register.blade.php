@@ -200,6 +200,15 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-sm-12 col-xs-1">
+                                    By Signing up you agree with our <a href="/DimetoCopyrightPolicy.pdf">
+                                        Terms and Conditions and Copyright Policy
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="card-footer">
 
