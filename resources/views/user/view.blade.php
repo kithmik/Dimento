@@ -48,6 +48,9 @@
                                     class="btn btn-outline-elegant waves-effect btn-sm follow_btn">Follow
 --}}{{-->>>>>>> b77464ff37e60cec4f4e51be720e5ee43d2fb2a5--}}
                             </button>
+                        <a href="/message/to/{{ $user->id }}" class="btn btn-outline-elegant waves-effect btn-sm"
+                                >Message
+                        </a>
                         @endif
                     @endauth
                 </div>
