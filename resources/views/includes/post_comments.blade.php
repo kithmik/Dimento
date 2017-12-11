@@ -9,7 +9,7 @@
                         <div class="md-form">
                             <div class="row">
                                 <div class="col-md-9">
-                                    <input type="text" placeholder="Enter Your Comment">
+                                    <input type="text" name="comment" id="comment" placeholder="Enter Your Comment">
                                 </div>
                                 <div class="col-md-2">
                                     <button type="submit" class="btn btn-md btn-outline-elegant waves-effect">Comment
@@ -58,6 +58,7 @@
                                                           action="/comment/{{ $comment->id }}/delete" method="POST"
                                                           style="display: none;">
                                                         {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
                                                     </form>
 
                                                 </small>

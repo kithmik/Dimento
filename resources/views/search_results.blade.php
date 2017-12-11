@@ -33,8 +33,8 @@
                         <div class="card">
                             <!--Card image-->
                             <img class="img-fluid" src="{{ ($object->texture_location != '/storage/models/main/'.$object->id.'/textures/')?$object->texture_location:'/img/'.rand(1,2).'.jpg' }}" alt="{{ $object->title }}" style="max-height: 300px">
-                                {{-- style="max-height: 300px">--}}
-                            <!--Card content-->
+                        {{-- style="max-height: 300px">--}}
+                        <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
                                 <h4 class="card-title">{{ $object->title }}</h4>
