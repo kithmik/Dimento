@@ -44,9 +44,9 @@
                             <button data-id="{{ $user->id }}" id="follow_btn" class="btn btn-outline-elegant waves-effect btn-sm follow_btn">
                                 {{ $user->isFollowing()?'Unfollow':'Follow' }}
 
-                            <button data-id="{{ $user->id }}"
+                            {{--<button data-id="{{ $user->id }}"
                                     class="btn btn-outline-elegant waves-effect btn-sm follow_btn">Follow
-{{-->>>>>>> b77464ff37e60cec4f4e51be720e5ee43d2fb2a5--}}
+--}}{{-->>>>>>> b77464ff37e60cec4f4e51be720e5ee43d2fb2a5--}}
                             </button>
                         @endif
                     @endauth
