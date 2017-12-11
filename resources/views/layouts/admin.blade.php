@@ -284,7 +284,7 @@
                                 <a href="{{ route('object.show', $object->id) }}" target="_blank"><i class="fa fa-eye"
                                                                                                      aria-hidden="true">
                                         View</i></a><br>
-                                <a href="{{ route('object.destroy', $object->id) }}"><i class="fa fa-trash-o"
+                                <a href="{{ route('object.destroy', $object->id) }}" ><i class="fa fa-trash-o"
                                                                                         aria-hidden="true">
                                         Remove</i><br></a>
                             </td>

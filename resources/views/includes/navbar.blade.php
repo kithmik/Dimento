@@ -90,6 +90,7 @@
                         <li class="nav-item">
                             <a class="nav-link ex-a" href="/notifications">
                                 <i class="fa fa-globe fa-2x " aria-hidden="true" style="color: black"></i>
+                                <span class="badge indigo" id="notifications-badge"></span>
                             </a>
                         </li>
                         @if(auth()->user()->type == 1)
@@ -182,6 +183,29 @@
 
     <script>
         $(function () {
+
+            @auth
+
+            setInterval(function(){
+
+                $.ajax({
+                    url: '/check/notifications',
+                    method: 'GET',
+                    success: function (returnedData) {
+                        if (returnedData.length && returnedData != 0){
+                            $('#notifications-badge').html(returnedData).show();
+                        }
+                        else{
+                            $('#notifications-badge').html('').hide();
+                        }
+
+                    }
+                });
+
+
+            }, 2000);
+            @endauth
+
 
             $('#search-form').submit(function (e) {
                 e.preventDefault();

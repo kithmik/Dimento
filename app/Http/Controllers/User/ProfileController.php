@@ -11,9 +11,28 @@ use App\Http\Controllers\Controller;
 class ProfileController extends Controller
 {
 
+    public function checkNotifications(){
+        $notifications = auth()->user()->notifications;
+        $count = 0;
+        foreach ($notifications as $notification){
+            if ($notification->pivot->read == 0){
+                $count++;
+                $notification->pivot->read = 1;
+                $notification->pivot->save();
+            }
+        }
+
+        return $count;
+    }
 
     public function getNotifications(){
         $notifications = auth()->user()->notifications;
+        foreach ($notifications as $notification){
+            if ($notification->pivot->read == 0){
+                $notification->pivot->read = 1;
+                $notification->pivot->save();
+            }
+        }
         return view('user.notifications', ['notifications' => $notifications]);
     }
 

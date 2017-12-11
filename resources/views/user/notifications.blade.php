@@ -2,21 +2,27 @@
 @include('includes.header')
 @include('includes.navbar')
 
-<h2>Notifications</h2>
+<br>
 <div class="container">
     <div class="row mx-auto">
         <div class="col-md-6 mx-auto">
             <div class="row mx-auto">
                 <div class="card">
-                    <ul class="list-group">
-                        @foreach($notifications as $notification)
-                            <li class="list-group-item hoverable">
-                                <a href="{{ $notification->link }}">
-                                    {{ $notification->notification }}
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+                    <div class="card-header">
+                        <h2>Notifications</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            @foreach($notifications as $notification)
+                                <li class="list-group-item hoverable">
+                                    <a href="{{ $notification->link }}">
+                                        {{ $notification->notification }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
