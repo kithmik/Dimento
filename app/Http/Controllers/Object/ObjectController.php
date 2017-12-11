@@ -6,6 +6,9 @@ use App\Models\Advertisement\Advertisement;
 use App\Models\Object\Object;
 use App\Models\Object\ObjectView;
 use App\Models\Report;
+use App\Models\User\Follow;
+use App\Models\User\Notification;
+use App\Models\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -138,6 +141,16 @@ class ObjectController extends Controller
                     'object_location' => "/storage/models/main/$object->id/objects/".$object_file_name,
                     'texture_location' => "/storage/models/main/$object->id/textures/".$texture_file_name,
                 ]);
+
+            $notification = new Notification();
+            $notification->notification = auth()->user()->first_name." ".auth()->user()->last_name." Uploaded a new 3D model Object.";
+            $notification->link = '/object/'.$object->id;
+            $notification->save();
+            $followed_bys = Follow::where('following_id', $object->user_id)->get();
+            foreach ($followed_bys as $followed_by){
+                $following_user = User::findOrFail($followed_by->follower_id);
+                $following_user->notifications()->attach($notification->id);
+        }
 
             return redirect()->to('/object/'.$object->id);
 

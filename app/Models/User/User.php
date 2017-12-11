@@ -122,8 +122,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Task\Bids');
     }
 
-    public function notification_msgs(){
-        return $this->belongsToMany('App\Models\User\Notifications', 'user_notifications','user_id');
+    public function notifications(){
+        return $this->belongsToMany('App\Models\User\Notification', 'user_notifications','user_id');
     }
 
 }

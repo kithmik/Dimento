@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Task;
 
 use App\Models\Task\Task;
+use App\Models\User\Follow;
+use App\Models\User\Notification;
 use App\Models\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -73,6 +75,7 @@ class TaskController extends Controller
         $task->type = !empty($request->amount)?1:0;
 
         $task->save();
+
 
         return redirect()->to('/task/'.$task->id);
     }
