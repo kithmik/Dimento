@@ -59,6 +59,8 @@ Route::post('/user/follow', 'User\ProfileController@follow');
 
 Route::get('/notifications', 'User\ProfileController@getNotifications');
 
+Route::get('/check/notifications', 'User\ProfileController@checkNotifications');
+
 
 /*3D Model Object*/
 Route::resource('/object', 'Object\ObjectController');

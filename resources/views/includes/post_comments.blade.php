@@ -55,7 +55,7 @@
                                                         <i class="fa fa-trash fa-1x" style="color: red" aria-hidden="true"></i>
                                                     </button>
                                                     <form id="delete-comment-form-of-{{ $comment->id }}"
-                                                          action="/comment/{{ $comment->id }}/delete" method="POST"
+                                                          action="{{ route('comment.destroy', $comment->id) }}" method="POST"
                                                           style="display: none;">
                                                         {{ csrf_field() }}
                                                         {{ method_field('DELETE') }}
