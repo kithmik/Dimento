@@ -351,9 +351,22 @@
                                 <a href="{{ route('user.show', $user->id) }}" target="_blank"><i class="fa fa-eye"
                                                                                                  aria-hidden="true">
                                         View</i></a><br>
-                                <a href="{{ route('user.destroy', $user->id) }}"><i class="fa fa-trash-o"
-                                                                                    aria-hidden="true">
+
+                                <a href="{{ route('user.destroy', $user->id) }}"
+                                   onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-object-form-of-{{ $object->id }}').submit();}">
+                                    <i class="fa fa-trash-o" aria-hidden="true">
                                         Remove</i><br></a>
+
+                                <form id="delete-object-form-of-{{ $user->id }}"
+                                      action="{{ route('user.destroy', [$user->id]) }}"
+                                      method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                </form>
+                                {{--<a href="{{ route('user.destroy', $user->id) }}"><i class="fa fa-trash-o"
+                                                                                    aria-hidden="true">
+                                        Remove</i><br></a>--}}
+
                                 {{--<a href="/admin/make_admin" data-id="{{ $user->id }}"--}}
                                    {{--class="{{ $user->isAdmin()?'remove-admin':'make-admin' }} user-admin"><i--}}
                                             {{--class="fa fa-link"--}}
