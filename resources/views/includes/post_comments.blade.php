@@ -47,7 +47,11 @@
                                     </div>
                                     <div class="col-md-1">
                                         <div class="row">
+<<<<<<< HEAD
                                             @if(auth()->check() && (auth()->user()->id == $comment->user_id || auth()->user()->id == $comment->object->user_id || auth()->user()->type == 4 ))
+=======
+                                            @if(auth()->check() && (auth()->user()->id == $comment->user_id || auth()->user()->id == $comment->object->user_id ))
+>>>>>>> bd01b0bb4493117da55bbb3012bd171123371a0c
                                                 <small class="text-muted">
                                                     <button type="button" class="btn btn-md btn-outline-elegant waves-effect"
                                                             onclick="event.preventDefault();

@@ -1,7 +1,11 @@
 <script src="/libs/threejs/js/three.js"></script>
 <script src="/libs/threejs/js/loaders/OBJLoader.js"></script>
 
+<<<<<<< HEAD
 @include('includes.viewers.container')
+=======
+{@include('includes.viewers.container')
+>>>>>>> bd01b0bb4493117da55bbb3012bd171123371a0c
 
 <script>
     var container;
