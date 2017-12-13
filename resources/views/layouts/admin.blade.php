@@ -353,11 +353,11 @@
                                         View</i></a><br>
 
                                 <a href="{{ route('user.destroy', $user->id) }}"
-                                   onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-object-form-of-{{ $object->id }}').submit();}">
+                                   onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-user-form-of-{{ $user->id }}').submit();}">
                                     <i class="fa fa-trash-o" aria-hidden="true">
                                         Remove</i><br></a>
 
-                                <form id="delete-object-form-of-{{ $user->id }}"
+                                <form id="delete-user-form-of-{{ $user->id }}"
                                       action="{{ route('user.destroy', [$user->id]) }}"
                                       method="POST" style="display: none;">
                                     {{ csrf_field() }}

@@ -156,7 +156,7 @@ class ProfileController extends Controller
         if (auth()->user()->type == 4){
             $user = User::findOrFail($id);
             $user->forceDelete();
-            return redirect()->to('/home');
+            return redirect()->to('/user');
         }
 
     }

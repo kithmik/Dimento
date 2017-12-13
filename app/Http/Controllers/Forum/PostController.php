@@ -123,8 +123,11 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        $post = Post::findOrFail($id);
-        $post->forceDelete();
-        return redirect()->to('/home');
+        if (auth()->user()->type == 4){
+            $post = Post::findOrFail($id);
+            $post->forceDelete();
+            return redirect()->to('/post');
+        }
+
     }
 }
