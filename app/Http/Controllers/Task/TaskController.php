@@ -136,8 +136,11 @@ class TaskController extends Controller
     public function destroy($id)
     {
         //
-        $task = Task::findOrFail($id);
-        $task->forceDelete();
-        return redirect()->to('/home');
+        if (auth()->user()->type == 4){
+            $task = Task::findOrFail($id);
+            $task->forceDelete();
+            return redirect()->to('/task');
+        }
+
     }
 }

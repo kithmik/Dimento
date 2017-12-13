@@ -425,9 +425,21 @@
                                 <a href="{{ route('post.show', $post->id) }}" target="_blank"><i class="fa fa-eye"
                                                                                                  aria-hidden="true">
                                         View</i></a><br>
-                                <a href="{{ route('post.destroy', $post->id) }}"><i class="fa fa-trash-o"
+                                {{--<a href="{{ route('post.destroy', $post->id) }}"><i class="fa fa-trash-o"
                                                                                     aria-hidden="true">
-                                        Remove</i></a><br>
+                                        Remove</i></a><br>--}}
+
+                                <a href="{{ route('post.destroy', $post->id) }}"
+                                   onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-post-form-of-{{ $post->id }}').submit();}">
+                                    <i class="fa fa-trash-o" aria-hidden="true">
+                                        Remove</i><br></a>
+
+                                <form id="delete-post-form-of-{{ $post->id }}"
+                                      action="{{ route('post.destroy', [$post->id]) }}"
+                                      method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                </form>
                             </td>
                         </tr>
                     @endforeach
@@ -482,9 +494,20 @@
                                 <a href="{{ route('task.show', $task->id) }}" target="_blank"><i class="fa fa-eye"
                                                                                                  aria-hidden="true">
                                         View</i></a><br>
-                                <a href="{{ route('task.destroy', $task->id) }}"><i class="fa fa-trash-o"
+                                <a href="{{ route('task.destroy', $task->id) }}"
+                                   onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-task-form-of-{{ $task->id }}').submit();}">
+                                    <i class="fa fa-trash-o" aria-hidden="true">
+                                        Remove</i><br></a>
+
+                                <form id="delete-task-form-of-{{ $task->id }}"
+                                      action="{{ route('task.destroy', [$task->id]) }}"
+                                      method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                </form>
+                                {{--<a href="{{ route('task.destroy', $task->id) }}"><i class="fa fa-trash-o"
                                                                                     aria-hidden="true">
-                                        Remove</i></a><br>
+                                        Remove</i></a><br>--}}
                             </td>
                         </tr>
 
@@ -541,9 +564,21 @@
                                     <a href="{{ route('advertisement.update', $ad->id) }}" target="_blank"><i
                                                 class="fa fa-check" aria-hidden="true"> Accept</i></a><br>
                                 @endif
-                                <a href="{{ route('advertisement.destroy', $ad->id) }}"><i class="fa fa-trash-o"
+                                {{--<a href="{{ route('advertisement.destroy', $ad->id) }}"><i class="fa fa-trash-o"
                                                                                            aria-hidden="true">
-                                        Remove</i></a><br>
+                                        Remove</i></a>--}}
+                                <a href="{{ route('advertisement.destroy', $ad->id) }}"
+                                   onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-advertisement-form-of-{{ $ad->id }}').submit();}">
+                                    <i class="fa fa-trash-o" aria-hidden="true">
+                                        Remove</i><br></a>
+
+                                <form id="delete-advertisement-form-of-{{ $ad->id }}"
+                                      action="{{ route('advertisement.destroy', [$ad->id]) }}"
+                                      method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                </form>
+                                <br>
                             </td>
                         </tr>
                     @endforeach
