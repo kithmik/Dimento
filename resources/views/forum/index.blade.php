@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="container">
-                <h3 class="card-header font-up font-bold text-center py-2">{{ $category }}</h3>
+{{--                <h3 class="card-header font-up font-bold text-center py-2">{{ $category }}</h3>--}}
                 <br>
                 <!--Panel-->
                 @foreach($posts as $post)
