@@ -51,6 +51,8 @@ Route::get('/object/explore/{category}', 'SearchController@objCategories');
 Route::post('/admin/make_admin', 'AdminController@makeAdmin');
 
 Route::resource('/admin', 'AdminController');
+Route::get('/ad/approve{id}', 'AdminController@approveAd');
+
 
 
 Route::resource('/user', 'User\ProfileController');
@@ -112,4 +114,3 @@ Route::resource('/message', 'Message\MessageController');
 /*Advertisement*/
 
 Route::resource('/advertisement', 'Advertiesement\AdvertiesementController');
-

@@ -17,6 +17,13 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
+    public function approveAd($id){
+        $advert = Advertisement::findOrFail($id);
+        $advert->accepted = 1;
+        $advert->save();
+        return redirect()->back();
+    }
+
     public function makeAdmin(Request $request){
         return $request->all();
     }
