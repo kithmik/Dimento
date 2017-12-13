@@ -286,8 +286,7 @@
                                         View</i></a><br>
                                 <a href="{{ route('object.destroy', $object->id) }}"
                                    onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-object-form-of-{{ $object->id }}').submit();}">
-                                    <i class="fa fa-trash-o"
-                                                                                        aria-hidden="true">
+                                    <i class="fa fa-trash-o" aria-hidden="true">
                                         Remove</i><br></a>
 
                                 <form id="delete-object-form-of-{{ $object->id }}"
