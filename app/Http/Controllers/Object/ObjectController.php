@@ -220,7 +220,7 @@ class ObjectController extends Controller
     public function destroy($id)
     {
         //
-<<<<<<< HEAD
+
         if (auth()->check()){
             $object = Object::findOrFail($id);
 //            $post_id = $comment->object->id;
@@ -230,14 +230,5 @@ class ObjectController extends Controller
             }
             return redirect('/object/');
         }
-
-        /*
-        $object->forceDelete();
-        return redirect()->to('/home');*/
-=======
-        $object = Object::findOrFail($id);
-        $object->forceDelete();
-        return redirect()->to('/home');
->>>>>>> bd01b0bb4493117da55bbb3012bd171123371a0c
     }
 }
