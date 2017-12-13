@@ -28,7 +28,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->isAdmin() || 1){
+        if (auth()->user()->isAdmin() || auth()->user()->type == 4){
             $users = User::all();
             $objects = Object::all();
             $posts = Post::all();
