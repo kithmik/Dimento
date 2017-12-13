@@ -567,7 +567,7 @@
                                     <a href="/ad/approve/{{ $ad->id }}"
                                        onclick="event.preventDefault();if(confirm('Are you sure that you want to approve this? ')){document.getElementById('approve-advertisement-form-of-{{ $ad->id }}').submit();}">
                                         <i class="fa fa-trash-o" aria-hidden="true">
-                                            Remove</i><br></a>
+                                            Approve</i><br></a>
 
                                     <form id="approve-advertisement-form-of-{{ $ad->id }}"
                                           action="/ad/approve/{{ $ad->id }}"
