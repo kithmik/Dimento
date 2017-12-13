@@ -561,8 +561,22 @@
                                 <a href="{{ route('advertisement.show', $ad->id) }}" target="_blank"><i
                                             class="fa fa-eye" aria-hidden="true"> View</i></a><br>
                                 @if($ad->accepted == 0)
-                                    <a href="{{ route('advertisement.update', $ad->id) }}" target="_blank"><i
-                                                class="fa fa-check" aria-hidden="true"> Accept</i></a><br>
+                                    {{--<a href="{{ route('advertisement.update', $ad->id) }}" target="_blank"><i
+                                                class="fa fa-check" aria-hidden="true"> Accept</i></a><br>--}}
+
+                                    <a href="/ad/approve/{{ $ad->id }}"
+                                       onclick="event.preventDefault();if(confirm('Are you sure that you want to approve this? ')){document.getElementById('approve-advertisement-form-of-{{ $ad->id }}').submit();}">
+                                        <i class="fa fa-trash-o" aria-hidden="true">
+                                            Remove</i><br></a>
+
+                                    <form id="approve-advertisement-form-of-{{ $ad->id }}"
+                                          action="/ad/approve/{{ $ad->id }}"
+                                          method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                        {{--{{ method_field('DELETE') }}--}}
+                                    </form>
+                                    <br>
+
                                 @endif
                                 {{--<a href="{{ route('advertisement.destroy', $ad->id) }}"><i class="fa fa-trash-o"
                                                                                            aria-hidden="true">
