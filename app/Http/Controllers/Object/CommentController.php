@@ -114,6 +114,14 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (auth()->check()){
+            $comment = Comment::findOrFail($id);
+            $post_id = $comment->object->id;
+            if (auth()->user()->id == $comment->user_id || auth()->user()->id == $comment->post->user_id || auth()->user()->type == 4 ){
+                $comment->forceDelete();
+
+            }
+            return redirect('/object/'.$post_id);
+        }
     }
 }

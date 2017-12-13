@@ -220,8 +220,18 @@ class ObjectController extends Controller
     public function destroy($id)
     {
         //
-        $object = Object::findOrFail($id);
+        if (auth()->check()){
+            $object = Object::findOrFail($id);
+//            $post_id = $comment->object->id;
+            if (auth()->user()->id == $object->user_id ||  auth()->user()->type == 4 ){
+                $object->forceDelete();
+
+            }
+            return redirect('/object/');
+        }
+
+        /*
         $object->forceDelete();
-        return redirect()->to('/home');
+        return redirect()->to('/home');*/
     }
 }

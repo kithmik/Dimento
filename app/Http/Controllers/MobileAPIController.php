@@ -92,25 +92,30 @@ class MobileAPIController extends Controller
     }
 
     public function getObjects(){
-        if (auth()->check()){
-            $objects = Object::all();
-            
-            return response(json_encode(['status'=>1, 'data'=>['objects'=>$objects]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+        $objects = Object::all();
+
+        return response(json_encode(['status'=>1, 'data'=>['objects'=>$objects]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+
+        /*if (auth()->check()){
+
         }
         else{
             return response(json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
-        }
+        }*/
     }
     
     public function getForumPosts(){
-        if (auth()->check()){
-            $posts = Post::all();
 
-            return response(json_encode(['status'=>1, 'data'=>['posts'=>$posts]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+        $posts = Post::all();
+
+        return response(json_encode(['status'=>1, 'data'=>['posts'=>$posts]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+
+        /*if (auth()->check()){
+
         }
         else{
             return response(json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
-        }
+        }*/
     }
 
     public function storeForumPost(Request $request){
@@ -132,14 +137,17 @@ class MobileAPIController extends Controller
     }
 
     public function showForumPost($id){
-        if (auth()->check()){
-            $post = Post::findOrFail($id);
-            $replies = Reply::where('post_id', $id)->get();
-            return response(json_encode(['status'=>1, 'data'=>['post'=>$post, 'replies'=>$replies]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+
+        $post = Post::findOrFail($id);
+        $replies = Reply::where('post_id', $id)->get();
+        return response(json_encode(['status'=>1, 'data'=>['post'=>$post, 'replies'=>$replies]]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
+
+        /*if (auth()->check()){
+
         }
         else{
             return response(json_encode(['status'=>0, 'data'=>"Error! You haven't logged in."]), 200, array('Content-Type' => 'application/json', 'Access-Control-Allow-Origin'=>'*'));
-        }
+        }*/
     }
     
 

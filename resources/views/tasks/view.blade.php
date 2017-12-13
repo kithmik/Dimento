@@ -25,7 +25,7 @@
                             <p class="card-text"><b>Price: </b>{{ $task->amount}}</p>
                         @endif
                         @auth
-                            @if(auth()->user()->type == 3)
+                            @if(auth()->user()->type == 3 || $task->user_id == auth()->user()->id)
                                 <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Edit</a>
                                 <a href="#" class="btn btn-outline-elegant waves-effect btn-sm">Delete</a>
                             @elseif(auth()->user()->type == 1)

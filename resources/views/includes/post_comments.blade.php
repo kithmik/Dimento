@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="col-md-1">
                                         <div class="row">
-                                            @if(auth()->check() && (auth()->user()->id == $comment->user_id || auth()->user()->id == $comment->object->user_id ))
+                                            @if(auth()->check() && (auth()->user()->id == $comment->user_id || auth()->user()->id == $comment->object->user_id || auth()->user()->type == 4 ))
                                                 <small class="text-muted">
                                                     <button type="button" class="btn btn-md btn-outline-elegant waves-effect"
                                                             onclick="event.preventDefault();

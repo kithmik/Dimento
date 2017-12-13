@@ -284,9 +284,18 @@
                                 <a href="{{ route('object.show', $object->id) }}" target="_blank"><i class="fa fa-eye"
                                                                                                      aria-hidden="true">
                                         View</i></a><br>
-                                <a href="{{ route('object.destroy', $object->id) }}" ><i class="fa fa-trash-o"
+                                <a href="{{ route('object.destroy', $object->id) }}"
+                                   onclick="event.preventDefault();if(confirm('Are you sure that you want to delete this? Once you delete this, all data associated with this would also be deleted.')){document.getElementById('delete-object-form-of-{{ $object->id }}').submit();}">
+                                    <i class="fa fa-trash-o"
                                                                                         aria-hidden="true">
                                         Remove</i><br></a>
+
+                                <form id="delete-object-form-of-{{ $object->id }}"
+                                      action="{{ route('object.destroy', [$object->id]) }}"
+                                      method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                </form>
                             </td>
                         </tr>
                     @endforeach

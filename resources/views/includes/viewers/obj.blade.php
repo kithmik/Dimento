@@ -1,7 +1,7 @@
 <script src="/libs/threejs/js/three.js"></script>
 <script src="/libs/threejs/js/loaders/OBJLoader.js"></script>
 
-{@include('includes.viewers.container')
+@include('includes.viewers.container')
 
 <script>
     var container;

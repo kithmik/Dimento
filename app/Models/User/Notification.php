@@ -11,7 +11,8 @@ class Notification extends Model
     protected $table = 'notifications';
 
     public function user(){
-        return $this->belongsToMany('App\Models\User\User', 'user_notifications', 'notification_id');
+        return $this->belongsToMany('App\Models\User\User', 'user_notifications', 'notification_id')
+            ->withPivot('read');
     }
 
 }
