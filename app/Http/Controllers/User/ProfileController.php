@@ -153,8 +153,11 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
-        $user = User::findOrFail($id);
-        $user->forceDelete();
-        return redirect()->to('/home');
+        if (auth()->user()->type == 4){
+            $user = User::findOrFail($id);
+            $user->forceDelete();
+            return redirect()->to('/home');
+        }
+
     }
 }
