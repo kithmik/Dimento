@@ -123,12 +123,10 @@ class User extends Authenticatable
     }
 
     public function notifications(){
-<<<<<<< HEAD
+
         return $this->belongsToMany('App\Models\User\Notification', 'user_notifications','user_id')
             ->withPivot('read');
-=======
-        return $this->belongsToMany('App\Models\User\Notification', 'user_notifications','user_id');
->>>>>>> bd01b0bb4493117da55bbb3012bd171123371a0c
+
     }
 
 }
