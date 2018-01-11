@@ -242,6 +242,7 @@
             },
             complete: function (returnedData) {
                 scrollDown();
+                document.getElementById("send-msg-form").reset();
             }
         });
     }
