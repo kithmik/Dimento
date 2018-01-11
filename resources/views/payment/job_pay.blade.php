@@ -32,24 +32,30 @@
                 Making Payments are now easy!
             </div>
 
+            @if(session('error'))
+                <div class="red-text">
+                    {{ session('error') }}
+                </div>
+            @endif
+
             <center>
                 <div class="text-center">
                     <h4 style="margin: 20px;">
-                        Once your payment is confirmed, your advertisement would be live
+                        Once your payment is confirmed, your task would be published
                     </h4>
 
-                    <form action="/payment/handle/ad" method="POST">
+                    <form action="/payment/handle/job" method="POST">
 
                         {{ csrf_field() }}
 
-                        <input type="hidden" name="ad_id" value="{{ $ad->id }}">
+                        <input type="hidden" name="task_id" value="{{ $task->id }}">
 
                         <script
                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                 data-key="pk_test_2BdROVNqwIfmrLz4GCfts4tW"
-                                data-amount="{{ $ad->total_impressions }}"
-                                data-name="Advertisement Payment on Dimento"
-                                data-description="0.01$ per impression"
+                                data-amount="{{ $task->amount*110 }}"
+                                data-name="Task Payment"
+                                data-description="Payments made secure with Stripe"
                                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                 data-locale="auto">
                         </script>

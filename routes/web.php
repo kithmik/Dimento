@@ -99,6 +99,8 @@ Route::resource('/task', 'Task\TaskController');
 Route::get('/bid/create/{id}', 'Task\BidsController@create');
 Route::resource('/bid', 'Task\BidsController');
 
+Route::post('/payment/handle/job', 'Task\TaskController@postPayWithStripe');
+
 
 /*Messages*/
 

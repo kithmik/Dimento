@@ -76,7 +76,14 @@
                                     <h3 class="inline">
                                         {{--<i class="fa fa-object-group" aria-hidden="true"></i>--}}
                                         {{ $object->title }}
+
+                                        <span class="pull-right">
+                                        <span class="chip grey lighten-3" title="Data Type is 3D model is {{ pathinfo($object->object_location, PATHINFO_EXTENSION) }}">
+                                            {{ pathinfo($object->object_location, PATHINFO_EXTENSION) }}
+                                        </span>
+                                    </span>
                                     </h3>
+
 
                                 </div>
                             </div>
@@ -87,6 +94,8 @@
                                     <a href="{{ route('user.show', $object->user->id) }}">
                                         {{ $object->user->first_name." ".$object->user->last_name }}
                                     </a>
+
+
 
                                 </div>
                                 <div class="col-md-8 pull-right text-right" title="{{ $object->getTimeAttr() }}">
@@ -111,8 +120,59 @@
                                           title="Registered Users who viewed this 3D model">
                             <i class="fa fa-book" aria-hidden="true"></i>
                                         {{ $object->getUserReadCount() }}
-                                        |
+
                         </span>
+
+
+                                    <span class="text-center d-inline-block">
+                        <!--Facebook-->
+                        <a target="_blank" onclick="window.open(this.href,'Dimento.cf - Share 3D Model',
+                                   'toolbar=no,\
+                                    location=no,\
+                                    status=no,\
+                                    menubar=no,\
+                                    scrollbars=yes,\
+                                    resizable=yes,\
+                                    width=650,\
+                                    height=500');
+ return false;" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(route('object.show', [$object->id])) }}" type="button" class="btn-floating btn btn-fb"><i class="fa fa-facebook"></i></a>
+                                        <!--Twitter-->
+                        <a target="_blank" onclick="window.open(this.href,'Dimento.cf - Share 3D Model',
+                                   'toolbar=no,\
+                                    location=no,\
+                                    status=no,\
+                                    menubar=no,\
+                                    scrollbars=yes,\
+                                    resizable=yes,\
+                                    width=650,\
+                                    height=500');
+ return false;" href="https://twitter.com/home?status={{ urlencode(route('object.show', [$object->id])) }}" type="button" class="btn-floating btn btn-tw"><i class="fa fa-twitter"></i></a>
+                                        <!--Google -->
+                        <a target="_blank" onclick="window.open(this.href,'Dimento.cf - Share 3D Model',
+                                   'toolbar=no,\
+                                    location=no,\
+                                    status=no,\
+                                    menubar=no,\
+                                    scrollbars=yes,\
+                                    resizable=yes,\
+                                    width=650,\
+                                    height=500');
+ return false;" href="https://plus.google.com/share?url={{ urlencode(route('object.show', [$object->id])) }}" type="button" class="btn-floating btn btn-gplus"><i class="fa fa-google-plus"></i></a>
+                                        <!--Linkedin  -->
+                        <a target="_blank" onclick="window.open(this.href,'Dimento.cf - Share 3D Model',
+                                   'toolbar=no,\
+                                    location=no,\
+                                    status=no,\
+                                    menubar=no,\
+                                    scrollbars=yes,\
+                                    resizable=yes,\
+                                    width=650,\
+                                    height=500');
+ return false;" href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(route('object.show', [$object->id])) }}&title={{ $object->title }}&summary={{ str_limit(strip_tags($object->description), 250) }}&source={{ urlencode(route('object.show', [$object->id])) }}" type="button" class="btn-floating btn btn-li"><i class="fa fa-linkedin"></i></a>
+
+                    </span>
+
+
 
                                 </div>
                             </div>

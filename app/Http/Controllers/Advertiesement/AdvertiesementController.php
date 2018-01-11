@@ -69,7 +69,7 @@ class AdvertiesementController extends Controller
     {
         try {
 
-            $charge = auth()->user()->invoiceFor("Deposit for Advertisement #".$ad->id, $ad->total_impressions, [
+            $charge = auth()->user()->invoiceFor("Payment for Advertisement #".$ad->id, $ad->total_impressions, [
                 "amount" => $ad->total_impressions,
                 "currency" => "usd",
                 "customer" => $customer->id,

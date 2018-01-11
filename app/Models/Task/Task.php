@@ -15,7 +15,7 @@ class Task extends Model
     }
 
     public function bids(){
-        return $this->hasMany('App\Models\Task\Task');
+        return $this->hasMany('App\Models\Task\Bids');
     }
 
 }

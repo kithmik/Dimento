@@ -68,7 +68,7 @@
                                        @if(auth()->user()->id != $user->id)
                                            <a data-id='{{ $user->id }}'
                                            data-name='{{ $user->first_name." ".$user->last_name }}'
-                                           href='message/to/{{ $user->id }}'
+                                           href='/message/to/{{ $user->id }}'
                                            class='btn btn-sm btn-outline-elegant btn-rounded waves-effect msg-btn'>Message</a>
                                            ">
                                         @endif

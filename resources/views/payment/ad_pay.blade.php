@@ -48,7 +48,7 @@
                                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                 data-key="pk_test_2BdROVNqwIfmrLz4GCfts4tW"
                                 data-amount="{{ $ad->total_impressions }}"
-                                data-name="Advertisement Payment on Dimento"
+                                data-name="Advertisement Payment"
                                 data-description="0.01$ per impression"
                                 data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                 data-locale="auto">

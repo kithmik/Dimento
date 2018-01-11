@@ -33,11 +33,11 @@ class BidsController extends Controller
 
         if ($task->type == 0){
             $bids = Bids::where('user_id', auth()->user()->id)
-                ->where('task_id', auth()->user()->id)
+                ->where('task_id', $task->id)
                 ->get();
-            if (count($bids)){
-                return view('tasks.bid_history', ['bids' => $bids]);
-            }
+            /*if (count($bids)){
+                return view('tasks.bid_history', ['bids' => $bids, 'task' => $task]);
+            }*/
 
         }
 
