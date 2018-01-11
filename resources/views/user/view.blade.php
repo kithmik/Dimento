@@ -22,7 +22,7 @@
                     <hr>
                     <!--Quotation-->
                     <p class="text-lg-left">
-                        <b>Type: </b> {{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Business Organization':'Admin')) }}
+                        <b>Type: </b> {{ $user->type == 1?'Designer':($user->type == 2?'Individual Customer':($user->type == 3?'Cooperate Customer':'Admin')) }}
                     </p>
                     <p class="text-lg-left"><b>Email: </b> {{ $user->email}}</p>
                     <p class="text-lg-left"><b>Date
