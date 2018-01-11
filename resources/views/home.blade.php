@@ -70,7 +70,7 @@
                                 <hr>
                                 <!--Text-->
                                 <p class="card-text">Category: {{ $post->category }}</p>
-                                <p class="card-text">Description: {{ $post->description }}</p>
+                                <p class="card-text">Description: {{ str_limit($post->description, 40) }}</p>
                                 <p class="card-text">Asked by: {{ $post->user->first_name }}</p>
                                 <a href="{{ route('post.show', $post->id) }}" target="_blank"
                                    class="btn btn-outline-elegant waves-effect btn-sm">View</a>
