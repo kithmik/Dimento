@@ -78,7 +78,7 @@ class RegisterController extends Controller
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
 //            'profile_pic' => $data['profile_pic'],
-            'profile_pic' => '/img/avatar.png',
+            'profile_pic' => "/img/avatar.png",
             'phone' => $data['phone'],
             'dob' => $data['dob'],
             'type' => $data['type'],
