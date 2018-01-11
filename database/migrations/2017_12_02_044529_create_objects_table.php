@@ -17,6 +17,7 @@ class CreateObjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description')->nullable();
+            $table->text('image_location')->nullable();
             $table->string('main_texture')->nullable();
             $table->string('texture_location')->nullable();
             $table->string('object_location')->nullable();

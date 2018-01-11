@@ -16,7 +16,7 @@
                             @foreach($notifications as $notification)
                                 <li class="list-group-item hoverable">
                                     <a href="{{ $notification->link }}">
-                                        {{ $notification->notification }}
+                                        {!! $notification->notification !!}
                                     </a>
                                 </li>
                             @endforeach

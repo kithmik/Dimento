@@ -4726,17 +4726,17 @@
     },
     {
         "name": "laravel/cashier",
-        "version": "v7.0.12",
-        "version_normalized": "7.0.12.0",
+        "version": "v7.0.13",
+        "version_normalized": "7.0.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laravel/cashier.git",
-            "reference": "f5323837a9ff0d660cd28e4f05dc25d1a1580898"
+            "reference": "df8b12de451e2ad1b2285e67518e9fb97ebd7cb2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/cashier/zipball/f5323837a9ff0d660cd28e4f05dc25d1a1580898",
-            "reference": "f5323837a9ff0d660cd28e4f05dc25d1a1580898",
+            "url": "https://api.github.com/repos/laravel/cashier/zipball/df8b12de451e2ad1b2285e67518e9fb97ebd7cb2",
+            "reference": "df8b12de451e2ad1b2285e67518e9fb97ebd7cb2",
             "shasum": ""
         },
         "require": {
@@ -4746,7 +4746,7 @@
             "nesbot/carbon": "~1.0",
             "php": ">=5.5.9",
             "stripe/stripe-php": "~5.0",
-            "symfony/http-kernel": "~2.7|~3.0"
+            "symfony/http-kernel": "~2.7|~3.0|~4.0"
         },
         "require-dev": {
             "illuminate/http": "~5.3",
@@ -4756,7 +4756,7 @@
             "phpunit/phpunit": "~5.0",
             "vlucas/phpdotenv": "~2.0"
         },
-        "time": "2017-10-19T12:37:44+00:00",
+        "time": "2017-12-29T15:23:28+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

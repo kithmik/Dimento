@@ -29,39 +29,40 @@
     <div class="col-md-12">
         <div class="card  text-center">
             <div class="card-header black white-text">
-                {{$ad->title}}
+                Making Payments are now easy!
             </div>
-            <div class="text-center">
-                <h1 style="margin: 20px;">  {{$ad->title}}</h1>
 
-            </div>
             <center>
-                <img src="{{$ad->image}}" class="img img-responsive" style="max-height: 320px;">
+                <div class="text-center">
+                    <h4 style="margin: 20px;">
+                        Once your payment is confirmed, your advertisement would be live
+                    </h4>
+
+                    <form action="/payment/handle/ad" method="POST">
+
+                        {{ csrf_field() }}
+
+                        <input type="hidden" name="ad_id" value="{{ $ad->id }}">
+
+                        <script
+                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                data-key="pk_test_2BdROVNqwIfmrLz4GCfts4tW"
+                                data-amount="{{ $ad->total_impressions }}"
+                                data-name="Advertisement Payment on Dimento"
+                                data-description="0.01$ per impression"
+                                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                data-locale="auto">
+                        </script>
+                    </form>
+
+                </div>
             </center>
             <br/>
-            <div class="text-left">
-                <p class="lead" style="margin-left: 200px;">{{$ad->description}}</p>
-
-            </div>
-
-            <div class="text-left">
-                <p style="margin-left: 200px;">
-                    <a href="/user/{{ $ad->user->id }}">
-                        {{$ad->user->first_name}}
-                    </a>
-                </p>
-
-
-            </div>
             {{--<div class="text-left">--}}
             {{--<h4 style="margin-left: 200px;">{{$ad->texture}}</h4>--}}
 
 
             {{--</div>--}}
-            <div class="text-left">
-                <p style="margin-left: 200px;"> {{ \Carbon\Carbon::parse($ad->created_at)->format('Y M d g:i A')}}</p>
-
-            </div>
         </div>
     </div>
 </div>

@@ -114,3 +114,6 @@ Route::resource('/message', 'Message\MessageController');
 /*Advertisement*/
 
 Route::resource('/advertisement', 'Advertiesement\AdvertiesementController');
+
+
+Route::post('/payment/handle/ad', 'Advertiesement\AdvertiesementController@postPayWithStripe');

@@ -69,7 +69,7 @@
                                                         {{--<div class="col-md-7">--}}
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text"
-                                                                       placeholder=".3ds, .obj, .md2">
+                                                                       placeholder=".amf, .3mf, .md2">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -84,6 +84,23 @@
                                                             {{--</div>--}}
                                                        {{-- </div>
                                                         <div class="col-md-7">--}}
+                                                            <div class="file-path-wrapper">
+                                                                <input class="file-path validate" type="text"
+                                                                       placeholder=".jpg, .png">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        {{--<div class="col-md-5">--}}
+                                                        <div class="file-field">
+                                                            <div class="btn btn-elegant btn-sm">
+                                                                <span>Choose A Main Image to be Displayed</span>
+                                                                <input type="file" name="main_img" id="main_img">
+                                                            </div>
+                                                            {{--</div>--}}
+                                                            {{--</div>--}}
+                                                            {{--<div class="col-md-7">--}}
                                                             <div class="file-path-wrapper">
                                                                 <input class="file-path validate" type="text"
                                                                        placeholder=".jpg, .png">

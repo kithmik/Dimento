@@ -103,7 +103,7 @@
             @endforeach
         </div>
     </div>
-
+</div>
     <!-- SCRIPTS -->
 
     <!-- Bootstrap core JavaScript -->

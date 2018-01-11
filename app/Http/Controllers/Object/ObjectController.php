@@ -102,6 +102,8 @@ class ObjectController extends Controller
                     //'texture_location' => "/storage/models/main/$object->id/textures/".$texture_file_name,
                 ]);
 
+
+            $main_img = "";
             $texture_file_name = null;
             if ($request->hasFile('texture')){
 
@@ -136,14 +138,21 @@ class ObjectController extends Controller
 
             }
 
+            if ($request->hasFile('main_img')){
+                $main_img = $request->file('main_img');
+
+                $main_img->storeAs("/models/main/$object->id/", $object->id.".".$main_img->getClientOriginalExtension(), 'public');
+        }
+
             Object::where('id', $object->id)
                 ->update([
                     'object_location' => "/storage/models/main/$object->id/objects/".$object_file_name,
                     'texture_location' => "/storage/models/main/$object->id/textures/".$texture_file_name,
+                    'image_location' => "/storage/models/main/$object->id/".$object->id.".".$main_img->getClientOriginalExtension(),
                 ]);
 
             $notification = new Notification();
-            $notification->notification = auth()->user()->first_name." ".auth()->user()->last_name." Uploaded a new 3D model Object.";
+            $notification->notification = '<i class="fa fa-cubes" aria-hidden="true"></i> '.auth()->user()->first_name." ".auth()->user()->last_name." Uploaded a new 3D model Object.";
             $notification->link = '/object/'.$object->id;
             $notification->save();
             $followed_bys = Follow::where('following_id', $object->user_id)->get();

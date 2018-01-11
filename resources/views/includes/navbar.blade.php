@@ -14,7 +14,7 @@
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light blue-grey lighten-5 fixed-top scrolling-navbar">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="/img/logo.png" height="50" style="padding-top: 10px"
+            <a class="navbar-brand" href="/"><img src="/img/logo.png" height="65" style="padding-top: 10px; margin-left: -57px; padding-right: 50px;"
                                                   class="d-inline-block align-top" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent"
@@ -22,18 +22,23 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                 <ul class="navbar-nav mr-auto smooth-scroll">
                     <li class="nav-item">
                         <a class="nav-link ex-a" href="/home">
-                            <i class="fa fa-home" aria-hidden="true"></i>
-                            Home
+                            <strong>
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                Home
+                            </strong>
                         </a>
                     </li>
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle smooth-scroll-li" id="navbarDropdownMenuLink"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-animation="false">
-                            <i class="fa fa-wpexplorer" aria-hidden="true"></i>
-                            Explore
+                            <strong>
+                                <i class="fa fa-wpexplorer" aria-hidden="true"></i>
+                                Explore
+                            </strong>
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <div class="list-group">
@@ -115,6 +120,8 @@
                                    aria-haspopup="true" aria-expanded="false">Post<span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a href="{{ route('advertisement.create') }}" type="button"
+                                       class="dropdown-item ex-a"> Post An Advertisement</a>
                                     <a href="{{ route('task.create') }}" type="button"
                                        class="dropdown-item ex-a">Post a Job</a>
                                     <a href="{{ route('post.create') }}" type="button"

@@ -119,7 +119,7 @@
                                             <option value="" disabled selected>Choose your type </option>
                                             <option value="1">3D Model Designer</option>
                                             <option value="2">Individual Customer</option>
-                                            <option value="3">Business Organization</option>
+                                            <option value="3">Cooperate Customer</option>
                                         </select>
                                     </div>
                                 </div>

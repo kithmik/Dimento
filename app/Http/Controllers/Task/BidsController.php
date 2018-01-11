@@ -81,7 +81,7 @@ class BidsController extends Controller
 
         try{
             $notification = new Notification;
-            $notification->notification = auth()->user()->first_name." ".auth()->user()->last_name." made a new bid.";
+            $notification->notification = '<i class="fa fa-credit-card" aria-hidden="true"></i> '.auth()->user()->first_name." ".auth()->user()->last_name." made a new bid.";
             $notification->link = '/task/'.$task->id;
             $notification->save();
 

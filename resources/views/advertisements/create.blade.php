@@ -44,6 +44,13 @@
                                placeholder="This will be displayed as the advertisement image">
                     </div>
                 </div>
+
+                <div class="md-form">
+                    <i class="fa fa-eye prefix grey-text"></i>
+                    <input type="number" id="total_impressions" class="form-control  " name="total_impressions" min="100" step="100" required>
+                    <label for="total_impressions" class="">Expected Impressions</label>
+                </div>
+
                 <br>
                 <div class="text-right">
                     <button class="btn btn-outline-elegant waves-effect btn-md">Post</button>
