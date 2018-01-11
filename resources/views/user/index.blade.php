@@ -74,7 +74,7 @@
                                         @endif
                                 @endauth
 
-                                <img src="{{ $user->profile_pic }}" alt="{{ $user->first_name." ".$user->last_name }}">
+                                <img src="{{ $user->profile_pic != null ? $user->profile_pic: '/img/avatar.png' }}" alt="{{ $user->first_name." ".$user->last_name }}">
                                 {{ $user->first_name." ".$user->last_name }}
                             </a>
                         </div>
